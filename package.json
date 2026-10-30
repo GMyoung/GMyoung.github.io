@@ -1,0 +1,11 @@
+{
+  "name": "instrumental-room",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node tests/audio-assets.test.mjs && node tests/cinema-player.test.mjs && node tests/cinema-fallback.test.mjs"
+  },
+  "devDependencies": { "playwright-core": "1.61.1" }
+}

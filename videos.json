@@ -10,7 +10,12 @@
       "label": "Animated edit · on-screen lyrics",
       "poster": "assets/hamantha.jpg",
       "url": "media/hamantha-instrumental.mp4",
-      "karaoke": true
+      "karaoke": true,
+      "audio": {
+        "original": "audio/hamantha-original-v1.m4a",
+        "karaoke": "audio/hamantha-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "die-for-you",
@@ -20,7 +25,12 @@
       "duration": "3:32",
       "label": "Original music video",
       "poster": "assets/die-for-you.jpg",
-      "url": "media/die-for-you-instrumental.mp4"
+      "url": "media/die-for-you-instrumental.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "nice-boys",
@@ -30,7 +40,12 @@
       "duration": "2:59",
       "label": "Manga edit · on-screen lyrics",
       "karaoke": true,
-      "url": "media/nice-boys-instrumental.mp4"
+      "url": "media/nice-boys-instrumental.mp4",
+      "audio": {
+        "original": "audio/nice-boys-original-v1.m4a",
+        "karaoke": "audio/nice-boys-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "die-for-you-karaoke",
@@ -40,7 +55,12 @@
       "duration": "3:32",
       "label": "Word-highlighted lyrics",
       "karaoke": true,
-      "url": "media/die-for-you-karaoke.mp4"
+      "url": "media/die-for-you-karaoke.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "bad-bad-water-english",
@@ -51,7 +71,12 @@
       "label": "Chinese + English · larger frame-synced lyrics",
       "karaoke": true,
       "url": "media/bad-bad-water-english-v2.mp4",
-      "source": "https://www.bilibili.com/video/BV1RY411T75u/"
+      "source": "https://www.bilibili.com/video/BV1RY411T75u/",
+      "audio": {
+        "original": "audio/bad-bad-water-original-v1.m4a",
+        "karaoke": "audio/bad-bad-water-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "data-and-picard-lyrics",
@@ -61,7 +86,12 @@
       "duration": "3:17",
       "label": "Original vocals · English lyrics · 1080p",
       "karaoke": true,
-      "url": "media/data-and-picard-lyrics-v1.mp4"
+      "url": "media/data-and-picard-lyrics-v1.mp4",
+      "audio": {
+        "original": "audio/data-and-picard-original-v1.m4a",
+        "karaoke": "audio/data-and-picard-karaoke-v1.m4a"
+      },
+      "defaultAudio": "original"
     },
     {
       "id": "shes-a-big-boy-karaoke",
@@ -71,7 +101,12 @@
       "duration": "4:40",
       "label": "Original MV · word-highlighted lyrics",
       "karaoke": true,
-      "url": "media/shes-a-big-boy-karaoke-v1.mp4"
+      "url": "media/shes-a-big-boy-karaoke-v1.mp4",
+      "audio": {
+        "original": "audio/shes-a-big-boy-original-v1.m4a",
+        "karaoke": "audio/shes-a-big-boy-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     },
     {
       "id": "odoriko-bilingual-karaoke",
@@ -81,7 +116,12 @@
       "duration": "4:05",
       "label": "Romaji + English · guide vocal at 70% · 1080p",
       "karaoke": true,
-      "url": "media/odoriko-romaji-english-guide-v1.mp4"
+      "url": "media/odoriko-romaji-english-guide-v1.mp4",
+      "audio": {
+        "original": "audio/odoriko-original-v1.m4a",
+        "karaoke": "audio/odoriko-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
     }
   ],
   "showPlaylist": false,

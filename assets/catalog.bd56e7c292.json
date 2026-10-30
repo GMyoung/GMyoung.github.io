@@ -1,0 +1,133 @@
+{
+  "playlistUrl": "https://www.youtube.com/playlist?list=PLAfZ1a3GR-R8",
+  "videos": [
+    {
+      "id": "hamantha",
+      "title": "The Ballad of Hamantha",
+      "artist": "Jack Stauber",
+      "type": "instrumental",
+      "duration": "6:04",
+      "label": "Animated edit · on-screen lyrics",
+      "poster": "assets/hamantha.jpg",
+      "url": "media/hamantha-instrumental.mp4",
+      "karaoke": true,
+      "audio": {
+        "original": "audio/hamantha-original-v1.m4a",
+        "karaoke": "audio/hamantha-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "die-for-you",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "instrumental",
+      "duration": "3:32",
+      "label": "Original music video",
+      "poster": "assets/die-for-you.jpg",
+      "url": "media/die-for-you-instrumental.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "nice-boys",
+      "title": "Nice Boys",
+      "artist": "TEMPOREX",
+      "type": "instrumental",
+      "duration": "2:59",
+      "label": "Manga edit · on-screen lyrics",
+      "karaoke": true,
+      "url": "media/nice-boys-instrumental.mp4",
+      "audio": {
+        "original": "audio/nice-boys-original-v1.m4a",
+        "karaoke": "audio/nice-boys-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "die-for-you-karaoke",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "karaoke",
+      "duration": "3:32",
+      "label": "Word-highlighted lyrics",
+      "karaoke": true,
+      "url": "media/die-for-you-karaoke.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "bad-bad-water-english",
+      "title": "Bad Bad Water",
+      "artist": "ChiliChill · Luo Tianyi",
+      "type": "karaoke",
+      "duration": "3:46",
+      "label": "Chinese + English · larger frame-synced lyrics",
+      "karaoke": true,
+      "url": "media/bad-bad-water-english-v2.mp4",
+      "source": "https://www.bilibili.com/video/BV1RY411T75u/",
+      "audio": {
+        "original": "audio/bad-bad-water-original-v1.m4a",
+        "karaoke": "audio/bad-bad-water-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "data-and-picard-lyrics",
+      "title": "Data & Picard",
+      "artist": "Pogo",
+      "type": "karaoke",
+      "duration": "3:17",
+      "label": "Original vocals · English lyrics · 1080p",
+      "karaoke": true,
+      "url": "media/data-and-picard-lyrics-v1.mp4",
+      "audio": {
+        "original": "audio/data-and-picard-original-v1.m4a",
+        "karaoke": "audio/data-and-picard-karaoke-v1.m4a"
+      },
+      "defaultAudio": "original"
+    },
+    {
+      "id": "shes-a-big-boy-karaoke",
+      "title": "She's a Big Boy",
+      "artist": "Mcbaise",
+      "type": "karaoke",
+      "duration": "4:40",
+      "label": "Original MV · word-highlighted lyrics",
+      "karaoke": true,
+      "url": "media/shes-a-big-boy-karaoke-v1.mp4",
+      "audio": {
+        "original": "audio/shes-a-big-boy-original-v1.m4a",
+        "karaoke": "audio/shes-a-big-boy-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    },
+    {
+      "id": "odoriko-bilingual-karaoke",
+      "title": "Odoriko",
+      "artist": "Vaundy",
+      "type": "karaoke",
+      "duration": "4:05",
+      "label": "Romaji + English · guide vocal at 70% · 1080p",
+      "karaoke": true,
+      "url": "media/odoriko-romaji-english-guide-v1.mp4",
+      "audio": {
+        "original": "audio/odoriko-original-v1.m4a",
+        "karaoke": "audio/odoriko-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke"
+    }
+  ],
+  "showPlaylist": false,
+  "hostingPolicy": {
+    "preferred": "YouTube Unlisted",
+    "fallback": "GitHub Pages direct MP4",
+    "note": "Use YouTube when upload succeeds; keep direct MP4 available."
+  }
+}

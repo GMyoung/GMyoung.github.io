@@ -4,6 +4,7 @@ const search = document.querySelector('#search');
 const message = document.querySelector('#message');
 const player = document.querySelector('#player');
 const panel = document.querySelector('#player-panel');
+const cinema = window.CinemaPlayer ? new CinemaPlayer(panel) : null;
 let videos = [];
 let selectedFilter = 'all';
 function safeUrl(value) {
@@ -13,11 +14,16 @@ function safeUrl(value) {
 }
 function showPlayer(video, url, autoplay = true) {
   document.querySelector('#player-title').textContent = video.title + ' · ' + (video.type === 'karaoke' ? 'Karaoke' : 'Instrumental');
-  player.src = url;
-  player.poster = video.poster || '';
   panel.hidden = false;
-  player.load();
-  if (autoplay) player.play().catch(() => {});
+  if (cinema) {
+    const audio = Object.fromEntries(Object.entries(video.audio || {}).map(([name,value]) => [name,safeUrl(value)]));
+    cinema.open({...video,audio},url,autoplay);
+  } else {
+    player.src = url;
+    player.poster = video.poster || '';
+    player.load();
+    if (autoplay) player.play().catch(() => {});
+  }
   panel.scrollIntoView({block:'nearest'});
 }
 function attachVideoLink(link, video, url) {
@@ -35,6 +41,7 @@ function render() {
   list.replaceChildren();
   for (const video of shown) {
     const row = document.createElement('tr'), url = safeUrl(video.url);
+    row.dataset.videoId = video.id;
     cell(row, String(videos.indexOf(video)+1).padStart(2,'0'), 'number');
     const song = cell(row, ''), title = document.createElement(url ? 'a' : 'span');
     title.textContent = video.title; title.className = 'song-title';
@@ -56,7 +63,7 @@ document.querySelector('.filters').addEventListener('click',event => {
   selectedFilter = button.dataset.filter;
   document.querySelectorAll('[data-filter]').forEach(item => { item.classList.toggle('active',item === button); item.setAttribute('aria-pressed',String(item === button)); }); render();
 });
-document.querySelector('#close-player').addEventListener('click',() => { player.pause(); player.removeAttribute('src'); player.load(); panel.hidden = true; });
+document.querySelector('#close-player').addEventListener('click',() => { if (cinema) cinema.close(); else { player.pause(); player.removeAttribute('src'); player.load(); panel.hidden = true; } });
 document.addEventListener('keydown',event => { if (event.key === '/' && !event.ctrlKey && !event.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) { event.preventDefault(); search.focus(); } });
 function loadCatalog() {
 fetch('videos.json?updated=' + Date.now(),{cache:'no-store'}).then(response => { if (!response.ok) throw new Error('Catalog unavailable'); return response.json(); }).then(catalog => {
