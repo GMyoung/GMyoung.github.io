@@ -41,7 +41,23 @@
       "label": "Word-highlighted lyrics",
       "karaoke": true,
       "url": "media/die-for-you-karaoke.mp4"
+    },
+    {
+      "id": "bad-bad-water-english",
+      "title": "Bad Bad Water",
+      "artist": "ChiliChill · Luo Tianyi",
+      "type": "karaoke",
+      "duration": "3:46",
+      "label": "Chinese + English · frame-synced lyrics",
+      "karaoke": true,
+      "url": "media/bad-bad-water-english.mp4",
+      "source": "https://www.bilibili.com/video/BV1RY411T75u/"
     }
   ],
-  "showPlaylist": false
+  "showPlaylist": false,
+  "hostingPolicy": {
+    "preferred": "YouTube Unlisted",
+    "fallback": "GitHub Pages direct MP4",
+    "note": "Use YouTube when upload succeeds; keep direct MP4 available."
+  }
 }
