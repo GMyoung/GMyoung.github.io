@@ -72,6 +72,16 @@
       "label": "Original MV · word-highlighted lyrics",
       "karaoke": true,
       "url": "media/shes-a-big-boy-karaoke-v1.mp4"
+    },
+    {
+      "id": "odoriko-bilingual-karaoke",
+      "title": "Odoriko",
+      "artist": "Vaundy",
+      "type": "karaoke",
+      "duration": "4:05",
+      "label": "Romaji + English · guide vocal at 70% · 1080p",
+      "karaoke": true,
+      "url": "media/odoriko-romaji-english-guide-v1.mp4"
     }
   ],
   "showPlaylist": false,

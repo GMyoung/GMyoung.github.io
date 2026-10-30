@@ -14,7 +14,7 @@ Add an entry to `videos.json` with `id`, `title`, `artist`, `type` (`instrumenta
 
 `playlistUrl` retains the optional YouTube playlist URL; `showPlaylist: false` hides it while it is empty. The page, source repository, and direct MP4 files are public. Anyone with a link can watch or reshare them. Robots directives request that search engines do not index this page; they do not provide access control.
 
-Keep each MP4 below GitHub's 100 MiB file limit and the full published site below 1 GB. The current web copies use 720p H.264/AAC with faststart metadata; high-quality originals are preserved locally. Do not repeatedly replace large video files in Git history. Larger collections should move their media to object storage while retaining this list UI.
+Keep each MP4 below GitHub's 100 MiB file limit and the full published site below 1 GB. Web copies use 720p or 1080p H.264/AAC with faststart metadata; full-resolution masters are preserved locally. Guide-vocal and original-vocal sing-along editions are identified in each entry's note. Do not repeatedly replace large video files in Git history. Larger collections should move their media to object storage while retaining this list UI.
 
 All music and video rights belong to their respective creators. Do not put private credentials or source media in this repository.
 
