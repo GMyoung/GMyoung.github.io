@@ -52,6 +52,26 @@
       "karaoke": true,
       "url": "media/bad-bad-water-english-v2.mp4",
       "source": "https://www.bilibili.com/video/BV1RY411T75u/"
+    },
+    {
+      "id": "data-and-picard-lyrics",
+      "title": "Data & Picard",
+      "artist": "Pogo",
+      "type": "karaoke",
+      "duration": "3:17",
+      "label": "Original vocals · English lyrics · 1080p",
+      "karaoke": true,
+      "url": "media/data-and-picard-lyrics-v1.mp4"
+    },
+    {
+      "id": "shes-a-big-boy-karaoke",
+      "title": "She's a Big Boy",
+      "artist": "Mcbaise",
+      "type": "karaoke",
+      "duration": "4:40",
+      "label": "Original MV · word-highlighted lyrics",
+      "karaoke": true,
+      "url": "media/shes-a-big-boy-karaoke-v1.mp4"
     }
   ],
   "showPlaylist": false,
