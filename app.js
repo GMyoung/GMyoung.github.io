@@ -58,8 +58,12 @@ document.querySelector('.filters').addEventListener('click',event => {
 });
 document.querySelector('#close-player').addEventListener('click',() => { player.pause(); player.removeAttribute('src'); player.load(); panel.hidden = true; });
 document.addEventListener('keydown',event => { if (event.key === '/' && !event.ctrlKey && !event.metaKey && !['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) { event.preventDefault(); search.focus(); } });
-fetch('videos.json',{cache:'no-cache'}).then(response => { if (!response.ok) throw new Error('Catalog unavailable'); return response.json(); }).then(catalog => {
+function loadCatalog() {
+fetch('videos.json?updated=' + Date.now(),{cache:'no-store'}).then(response => { if (!response.ok) throw new Error('Catalog unavailable'); return response.json(); }).then(catalog => {
   videos = catalog.videos; document.querySelector('#video-count').textContent = videos.length;
   if (catalog.showPlaylist) { const url = safeUrl(catalog.playlistUrl); if (url) { const link = document.querySelector('#playlist-link'); link.href = url; link.hidden = false; } }
   render();
-}).catch(() => { message.textContent = 'Unable to load videos. Please refresh the page.'; });
+}).catch(() => { if (!videos.length) { message.hidden = false; message.textContent = 'Unable to load videos. Please refresh the page.'; } });
+}
+loadCatalog();
+window.addEventListener('focus', loadCatalog);

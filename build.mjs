@@ -9,7 +9,6 @@ JSON.parse(catalog);
 const catalogPath = `assets/catalog.${hash(catalog)}.json`;
 await writeFile(new URL(catalogPath, root), catalog);
 let script = await readFile(new URL('app.js', root), 'utf8');
-script = script.replace("fetch('videos.json',", `fetch('${catalogPath}',`);
 const scriptPath = `assets/app.${hash(script)}.js`;
 await writeFile(new URL(scriptPath, root), script);
 const styles = await readFile(new URL('style.css', root), 'utf8');
