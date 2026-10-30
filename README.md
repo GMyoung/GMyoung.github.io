@@ -16,7 +16,7 @@ For audio switching, add `audio: { "original": "audio/song-original-v1.m4a", "ka
 
 ## Theater and audio switching
 
-Open any video, then choose **Theater mode**. **Original vocals** and **Karaoke** switch between synchronized audio elements while retaining the same video element, source, frame stream, and playback position. The unused audio remains silent and ready; switching applies a short audio fade. Play/pause, seeking, volume, mute, playback speed and ending are synchronized. Escape exits theater without stopping playback. The theater dialog traps keyboard focus; closing returns focus to the song link.
+Open any video. The single button directly below the picture shows the current audio and switches to **original vocals** or **karaoke** with one tap, in both the normal player and **Theater mode**. It switches between synchronized audio elements while retaining the same video element, source, frame stream, and playback position. The unused audio remains silent and ready; switching applies a short audio fade. Play/pause, seeking, volume, mute, playback speed and ending are synchronized. Escape exits theater without stopping playback. The theater dialog traps keyboard focus; closing returns focus to the song link.
 
 The player uses no third-party runtime or external player service. If alternate audio cannot load, the current audio continues; if the active audio fails, native playback of the MP4 remains available. Keep the original MP4 audio as this fallback. Data & Picard's karaoke track is a locally separated accompaniment and may retain separation artifacts.
 

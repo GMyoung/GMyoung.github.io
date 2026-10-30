@@ -14,6 +14,7 @@ class CinemaPlayer {
     this.theaterButton = root.querySelector('#theater-toggle');
     this.fullscreenButton = root.querySelector('#fullscreen-toggle');
     this.buttons = [...root.querySelectorAll('[data-audio-track]')];
+    this.audioToggle = root.querySelector('#audio-toggle');
     this.audio = Object.fromEntries(['original', 'karaoke'].map(name => {
       const audio = document.createElement('audio');
       audio.id = `audio-${name}`;
@@ -58,6 +59,10 @@ class CinemaPlayer {
       this.video.playbackRate = Number(event.target.value);
     });
     this.buttons.forEach(button => button.addEventListener('click', () => this.switchTrack(button.dataset.audioTrack)));
+    this.audioToggle?.addEventListener('click', () => {
+      const current = this.pending || this.active;
+      this.switchTrack(current === 'original' ? 'karaoke' : 'original');
+    });
     this.theaterButton.addEventListener('click', () => this.setTheater(!this.theater));
     this.fullscreenButton.addEventListener('click', async () => {
       try {
@@ -315,6 +320,19 @@ class CinemaPlayer {
       button.setAttribute('aria-pressed', String(name === this.active));
       button.setAttribute('aria-busy', String(name === this.pending));
     });
+    if (this.audioToggle) {
+      const next = (this.pending || this.active) === 'original' ? 'karaoke' : 'original';
+      const available = Boolean(this.descriptors[next]) && !this.failed.has(next);
+      const currentLabel = this.active === 'original' ? 'Original vocals' : 'Karaoke';
+      const nextLabel = next === 'original' ? 'original vocals' : 'karaoke';
+      this.audioToggle.disabled = !available;
+      this.audioToggle.dataset.currentAudio = this.active;
+      this.audioToggle.dataset.nextAudio = next;
+      this.audioToggle.setAttribute('aria-busy', String(Boolean(this.pending)));
+      this.audioToggle.setAttribute('aria-label', available ? `Switch to ${nextLabel}. Currently ${currentLabel.toLowerCase()}.` : `${nextLabel} unavailable. Currently ${currentLabel.toLowerCase()}.`);
+      this.audioToggle.querySelector('.audio-toggle-current').textContent = `${currentLabel} playing`;
+      this.audioToggle.querySelector('.audio-toggle-action').textContent = this.pending ? 'Switching audio…' : available ? `Switch to ${nextLabel}` : `${nextLabel} unavailable`;
+    }
   }
 
   updateTransport() {

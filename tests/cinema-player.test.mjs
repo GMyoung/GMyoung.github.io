@@ -12,7 +12,7 @@ const wait = (target, fn, message, arg) => target.waitForFunction(fn, arg, {time
 const state = target => target.evaluate(() => {
   const v = document.querySelector('#player');
   return {src:v.currentSrc, time:v.currentTime, paused:v.paused, controls:v.controls, muted:v.muted,
-    active:document.querySelector('[data-audio-track][aria-pressed=true]')?.dataset.audioTrack,
+    active:document.querySelector('#audio-toggle')?.dataset.currentAudio,
     audio:Object.fromEntries(['original','karaoke'].map(name => {
       const a = document.querySelector(`#audio-${name}`);
       return [name,{time:a.currentTime,paused:a.paused,volume:a.volume,rate:a.playbackRate,error:a.error?.code||0}];
@@ -24,8 +24,9 @@ async function openSong(target, id) {
   await wait(target, () => ['original','karaoke'].every(n => document.querySelector(`#audio-${n}`).readyState >= 2), `Both soundtracks load for ${id}`);
 }
 async function select(target, name) {
-  await target.locator(`[data-audio-track="${name}"]`).click();
-  await wait(target, n => document.querySelector(`[data-audio-track="${n}"]`).getAttribute('aria-pressed') === 'true' && document.querySelector(`[data-audio-track="${n}"]`).getAttribute('aria-busy') === 'false', `Select ${name}`, name);
+  const button=target.locator('#audio-toggle');
+  if(await button.getAttribute('data-current-audio')!==name || await button.getAttribute('aria-busy')==='true') await button.click();
+  await wait(target, n => document.querySelector('#audio-toggle').dataset.currentAudio === n && document.querySelector('#audio-toggle').getAttribute('aria-busy') === 'false', `Select ${name}`, name);
   await target.waitForTimeout(150);
 }
 try {
@@ -46,7 +47,7 @@ try {
   await page.setViewportSize({width:1280,height:900});
   await page.locator('#theater-toggle').focus();
   await page.keyboard.press('Shift+Tab');
-  assert.equal(await page.evaluate(()=>document.activeElement.dataset.audioTrack),'karaoke');
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'fullscreen-toggle');
   await page.keyboard.press('Tab');
   assert.equal(await page.evaluate(()=>document.activeElement.id),'theater-toggle');
   await page.evaluate(() => {
@@ -71,8 +72,8 @@ try {
   assert(Math.abs(after.audio.karaoke.time-after.time)<.2,'Audio stays synchronized');
   results.push('Playing switches keep the same video element, source and continuous decoded frames');
 
-  for (let i=0;i<8;i++) await page.locator(`[data-audio-track="${i%2?'karaoke':'original'}"]`).click();
-  await wait(page,()=>document.querySelector('[data-audio-track="karaoke"]').getAttribute('aria-pressed')==='true','Latest rapid switch wins');
+  for (let i=0;i<8;i++) await page.locator('#audio-toggle').click();
+  await wait(page,()=>document.querySelector('#audio-toggle').dataset.currentAudio==='karaoke','Latest rapid switch wins');
   await page.waitForTimeout(200);
   assert.equal((await state(page)).audio.original.volume,0);
   results.push('Rapid switching resolves to the latest selection');
@@ -146,14 +147,30 @@ try {
   await mobile.goto(base);
   await wait(mobile,()=>document.querySelectorAll('#video-list tr').length===8,'Mobile catalog');
   await openSong(mobile,'shes-a-big-boy-karaoke');
+  assert.equal(await mobile.locator('.soundtracks button').count(),1,'One audio button on mobile');
+  const mobileBefore=await state(mobile);
+  await mobile.evaluate(()=>{window.__mobileVideo=document.querySelector('#player');window.__mobileLoads=0;window.__mobileVideo.addEventListener('loadstart',()=>window.__mobileLoads++);});
+  await select(mobile,'original');
+  await select(mobile,'karaoke');
+  await mobile.waitForTimeout(300);
+  const mobileAfter=await state(mobile);
+  assert(mobileAfter.time>mobileBefore.time && mobileAfter.src===mobileBefore.src);
+  assert.equal(await mobile.evaluate(()=>window.__mobileVideo===document.querySelector('#player')&&window.__mobileLoads===0),true,'Mobile toggle does not replace or reload video');
+  const inlineButton=await mobile.locator('#audio-toggle').boundingBox();
+  const inlineVideo=await mobile.locator('#player').boundingBox();
+  assert(inlineButton.y>=inlineVideo.y+inlineVideo.height-1 && inlineButton.y-inlineVideo.y-inlineVideo.height<30,'Toggle sits directly below the picture');
   await mobile.locator('#theater-toggle').click();
   await select(mobile,'original');
-  assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
-  const box=await mobile.locator('.soundtracks').boundingBox();
-  assert(box.y>=0 && box.y+box.height<=844,'Both soundtrack buttons fit in the viewport');
+  for(const size of [{width:390,height:844},{width:844,height:390},{width:320,height:568}]) {
+    await mobile.setViewportSize(size);
+    assert.equal(await mobile.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');
+    const box=await mobile.locator('#audio-toggle').boundingBox();
+    assert(box.y>=0 && box.y+box.height<=size.height && box.height>=48,'Mobile toggle remains visible and touch sized');
+  }
+  await mobile.setViewportSize({width:390,height:844});
   await mobile.screenshot({path:new URL('cinema-mobile.png',output).pathname.replace(/^\/(\w:)/,'$1')});
   await mobile.close();
-  results.push('Mobile theater and soundtrack buttons fit and operate');
+  results.push('One mobile button switches audio without reloading video, inline and in portrait/landscape theater');
 
   const failure=await browser.newPage();
   await failure.route('**/audio/odoriko-original-v1.m4a',route=>route.abort());
@@ -162,8 +179,8 @@ try {
   await failure.locator('[data-video-id="odoriko-bilingual-karaoke"] .song-title').click();
   await wait(failure,()=>document.querySelector('#player').currentTime>.5,'Playback with missing inactive audio');
   const failureBefore=await state(failure);
-  await failure.locator('[data-audio-track="original"]').click();
-  await wait(failure,()=>document.querySelector('[data-audio-track="original"]').disabled,'Unavailable audio is disabled');
+  await failure.locator('#audio-toggle').click();
+  await wait(failure,()=>document.querySelector('#audio-toggle').disabled,'Unavailable audio is disabled');
   await failure.waitForTimeout(700);
   const failureAfter=await state(failure);
   assert.equal(failureAfter.active,'karaoke');
