@@ -31,7 +31,7 @@ function cell(row, text, className = '') {
 }
 function render() {
   const term = search.value.trim().toLowerCase();
-  const shown = videos.filter(video => (selectedFilter === 'all' || selectedFilter === video.type) && (video.title + ' ' + video.artist + ' ' + video.label).toLowerCase().includes(term));
+  const shown = videos.filter(video => (selectedFilter === 'all' || selectedFilter === video.type || (selectedFilter === 'karaoke' && video.karaoke)) && (video.title + ' ' + video.artist + ' ' + video.label).toLowerCase().includes(term));
   list.replaceChildren();
   for (const video of shown) {
     const row = document.createElement('tr'), url = safeUrl(video.url);

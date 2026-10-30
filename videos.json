@@ -7,9 +7,10 @@
       "artist": "Jack Stauber",
       "type": "instrumental",
       "duration": "6:04",
-      "label": "Animated edit · v2",
+      "label": "Animated edit · on-screen lyrics",
       "poster": "assets/hamantha.jpg",
-      "url": "media/hamantha-instrumental.mp4"
+      "url": "media/hamantha-instrumental.mp4",
+      "karaoke": true
     },
     {
       "id": "die-for-you",
@@ -20,6 +21,26 @@
       "label": "Original music video",
       "poster": "assets/die-for-you.jpg",
       "url": "media/die-for-you-instrumental.mp4"
+    },
+    {
+      "id": "nice-boys",
+      "title": "Nice Boys",
+      "artist": "TEMPOREX",
+      "type": "instrumental",
+      "duration": "2:59",
+      "label": "Manga edit · on-screen lyrics",
+      "karaoke": true,
+      "url": "media/nice-boys-instrumental.mp4"
+    },
+    {
+      "id": "die-for-you-karaoke",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "karaoke",
+      "duration": "3:32",
+      "label": "Word-highlighted lyrics",
+      "karaoke": true,
+      "url": "media/die-for-you-karaoke.mp4"
     }
   ],
   "showPlaylist": false

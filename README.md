@@ -1,6 +1,6 @@
 # Instrumental Room
 
-A lightweight, responsive YouTube video library for Instrumental and Karaoke editions.
+A compact English list of Instrumental and Karaoke videos with an inline HTML5 player. Videos are hosted directly by GitHub Pages.
 
 ## Publishing
 
@@ -8,9 +8,11 @@ GitHub Pages serves the repository root. No build tools, dependencies, secrets, 
 
 ## Add a video
 
-Add an entry to `videos.json` with `id`, `title`, `artist`, `type` (`instrumental` or `karaoke`), `duration`, `label`, `poster`, and the final HTTPS YouTube `url`. Place its poster in `assets/`. Keep a null URL until the upload is complete; the page displays an honest pending status.
+Add an entry to `videos.json` with `id`, `title`, `artist`, `type` (`instrumental` or `karaoke`), `duration`, `label`, and a relative MP4 `url` such as `media/example.mp4`. Add `karaoke: true` when an instrumental video already includes synchronized on-screen lyrics. Files must be complete before a playable entry is published. External HTTPS video links can also be used.
 
-`playlistUrl` is the shared YouTube playlist URL. Unlisted videos are accessible to anyone with the link and may be reshared. The page and source repository are public; neither provides access control. Robots directives request that search engines do not index this navigation page.
+`playlistUrl` retains the optional YouTube playlist URL; `showPlaylist: false` hides it while it is empty. The page, source repository, and direct MP4 files are public. Anyone with a link can watch or reshare them. Robots directives request that search engines do not index this page; they do not provide access control.
+
+Keep each MP4 below GitHub's 100 MiB file limit and the full published site below 1 GB. The current web copies use 720p H.264/AAC with faststart metadata; high-quality originals are preserved locally. Do not repeatedly replace large video files in Git history. Larger collections should move their media to object storage while retaining this list UI.
 
 All music and video rights belong to their respective creators. Do not put private credentials or source media in this repository.
 
