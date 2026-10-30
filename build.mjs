@@ -1,0 +1,21 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+
+const root = new URL('./', import.meta.url);
+const hash = value => createHash('sha256').update(value).digest('hex').slice(0, 10);
+await mkdir(new URL('assets/', root), { recursive: true });
+const catalog = await readFile(new URL('videos.json', root), 'utf8');
+JSON.parse(catalog);
+const catalogPath = `assets/catalog.${hash(catalog)}.json`;
+await writeFile(new URL(catalogPath, root), catalog);
+let script = await readFile(new URL('app.js', root), 'utf8');
+script = script.replace("fetch('videos.json',", `fetch('${catalogPath}',`);
+const scriptPath = `assets/app.${hash(script)}.js`;
+await writeFile(new URL(scriptPath, root), script);
+const styles = await readFile(new URL('style.css', root), 'utf8');
+const stylesPath = `assets/style.${hash(styles)}.css`;
+await writeFile(new URL(stylesPath, root), styles);
+let html = await readFile(new URL('index.template.html', root), 'utf8');
+html = html.replace('href="style.css"', `href="${stylesPath}"`).replace('src="app.js"', `src="${scriptPath}"`);
+await writeFile(new URL('index.html', root), html);
+console.log(JSON.stringify({ scriptPath, stylesPath, catalogPath }));

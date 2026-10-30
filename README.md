@@ -4,7 +4,9 @@ A compact English list of Instrumental and Karaoke videos with an inline HTML5 p
 
 ## Publishing
 
-GitHub Pages serves the repository root. No build tools, dependencies, secrets, or server are required. The intended address is `https://gmyoung.github.io/`.
+GitHub Pages serves the repository root at `https://gmyoung.github.io/`. No third-party dependencies, secrets, or server are required. Run `node build.mjs` after changing the source files or catalog and before committing. It creates content-hashed JS, CSS, and catalog files so a browser cannot mix an old cached script with a newer page layout.
+
+Edit `index.template.html` for layout changes. `index.html` is generated. Old hashed assets remain available for visitors with cached pages.
 
 ## Add a video
 
