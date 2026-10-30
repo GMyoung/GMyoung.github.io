@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#121512">
+  <meta name="description" content="Harvey 的纯伴奏与 Karaoke 视频收藏。">
+  <title>Instrumental Room · Harvey</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#library">跳到片库</a>
+  <div class="shell">
+    <header class="topbar">
+      <a href="./" class="brand" aria-label="Instrumental Room 首页"><span class="brand-icon" aria-hidden="true">↗</span><span>INSTRUMENTAL<br><strong>ROOM</strong></span></a>
+      <div class="top-actions"><span class="status-dot" aria-hidden="true"></span><span>HARVEY'S COLLECTION</span><button id="copy-link" type="button">分享片库 <span aria-hidden="true">↗</span></button></div>
+    </header>
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <div><p class="eyebrow">MUSIC, WITHOUT THE WORDS.</p><h1 id="page-title">纯伴奏，<br><em>留住画面。</em></h1><p class="intro-copy">喜欢的旋律，熟悉的影像。<br>Instrumental 与 Karaoke，都收在这里。</p></div>
+        <div class="intro-aside"><span class="sound-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><p>只管按下播放。<br><span>Enjoy the music.</span></p><a id="playlist-link" class="playlist-link" hidden>打开完整播放列表 <span aria-hidden="true">↗</span></a></div>
+      </section>
+      <section id="library" class="library" aria-labelledby="library-title">
+        <div class="library-toolbar"><h2 id="library-title">全部作品 <span id="video-count">—</span></h2><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="search" type="search" placeholder="搜索歌曲或歌手" autocomplete="off" aria-label="搜索歌曲或歌手"><kbd>/</kbd></label></div>
+        <div id="filters" class="filters" aria-label="视频类型"><button class="filter active" type="button" data-filter="all" aria-pressed="true">全部</button><button class="filter" type="button" data-filter="instrumental" aria-pressed="false">Instrumental</button><button class="filter" type="button" data-filter="karaoke" aria-pressed="false">Karaoke</button></div>
+        <div id="video-grid" class="video-grid" aria-live="polite"></div>
+        <p id="empty" class="empty" hidden>没有找到这首歌。换个关键词试试。</p>
+        <p id="load-message" class="load-message">正在打开片库…</p>
+      </section>
+    </main>
+    <footer><span>INSTRUMENTAL ROOM</span><p>视频通过 YouTube 链接分享。<br class="mobile-break">所有音乐与影像版权归原作者所有。</p><a href="#page-title">回到顶部 ↑</a></footer>
+  </div>
+  <template id="video-template"><article class="video-card"><a class="artwork" target="_blank" rel="noopener noreferrer"><img loading="lazy" alt=""><span class="artwork-shade"></span><span class="type-label"></span><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4.8 19 12 8 19.2Z"></path></svg></span><span class="duration"></span></a><div class="card-info"><div class="card-title-row"><h3></h3><span class="card-index"></span></div><p class="artist"></p><div class="card-bottom"><span class="version-label"></span><a class="watch" target="_blank" rel="noopener noreferrer">播放视频 <span aria-hidden="true">↗</span></a><span class="pending" hidden>等待上传</span></div></div></article></template>
+</body>
+</html>

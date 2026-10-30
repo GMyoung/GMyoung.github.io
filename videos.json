@@ -1,0 +1,25 @@
+{
+  "playlistUrl": null,
+  "videos": [
+    {
+      "id": "hamantha",
+      "title": "The Ballad of Hamantha",
+      "artist": "Jack Stauber",
+      "type": "instrumental",
+      "duration": "6:04",
+      "label": "动画混剪 · 修正版",
+      "poster": "assets/hamantha.jpg",
+      "url": null
+    },
+    {
+      "id": "die-for-you",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "instrumental",
+      "duration": "3:32",
+      "label": "原版 MV · 纯伴奏",
+      "poster": "assets/die-for-you.jpg",
+      "url": null
+    }
+  ]
+}
