@@ -7,9 +7,9 @@
       "artist": "Jack Stauber",
       "type": "instrumental",
       "duration": "6:04",
-      "label": "动画混剪 · 修正版",
+      "label": "Animated edit · v2",
       "poster": "assets/hamantha.jpg",
-      "url": null
+      "url": "media/hamantha-instrumental.mp4"
     },
     {
       "id": "die-for-you",
@@ -17,9 +17,10 @@
       "artist": "Joji",
       "type": "instrumental",
       "duration": "3:32",
-      "label": "原版 MV · 纯伴奏",
+      "label": "Original music video",
       "poster": "assets/die-for-you.jpg",
-      "url": null
+      "url": "media/die-for-you-instrumental.mp4"
     }
-  ]
+  ],
+  "showPlaylist": false
 }
