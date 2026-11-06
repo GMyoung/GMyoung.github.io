@@ -13,7 +13,9 @@ The portal uses only local HTML, CSS and SVG. Edit `index.template.html` and `po
 
 ## Publishing
 
-GitHub Pages serves the repository root at `https://gmyoung.github.io/`. No third-party dependencies, secrets, or server are required. Run `node build.mjs` after changing the source files or catalog and before committing. JavaScript and CSS use content-hashed filenames to prevent layout/script mismatches. The mutable video catalog is fetched without cache on page load and window focus, so new videos appear without waiting for page cache expiry. Hashed catalog copies are archival snapshots.
+GitHub Pages serves `https://gmyoung.github.io/` through the **Publish Harvey Spaces** workflow in `.github/workflows/pages.yml`. Pages must use the **GitHub Actions** publishing source. Every push to `main` builds and stages the public HTML, scripts, styles, catalog, icon, assets, audio and media, then uploads and deploys the Pages artifact. Source templates and development files are not included in that artifact. The workflow can also be started from Actions with **Run workflow** (or `gh workflow run pages.yml --ref main`); deployments are serialized without canceling a running release.
+
+No third-party runtime dependencies, stored deployment secrets, or server are required. The workflow uses Node 24, official GitHub actions pinned to commit IDs, and the job's short-lived GitHub token/OIDC permissions (`contents: read`, `pages: write`, `id-token: write`). Run `node build.mjs` after changing the source files or catalog and before committing. JavaScript and CSS use content-hashed filenames to prevent layout/script mismatches. The mutable video catalog is fetched without cache on page load and window focus, so new videos appear without waiting for page cache expiry. Hashed catalog copies are archival snapshots.
 
 `index.html` and `karaoke.html` are generated together by the build. Portal CSS also uses a content-hashed filename. Old hashed assets remain available for visitors with cached pages; source media, audio and `videos.json` stay at their existing root-relative locations.
 
