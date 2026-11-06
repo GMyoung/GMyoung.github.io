@@ -1,12 +1,21 @@
-# Instrumental Room
+# Harvey — Spaces
 
-A compact English list of Instrumental and Karaoke videos with an inline HTML5 player. Videos are hosted directly by GitHub Pages.
+A browseable homepage with three destinations: the existing Instrumental and Karaoke library, Harvey · 墨间, and MODARIS / Car Game. The library keeps its inline HTML5 player and direct GitHub Pages media hosting.
+
+## Pages
+
+- `/` is the visual Spaces gallery with three original SVG covers, essential title labels and no marketing copy. It does not load a video player or autoplay audio.
+- `/karaoke.html` is the existing music library, including search, filters, theater mode and the original/karaoke audio switch. Its header links back to Spaces.
+- The Harvey · 墨间 card navigates to `https://harvey-ink-universe.harvey-the-rabbit.chatgpt.site`. Its existing owner-private access remains unchanged; the application is not copied into this public repository.
+- The MODARIS / Car Game card navigates to `https://modaris-drive-worlds.harvey-the-rabbit.chatgpt.site/?edition=world`. Its existing access remains unchanged; the application is not copied into this public repository.
+
+The portal uses only local HTML, CSS and SVG. Edit `index.template.html` and `portal.css` for the gallery; edit `karaoke.template.html`, `style.css`, `app.js` and `player.js` for the music library. Root-level `karaoke.html` keeps the existing relative catalog, media and audio URLs valid.
 
 ## Publishing
 
 GitHub Pages serves the repository root at `https://gmyoung.github.io/`. No third-party dependencies, secrets, or server are required. Run `node build.mjs` after changing the source files or catalog and before committing. JavaScript and CSS use content-hashed filenames to prevent layout/script mismatches. The mutable video catalog is fetched without cache on page load and window focus, so new videos appear without waiting for page cache expiry. Hashed catalog copies are archival snapshots.
 
-Edit `index.template.html` for layout changes. `index.html` is generated. Old hashed assets remain available for visitors with cached pages.
+`index.html` and `karaoke.html` are generated together by the build. Portal CSS also uses a content-hashed filename. Old hashed assets remain available for visitors with cached pages; source media, audio and `videos.json` stay at their existing root-relative locations.
 
 ## Add a video
 
@@ -28,7 +37,7 @@ Work on a feature branch/worktree and keep the published `main` available. `npm 
 
 When the user explicitly requests functional verification, run `npm test` against the preview with installed Google Chrome. It covers every catalog item, continuous video frames while switching, rapid switches, seeking, paused switches, volume/mute/rate, theater focus and responsive layout, full screen, end of playback, unavailable alternate audio, and cached legacy catalogs. Reports and desktop/mobile screenshots are written to ignored `test-results/`. `--core-only` is a development subset, not a release pass. Do not run functional tests by default without user authorization.
 
-After the complete release pass succeeds, run `npm run build`, commit the tested source and generated asset hashes, then merge/push `main`. Verify the exact GitHub Pages deployment and published catalog. Preserve the previous commit as a rollback reference; a later issue can be reverted without rewriting history.
+After the requested edits, run the necessary syntax checks and `npm run build`, then commit the source and generated asset hashes and merge/push `main`. Functional and playback testing is performed by the user unless explicitly requested. Verify the exact GitHub Pages deployment. Preserve the previous commit as a rollback reference; a later issue can be reverted without rewriting history.
 
 `playlistUrl` retains the optional YouTube playlist URL; `showPlaylist: false` hides it while it is empty. The page, source repository, and direct MP4 files are public. Anyone with a link can watch or reshare them. Robots directives request that search engines do not index this page; they do not provide access control.
 

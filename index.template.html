@@ -1,25 +1,127 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#131512">
-<title>Instrumental & Karaoke</title><link rel="icon" href="icon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css"><script src="player.js" defer></script><script src="app.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#151814">
+  <meta name="description" content="Karaoke, Harvey 墨间 and MODARIS.">
+  <title>Harvey — Spaces</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="portal.css">
 </head>
-<body><main class="library">
-<header data-cinema-background><div class="heading"><h1>Instrumental & Karaoke</h1><span id="video-count">—</span></div><a id="playlist-link" hidden target="_blank" rel="noopener">YouTube playlist ↗</a></header>
-<div class="toolbar" data-cinema-background><label class="search"><span class="sr-only">Search songs or artists</span><input id="search" type="search" placeholder="Search songs or artists" autocomplete="off"><kbd>/</kbd></label><div class="filters" aria-label="Video type"><button type="button" class="active" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="instrumental" aria-pressed="false">Instrumental</button><button type="button" data-filter="karaoke" aria-pressed="false">Karaoke</button></div></div>
-<section id="player-panel" hidden aria-label="Video player"><div class="player-shell">
-  <div class="player-heading"><span id="player-title"></span><div class="player-actions"><button id="theater-toggle" type="button" aria-pressed="false">Theater mode</button><button id="close-player" type="button" aria-label="Close player">Close ×</button></div></div>
-  <video id="player" controls playsinline preload="metadata" tabindex="0"></video>
-  <div class="soundtracks" hidden aria-label="Audio version"><button id="audio-toggle" class="audio-toggle" type="button" aria-busy="false"><span class="audio-toggle-icon" aria-hidden="true">⇄</span><span class="audio-toggle-text"><span class="audio-toggle-current">Karaoke playing</span><span class="audio-toggle-action">Switch to original vocals</span></span></button></div>
-  <div class="transport" hidden>
-    <div class="timeline"><span id="current-time">0:00</span><input id="seek" type="range" min="0" max="1" value="0" step="0.05" aria-label="Playback position"><span id="total-time">0:00</span></div>
-    <div class="transport-actions"><button id="play-pause" type="button">Play</button><button id="mute" type="button" aria-pressed="false">Mute</button><input id="volume" type="range" min="0" max="1" value="0.85" step="0.05" aria-label="Volume"><label class="speed"><span class="sr-only">Playback speed</span><select id="playback-rate" aria-label="Playback speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select></label><button id="fullscreen-toggle" type="button">Full screen</button></div>
-  </div>
-  <p id="player-status" class="player-status" role="status" aria-live="polite" hidden></p>
-</div></section>
-<table data-cinema-background><caption class="sr-only">Music video collection</caption><thead><tr><th class="number" scope="col">#</th><th scope="col">Song</th><th class="artist-col" scope="col">Artist</th><th scope="col">Version</th><th class="duration-col" scope="col">Length</th><th class="watch-col" scope="col"><span class="sr-only">Watch</span></th></tr></thead><tbody id="video-list"></tbody></table>
-<p id="message" role="status" data-cinema-background>Loading videos…</p>
-<footer data-cinema-background>A small collection of instrumental and karaoke videos.</footer>
-</main></body></html>
+<body>
+  <main class="portal">
+    <header class="portal-header">
+      <a class="signature" href="./" aria-label="Harvey home">Harvey<span aria-hidden="true">.</span></a>
+      <span class="collection-count" aria-label="Three spaces">01 — 03</span>
+    </header>
+    <h1 class="sr-only">Harvey's spaces</h1>
+    <nav class="spaces" aria-label="Explore Harvey's spaces">
+      <a class="space-card music-card" href="karaoke.html" aria-labelledby="music-title">
+        <div class="space-art music-art" aria-hidden="true">
+          <svg class="music-scene" viewBox="0 0 720 580" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="record-fill"><stop stop-color="#20291e"/><stop offset=".47" stop-color="#131b17"/><stop offset="1" stop-color="#080e0c"/></radialGradient>
+              <linearGradient id="record-light" x1="105" y1="80" x2="560" y2="500" gradientUnits="userSpaceOnUse"><stop stop-color="#deedc4" stop-opacity=".18"/><stop offset=".44" stop-color="#bdd3ac" stop-opacity="0"/><stop offset="1" stop-color="#bdd3ac" stop-opacity=".08"/></linearGradient>
+              <linearGradient id="label-fill" x1="260" y1="180" x2="460" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#e5b87e"/><stop offset="1" stop-color="#bd7052"/></linearGradient>
+              <radialGradient id="room-glow"><stop stop-color="#e4b570" stop-opacity=".4"/><stop offset="1" stop-color="#c4d6a2" stop-opacity="0"/></radialGradient>
+            </defs>
+            <ellipse cx="610" cy="85" rx="380" ry="270" fill="url(#room-glow)"/>
+            <g class="record">
+              <circle cx="340" cy="287" r="233" fill="#050a08" opacity=".35" transform="translate(8 18)"/>
+              <circle cx="340" cy="287" r="233" fill="url(#record-fill)" stroke="#7d8d70" stroke-opacity=".24"/>
+              <g stroke="#d3dfc7" stroke-opacity=".1">
+                <circle cx="340" cy="287" r="222"/><circle cx="340" cy="287" r="214"/><circle cx="340" cy="287" r="202"/><circle cx="340" cy="287" r="190"/><circle cx="340" cy="287" r="180"/><circle cx="340" cy="287" r="170"/><circle cx="340" cy="287" r="159"/><circle cx="340" cy="287" r="147"/><circle cx="340" cy="287" r="138"/><circle cx="340" cy="287" r="130"/><circle cx="340" cy="287" r="123"/>
+              </g>
+              <circle cx="340" cy="287" r="232" fill="url(#record-light)"/>
+              <circle cx="340" cy="287" r="107" fill="url(#label-fill)"/>
+              <circle cx="340" cy="287" r="99" stroke="#ffe7b8" stroke-opacity=".38"/>
+              <path d="M262 283c28-62 127-53 155-3M268 310c35 37 102 42 141 0" stroke="#242c21" stroke-opacity=".32" stroke-width="1.5"/>
+              <path d="M287 260h21m13 0h42m11 0h18M307 324h65" stroke="#3b3628" stroke-opacity=".36" stroke-width="4"/>
+              <circle cx="340" cy="287" r="12" fill="#141b15"/>
+              <circle cx="340" cy="287" r="3" fill="#74806a"/>
+            </g>
+            <g class="tonearm" stroke-linecap="round">
+              <circle cx="617" cy="139" r="30" fill="#31382b" stroke="#8b937d" stroke-opacity=".65"/>
+              <circle cx="617" cy="139" r="11" fill="#b9bca2"/>
+              <path d="m618 140-48 225-91 70" stroke="#0b110d" stroke-width="17" opacity=".45"/>
+              <path d="m612 137-48 225-91 70" stroke="#a8b29a" stroke-width="9"/>
+              <path d="m611 137-48 223-91 70" stroke="#e1e3cc" stroke-width="2"/>
+              <path d="m480 412-34 24 17 24 36-26Z" fill="#d7d7bb"/>
+              <path d="m446 436 17 24" stroke="#776d50" stroke-width="4"/>
+            </g>
+          </svg>
+          <span class="art-index">01</span>
+          <span class="enter-mark"><svg viewBox="0 0 32 32"><path d="M9 23 23 9M9 9h14v14"/></svg></span>
+        </div>
+        <div class="space-caption">
+          <h2 id="music-title">Karaoke</h2>
+        </div>
+      </a>
+      <a class="space-card ink-card" href="https://harvey-ink-universe.harvey-the-rabbit.chatgpt.site" aria-labelledby="ink-title">
+        <div class="space-art ink-art" aria-hidden="true">
+          <svg class="ink-scene" viewBox="0 0 720 580" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ink-paper" x1="50" y1="0" x2="650" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#f0da42"/><stop offset="1" stop-color="#d8cf6f"/></linearGradient>
+              <linearGradient id="ink-wash" x1="210" y1="80" x2="480" y2="540" gradientUnits="userSpaceOnUse"><stop stop-color="#455b2e"/><stop offset=".6" stop-color="#5d7135"/><stop offset="1" stop-color="#869248"/></linearGradient>
+              <filter id="paper-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".66" numOctaves="3" seed="17" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope=".085"/></feComponentTransfer></filter>
+            </defs>
+            <g class="ink-current">
+              <path d="M-47 357C58 324 157 466 278 438c149-35 198-225 129-293C307 48 161 126 186 240c25 116 184 123 193 25 7-73-86-100-113-43-22 46 39 86 58 48" stroke="#9aa254" stroke-opacity=".46" stroke-width="150"/>
+              <path d="M-47 357C58 324 157 466 278 438c149-35 198-225 129-293C307 48 161 126 186 240c25 116 184 123 193 25 7-73-86-100-113-43-22 46 39 86 58 48" stroke="url(#ink-wash)" stroke-width="87"/>
+              <path d="M-47 345c129-1 158 156 332 81 135-59 186-224 112-297C298 42 146 138 186 258c40 108 197 99 191-1-4-60-81-95-110-41" stroke="#344b2b" stroke-opacity=".58" stroke-width="23"/>
+              <path d="M-38 322c124 7 192 114 301 85 143-37 203-215 133-276-76-68-179-29-202 43" stroke="#c9cf79" stroke-opacity=".85" stroke-width="5"/>
+              <path d="M741 393c-119-52-208 103-298 139-93 37-179-15-204-33" stroke="#a3ac61" stroke-width="103" stroke-opacity=".7"/>
+              <path d="M741 393c-113-53-214 102-298 139-76 33-139 10-183-11" stroke="#738246" stroke-width="39" stroke-opacity=".67"/>
+              <path d="M742 422c-147-43-167 136-327 137" stroke="#d4d689" stroke-width="6" stroke-opacity=".72"/>
+            </g>
+            <rect width="720" height="580" filter="url(#paper-grain)" opacity=".75"/>
+            <g fill="#52632d" opacity=".58"><ellipse cx="564" cy="138" rx="5" ry="12" transform="rotate(25 564 138)"/><circle cx="594" cy="160" r="3"/><ellipse cx="540" cy="168" rx="3" ry="6"/><circle cx="141" cy="62" r="4"/></g>
+          </svg>
+          <span class="art-index">02</span>
+          <span class="enter-mark"><svg viewBox="0 0 32 32"><path d="M9 23 23 9M9 9h14v14"/></svg></span>
+        </div>
+        <div class="space-caption">
+          <h2 id="ink-title">Harvey <span class="title-dot">·</span> <span lang="zh-CN">墨间</span></h2>
+        </div>
+      </a>
+      <a class="space-card drive-card" href="https://modaris-drive-worlds.harvey-the-rabbit.chatgpt.site/?edition=world" aria-labelledby="drive-title">
+        <div class="space-art drive-art" aria-hidden="true">
+          <svg class="drive-scene" viewBox="0 0 720 580" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="road-surface" x1="130" y1="30" x2="580" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#544f48"/><stop offset="1" stop-color="#242c2b"/></linearGradient>
+              <linearGradient id="car-paint" x1="308" y1="258" x2="402" y2="374" gradientUnits="userSpaceOnUse"><stop stop-color="#fbf1d1"/><stop offset=".45" stop-color="#d7d3b7"/><stop offset="1" stop-color="#a6aea0"/></linearGradient>
+              <linearGradient id="car-glass" x1="316" y1="300" x2="378" y2="353" gradientUnits="userSpaceOnUse"><stop stop-color="#1b3334"/><stop offset="1" stop-color="#47625c"/></linearGradient>
+            </defs>
+            <path d="M74-47c239 130 72 267 226 339 153 70 301-30 415 262" stroke="#d8b5a1" stroke-width="217"/>
+            <path d="M74-47c239 130 72 267 226 339 153 70 301-30 415 262" stroke="#9e4c3b" stroke-width="203"/>
+            <path d="M74-47c239 130 72 267 226 339 153 70 301-30 415 262" stroke="#e4d4ba" stroke-width="203" stroke-dasharray="18 20"/>
+            <path d="M74-47c239 130 72 267 226 339 153 70 301-30 415 262" stroke="url(#road-surface)" stroke-width="181"/>
+            <path d="M74-47c239 130 72 267 226 339 153 70 301-30 415 262" stroke="#ded9bc" stroke-opacity=".65" stroke-width="3" stroke-dasharray="23 28"/>
+            <path d="M576-10c-75 47-38 138 25 137 47 0 93-28 143-6M-15 455c102-87 141-2 145 125" stroke="#d3aa8b" stroke-opacity=".47" stroke-width="20"/>
+            <g fill="#b28d6b" opacity=".68"><ellipse cx="458" cy="104" rx="34" ry="23"/><ellipse cx="476" cy="128" rx="22" ry="15"/><ellipse cx="166" cy="430" rx="22" ry="20"/><ellipse cx="580" cy="504" rx="28" ry="22"/></g>
+            <g fill="#6f7958"><ellipse cx="460" cy="92" rx="25" ry="29"/><ellipse cx="475" cy="124" rx="14" ry="19"/><ellipse cx="163" cy="424" rx="15" ry="19"/><ellipse cx="576" cy="495" rx="19" ry="25"/></g>
+            <g class="car" transform="rotate(101 356 315)">
+              <rect x="325" y="263" width="72" height="130" rx="23" fill="#0c1818" opacity=".32"/>
+              <path d="M317 286h12v25h-12zm62 0h12v25h-12zm-62 63h12v25h-12zm62 0h12v25h-12z" fill="#172322"/>
+              <path d="M324 277c0-17 14-24 31-24s31 7 31 24v99c0 11-11 15-31 15s-31-4-31-15Z" fill="url(#car-paint)" stroke="#f7f1d4" stroke-width="1.5"/>
+              <path d="m334 301 8-16h26l9 16-5 16h-33Z" fill="url(#car-glass)"/>
+              <path d="m339 323-6 39h43l-7-39Z" fill="#d7d6bb"/>
+              <path d="m333 367 7-12h30l7 12-4 12h-36Z" fill="url(#car-glass)"/>
+              <path d="M330 268h10m30 0h10" stroke="#fff6d7" stroke-width="5" stroke-linecap="round"/>
+              <path d="M331 384h11m28 0h11" stroke="#a83d2d" stroke-width="3"/>
+              <path d="M331 311v45m48-45v45" stroke="#728b80" stroke-width="2"/>
+              <path d="M330 311h-10m58 0h11" stroke="#d7d5b8" stroke-width="5" stroke-linecap="round"/>
+            </g>
+          </svg>
+          <span class="art-index">03</span>
+          <span class="enter-mark"><svg viewBox="0 0 32 32"><path d="M9 23 23 9M9 9h14v14"/></svg></span>
+        </div>
+        <div class="space-caption"><h2 id="drive-title">MODARIS <span class="car-game-name">/ Car Game</span></h2></div>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
+

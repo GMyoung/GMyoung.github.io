@@ -17,7 +17,13 @@ await writeFile(new URL(playerPath, root), player);
 const styles = await readFile(new URL('style.css', root), 'utf8');
 const stylesPath = `assets/style.${hash(styles)}.css`;
 await writeFile(new URL(stylesPath, root), styles);
-let html = await readFile(new URL('index.template.html', root), 'utf8');
-html = html.replace('href="style.css"', `href="${stylesPath}"`).replace('src="player.js"', `src="${playerPath}"`).replace('src="app.js"', `src="${scriptPath}"`);
-await writeFile(new URL('index.html', root), html);
-console.log(JSON.stringify({ scriptPath, playerPath, stylesPath, catalogPath }));
+let karaoke = await readFile(new URL('karaoke.template.html', root), 'utf8');
+karaoke = karaoke.replace('href="style.css"', `href="${stylesPath}"`).replace('src="player.js"', `src="${playerPath}"`).replace('src="app.js"', `src="${scriptPath}"`);
+await writeFile(new URL('karaoke.html', root), karaoke);
+const portalStyles = await readFile(new URL('portal.css', root), 'utf8');
+const portalStylesPath = `assets/portal.${hash(portalStyles)}.css`;
+await writeFile(new URL(portalStylesPath, root), portalStyles);
+const portal = (await readFile(new URL('index.template.html', root), 'utf8'))
+  .replace('href="portal.css"', `href="${portalStylesPath}"`);
+await writeFile(new URL('index.html', root), portal);
+console.log(JSON.stringify({ pages: ['index.html', 'karaoke.html'], portalStylesPath, scriptPath, playerPath, stylesPath, catalogPath }));
