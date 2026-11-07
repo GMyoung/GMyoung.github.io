@@ -1,0 +1,1084 @@
+{
+  "source": "https://kenney.nl/assets/mini-dungeon",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "19c4648680cb1d2e8836cade96cbf9781c0c1f45fbc6d2ce41cee8239a3ec4d8",
+  "models": [
+    {
+      "file": "banner.glb",
+      "bytes": 19272,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3,
+          0.22854,
+          -0.525
+        ],
+        "max": [
+          0.3,
+          0.875,
+          -0.425
+        ]
+      },
+      "size": [
+        0.6,
+        0.64646,
+        0.1
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "94c67a03f0fbf4b3a80439d8094773f8e0c96d3f9552138576a50f0b11bea44c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "barrel.glb",
+      "bytes": 14096,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25881,
+          0,
+          -0.25881
+        ],
+        "max": [
+          0.25881,
+          0.47619,
+          0.25881
+        ]
+      },
+      "size": [
+        0.51763,
+        0.47619,
+        0.51763
+      ],
+      "triangles": 148,
+      "animations": [],
+      "sha256": "ca735e8eb8f9170b3d9413ee9e30a51cb275e9597b87e0b70dd5c02f404cea4d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "chair.glb",
+      "bytes": 20464,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.17325,
+          0,
+          -0.18754
+        ],
+        "max": [
+          0.17325,
+          0.47734,
+          0.18754
+        ]
+      },
+      "size": [
+        0.3465,
+        0.47734,
+        0.37509
+      ],
+      "triangles": 208,
+      "animations": [],
+      "sha256": "caf1bb3daf5287699477a111cce05fad789d6d0228707238df1aff0b98bebce3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "character-human.glb",
+      "bytes": 218072,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.39028,
+          0,
+          -0.15786
+        ],
+        "max": [
+          0.39028,
+          0.75532,
+          0.20265
+        ]
+      },
+      "size": [
+        0.78056,
+        0.75532,
+        0.36051
+      ],
+      "triangles": 465,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "sprint",
+        "jump",
+        "fall",
+        "crouch",
+        "sit",
+        "drive",
+        "die",
+        "pick-up",
+        "emote-yes",
+        "emote-no",
+        "holding-right",
+        "holding-left",
+        "holding-both",
+        "holding-right-shoot",
+        "holding-left-shoot",
+        "holding-both-shoot",
+        "attack-melee-right",
+        "attack-melee-left",
+        "attack-kick-right",
+        "attack-kick-left",
+        "interact-right",
+        "interact-left",
+        "wheelchair-sit",
+        "wheelchair-look-left",
+        "wheelchair-look-right",
+        "wheelchair-move-forward",
+        "wheelchair-move-back",
+        "wheelchair-move-left",
+        "wheelchair-move-right"
+      ],
+      "sha256": "6a149b22f52f5ea6b2983dd38cb164b112be66bad5a51d640d089aafd2647a7b",
+      "animationCount": 32,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "character-orc.glb",
+      "bytes": 199616,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.39028,
+          0,
+          -0.15786
+        ],
+        "max": [
+          0.39028,
+          0.78032,
+          0.17461
+        ]
+      },
+      "size": [
+        0.78056,
+        0.78032,
+        0.33247
+      ],
+      "triangles": 374,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "sprint",
+        "jump",
+        "fall",
+        "crouch",
+        "sit",
+        "drive",
+        "die",
+        "pick-up",
+        "emote-yes",
+        "emote-no",
+        "holding-right",
+        "holding-left",
+        "holding-both",
+        "holding-right-shoot",
+        "holding-left-shoot",
+        "holding-both-shoot",
+        "attack-melee-right",
+        "attack-melee-left",
+        "attack-kick-right",
+        "attack-kick-left",
+        "interact-right",
+        "interact-left",
+        "wheelchair-sit",
+        "wheelchair-look-left",
+        "wheelchair-look-right",
+        "wheelchair-move-forward",
+        "wheelchair-move-back",
+        "wheelchair-move-left",
+        "wheelchair-move-right"
+      ],
+      "sha256": "e0b021c98b34a633567ca79f7c129cca48fd7919aa9e959464deba226767c284",
+      "animationCount": 32,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "chest.glb",
+      "bytes": 34048,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.45,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        0.45,
+        0.5
+      ],
+      "triangles": 288,
+      "animations": [
+        "open",
+        "close",
+        "open-close"
+      ],
+      "sha256": "64cc6c44786a0833bbe53c694cbad9f10d4fdd9e99d4b5ec03fcb3b8b5dd71e0",
+      "animationCount": 3,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "coin.glb",
+      "bytes": 22124,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2075,
+          0,
+          -0.08333
+        ],
+        "max": [
+          0.2075,
+          0.41667,
+          0.08333
+        ]
+      },
+      "size": [
+        0.415,
+        0.41667,
+        0.16667
+      ],
+      "triangles": 252,
+      "animations": [],
+      "sha256": "5e108e4b013961a60fa1b92b2b55248f19ac56e48771ce9ccbb74adb3a335455",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "column.glb",
+      "bytes": 11268,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          1.1,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        1.1,
+        0.5
+      ],
+      "triangles": 104,
+      "animations": [],
+      "sha256": "6155d05cde0e7268b3c3db6d27a54bc2b06ff2cc09ee09e280414577b1e20717",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "dirt.glb",
+      "bytes": 2816,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.9,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.9,
+        1
+      ],
+      "triangles": 12,
+      "animations": [],
+      "sha256": "dbdfaf6700dc11a64a630cc417d03a494856bd5f63409db68242a960eb490a7f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "floor-detail.glb",
+      "bytes": 11924,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.05,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.05,
+        1
+      ],
+      "triangles": 102,
+      "animations": [],
+      "sha256": "409aab1270ed18fe541387fa9a9f0f8ad29dfe1f25ce719a52712116408683b5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "floor.glb",
+      "bytes": 1796,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0,
+        1
+      ],
+      "triangles": 2,
+      "animations": [],
+      "sha256": "e45e31b7b77370a9e3829b690e123ea2127a674e2726f7908f3ffb6ac2612f70",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "gate.glb",
+      "bytes": 14152,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.4,
+          0.75,
+          0.1
+        ]
+      },
+      "size": [
+        0.8,
+        0.75,
+        0.2
+      ],
+      "triangles": 76,
+      "animations": [
+        "open",
+        "close",
+        "open-close"
+      ],
+      "sha256": "0e05755294d56ce1298f6b950e99d520f292efdc8c94de1ea40e2f7d5e4f88ba",
+      "animationCount": 3,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "key.glb",
+      "bytes": 16812,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.29548,
+          0,
+          -0.07874
+        ],
+        "max": [
+          0.29548,
+          0.356,
+          0.07874
+        ]
+      },
+      "size": [
+        0.59096,
+        0.356,
+        0.15748
+      ],
+      "triangles": 176,
+      "animations": [],
+      "sha256": "b13f87b22e157761f48016f0c905adc17f54f9bbc445e536b4857e3bc118894f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "pot.glb",
+      "bytes": 26516,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.29981,
+          0,
+          -0.20295
+        ],
+        "max": [
+          0.29981,
+          0.4305,
+          0.20295
+        ]
+      },
+      "size": [
+        0.59962,
+        0.4305,
+        0.4059
+      ],
+      "triangles": 284,
+      "animations": [],
+      "sha256": "bf432a42383ec5066a4eb682dc15ed33daaee6780ff505fb0ab1432baa4c9fac",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "potion.glb",
+      "bytes": 12860,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.16402,
+          0,
+          -0.16402
+        ],
+        "max": [
+          0.16402,
+          0.40209,
+          0.16402
+        ]
+      },
+      "size": [
+        0.32804,
+        0.40209,
+        0.32804
+      ],
+      "triangles": 120,
+      "animations": [],
+      "sha256": "7c2718bdf15517da87032cb3dfe26c9f47c9235dbd278e6704d81b89f92ea61f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rocks.glb",
+      "bytes": 18452,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.5,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.5,
+        1
+      ],
+      "triangles": 190,
+      "animations": [],
+      "sha256": "ee14136f047ef55fd0a2fc2a71739fd8ff1a8487a6c30cb249de5845a01d01ca",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "shield-rectangle.glb",
+      "bytes": 13196,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.13794,
+          0,
+          -0.05308
+        ],
+        "max": [
+          0.13794,
+          0.2975,
+          0.07691
+        ]
+      },
+      "size": [
+        0.27589,
+        0.2975,
+        0.12999
+      ],
+      "triangles": 134,
+      "animations": [],
+      "sha256": "16e3d0131666e7ad9bdad313253ff5dcc70cddfb86c28864b3b965ee5c65ac3b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "shield-round.glb",
+      "bytes": 15512,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18984,
+          -0.18984,
+          -0.05325
+        ],
+        "max": [
+          0.18984,
+          0.18984,
+          0.05325
+        ]
+      },
+      "size": [
+        0.37968,
+        0.37968,
+        0.1065
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "1527cc9a27891efe1019e22cf68d99c98f6fce9a45b3d6e1e4cf034956e08e54",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "stairs.glb",
+      "bytes": 11556,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.9,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.9,
+        1
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "eb317d8f5368e129ec2bf65fd3f45d4926d342bcabf29b4cb62c6f6570ca319b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "stones.glb",
+      "bytes": 24356,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.44621,
+          0,
+          -0.40227
+        ],
+        "max": [
+          0.44621,
+          0.4539,
+          0.40227
+        ]
+      },
+      "size": [
+        0.89242,
+        0.4539,
+        0.80453
+      ],
+      "triangles": 248,
+      "animations": [],
+      "sha256": "69ba9c42733488f5172c5e39e3bcfe92da5fda36cbada3343dd64415bb04ed30",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "table.glb",
+      "bytes": 15312,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4375,
+          0,
+          -0.325
+        ],
+        "max": [
+          0.4375,
+          0.3146,
+          0.325
+        ]
+      },
+      "size": [
+        0.875,
+        0.3146,
+        0.65
+      ],
+      "triangles": 150,
+      "animations": [],
+      "sha256": "533dcb6447d90ff4dd8137e77e8d51e16162cc773f1b9ce49e60ab5e58bd3e16",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "trap.glb",
+      "bytes": 42944,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.39483,
+          0,
+          -0.39483
+        ],
+        "max": [
+          0.39483,
+          0.28305,
+          0.39483
+        ]
+      },
+      "size": [
+        0.78966,
+        0.28305,
+        0.78966
+      ],
+      "triangles": 408,
+      "animations": [
+        "show",
+        "hide",
+        "show-hide"
+      ],
+      "sha256": "7d2f0b0d06d1df1963df438baa81943d64de4fa59918f95406fffdbd3867e7ea",
+      "animationCount": 3,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-half.glb",
+      "bytes": 15824,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "triangles": 150,
+      "animations": [],
+      "sha256": "ff9e19de116ed72c4ab568791fd6e1c9bbccd634e80f731db2c99259b2cad7d6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow.glb",
+      "bytes": 23248,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "triangles": 234,
+      "animations": [],
+      "sha256": "09959defe8705bf5960db7dd6e2d0add597a556b18dd4790fa2fcd90f9438208",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-opening.glb",
+      "bytes": 19220,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1,
+          0.55
+        ]
+      },
+      "size": [
+        1,
+        1,
+        1.05
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "d040af59a774769cdbf4e6a1e50a363dcaba870fa5a4577752e93edffb6f7750",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall.glb",
+      "bytes": 18148,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.1,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.1,
+        1
+      ],
+      "triangles": 186,
+      "animations": [],
+      "sha256": "ed9fc37375fc85fa21dba37c688a140114ec3cb93ed4071c2abd145d375652e1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "weapon-spear.glb",
+      "bytes": 7152,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.07314,
+          0,
+          -0.0595
+        ],
+        "max": [
+          0.07314,
+          0.6,
+          0.0595
+        ]
+      },
+      "size": [
+        0.14628,
+        0.6,
+        0.119
+      ],
+      "triangles": 58,
+      "animations": [],
+      "sha256": "991fbb818c13226981d8c53b2a709c98bcc594b6cb895eea06478f3630814574",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "weapon-sword.glb",
+      "bytes": 9284,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11648,
+          -0.1,
+          -0.0541
+        ],
+        "max": [
+          0.11648,
+          0.34805,
+          0.0541
+        ]
+      },
+      "size": [
+        0.23296,
+        0.44805,
+        0.10819
+      ],
+      "triangles": 80,
+      "animations": [],
+      "sha256": "8e69eb27977f8c84a9b7cd423cd5830eddcf0d07ac1d7fed1969931387015b28",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wood-structure.glb",
+      "bytes": 26292,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.54403,
+          0,
+          -0.54403
+        ],
+        "max": [
+          0.54403,
+          1,
+          0.54403
+        ]
+      },
+      "size": [
+        1.08805,
+        1,
+        1.08805
+      ],
+      "triangles": 256,
+      "animations": [],
+      "sha256": "267cb057434aabcb7ad18e7a07d6423661b4c8aa15fd24f353bc43cd83b00cd7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wood-support.glb",
+      "bytes": 11236,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.54403,
+          0,
+          -0.11903
+        ],
+        "max": [
+          0.54403,
+          1,
+          0.11903
+        ]
+      },
+      "size": [
+        1.08805,
+        1,
+        0.23805
+      ],
+      "triangles": 104,
+      "animations": [],
+      "sha256": "620e958b3fff0f3955458b95d79effd520293d25441bbddcfdd4b03eec3ac29f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 897568,
+  "modelCount": 30,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

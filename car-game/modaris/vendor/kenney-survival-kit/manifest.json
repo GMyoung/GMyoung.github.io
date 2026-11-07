@@ -1,0 +1,2660 @@
+{
+  "source": "https://kenney.nl/assets/survival-kit",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "c3586341b5932c87eb43d75d915434f47daed168b17ed36a03e8ca9977c7443e",
+  "models": [
+    {
+      "file": "barrel-open.glb",
+      "bytes": 31772,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11825,
+          0,
+          -0.11825
+        ],
+        "max": [
+          0.11825,
+          0.344,
+          0.11825
+        ]
+      },
+      "size": [
+        0.2365,
+        0.344,
+        0.2365
+      ],
+      "triangles": 380,
+      "animations": [],
+      "sha256": "f24ab1c5ab3685fc758f7e7298bf4f255f039fc6dfc7463711fbe90c4c011a41",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "barrel.glb",
+      "bytes": 34256,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11825,
+          0,
+          -0.11825
+        ],
+        "max": [
+          0.11825,
+          0.344,
+          0.11825
+        ]
+      },
+      "size": [
+        0.2365,
+        0.344,
+        0.2365
+      ],
+      "triangles": 412,
+      "animations": [],
+      "sha256": "3a0d12f6bdd1badd361f64ce0fbbf878a4ccfc2de8ff1ac4ed4c1aea2a9ee04a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bedroll-frame.glb",
+      "bytes": 10152,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.13612,
+          0,
+          -0.30379
+        ],
+        "max": [
+          0.13612,
+          0.14771,
+          0.30379
+        ]
+      },
+      "size": [
+        0.27225,
+        0.14771,
+        0.60758
+      ],
+      "triangles": 100,
+      "animations": [],
+      "sha256": "e1b311123e23b7bc5b724a818baaa45aab8401599781564aa4b0621aefcfcfbf",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bedroll-packed.glb",
+      "bytes": 13680,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.1302,
+          0,
+          -0.04484
+        ],
+        "max": [
+          0.1302,
+          0.08968,
+          0.04484
+        ]
+      },
+      "size": [
+        0.2604,
+        0.08968,
+        0.08968
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "980c222917e8564c68aa184af025d701612c7395e8ad8ef55b5b00785637a98f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bedroll.glb",
+      "bytes": 14036,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.1552,
+          -0.05,
+          -0.30379
+        ],
+        "max": [
+          0.1552,
+          0.07484,
+          0.30379
+        ]
+      },
+      "size": [
+        0.3104,
+        0.12484,
+        0.60758
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "2ad9baa2d800845195c7c92bd8423b0d99519530dee0afd3bd0ac4b2e255d728",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bottle-large.glb",
+      "bytes": 10484,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.03622,
+          0,
+          -0.04183
+        ],
+        "max": [
+          0.03622,
+          0.14387,
+          0.04183
+        ]
+      },
+      "size": [
+        0.07245,
+        0.14387,
+        0.08365
+      ],
+      "triangles": 96,
+      "animations": [],
+      "sha256": "be7c0c52633c76bb7d00fd23878726d40651e5b38a87f2d4c4a03b0b2ead749a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bottle.glb",
+      "bytes": 10468,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.02634,
+          0,
+          -0.03042
+        ],
+        "max": [
+          0.02634,
+          0.15387,
+          0.03042
+        ]
+      },
+      "size": [
+        0.05269,
+        0.15387,
+        0.06084
+      ],
+      "triangles": 96,
+      "animations": [],
+      "sha256": "23f847b8812838830df686fb8b472fa225693a3b85c526f2796f7b0790831a9a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "box-large-open.glb",
+      "bytes": 17068,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.125,
+          0.30625,
+          0.25
+        ]
+      },
+      "size": [
+        0.25,
+        0.30625,
+        0.5
+      ],
+      "triangles": 156,
+      "animations": [],
+      "sha256": "b9a243c7c9aaaf211251ba6ad74f3221bd233613d91e228d7207200db01f40f7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "box-large.glb",
+      "bytes": 14072,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.125,
+          0.25,
+          0.25
+        ]
+      },
+      "size": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "69b4052f32b7b27e5d2ee27041b091a07d4a2dd4d877168a701607a97609f0f6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "box-open.glb",
+      "bytes": 17052,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.125
+        ],
+        "max": [
+          0.125,
+          0.30625,
+          0.125
+        ]
+      },
+      "size": [
+        0.25,
+        0.30625,
+        0.25
+      ],
+      "triangles": 156,
+      "animations": [],
+      "sha256": "2169e2291052ef9c378af4d6736df3fcff4ebca8fc39cbcdb4b7ad6accdff568",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "box.glb",
+      "bytes": 14056,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.125
+        ],
+        "max": [
+          0.125,
+          0.25,
+          0.125
+        ]
+      },
+      "size": [
+        0.25,
+        0.25,
+        0.25
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "346eebd23986793b992ca6e05e9f98d6f5db96a9bfa3aa7c8360ac8b7920def8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bucket.glb",
+      "bytes": 7816,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.07206,
+          0,
+          -0.07206
+        ],
+        "max": [
+          0.07206,
+          0.19206,
+          0.07206
+        ]
+      },
+      "size": [
+        0.14413,
+        0.19206,
+        0.14413
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "ff173908480929067cd634d5edfedba038428f1503db487521492975fa5c8274",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "campfire-fishing-stand.glb",
+      "bytes": 10188,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.19725,
+          0,
+          -0.12663
+        ],
+        "max": [
+          0.19725,
+          0.276,
+          0.12663
+        ]
+      },
+      "size": [
+        0.3945,
+        0.276,
+        0.25327
+      ],
+      "triangles": 100,
+      "animations": [],
+      "sha256": "7bb233454f69921f0eecfd8b5122eb19f0aae0d3740daa58075deab8cde461de",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "campfire-pit.glb",
+      "bytes": 26468,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.13888,
+          0,
+          -0.13462
+        ],
+        "max": [
+          0.13888,
+          0.10907,
+          0.13462
+        ]
+      },
+      "size": [
+        0.27777,
+        0.10907,
+        0.26923
+      ],
+      "triangles": 305,
+      "animations": [],
+      "sha256": "a78ce38de408456649146077e1917d70bb39f7c87c3c7370276d809d2409b0ab",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "campfire-stand.glb",
+      "bytes": 8320,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.205,
+          0,
+          -0.06223
+        ],
+        "max": [
+          0.205,
+          0.281,
+          0.06223
+        ]
+      },
+      "size": [
+        0.41,
+        0.281,
+        0.12445
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "12fe58a0aa3f73bc4cc0a817f4e8bfa331bb304703384852ca38b38ab38ee5ea",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "chest.glb",
+      "bytes": 35172,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.1302,
+          0,
+          -0.14183
+        ],
+        "max": [
+          0.1302,
+          0.25719,
+          0.1302
+        ]
+      },
+      "size": [
+        0.2604,
+        0.25719,
+        0.27203
+      ],
+      "triangles": 322,
+      "animations": [
+        "open",
+        "close",
+        "open-close"
+      ],
+      "sha256": "84b03023e425cc1f96c6d0b0f352608be9e8e01b112790e6b00b8651bf84379b",
+      "animationCount": 3,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "fence-doorway.glb",
+      "bytes": 13588,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25267
+        ],
+        "max": [
+          0.25,
+          0.51747,
+          -0.20455
+        ]
+      },
+      "size": [
+        0.5,
+        0.51747,
+        0.04813
+      ],
+      "triangles": 108,
+      "animations": [],
+      "sha256": "f52756aa5150704dba49ef4d4d179a20dfd333e4ce9a914a5e9b0088cf2db933",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "fence-fortified.glb",
+      "bytes": 13592,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.51747,
+          -0.19698
+        ]
+      },
+      "size": [
+        0.5,
+        0.51747,
+        0.05302
+      ],
+      "triangles": 120,
+      "animations": [],
+      "sha256": "c50f420e9ebf0f1383a9f95766d47f377b19852651760b8223219cc2be850ece",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "fence.glb",
+      "bytes": 6428,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.51747,
+          -0.20722
+        ]
+      },
+      "size": [
+        0.5,
+        0.51747,
+        0.04278
+      ],
+      "triangles": 48,
+      "animations": [],
+      "sha256": "5d8050e39c8b83b5835ea38b9b17429b4a03e289b566a1db771b7e1d9c6e4050",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "fish-large.glb",
+      "bytes": 31728,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.15364,
+          -2e-05,
+          -0.04896
+        ],
+        "max": [
+          0.15364,
+          0.15947,
+          0.04896
+        ]
+      },
+      "size": [
+        0.30729,
+        0.15949,
+        0.09793
+      ],
+      "triangles": 233,
+      "animations": [],
+      "sha256": "c8fc10fdf493cc21751bd5846ea5639268ecc064a82f3a050ee915fdbe2c45e3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "fish.glb",
+      "bytes": 31688,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.10243,
+          0,
+          -0.03264
+        ],
+        "max": [
+          0.10243,
+          0.10633,
+          0.03264
+        ]
+      },
+      "size": [
+        0.20486,
+        0.10633,
+        0.06528
+      ],
+      "triangles": 233,
+      "animations": [],
+      "sha256": "274842585f064b42baa84cb4ec086c8613971726a16acd5c955d2bf90dabe6c2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "floor-hole.glb",
+      "bytes": 16432,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25535,
+          0,
+          -0.24668
+        ],
+        "max": [
+          0.24465,
+          0.0668,
+          0.25332
+        ]
+      },
+      "size": [
+        0.5,
+        0.0668,
+        0.5
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "2969344bdaef5b481d91a656064a61a7819d12859278ec7d62c21f075582eef4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "floor-old.glb",
+      "bytes": 10056,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25535,
+          0,
+          -0.24668
+        ],
+        "max": [
+          0.24465,
+          0.0512,
+          0.25332
+        ]
+      },
+      "size": [
+        0.5,
+        0.0512,
+        0.5
+      ],
+      "triangles": 84,
+      "animations": [],
+      "sha256": "a66581f16641c7da6c67de84f64c36c35c5b18367640e44aada5a9c6a62487aa",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "floor.glb",
+      "bytes": 10044,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25535,
+          0,
+          -0.24668
+        ],
+        "max": [
+          0.24465,
+          0.0512,
+          0.25332
+        ]
+      },
+      "size": [
+        0.5,
+        0.0512,
+        0.5
+      ],
+      "triangles": 84,
+      "animations": [],
+      "sha256": "f55838210cf23836db136de661ac260f7f667c277ed134a0faa8c2ca811db9ac",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "grass-large.glb",
+      "bytes": 18848,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.23795,
+          0,
+          -0.24365
+        ],
+        "max": [
+          0.23795,
+          0.1425,
+          0.24365
+        ]
+      },
+      "size": [
+        0.4759,
+        0.1425,
+        0.48731
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "68d23ba79b8b8c7a8fc5da6c4b688cce6d9a739720fbf9c3134e5388e91d6f07",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "grass.glb",
+      "bytes": 5992,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11724,
+          0,
+          -0.12865
+        ],
+        "max": [
+          0.11724,
+          0.1425,
+          0.12865
+        ]
+      },
+      "size": [
+        0.23449,
+        0.1425,
+        0.25731
+      ],
+      "triangles": 36,
+      "animations": [],
+      "sha256": "f9430602f076fad8f67b396008ba412fc0c073a93eb8c863ec0944564cbda93d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-panel-narrow.glb",
+      "bytes": 13700,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.025
+        ],
+        "max": [
+          0.125,
+          0.5,
+          0.025
+        ]
+      },
+      "size": [
+        0.25,
+        0.5,
+        0.05
+      ],
+      "triangles": 152,
+      "animations": [],
+      "sha256": "48a1589691274a4c6280a2873900e714e0f8f5e7c8ef877096af7bf56c2797d0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-panel-screws-half.glb",
+      "bytes": 28272,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.025
+        ],
+        "max": [
+          0.25,
+          0.25,
+          0.0375
+        ]
+      },
+      "size": [
+        0.5,
+        0.25,
+        0.0625
+      ],
+      "triangles": 320,
+      "animations": [],
+      "sha256": "eb8834be52b9766a6a553799dfacaaff63e7fac191b9392c154725ff102faa91",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-panel-screws-narrow.glb",
+      "bytes": 18292,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.125,
+          0,
+          -0.025
+        ],
+        "max": [
+          0.125,
+          0.5,
+          0.0375
+        ]
+      },
+      "size": [
+        0.25,
+        0.5,
+        0.0625
+      ],
+      "triangles": 192,
+      "animations": [],
+      "sha256": "0ff152364e2982565acbe699d38e68056191990b99dcf52186a115919faa6ffd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-panel-screws.glb",
+      "bytes": 28256,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.025
+        ],
+        "max": [
+          0.25,
+          0.5,
+          0.0375
+        ]
+      },
+      "size": [
+        0.5,
+        0.5,
+        0.0625
+      ],
+      "triangles": 320,
+      "animations": [],
+      "sha256": "c7b5bcea3aa19ebbcfdbfdc2d52cbb0120176f798186b137231d3f9102e75932",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-panel.glb",
+      "bytes": 24120,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.025
+        ],
+        "max": [
+          0.25,
+          0.5,
+          0.025
+        ]
+      },
+      "size": [
+        0.5,
+        0.5,
+        0.05
+      ],
+      "triangles": 280,
+      "animations": [],
+      "sha256": "834d387590b599c68d8b7ef0e35410adbf53f5b5abafc82cd24df04a8d3c03c2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "patch-grass-large.glb",
+      "bytes": 3508,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.7,
+          0,
+          -0.6
+        ],
+        "max": [
+          0.7,
+          0,
+          0.6
+        ]
+      },
+      "size": [
+        1.4,
+        0,
+        1.2
+      ],
+      "triangles": 33,
+      "animations": [],
+      "sha256": "458f467382babd3f0d075a8bef781119c8fead62f806366a274cbc0e7e65b3a1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "patch-grass.glb",
+      "bytes": 3492,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.6,
+          0,
+          -0.6
+        ],
+        "max": [
+          0.6,
+          0,
+          0.6
+        ]
+      },
+      "size": [
+        1.2,
+        0,
+        1.2
+      ],
+      "triangles": 33,
+      "animations": [],
+      "sha256": "ae22da8e00dfdf5c12969d9dc27bd0fad70d1c5dc2a8b32f8cf441833f0d203c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "resource-planks.glb",
+      "bytes": 8884,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18647,
+          0,
+          -0.31298
+        ],
+        "max": [
+          0.18647,
+          0.0936,
+          0.31298
+        ]
+      },
+      "size": [
+        0.37294,
+        0.0936,
+        0.62595
+      ],
+      "triangles": 72,
+      "animations": [],
+      "sha256": "d3804257474a3baab7ac067be91de5c3d6d18d5803775dc876cb6d9442c30873",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "resource-stone-large.glb",
+      "bytes": 12664,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18801,
+          0,
+          -0.16846
+        ],
+        "max": [
+          0.18801,
+          0.1602,
+          0.16846
+        ]
+      },
+      "size": [
+        0.37603,
+        0.1602,
+        0.33693
+      ],
+      "triangles": 132,
+      "animations": [],
+      "sha256": "6faf73c4998d253f944c0f2372cbd770b2780dd45248221537bf9983d55e0323",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "resource-stone.glb",
+      "bytes": 5464,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.08267,
+          0,
+          -0.07111
+        ],
+        "max": [
+          0.08267,
+          0.1068,
+          0.07111
+        ]
+      },
+      "size": [
+        0.16534,
+        0.1068,
+        0.14222
+      ],
+      "triangles": 44,
+      "animations": [],
+      "sha256": "c0ad4ecc890f99dc7c62da067824e31de0f0515de4437e73d8690136bd06e3c0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "resource-wood.glb",
+      "bytes": 7272,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.10251,
+          0,
+          -0.04355
+        ],
+        "max": [
+          0.10251,
+          0.06244,
+          0.04355
+        ]
+      },
+      "size": [
+        0.20501,
+        0.06244,
+        0.0871
+      ],
+      "triangles": 64,
+      "animations": [],
+      "sha256": "1d5f559da9432f89bd323731ef76b60372e0deb261a96d0da8d5af570c485d80",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-a.glb",
+      "bytes": 10812,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3,
+          0,
+          -0.29712
+        ],
+        "max": [
+          0.25518,
+          0.3927,
+          0.32446
+        ]
+      },
+      "size": [
+        0.55518,
+        0.3927,
+        0.62158
+      ],
+      "triangles": 104,
+      "animations": [],
+      "sha256": "343bab63ea4c51a5b6c881a9d546f165789cfc26e1f60c517d59e4baa384c82a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-b.glb",
+      "bytes": 15184,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.37838,
+          0,
+          -0.35494
+        ],
+        "max": [
+          0.45626,
+          0.41861,
+          0.36977
+        ]
+      },
+      "size": [
+        0.83464,
+        0.41861,
+        0.72471
+      ],
+      "triangles": 156,
+      "animations": [],
+      "sha256": "f0f4eec72f18722dee56f799c6045953835a91856929dff6fb71331602b12c2e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-c.glb",
+      "bytes": 11692,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3813,
+          0,
+          -0.28931
+        ],
+        "max": [
+          0.40241,
+          0.51,
+          0.27661
+        ]
+      },
+      "size": [
+        0.78371,
+        0.51,
+        0.56591
+      ],
+      "triangles": 120,
+      "animations": [],
+      "sha256": "a0f2e78460acfc4e02e029065472360f2e491c389d6e82f02837e3ed643b9d75",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-flat-grass.glb",
+      "bytes": 65376,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.89639,
+          0,
+          -0.74
+        ],
+        "max": [
+          0.89,
+          0.22578,
+          0.70784
+        ]
+      },
+      "size": [
+        1.78639,
+        0.22578,
+        1.44784
+      ],
+      "triangles": 758,
+      "animations": [],
+      "sha256": "1e14dbd2603467f607f7a099aa40a7b8abfdb6fcbd63b7c06bb746bdd085ecac",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-flat.glb",
+      "bytes": 24780,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.89639,
+          0,
+          -0.74
+        ],
+        "max": [
+          0.89,
+          0.195,
+          0.70784
+        ]
+      },
+      "size": [
+        1.78639,
+        0.195,
+        1.44784
+      ],
+      "triangles": 274,
+      "animations": [],
+      "sha256": "350f6440743ed400728d8889d711e0eb3eed56e8d7389e386352d9d98411a49d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-sand-a.glb",
+      "bytes": 9636,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3,
+          0,
+          -0.19071
+        ],
+        "max": [
+          0.25518,
+          0.3927,
+          0.29375
+        ]
+      },
+      "size": [
+        0.55518,
+        0.3927,
+        0.48447
+      ],
+      "triangles": 92,
+      "animations": [],
+      "sha256": "df5e623e23d5d16ea24a754cbd4af5dbd086d4a2481566bf4abb05df0ac88be0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-sand-b.glb",
+      "bytes": 17624,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.37838,
+          0,
+          -0.36399
+        ],
+        "max": [
+          0.42068,
+          0.44861,
+          0.42547
+        ]
+      },
+      "size": [
+        0.79907,
+        0.44861,
+        0.78947
+      ],
+      "triangles": 180,
+      "animations": [],
+      "sha256": "55fbc0ebb6c6cba3e62ac2592117b0033d0e4a90a3863b24339d5dcf1d347090",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rock-sand-c.glb",
+      "bytes": 14084,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3813,
+          0,
+          -0.30698
+        ],
+        "max": [
+          0.40241,
+          0.51,
+          0.2621
+        ]
+      },
+      "size": [
+        0.78371,
+        0.51,
+        0.56908
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "386d4b6729871288c7a4805f98c049089daeb5943656364131012edb92f8d5ee",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "signpost-single.glb",
+      "bytes": 4452,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11228,
+          0,
+          -0.018
+        ],
+        "max": [
+          0.09636,
+          0.46008,
+          0.02498
+        ]
+      },
+      "size": [
+        0.20864,
+        0.46008,
+        0.04298
+      ],
+      "triangles": 28,
+      "animations": [],
+      "sha256": "ca011990b4e1a48240bb78edeb4b6f3b1bf7265dcc6500a5268fc8de1a54262c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "signpost.glb",
+      "bytes": 5924,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11228,
+          0,
+          -0.018
+        ],
+        "max": [
+          0.10184,
+          0.46008,
+          0.02498
+        ]
+      },
+      "size": [
+        0.21412,
+        0.46008,
+        0.04298
+      ],
+      "triangles": 44,
+      "animations": [],
+      "sha256": "6d33757888c4ec9249610266ca8d60532b1138ae28fd37e93fa843ec4856fd25",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-canvas.glb",
+      "bytes": 11276,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.5,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "triangles": 96,
+      "animations": [],
+      "sha256": "f450f215599f8962b63737825c7d55d7be498742551ba21e5633d6459b194134",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-floor.glb",
+      "bytes": 19236,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.54867,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        0.54867,
+        0.5
+      ],
+      "triangles": 164,
+      "animations": [],
+      "sha256": "43271d5b1f55c0c832408293454e49c04d8d5d2ed41acdfb9de7fc9d26a5a275",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-metal-doorway.glb",
+      "bytes": 18532,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.26771,
+          0,
+          -0.26771
+        ],
+        "max": [
+          0.26771,
+          0.51747,
+          -0.17881
+        ]
+      },
+      "size": [
+        0.53543,
+        0.51747,
+        0.0889
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "c91e83d64cc0991e73758fe722618e07b0c282894f7a3f4b9040209a6d006b9e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-metal-floor.glb",
+      "bytes": 33068,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.5125,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        0.5125,
+        0.5
+      ],
+      "triangles": 352,
+      "animations": [],
+      "sha256": "bdc18745841626540c9b47163e963df437dc2baf1c3f68da38d50bc4a2259cb1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-metal-roof.glb",
+      "bytes": 40704,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.27048,
+          0,
+          -0.275
+        ],
+        "max": [
+          0.27372,
+          0.5,
+          0.275
+        ]
+      },
+      "size": [
+        0.5442,
+        0.5,
+        0.55
+      ],
+      "triangles": 456,
+      "animations": [],
+      "sha256": "7dbcfa227640df53dcd2f54dd9198413b78d5cd26f3ea062c9371be4284709f3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-metal-wall.glb",
+      "bytes": 10172,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.26771,
+          0,
+          -0.26771
+        ],
+        "max": [
+          0.26771,
+          0.5,
+          -0.17881
+        ]
+      },
+      "size": [
+        0.53543,
+        0.5,
+        0.0889
+      ],
+      "triangles": 92,
+      "animations": [],
+      "sha256": "7577a371dde174ba48b59187f3ce0ed2dd9e20c1cca130f38cecafe2d485f5fb",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-metal.glb",
+      "bytes": 19088,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.26771,
+          0,
+          -0.26771
+        ],
+        "max": [
+          0.26771,
+          0.5,
+          0.26771
+        ]
+      },
+      "size": [
+        0.53543,
+        0.5,
+        0.53543
+      ],
+      "triangles": 184,
+      "animations": [],
+      "sha256": "36ec4b3e71bb02822f839fa4baf68295b5078aa778a81282c4a4e9348fa56ee5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure-roof.glb",
+      "bytes": 21740,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.27226,
+          0,
+          -0.27593
+        ],
+        "max": [
+          0.26322,
+          0.65718,
+          0.27593
+        ]
+      },
+      "size": [
+        0.53547,
+        0.65718,
+        0.55185
+      ],
+      "triangles": 188,
+      "animations": [],
+      "sha256": "645e0454780d0b07084e3d5ffc6c5b164742f62b07b810e1cb838897c7ca83ac",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "structure.glb",
+      "bytes": 9672,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          0.5,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "triangles": 80,
+      "animations": [],
+      "sha256": "2ff24b6e283bc687c04cd3e0341049e34ce10fe2394a9856af89226a72eebd9d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tent-canvas-half.glb",
+      "bytes": 15656,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28038,
+          0,
+          -0.275
+        ],
+        "max": [
+          0.28038,
+          0.49137,
+          0.286
+        ]
+      },
+      "size": [
+        0.56076,
+        0.49137,
+        0.561
+      ],
+      "triangles": 136,
+      "animations": [],
+      "sha256": "f6e12c0de280a9d5e93e27652a3e80ea620374865a6053dbe6fd5fb7eaca9d93",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tent-canvas.glb",
+      "bytes": 16864,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28038,
+          0,
+          -0.275
+        ],
+        "max": [
+          0.28038,
+          0.49137,
+          0.286
+        ]
+      },
+      "size": [
+        0.56076,
+        0.49137,
+        0.561
+      ],
+      "triangles": 148,
+      "animations": [],
+      "sha256": "efc4bca46a22e4cc4fe391aeafba161c24bc39bfa75e192c57eaacaf686f9717",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tent.glb",
+      "bytes": 14020,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28038,
+          0,
+          -0.275
+        ],
+        "max": [
+          0.28038,
+          0.49137,
+          0.286
+        ]
+      },
+      "size": [
+        0.56076,
+        0.49137,
+        0.561
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "2c1c5fcc213929af0904a84921084361599ffab5077423a44d3d72a81d8c87c6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-axe-upgraded.glb",
+      "bytes": 13132,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.07332,
+          0,
+          -0.02
+        ],
+        "max": [
+          0.07332,
+          0.256,
+          0.02
+        ]
+      },
+      "size": [
+        0.14663,
+        0.256,
+        0.04
+      ],
+      "triangles": 140,
+      "animations": [],
+      "sha256": "18ffed02c818a25bc0a87609ccebdf3c55e238131efa2c50bdd6991fc6a2d8f2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-axe.glb",
+      "bytes": 8612,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.07332,
+          0,
+          -0.01546
+        ],
+        "max": [
+          0.04117,
+          0.256,
+          0.01546
+        ]
+      },
+      "size": [
+        0.11449,
+        0.256,
+        0.03093
+      ],
+      "triangles": 84,
+      "animations": [],
+      "sha256": "de5c6cc51cdb5bcfad8bd7128b7ff0e37a34e6f4f8deddec82bb8634c25cc20d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-hammer-upgraded.glb",
+      "bytes": 8940,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.05805,
+          0,
+          -0.0258
+        ],
+        "max": [
+          0.05805,
+          0.18457,
+          0.0258
+        ]
+      },
+      "size": [
+        0.1161,
+        0.18457,
+        0.0516
+      ],
+      "triangles": 80,
+      "animations": [],
+      "sha256": "68a3d4330b79e027d0667e6426d4999fd0b818b84514ea0f3f76e7efaa5e7d57",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-hammer.glb",
+      "bytes": 6520,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.045,
+          0,
+          -0.02
+        ],
+        "max": [
+          0.045,
+          0.15348,
+          0.02
+        ]
+      },
+      "size": [
+        0.09,
+        0.15348,
+        0.04
+      ],
+      "triangles": 52,
+      "animations": [],
+      "sha256": "9b27f03c26dabd49a7ea358615e63fe65e1c3d0157887d4ee1ecdfa1f0e688f3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-hoe-upgraded.glb",
+      "bytes": 10740,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0693,
+          0,
+          -0.04546
+        ],
+        "max": [
+          0.02,
+          0.24,
+          0.04546
+        ]
+      },
+      "size": [
+        0.0893,
+        0.24,
+        0.09093
+      ],
+      "triangles": 106,
+      "animations": [],
+      "sha256": "5eeb272214900705e2a147ca2500e233b629e5dc6fc53ffc82f29534fda4378a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-hoe.glb",
+      "bytes": 6628,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0693,
+          0,
+          -0.03546
+        ],
+        "max": [
+          0.01546,
+          0.24,
+          0.03546
+        ]
+      },
+      "size": [
+        0.08477,
+        0.24,
+        0.07093
+      ],
+      "triangles": 58,
+      "animations": [],
+      "sha256": "5286bd677d5cf5266ac1a8f06ef034e1d30d442c4387bfc1b7e0dea6bcb34686",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-pickaxe-upgraded.glb",
+      "bytes": 11168,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0893,
+          0,
+          -0.02
+        ],
+        "max": [
+          0.0893,
+          0.24,
+          0.02
+        ]
+      },
+      "size": [
+        0.17861,
+        0.24,
+        0.04
+      ],
+      "triangles": 110,
+      "animations": [],
+      "sha256": "3a42ad099f37fc064e5c87c7331a4ef96e12b100d6c2e6dc69241085a94c2105",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-pickaxe.glb",
+      "bytes": 8152,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0893,
+          0,
+          -0.01935
+        ],
+        "max": [
+          0.0893,
+          0.24,
+          0.01935
+        ]
+      },
+      "size": [
+        0.17861,
+        0.24,
+        0.0387
+      ],
+      "triangles": 74,
+      "animations": [],
+      "sha256": "2b77a238b8666338094d83fc5561984643c335c49ccacd9e0e0a50fb2849c542",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-shovel-upgraded.glb",
+      "bytes": 16400,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.04546,
+          0,
+          -0.02
+        ],
+        "max": [
+          0.04546,
+          0.29,
+          0.02546
+        ]
+      },
+      "size": [
+        0.09093,
+        0.29,
+        0.04546
+      ],
+      "triangles": 176,
+      "animations": [],
+      "sha256": "85c0afbca34cb4f274cae75eb4a75714b5d377cde74fca8595350500ac750289",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tool-shovel.glb",
+      "bytes": 11656,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.03546,
+          0,
+          -0.01546
+        ],
+        "max": [
+          0.03546,
+          0.29,
+          0.01546
+        ]
+      },
+      "size": [
+        0.07093,
+        0.29,
+        0.03093
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "20abb2420f0215c59694287207b7a6324114552b9f59846ab2a2673e3a7c1147",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-autumn-tall.glb",
+      "bytes": 19748,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28128,
+          0,
+          -0.26312
+        ],
+        "max": [
+          0.27158,
+          1.71097,
+          0.26312
+        ]
+      },
+      "size": [
+        0.55286,
+        1.71097,
+        0.52624
+      ],
+      "triangles": 198,
+      "animations": [],
+      "sha256": "4d06aab26b6a4decf3888d637b6d3bb5199ecace33cb914fac1afdc2718ab2f9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-autumn-trunk.glb",
+      "bytes": 6928,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.1,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.1,
+          0.26083,
+          0.1
+        ]
+      },
+      "size": [
+        0.2,
+        0.26083,
+        0.2
+      ],
+      "triangles": 52,
+      "animations": [],
+      "sha256": "72815ab1b66d91c3f00f309d3715a10a3b202ef8fc86bef35ad6722a47d01aed",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-autumn.glb",
+      "bytes": 19732,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28128,
+          0,
+          -0.26312
+        ],
+        "max": [
+          0.27158,
+          1.41097,
+          0.26312
+        ]
+      },
+      "size": [
+        0.55286,
+        1.41097,
+        0.52624
+      ],
+      "triangles": 198,
+      "animations": [],
+      "sha256": "1945b56b6a17e57ade4f14716fac40d53c3c322e8855c3825d40825845bbfd92",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-log-small.glb",
+      "bytes": 9216,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.12474,
+          0,
+          -0.325
+        ],
+        "max": [
+          0.12474,
+          0.27714,
+          0.325
+        ]
+      },
+      "size": [
+        0.24949,
+        0.27714,
+        0.65
+      ],
+      "triangles": 88,
+      "animations": [],
+      "sha256": "5b416addc4cb01d9d6ad30ec282606a8fefb018043d3253d5e42c1e353aab3c8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-log.glb",
+      "bytes": 9180,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.12208,
+          -0.10566,
+          -0.5
+        ],
+        "max": [
+          0.12741,
+          0.17148,
+          0.5
+        ]
+      },
+      "size": [
+        0.24949,
+        0.27714,
+        1
+      ],
+      "triangles": 88,
+      "animations": [],
+      "sha256": "bd358e55e63a75bd54bea1e4b40ed362baa937ce8e503f2aa2370a5a1d9da11c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-tall.glb",
+      "bytes": 24672,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28128,
+          0,
+          -0.26312
+        ],
+        "max": [
+          0.27158,
+          1.71097,
+          0.26312
+        ]
+      },
+      "size": [
+        0.55286,
+        1.71097,
+        0.52624
+      ],
+      "triangles": 254,
+      "animations": [],
+      "sha256": "c4822d1c6fc127701b2f7958c3e97c779103d6beaa19925ba439c99092ccea4c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-trunk.glb",
+      "bytes": 6920,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.1,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.1,
+          0.26083,
+          0.1
+        ]
+      },
+      "size": [
+        0.2,
+        0.26083,
+        0.2
+      ],
+      "triangles": 52,
+      "animations": [],
+      "sha256": "4f833d091adbae0af77ab78783e4717b53a918c512c59e46612936ea42f22b8f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree.glb",
+      "bytes": 22184,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.28128,
+          0,
+          -0.26312
+        ],
+        "max": [
+          0.27158,
+          1.41097,
+          0.26312
+        ]
+      },
+      "size": [
+        0.55286,
+        1.41097,
+        0.52624
+      ],
+      "triangles": 226,
+      "animations": [],
+      "sha256": "7f8c2381a747882fc4fb534dcf803002f2cc925aa400f1328b24bd5576c3dca0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "workbench-anvil.glb",
+      "bytes": 30084,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.14783,
+          0,
+          -0.14783
+        ],
+        "max": [
+          0.17485,
+          0.33575,
+          0.14783
+        ]
+      },
+      "size": [
+        0.32267,
+        0.33575,
+        0.29565
+      ],
+      "triangles": 298,
+      "animations": [],
+      "sha256": "a6253df726c1eba7cbaddf7e31cd5a4adfac31309894bf647e4b803d9d75c275",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "workbench-grind.glb",
+      "bytes": 24704,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.1302,
+          0,
+          -0.16451
+        ],
+        "max": [
+          0.1302,
+          0.28174,
+          0.16451
+        ]
+      },
+      "size": [
+        0.2604,
+        0.28174,
+        0.32903
+      ],
+      "triangles": 232,
+      "animations": [],
+      "sha256": "93aa1468ee12b16bd2a554e65eab2beebe7e14cf52ed5a35a9530c6123292773",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "workbench.glb",
+      "bytes": 26104,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.14783,
+          0,
+          -0.14783
+        ],
+        "max": [
+          0.17783,
+          0.28659,
+          0.14783
+        ]
+      },
+      "size": [
+        0.32565,
+        0.28659,
+        0.29565
+      ],
+      "triangles": 236,
+      "animations": [],
+      "sha256": "bf72d2d535fa29127e5078a6c4c2023a74fa5cd7d02d91ad550e897e088e1dc8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 1298392,
+  "modelCount": 80,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

@@ -1,0 +1,2524 @@
+{
+  "source": "https://kenney.nl/assets/castle-kit",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+  "models": [
+    {
+      "file": "bridge-draw.glb",
+      "bytes": 5140,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -1.00207,
+          0,
+          -0.41554
+        ],
+        "max": [
+          0,
+          0.1,
+          0.41554
+        ]
+      },
+      "size": [
+        1.00207,
+        0.1,
+        0.83108
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "9fbf9a309fed2063be177ef9518dd707787f8fa2b48d2eda8a52e59bb8829265",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bridge-straight-pillar.glb",
+      "bytes": 14344,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.176,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.176,
+        0.93
+      ],
+      "triangles": 156,
+      "animations": [],
+      "sha256": "c85521e13dcf55ba8d015a04bbdbd0f063c31d01befb69a7c9fb097d128f195b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "bridge-straight.glb",
+      "bytes": 16832,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.176,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.176,
+        0.93
+      ],
+      "triangles": 192,
+      "animations": [],
+      "sha256": "ef15989c3d5c7392563888bbedda86de3c1ec4b3013c71c61e25b5257a6f9180",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "door.glb",
+      "bytes": 16968,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.075,
+          0,
+          -0.17969
+        ],
+        "max": [
+          0.075,
+          0.60534,
+          0.17969
+        ]
+      },
+      "size": [
+        0.15,
+        0.60534,
+        0.35937
+      ],
+      "triangles": 188,
+      "animations": [],
+      "sha256": "d9bc817e776e34fc24ad5b448b8cfc2c02603e79f6d90597de8936dc65a07359",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "flag-banner-long.glb",
+      "bytes": 6660,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0,
+          0,
+          -0.315
+        ],
+        "max": [
+          0.04,
+          2.17,
+          0.315
+        ]
+      },
+      "size": [
+        0.04,
+        2.17,
+        0.63
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "e6a4433f5770b9fc31bf67d72424a877d5c010486d5b7373ce7af900566827e4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "flag-banner-short.glb",
+      "bytes": 6664,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0,
+          0,
+          -0.315
+        ],
+        "max": [
+          0.04,
+          0.78,
+          0.315
+        ]
+      },
+      "size": [
+        0.04,
+        0.78,
+        0.63
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "9561b6afd1d551199d02f520d31eab46dbff137eef4f9aa13f12e311b588fbd7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "flag-pennant.glb",
+      "bytes": 13652,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.05319,
+          0,
+          -0.5207
+        ],
+        "max": [
+          0.05319,
+          0.86561,
+          0.05319
+        ]
+      },
+      "size": [
+        0.10638,
+        0.86561,
+        0.57389
+      ],
+      "triangles": 118,
+      "animations": [],
+      "sha256": "741368448bd21991700a488dfc5125330594c4dccd9395feecaa6bbfa682b65d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "flag-wide.glb",
+      "bytes": 25460,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.05319,
+          0,
+          -0.27344
+        ],
+        "max": [
+          0.05319,
+          0.86561,
+          0.27344
+        ]
+      },
+      "size": [
+        0.10638,
+        0.86561,
+        0.54688
+      ],
+      "triangles": 256,
+      "animations": [],
+      "sha256": "74e94f48dffb40aca288676191265523c3e752aef40b868bfa3a51394083519b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "flag.glb",
+      "bytes": 15192,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.05319,
+          0,
+          -0.3791
+        ],
+        "max": [
+          0.05319,
+          0.86561,
+          0.05319
+        ]
+      },
+      "size": [
+        0.10638,
+        0.86561,
+        0.43229
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "263fc3c7bedcfcd2b30f1aca6feb76c8f249f8f79dc9a694f47ec63b77b180d6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "gate.glb",
+      "bytes": 13880,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0758,
+          0,
+          -0.33108
+        ],
+        "max": [
+          0.0758,
+          0.91034,
+          0.33108
+        ]
+      },
+      "size": [
+        0.1516,
+        0.91034,
+        0.66215
+      ],
+      "triangles": 146,
+      "animations": [],
+      "sha256": "fdc3d5b07f619dcacbf2af36024dc9a356696e541f6ce409a5305be782665ec9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "ground-hills.glb",
+      "bytes": 12732,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.2883,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.2883,
+        1
+      ],
+      "triangles": 116,
+      "animations": [],
+      "sha256": "2593ba3265f3ecdf2ee0a73580986ae6d9b76a536497356cdf093bb2735ecd6e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "ground.glb",
+      "bytes": 1788,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0,
+        1
+      ],
+      "triangles": 2,
+      "animations": [],
+      "sha256": "470e9637694bba581e7a67a07399920c9785d8fa9a01a688c80dfc6a0c06ff77",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "metal-gate.glb",
+      "bytes": 23240,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.03572,
+          0,
+          -0.34763
+        ],
+        "max": [
+          0.03572,
+          0.73007,
+          0.34763
+        ]
+      },
+      "size": [
+        0.07144,
+        0.73007,
+        0.69526
+      ],
+      "triangles": 190,
+      "animations": [],
+      "sha256": "7d41f469c9ed3000370bd7995b2fca5ac77ebe0ae1d1f321bb7a9d6f4b86f677",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rocks-large.glb",
+      "bytes": 16204,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.60041,
+          0,
+          -0.67408
+        ],
+        "max": [
+          0.60041,
+          0.5,
+          0.67408
+        ]
+      },
+      "size": [
+        1.20081,
+        0.5,
+        1.34815
+      ],
+      "triangles": 150,
+      "animations": [],
+      "sha256": "7ea1ee769eb063b192c3c3744cd32a11616320f7ca491fbe23289552f6655595",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "rocks-small.glb",
+      "bytes": 15192,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51502,
+          0,
+          -0.55265
+        ],
+        "max": [
+          0.51502,
+          0.5,
+          0.55265
+        ]
+      },
+      "size": [
+        1.03004,
+        0.5,
+        1.10531
+      ],
+      "triangles": 140,
+      "animations": [],
+      "sha256": "d860d3a053e1fc7b5825a39f6df68f14c49bab7443c1703e1f5b28444bd60e0d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-ballista-demolished.glb",
+      "bytes": 54576,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.90753,
+          0,
+          -0.78923
+        ],
+        "max": [
+          0.84686,
+          0.50966,
+          0.76495
+        ]
+      },
+      "size": [
+        1.75439,
+        0.50966,
+        1.55418
+      ],
+      "triangles": 618,
+      "animations": [],
+      "sha256": "a19ed023a15af7e148fcd0186cb73d0d26983e24de54e858655fa2d77799be46",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-ballista.glb",
+      "bytes": 64608,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.63986,
+          0,
+          -0.59925
+        ],
+        "max": [
+          0.99048,
+          0.91031,
+          0.59925
+        ]
+      },
+      "size": [
+        1.63035,
+        0.91031,
+        1.1985
+      ],
+      "triangles": 676,
+      "animations": [],
+      "sha256": "8b2317b6820dd9782c7c2b5da9b7cf77cc3704f3b4d27a4c32e50069852a6b0d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-catapult-demolished.glb",
+      "bytes": 71252,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.64285,
+          0,
+          -0.86709
+        ],
+        "max": [
+          1.03541,
+          0.32129,
+          0.80155
+        ]
+      },
+      "size": [
+        1.67825,
+        0.32129,
+        1.66864
+      ],
+      "triangles": 842,
+      "animations": [],
+      "sha256": "e0663eb42a97c5d992b1864ba3459e8246de11cf29fd72f10ef5ffd271f3029a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-catapult.glb",
+      "bytes": 86164,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -1.00097,
+          -0.14899,
+          -0.60493
+        ],
+        "max": [
+          0.73382,
+          1.18066,
+          0.60493
+        ]
+      },
+      "size": [
+        1.73479,
+        1.32964,
+        1.20985
+      ],
+      "triangles": 928,
+      "animations": [],
+      "sha256": "35a7484ff74630228e474fae885bdc9176c30e0af0d94def80307bdbc87b7583",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-ram-demolished.glb",
+      "bytes": 68036,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -1.04144,
+          0,
+          -0.79571
+        ],
+        "max": [
+          1.03707,
+          0.72308,
+          0.85135
+        ]
+      },
+      "size": [
+        2.07851,
+        0.72308,
+        1.64706
+      ],
+      "triangles": 776,
+      "animations": [],
+      "sha256": "f895ff0152fb004c72310f6e7b51645babc8f8d22864c468b960f86252d2d8fc",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-ram.glb",
+      "bytes": 103620,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 8,
+      "bounds": {
+        "min": [
+          -1.06319,
+          0,
+          -0.50009
+        ],
+        "max": [
+          1.02416,
+          1.18429,
+          0.50009
+        ]
+      },
+      "size": [
+        2.08735,
+        1.18429,
+        1.00019
+      ],
+      "triangles": 1112,
+      "animations": [],
+      "sha256": "6473c77747b1d0a2c273d5a013454a0c85e5fc33b831150dced46d89b8ff9a5e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-tower-demolished.glb",
+      "bytes": 119700,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -1.0898,
+          0,
+          -0.96534
+        ],
+        "max": [
+          1.08328,
+          2.09664,
+          0.88071
+        ]
+      },
+      "size": [
+        2.17308,
+        2.09664,
+        1.84604
+      ],
+      "triangles": 1390,
+      "animations": [],
+      "sha256": "6504a432e6e72a51c75f862ea08e144058727add6eb0f76dc7d9f7352e8a23d0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-tower.glb",
+      "bytes": 144200,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.9828,
+          0,
+          -0.60493
+        ],
+        "max": [
+          0.9828,
+          2.6799,
+          0.60493
+        ]
+      },
+      "size": [
+        1.9656,
+        2.6799,
+        1.20985
+      ],
+      "triangles": 1598,
+      "animations": [],
+      "sha256": "81909d6c33b181a9935fc7f800e8ee309454bbf99ff3b6b0ab2ecf16c3bf5e9b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-trebuchet-demolished.glb",
+      "bytes": 66012,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.87257,
+          0,
+          -1.04831
+        ],
+        "max": [
+          1.06202,
+          0.30966,
+          1.04831
+        ]
+      },
+      "size": [
+        1.93459,
+        0.30966,
+        2.09663
+      ],
+      "triangles": 804,
+      "animations": [],
+      "sha256": "6706dee3ec118323ea93ac58545cfcfd46e36c1ffffd750abbea54258aeda495",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "siege-trebuchet.glb",
+      "bytes": 139848,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 10,
+      "bounds": {
+        "min": [
+          -1.11742,
+          0,
+          -0.62899
+        ],
+        "max": [
+          0.73382,
+          1.95863,
+          0.62899
+        ]
+      },
+      "size": [
+        1.85124,
+        1.95863,
+        1.25798
+      ],
+      "triangles": 1518,
+      "animations": [],
+      "sha256": "123711fd475e35d061738f648d9bf46c7f463d57681325c369977cee8954679a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "stairs-stone-square.glb",
+      "bytes": 9556,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11625,
+          0,
+          -0.4095
+        ],
+        "max": [
+          0.11625,
+          0.675,
+          0.4095
+        ]
+      },
+      "size": [
+        0.2325,
+        0.675,
+        0.819
+      ],
+      "triangles": 100,
+      "animations": [],
+      "sha256": "22b52789ae3b0b208bcf5e9d5e8a70c6e307d51672217a122eaa58c42f2d7b36",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "stairs-stone.glb",
+      "bytes": 9836,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.11625,
+          0,
+          -0.4095
+        ],
+        "max": [
+          0.11625,
+          0.675,
+          0.4095
+        ]
+      },
+      "size": [
+        0.2325,
+        0.675,
+        0.819
+      ],
+      "triangles": 104,
+      "animations": [],
+      "sha256": "ec21b1d65c04ba6384734c31ac542bb4015541e652c411796fd7bcf292e6413c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-base.glb",
+      "bytes": 41724,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "575e6463b9bc58b8294690b2c1a15409b0624e0253af1a215bf67ea5e9cbaaba",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-base.glb",
+      "bytes": 8336,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -0.38971
+        ],
+        "max": [
+          0.45,
+          1.31,
+          0.38971
+        ]
+      },
+      "size": [
+        0.9,
+        1.31,
+        0.77942
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "1185110eb885e70652558465bfabd07b80bb09afaa7b4be0a2e309fd685982b9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-mid.glb",
+      "bytes": 33568,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.47622,
+          0,
+          -0.41242
+        ],
+        "max": [
+          0.47622,
+          0.46,
+          0.41242
+        ]
+      },
+      "size": [
+        0.95244,
+        0.46,
+        0.82484
+      ],
+      "triangles": 404,
+      "animations": [],
+      "sha256": "131045c750296bc84e8f6192918270a4424217484b03627a73e9f584ac4f4888",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-roof-secondary.glb",
+      "bytes": 12540,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.48816,
+          0,
+          -0.42276
+        ],
+        "max": [
+          0.48816,
+          0.75368,
+          0.42276
+        ]
+      },
+      "size": [
+        0.97632,
+        0.75368,
+        0.84552
+      ],
+      "triangles": 114,
+      "animations": [],
+      "sha256": "c2c0c2fe60bac1b0b27c65cfc118e98b2bcbaeeb9f32cdbe5b34b96a2c168132",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-roof.glb",
+      "bytes": 8400,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.48816,
+          0,
+          -0.42276
+        ],
+        "max": [
+          0.48816,
+          0.83,
+          0.42276
+        ]
+      },
+      "size": [
+        0.97632,
+        0.83,
+        0.84552
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "6bd3fb7fd8069419787e806990c9cf3869396e766a1b8cd16c2b3a1414961a0a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-top-wood.glb",
+      "bytes": 13852,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.432,
+          0,
+          -0.37412
+        ],
+        "max": [
+          0.432,
+          0.46,
+          0.37412
+        ]
+      },
+      "size": [
+        0.864,
+        0.46,
+        0.74825
+      ],
+      "triangles": 164,
+      "animations": [],
+      "sha256": "66c7697375b61acdc42cf90c16aaf1340a285a93402426098bc2ab9175bb7bbd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-hexagon-top.glb",
+      "bytes": 13848,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.432,
+          0,
+          -0.37412
+        ],
+        "max": [
+          0.432,
+          0.13,
+          0.37412
+        ]
+      },
+      "size": [
+        0.864,
+        0.13,
+        0.74825
+      ],
+      "triangles": 168,
+      "animations": [],
+      "sha256": "22a043cde795ebc6e5720daee4944f468de5f0ef62296495d0374d4b169ec892",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-slant-roof.glb",
+      "bytes": 47488,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.585,
+          0,
+          -0.56857
+        ],
+        "max": [
+          0.585,
+          2.13995,
+          0.56857
+        ]
+      },
+      "size": [
+        1.17,
+        2.13995,
+        1.13715
+      ],
+      "triangles": 534,
+      "animations": [],
+      "sha256": "f2dd82eca828d2b43c523927e6825539f5a648a18e7fcb68b7a4698f7d6d3d10",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-arch.glb",
+      "bytes": 29724,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.01,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "triangles": 308,
+      "animations": [],
+      "sha256": "90ccb41a792ea3c5b8c98a3f18b710b52ebfdcd1e389024168c5ac6e591dd564",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-base-border.glb",
+      "bytes": 3684,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.45,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.45,
+        1
+      ],
+      "triangles": 20,
+      "animations": [],
+      "sha256": "7c48a3a8f8af838c0d7e114115c5abb7a557023b89e08aa421f14bd6add924e3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-base-color.glb",
+      "bytes": 6908,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.01,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.01,
+        1
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "0d9b180fba2229bf62deaaac381e16e912a0f5f2c48a8152e38fec2792e990b5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-base.glb",
+      "bytes": 4456,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.01,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.01,
+        1
+      ],
+      "triangles": 28,
+      "animations": [],
+      "sha256": "996887e98957eeea2ba7b5d14f0d17877c91e4e99e1c5b8ee57d87b7f7c9d5e8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid-color.glb",
+      "bytes": 5380,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          0.2016,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        0.2016,
+        0.93
+      ],
+      "triangles": 52,
+      "animations": [],
+      "sha256": "a12235eb6e86d1e1b46a13e9ea3757ecb0e2fa8e5d82a9a0ae2017e78cf3baf6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid-door.glb",
+      "bytes": 28996,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.01,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "triangles": 344,
+      "animations": [],
+      "sha256": "1a7d065cb548b73adcdd497cac10397247bd70377cb2f6b9d36b78b61087b35d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid-open-simple.glb",
+      "bytes": 19752,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          0.87815,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        0.87815,
+        0.93
+      ],
+      "triangles": 176,
+      "animations": [],
+      "sha256": "aa95f69fd90b20c299628830a9abd635a48f440f25dbbe131fe3fdd003742c20",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid-open.glb",
+      "bytes": 23568,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.01,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "triangles": 240,
+      "animations": [],
+      "sha256": "dd5d242d41654cf4f60b1bbb05ab7263bc8dd9adc671feee08911bba7a46d569",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid-windows.glb",
+      "bytes": 30852,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.01,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "triangles": 364,
+      "animations": [],
+      "sha256": "68c186f978135ba77969cdbee502a1c0d9d8f40bd01e8aa33b7cc6859a2ba766",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-mid.glb",
+      "bytes": 7744,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.465,
+          0,
+          -0.465
+        ],
+        "max": [
+          0.465,
+          1.01,
+          0.465
+        ]
+      },
+      "size": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "34a43b162b0984df0c691cb12fcd169ff374412deca0de5fdfdd702a9fa0c98f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-roof.glb",
+      "bytes": 14036,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          2.01,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        2.01,
+        1
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "94215209b27f5274188d70906d2a4df357529abd878b6b916bfb61ac5e64d1c8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top-color.glb",
+      "bytes": 14088,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.38,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.38,
+        1
+      ],
+      "triangles": 156,
+      "animations": [],
+      "sha256": "56b5677ad749ab114818638bf8a3fd8fcfb64ef25f627fd6d5aefe5203366698",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top-roof-high-windows.glb",
+      "bytes": 22788,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.08,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.08,
+        1
+      ],
+      "triangles": 258,
+      "animations": [],
+      "sha256": "8e673350705e369a25afd6e8706946f0e41abeaf01b94abfe06c358e2e31876b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top-roof-high.glb",
+      "bytes": 11288,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.35,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.35,
+        1
+      ],
+      "triangles": 116,
+      "animations": [],
+      "sha256": "b9345255366bc88744eea5469dddb4dedf2c70f33075b0fde53144ca251e25ea",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top-roof-rounded.glb",
+      "bytes": 11296,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.95,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.95,
+        1
+      ],
+      "triangles": 116,
+      "animations": [],
+      "sha256": "2127ee2431efa89c4f40932093b43b9b724073a32fc7010547bd46bb58e4b04d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top-roof.glb",
+      "bytes": 11256,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1,
+        1
+      ],
+      "triangles": 116,
+      "animations": [],
+      "sha256": "5516fb45c3158e03773e15e83f5fc8b9bafbbcb3f35fc8e1e06e823cdb01e3bb",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square-top.glb",
+      "bytes": 13276,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.3,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.3,
+        1
+      ],
+      "triangles": 148,
+      "animations": [],
+      "sha256": "5e98cdf2bf4d885edc3fa514719f80d63872e11c54ee629c11859223dad8489c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-square.glb",
+      "bytes": 16564,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 176,
+      "animations": [],
+      "sha256": "ae2e4f11247fef4e8e550011c20bc1862839cd4cfd21590aec9781ae0fbbbc7f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tower-top.glb",
+      "bytes": 27408,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.13,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.13,
+        1
+      ],
+      "triangles": 320,
+      "animations": [],
+      "sha256": "222537f0daa9167788a468b4ee71918d1066b7c142e7e251c449c50be3438068",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-large.glb",
+      "bytes": 21248,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.44433,
+          0,
+          -0.44489
+        ],
+        "max": [
+          0.44433,
+          1.8492,
+          0.44489
+        ]
+      },
+      "size": [
+        0.88867,
+        1.8492,
+        0.88978
+      ],
+      "triangles": 229,
+      "animations": [],
+      "sha256": "a72a7c237857a9fb04d51b05e3513e97a4d5d5572a709b3251f96b5bffd0a5ab",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-log.glb",
+      "bytes": 7952,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.12208,
+          -0.10566,
+          -0.5
+        ],
+        "max": [
+          0.12741,
+          0.17148,
+          0.5
+        ]
+      },
+      "size": [
+        0.24949,
+        0.27714,
+        1
+      ],
+      "triangles": 64,
+      "animations": [],
+      "sha256": "50b4d452ee818afa9b37f325a594bdd4ffc1cef0f3c87ff3908251350c9960bf",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-small.glb",
+      "bytes": 15816,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.36903,
+          0,
+          -0.36
+        ],
+        "max": [
+          0.36903,
+          1.3492,
+          0.36
+        ]
+      },
+      "size": [
+        0.73805,
+        1.3492,
+        0.72
+      ],
+      "triangles": 164,
+      "animations": [],
+      "sha256": "ad5b2d7225241eb0599dbc7f1a9f9c39915be56ccccf88ad091bc9c1b4334034",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tree-trunk.glb",
+      "bytes": 5684,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.198,
+          0,
+          -0.17147
+        ],
+        "max": [
+          0.198,
+          0.37512,
+          0.17147
+        ]
+      },
+      "size": [
+        0.396,
+        0.37512,
+        0.34295
+      ],
+      "triangles": 38,
+      "animations": [],
+      "sha256": "f07a2ed87d6a636aba46a0ec1e9ffae27b17b4c6ae019e77924bdb9b8f6fe28f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-corner-half-tower.glb",
+      "bytes": 80020,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          1,
+          1.44,
+          1
+        ]
+      },
+      "size": [
+        1.5,
+        1.44,
+        1.5
+      ],
+      "triangles": 632,
+      "animations": [],
+      "sha256": "95a7e63c7716d31a47ffe1fe423c4ed65a610bd802b1d4286d743c1248255ffe",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-corner-half.glb",
+      "bytes": 12976,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 144,
+      "animations": [],
+      "sha256": "2a64baa9c8adf4581c3ef28b7c4fc424890c9ed2da2d958bcbf38e239bb49f83",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-corner-slant.glb",
+      "bytes": 16028,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 140,
+      "animations": [],
+      "sha256": "fd687db9c9fe6e3e446bd23ba2db23e993cf1119dd3fbcfbf543d23345c98d40",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-corner.glb",
+      "bytes": 15264,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 168,
+      "animations": [],
+      "sha256": "82d27b869162b6a9ee19b0d7480913f56928b6620708f3b3899131495803cc9a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-doorway.glb",
+      "bytes": 37560,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        0.5,
+        1.31,
+        1
+      ],
+      "triangles": 500,
+      "animations": [],
+      "sha256": "8daf5cccceace888d51d74b0e0254e192004faf926e07f1b28e94191879af3a6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-half-modular.glb",
+      "bytes": 8016,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.00229,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.60229,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        0.60458,
+        1.31,
+        1
+      ],
+      "triangles": 80,
+      "animations": [],
+      "sha256": "2241397b813c069858987750eaf7dce4a549fca239ae2e40b30fc7e58ff82b0e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-half.glb",
+      "bytes": 12132,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 126,
+      "animations": [],
+      "sha256": "4f0baca90eb52d96717aaabf36db98f1f2b554876f44da533b57dd92b6f67965",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-corner.glb",
+      "bytes": 9384,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.25,
+          0,
+          -0.25
+        ],
+        "max": [
+          0.25,
+          1.31,
+          0.25
+        ]
+      },
+      "size": [
+        0.5,
+        1.31,
+        0.5
+      ],
+      "triangles": 96,
+      "animations": [],
+      "sha256": "3e0a2fb0c7d6b4d8bb52ee30c1a3f5bac01ad558dc382b15a5c5a2d52131aa8a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-gate.glb",
+      "bytes": 17092,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.13,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        0.63,
+        1.31,
+        1
+      ],
+      "triangles": 192,
+      "animations": [],
+      "sha256": "f01e3005f2cfe7451a0376a4fdba2408594cb60664e24e53e736e52d5b3ec934",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-stairs-rail.glb",
+      "bytes": 40896,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4825,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5125,
+          1.44829,
+          0.53425
+        ]
+      },
+      "size": [
+        0.995,
+        1.44829,
+        1.03425
+      ],
+      "triangles": 430,
+      "animations": [],
+      "sha256": "d1791d278f01ad436c7062f9807e6280f11070c47cbb40567ea280c859fe3a72",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-stairs.glb",
+      "bytes": 26972,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4825,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.4825,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        0.965,
+        1.31,
+        1
+      ],
+      "triangles": 262,
+      "animations": [],
+      "sha256": "51672d47bb3cec6f190334fcb29c3c2f464f605b85f5e13b918e868d72c632e7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-wood-fence.glb",
+      "bytes": 32988,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.55,
+          1.45,
+          0.5
+        ]
+      },
+      "size": [
+        1.05,
+        1.45,
+        1
+      ],
+      "triangles": 326,
+      "animations": [],
+      "sha256": "253d7f8fd3e9113ef5ae064eed49351b387532d83ccce284851d0a2190872fc6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow-wood.glb",
+      "bytes": 26812,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 266,
+      "animations": [],
+      "sha256": "b536f63dd753575d551ace334549949bd3594559d62356f93b6a577f0efbeb4e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-narrow.glb",
+      "bytes": 12160,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        0.5,
+        1.31,
+        1
+      ],
+      "triangles": 126,
+      "animations": [],
+      "sha256": "347fcdb0842ed47f20931b962dc0a2ad212690812386a3cb634016b4229145a7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-pillar.glb",
+      "bytes": 18156,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 186,
+      "animations": [],
+      "sha256": "22d359abfaa3cf3dc5a2fece09a108024a07a4e263b21a4a0689da0e630699ed",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-stud.glb",
+      "bytes": 3212,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.135,
+          0,
+          -0.0833
+        ],
+        "max": [
+          0.135,
+          1.11,
+          0.0833
+        ]
+      },
+      "size": [
+        0.27,
+        1.11,
+        0.1666
+      ],
+      "triangles": 16,
+      "animations": [],
+      "sha256": "203abbac850f78bb2250005350427d60355532623173730a53e12674798e9637",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall-to-narrow.glb",
+      "bytes": 19776,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 214,
+      "animations": [],
+      "sha256": "bb99eb1d5d93affcb2466f74d69a370c32ce5b62307a081fc5a12850e741c707",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wall.glb",
+      "bytes": 16552,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          1.31,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        1.31,
+        1
+      ],
+      "triangles": 178,
+      "animations": [],
+      "sha256": "b2ea00acbf4ba91ff0d4b8b942edf9fa12d821abd0b2c945c57a2b9b3153cfe3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 2080872,
+  "modelCount": 76,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

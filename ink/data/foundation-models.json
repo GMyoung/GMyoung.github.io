@@ -1,0 +1,344 @@
+{
+  "heng": [
+    {
+      "file": "model-yi.json",
+      "strokeIndex": 0,
+      "label": "长横",
+      "bounds": [
+        105.957,
+        332.667,
+        938.522,
+        478.062
+      ],
+      "displaySize": 0.64
+    },
+    {
+      "file": "model-er.json",
+      "strokeIndex": 0,
+      "label": "短横",
+      "bounds": [
+        279.556,
+        553.545,
+        749.0,
+        665.025
+      ],
+      "displaySize": 0.43
+    },
+    {
+      "file": "model-san.json",
+      "strokeIndex": 1,
+      "label": "中横",
+      "bounds": [
+        317.208,
+        382.059,
+        712.0,
+        474.45
+      ],
+      "displaySize": 0.5
+    }
+  ],
+  "shu": [
+    {
+      "file": "model-shi.json",
+      "strokeIndex": 1,
+      "label": "悬针竖",
+      "bounds": [
+        442.652,
+        -46.737,
+        570.75,
+        831.714
+      ],
+      "displaySize": 0.64
+    },
+    {
+      "file": "model-shang.json",
+      "strokeIndex": 0,
+      "label": "垂露竖",
+      "bounds": [
+        428.5,
+        107.845,
+        548.828,
+        802.529
+      ],
+      "displaySize": 0.58
+    },
+    {
+      "file": "model-zhong.json",
+      "strokeIndex": 3,
+      "label": "长竖",
+      "bounds": [
+        436.652,
+        -22.737,
+        560.75,
+        843.889
+      ],
+      "displaySize": 0.66
+    }
+  ],
+  "pie": [
+    {
+      "file": "model-ren.json",
+      "strokeIndex": 0,
+      "label": "长撇",
+      "bounds": [
+        62.444,
+        88.0,
+        568.556,
+        754.5
+      ],
+      "displaySize": 0.61
+    },
+    {
+      "file": "model-ba.json",
+      "strokeIndex": 0,
+      "label": "短撇",
+      "bounds": [
+        74.2,
+        112.526,
+        412.036,
+        484.085
+      ],
+      "displaySize": 0.42
+    },
+    {
+      "file": "model-qian.json",
+      "strokeIndex": 0,
+      "label": "平撇",
+      "bounds": [
+        278.5,
+        647.645,
+        702.0,
+        841.333
+      ],
+      "displaySize": 0.48
+    }
+  ],
+  "na": [
+    {
+      "file": "model-ren.json",
+      "strokeIndex": 1,
+      "label": "斜捺",
+      "bounds": [
+        454.702,
+        68.889,
+        992.026,
+        494.311
+      ],
+      "displaySize": 0.6
+    },
+    {
+      "file": "model-da-big.json",
+      "strokeIndex": 2,
+      "label": "正捺",
+      "bounds": [
+        470.784,
+        22.0,
+        959.029,
+        444.502
+      ],
+      "displaySize": 0.62
+    },
+    {
+      "file": "da.json",
+      "strokeIndex": 5,
+      "label": "平捺",
+      "bounds": [
+        90.889,
+        -18.767,
+        954.755,
+        174.0
+      ],
+      "displaySize": 0.66
+    }
+  ],
+  "dian": [
+    {
+      "file": "model-yong.json",
+      "strokeIndex": 0,
+      "label": "侧点",
+      "bounds": [
+        416.545,
+        717.938,
+        566.083,
+        836.45
+      ],
+      "displaySize": 0.24
+    },
+    {
+      "file": "model-bing.json",
+      "strokeIndex": 0,
+      "label": "右点",
+      "bounds": [
+        146.0,
+        527.933,
+        288.5,
+        668.0
+      ],
+      "displaySize": 0.26
+    },
+    {
+      "file": "da.json",
+      "strokeIndex": 3,
+      "label": "长点",
+      "bounds": [
+        199.5,
+        633.0,
+        346.4,
+        764.286
+      ],
+      "displaySize": 0.28
+    }
+  ],
+  "ti": [
+    {
+      "file": "model-bing.json",
+      "strokeIndex": 1,
+      "label": "提",
+      "bounds": [
+        75.714,
+        90.1,
+        262.125,
+        420.25
+      ],
+      "displaySize": 0.45
+    },
+    {
+      "file": "model-jiang.json",
+      "strokeIndex": 2,
+      "label": "短提",
+      "bounds": [
+        137.929,
+        46.875,
+        366.1,
+        424.25
+      ],
+      "displaySize": 0.39
+    },
+    {
+      "file": "model-bing-radical.json",
+      "strokeIndex": 1,
+      "label": "长提",
+      "bounds": [
+        390.929,
+        63.875,
+        599.1,
+        424.25
+      ],
+      "displaySize": 0.49
+    }
+  ],
+  "zhe": [
+    {
+      "file": "model-kou.json",
+      "strokeIndex": 1,
+      "label": "横折",
+      "bounds": [
+        282.119,
+        242.022,
+        833.8,
+        646.762
+      ],
+      "displaySize": 0.57
+    },
+    {
+      "file": "model-kou.json",
+      "strokeIndex": 1,
+      "label": "短横折",
+      "bounds": [
+        282.119,
+        242.022,
+        833.8,
+        646.762
+      ],
+      "displaySize": 0.49
+    },
+    {
+      "file": "model-zhong.json",
+      "strokeIndex": 1,
+      "label": "宽横折",
+      "bounds": [
+        236.975,
+        408.041,
+        838.965,
+        673.042
+      ],
+      "displaySize": 0.6
+    }
+  ],
+  "gou": [
+    {
+      "file": "model-ding.json",
+      "strokeIndex": 1,
+      "label": "竖钩",
+      "bounds": [
+        360.929,
+        -8.704,
+        554.0,
+        665.223
+      ],
+      "displaySize": 0.61
+    },
+    {
+      "file": "model-xiao.json",
+      "strokeIndex": 0,
+      "label": "长竖钩",
+      "bounds": [
+        350.6,
+        -25.027,
+        576.263,
+        791.37
+      ],
+      "displaySize": 0.64
+    },
+    {
+      "file": "model-shui.json",
+      "strokeIndex": 0,
+      "label": "竖钩",
+      "bounds": [
+        350.757,
+        -42.027,
+        564.263,
+        831.44
+      ],
+      "displaySize": 0.6
+    }
+  ],
+  "hengzhezhepie": [
+    {
+      "file": "da.json",
+      "strokeIndex": 4,
+      "label": "横折折撇",
+      "bounds": [
+        101.889,
+        156.218,
+        337.256,
+        518.064
+      ],
+      "displaySize": 0.53
+    },
+    {
+      "file": "model-chuo.json",
+      "strokeIndex": 1,
+      "label": "走之折撇",
+      "bounds": [
+        85.889,
+        183.032,
+        340.805,
+        568.452
+      ],
+      "displaySize": 0.49
+    },
+    {
+      "file": "da.json",
+      "strokeIndex": 4,
+      "label": "横折折撇",
+      "bounds": [
+        101.889,
+        156.218,
+        337.256,
+        518.064
+      ],
+      "displaySize": 0.58
+    }
+  ]
+}

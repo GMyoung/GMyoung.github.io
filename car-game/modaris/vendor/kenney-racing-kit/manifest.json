@@ -1,0 +1,3486 @@
+{
+  "source": "https://kenney.nl/assets/racing-kit",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "8a71ea16219315a01d00d5a90c4f6b5c090faddbc56d80ecf727e2b3b853c6c0",
+  "models": [
+    {
+      "file": "bannerTowerGreen.glb",
+      "bytes": 34000,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.0352
+        ],
+        "max": [
+          0.0352,
+          1.23566,
+          -0.65
+        ]
+      },
+      "size": [
+        0.3852,
+        1.24566,
+        0.3852
+      ],
+      "triangles": 426,
+      "animations": [],
+      "sha256": "784d3dd3401c461aafa8fc85c7fa1be6e9b41404f7bdb3f4940b007a0a9e3854",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "bannerTowerRed.glb",
+      "bytes": 33992,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.0352
+        ],
+        "max": [
+          0.0352,
+          1.23566,
+          -0.65
+        ]
+      },
+      "size": [
+        0.3852,
+        1.24566,
+        0.3852
+      ],
+      "triangles": 426,
+      "animations": [],
+      "sha256": "16b22cccce7d97bf6f8c8333a0048cd14f986d32ae7115aa38107bb78ebfeea2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "barrierRed.glb",
+      "bytes": 3244,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.773
+        ],
+        "max": [
+          -0.1,
+          0.1212,
+          -0.65
+        ]
+      },
+      "size": [
+        0.25,
+        0.1312,
+        0.123
+      ],
+      "triangles": 28,
+      "animations": [],
+      "sha256": "6d7de595a92507af6fcb40fe5a62730925ea23f1f8c727b8ecdec9eba9b98156",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "barrierWall.glb",
+      "bytes": 5812,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.773
+        ],
+        "max": [
+          0.65,
+          0.1212,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.1312,
+        0.123
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "86abcd8c4d5ee9ff9862dda49b9f079e7e66c27266e4ab696e03c799e737cef8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "barrierWhite.glb",
+      "bytes": 3252,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.773
+        ],
+        "max": [
+          -0.1,
+          0.1212,
+          -0.65
+        ]
+      },
+      "size": [
+        0.25,
+        0.1312,
+        0.123
+      ],
+      "triangles": 28,
+      "animations": [],
+      "sha256": "44bf654b08bb96bd0e9a70c00dab35b0b23df955d3390ec8ede89c20ad64871a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "billboard.glb",
+      "bytes": 14520,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4138,
+          -0.01,
+          -1.0862
+        ],
+        "max": [
+          0.5862,
+          0.99,
+          -0.61
+        ]
+      },
+      "size": [
+        1,
+        1,
+        0.4762
+      ],
+      "triangles": 136,
+      "animations": [],
+      "sha256": "2c95fe71e6b31430b8379febf31b4b6118a21b55a6bb1e197a4e4fabfd026c20",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "billboardDouble_exclusive.glb",
+      "bytes": 14688,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4138,
+          -0.01,
+          -0.9738
+        ],
+        "max": [
+          0.5862,
+          0.99,
+          -0.61
+        ]
+      },
+      "size": [
+        1,
+        1,
+        0.3638
+      ],
+      "triangles": 126,
+      "animations": [],
+      "sha256": "9e012619d41961c99fcf3abd5801e8687521d77c331b97fd9c973b120f3fff4a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "billboardLow.glb",
+      "bytes": 14528,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4138,
+          -0.01,
+          -1.0862
+        ],
+        "max": [
+          0.5862,
+          0.68,
+          -0.61
+        ]
+      },
+      "size": [
+        1,
+        0.69,
+        0.4762
+      ],
+      "triangles": 136,
+      "animations": [],
+      "sha256": "aa72f9a42d033c39509d395f5b44ff22ba63cf45ede96e15a18c26faebc09a9f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "billboardLower.glb",
+      "bytes": 12512,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.04,
+          -0.7219
+        ],
+        "max": [
+          0.15,
+          0.24,
+          -0.65
+        ]
+      },
+      "size": [
+        0.5,
+        0.28,
+        0.0719
+      ],
+      "triangles": 72,
+      "animations": [],
+      "sha256": "d70e0e319e96a5dca7f5d575097d994213ef319dcbac31aa8c5430cb3d2c925d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "camera_exclusive.glb",
+      "bytes": 11560,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.82683
+        ],
+        "max": [
+          -0.2431,
+          0.399,
+          -0.5632
+        ]
+      },
+      "size": [
+        0.1069,
+        0.409,
+        0.26363
+      ],
+      "triangles": 136,
+      "animations": [],
+      "sha256": "fb74cff055dcae95fe873c7619e6312842e4d2ed2abb812f3e83c0011fa09098",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "fenceCurved.glb",
+      "bytes": 24432,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.886
+        ],
+        "max": [
+          0.65,
+          0.81,
+          -0.566
+        ]
+      },
+      "size": [
+        1,
+        0.82,
+        0.32
+      ],
+      "triangles": 352,
+      "animations": [],
+      "sha256": "fa84c8bcc6b987632459a160d44b88a79c65ace87652a7eac85d1d4c3a21875f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "fenceStraight.glb",
+      "bytes": 7756,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6845
+        ],
+        "max": [
+          0.65,
+          0.49,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.5,
+        0.0345
+      ],
+      "triangles": 36,
+      "animations": [],
+      "sha256": "12fac1aea8f7d8d138a2a8820c7476187fb25a7c39963bfef250c2e8120fba68",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "flagCheckers.glb",
+      "bytes": 15188,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6852
+        ],
+        "max": [
+          -0.15279,
+          1.24,
+          -0.65
+        ]
+      },
+      "size": [
+        0.19721,
+        1.25,
+        0.0352
+      ],
+      "triangles": 184,
+      "animations": [],
+      "sha256": "2feb99a4974fc82f90b43436421feb0874c074d4ea685d9673c6803429fd32ba",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "flagCheckersSmall.glb",
+      "bytes": 10604,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6776
+        ],
+        "max": [
+          -0.16,
+          0.29,
+          -0.6424
+        ]
+      },
+      "size": [
+        0.19,
+        0.3,
+        0.0352
+      ],
+      "triangles": 132,
+      "animations": [],
+      "sha256": "a66a124e0e25ce9bfe9eb6229f57363a96683f8f88606c901d11565638e096df",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "flagGreen.glb",
+      "bytes": 17176,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6852
+        ],
+        "max": [
+          -0.15279,
+          1.24,
+          -0.65
+        ]
+      },
+      "size": [
+        0.19721,
+        1.25,
+        0.0352
+      ],
+      "triangles": 184,
+      "animations": [],
+      "sha256": "18846508e1f1744c284b0fb7add034d748aa9d35b3179e22e279cc65c279b834",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "flagRed.glb",
+      "bytes": 17168,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6852
+        ],
+        "max": [
+          -0.15279,
+          1.24,
+          -0.65
+        ]
+      },
+      "size": [
+        0.19721,
+        1.25,
+        0.0352
+      ],
+      "triangles": 184,
+      "animations": [],
+      "sha256": "ffe61934815e0b52104dd4f11d67f7dc98dbad1220d0d60947870a9081b80b87",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "flagTankco.glb",
+      "bytes": 18716,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 2,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.6852
+        ],
+        "max": [
+          -0.15279,
+          1.24,
+          -0.65
+        ]
+      },
+      "size": [
+        0.19721,
+        1.25,
+        0.0352
+      ],
+      "triangles": 184,
+      "animations": [],
+      "sha256": "6673a7431f9f9f0789358645fa75129db42c33bb24c04601599cfddcfb724bf0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grandStand.glb",
+      "bytes": 12484,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.88626,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.89626,
+        1
+      ],
+      "triangles": 128,
+      "animations": [],
+      "sha256": "6f5db4f9d9fd82080a561e78d6bc3420e5ed4ed7d8d91ed8bae7f5a7a469645b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grandStandAwning.glb",
+      "bytes": 20580,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          1.37511,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        1.38511,
+        1
+      ],
+      "triangles": 280,
+      "animations": [],
+      "sha256": "26792d7849fc43c78d0ab540cf4833caa2ee0e361d7d0f781c4a1dc5635483f4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grandStandCovered.glb",
+      "bytes": 15200,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          1.17639,
+          -0.63
+        ]
+      },
+      "size": [
+        1,
+        1.18639,
+        1.02
+      ],
+      "triangles": 168,
+      "animations": [],
+      "sha256": "48fc8e7eace9969a849805bddd5dce2bf1244129f46ae18f7dc8499fe1792b50",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grandStandCoveredRound.glb",
+      "bytes": 91988,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.28662,
+          1.17639,
+          -0.01338
+        ]
+      },
+      "size": [
+        1.63662,
+        1.18639,
+        1.63662
+      ],
+      "triangles": 1302,
+      "animations": [],
+      "sha256": "97359aaf62c7247ee0683ba9365257751eced797040c0e4aa375fd9d83ed561e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grandStandRound.glb",
+      "bytes": 71100,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.28662,
+          0.88626,
+          -0.01338
+        ]
+      },
+      "size": [
+        1.63662,
+        0.89626,
+        1.63662
+      ],
+      "triangles": 1022,
+      "animations": [],
+      "sha256": "2037d0f3615240b6a9e93c26afb3351f831531a6d6485ab2b6290f8cdabaa500",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "grass.glb",
+      "bytes": 1496,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0,
+        1
+      ],
+      "triangles": 2,
+      "animations": [],
+      "sha256": "892ca5d51fd4f733db7df48161e1fec2372880787ba1dc30ea1ff47ba342fbe8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightColored.glb",
+      "bytes": 18656,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3854,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.3146,
+          0.63566,
+          -0.55893
+        ]
+      },
+      "size": [
+        0.0708,
+        0.64566,
+        0.10867
+      ],
+      "triangles": 268,
+      "animations": [],
+      "sha256": "544829012f865f65cfd7d09eb71ac722fe51aec11be7c2ce85464a22bbe24c5f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightPostLarge.glb",
+      "bytes": 23536,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.54,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.16,
+          0.78566,
+          -0.57054
+        ]
+      },
+      "size": [
+        0.38,
+        0.79566,
+        0.09706
+      ],
+      "triangles": 340,
+      "animations": [],
+      "sha256": "f41b4599752cf82ad87c8626396a36517d36db41a52ab33084a8b7de7d13f064",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightPostModern.glb",
+      "bytes": 16584,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.37455,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.32545,
+          0.77129,
+          -0.49
+        ]
+      },
+      "size": [
+        0.0491,
+        0.78129,
+        0.1776
+      ],
+      "triangles": 198,
+      "animations": [],
+      "sha256": "8fd8fccc65f53cf54efff81546b90be23d8c32a4ea85b5bbc79c6c9d123cb925",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightPost_exclusive.glb",
+      "bytes": 16824,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.45,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.25,
+          0.78566,
+          -0.57054
+        ]
+      },
+      "size": [
+        0.2,
+        0.79566,
+        0.09706
+      ],
+      "triangles": 228,
+      "animations": [],
+      "sha256": "0de5b91a96f6875f2a2382ac74b0ddee050bc448dad2b81c5f8f55c2211df3bd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightRed.glb",
+      "bytes": 19700,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3854,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.3146,
+          0.70345,
+          -0.55893
+        ]
+      },
+      "size": [
+        0.0708,
+        0.71345,
+        0.10867
+      ],
+      "triangles": 308,
+      "animations": [],
+      "sha256": "e40989d0f0c7c4a4ea8b9a614f630a52ca6de246617228a892c5b2ae12412758",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "lightRedDouble.glb",
+      "bytes": 31440,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.4208,
+          -0.01,
+          -0.6676
+        ],
+        "max": [
+          -0.2792,
+          0.67345,
+          -0.55893
+        ]
+      },
+      "size": [
+        0.1416,
+        0.68345,
+        0.10867
+      ],
+      "triangles": 560,
+      "animations": [],
+      "sha256": "0d738335c97648814120605cb1ed06bda07ddc04ff2a63a9714efaf2abb2491f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "overhead.glb",
+      "bytes": 9188,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.48,
+          -0.01,
+          -0.65
+        ],
+        "max": [
+          0.78,
+          0.6582,
+          -0.46
+        ]
+      },
+      "size": [
+        1.26,
+        0.6682,
+        0.19
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "8c38e92377eaeafee28a88f9fe10a580f1da984d3fa6b4b35c08ed62e2db6ff2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "overheadLights.glb",
+      "bytes": 26068,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.48,
+          -0.01,
+          -0.65
+        ],
+        "max": [
+          0.78,
+          0.68386,
+          -0.46
+        ]
+      },
+      "size": [
+        1.26,
+        0.69386,
+        0.19
+      ],
+      "triangles": 432,
+      "animations": [],
+      "sha256": "8239fa98d2c950d7aba67ecf49dc92af18ee0da92ed96736a711b22e90e795cd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "overheadRound.glb",
+      "bytes": 9136,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.78345,
+          -0.01,
+          -0.98
+        ],
+        "max": [
+          1.08345,
+          0.92345,
+          -0.65
+        ]
+      },
+      "size": [
+        1.8669,
+        0.93345,
+        0.33
+      ],
+      "triangles": 132,
+      "animations": [],
+      "sha256": "47147adaed1d387c6554145faedf5c6e969ec1e8518a4b4c55a4fda9761b817b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "overheadRoundColored.glb",
+      "bytes": 8064,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.98
+        ],
+        "max": [
+          1.5169,
+          0.92345,
+          -0.65
+        ]
+      },
+      "size": [
+        1.8669,
+        0.93345,
+        0.33
+      ],
+      "triangles": 100,
+      "animations": [],
+      "sha256": "5e67a2bf6e4d61d0b7f2c5b611d50198e710bc47018e26b0df9c1b02f27d2583",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsGarage.glb",
+      "bytes": 13028,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.69,
+          -0.56
+        ]
+      },
+      "size": [
+        1,
+        0.7,
+        1.09
+      ],
+      "triangles": 96,
+      "animations": [],
+      "sha256": "db73d2ebd70763380ef872ffd2a399eb72c979f96c5a3c1ab377d93670204a23",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsGarageClosed.glb",
+      "bytes": 16184,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.69,
+          -0.56
+        ]
+      },
+      "size": [
+        1,
+        0.7,
+        1.09
+      ],
+      "triangles": 162,
+      "animations": [],
+      "sha256": "4284f4bdec4f0c6344568a3610aa2e96ac144fef35bfa099d05673ce780d31df",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsGarageCorner.glb",
+      "bytes": 9804,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.7,
+          0.69,
+          -0.65
+        ]
+      },
+      "size": [
+        1.05,
+        0.7,
+        1
+      ],
+      "triangles": 109,
+      "animations": [],
+      "sha256": "ee10061e40fa63e1b8a1d473a39f164b6cf3927c3b20cdbe0b5a46d67b6b858a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsOffice.glb",
+      "bytes": 8184,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.5,
+          -0.61
+        ]
+      },
+      "size": [
+        1,
+        0.51,
+        1.04
+      ],
+      "triangles": 88,
+      "animations": [],
+      "sha256": "32a39cf3b1051d651f6cc28e2febf3d2752c7120206e5688c0a45b93b7eea625",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsOfficeCorner.glb",
+      "bytes": 10020,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.69,
+          0.5,
+          -0.61
+        ]
+      },
+      "size": [
+        1.04,
+        0.51,
+        1.04
+      ],
+      "triangles": 126,
+      "animations": [],
+      "sha256": "9428e73b2f074b2c9bdccba06fd033c8f9e229b6f8e696d093fd163505800d8a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pitsOfficeRoof.glb",
+      "bytes": 11604,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.8415,
+          -0.61
+        ]
+      },
+      "size": [
+        1,
+        0.8515,
+        1.04
+      ],
+      "triangles": 142,
+      "animations": [],
+      "sha256": "144c15e740c8b11eff72f391f2ce543cd02299ffa872d49d0e910f697bb4c1e6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "pylon.glb",
+      "bytes": 8088,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.41,
+          -0.01,
+          -0.71
+        ],
+        "max": [
+          -0.29,
+          0.122,
+          -0.59
+        ]
+      },
+      "size": [
+        0.12,
+        0.132,
+        0.12
+      ],
+      "triangles": 108,
+      "animations": [],
+      "sha256": "d554671f5ab372cef0e1083b83dc270c03f32bfa0dbc3978c40206faf5608b89",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "raceCarGreen.glb",
+      "bytes": 106068,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.71442,
+          -0.03352,
+          -1.33594
+        ],
+        "max": [
+          0.01442,
+          0.36349,
+          0.01
+        ]
+      },
+      "size": [
+        0.72883,
+        0.39701,
+        1.34594
+      ],
+      "triangles": 1430,
+      "animations": [],
+      "sha256": "9d5fe01fb3dd1cc656238a669a79764aeaa45cecbd36cbd7321a38ec04b2cb55",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "raceCarOrange.glb",
+      "bytes": 106068,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.71442,
+          -0.03352,
+          -1.33594
+        ],
+        "max": [
+          0.01442,
+          0.36349,
+          0.01
+        ]
+      },
+      "size": [
+        0.72883,
+        0.39701,
+        1.34594
+      ],
+      "triangles": 1430,
+      "animations": [],
+      "sha256": "3f7d799e54e0f64c846db3764f04ccfcddfbfe48d7d59f366495d4585a35a980",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "raceCarRed.glb",
+      "bytes": 106064,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.71442,
+          -0.03352,
+          -1.33594
+        ],
+        "max": [
+          0.01442,
+          0.36349,
+          0.01
+        ]
+      },
+      "size": [
+        0.72883,
+        0.39701,
+        1.34594
+      ],
+      "triangles": 1430,
+      "animations": [],
+      "sha256": "1098f37bd5bfad5e6d46266b57f146e0f1f8ea96193df03653966d58f0692b3c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "raceCarWhite.glb",
+      "bytes": 105864,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.71442,
+          -0.03352,
+          -1.33594
+        ],
+        "max": [
+          0.01442,
+          0.36349,
+          0.01
+        ]
+      },
+      "size": [
+        0.72883,
+        0.39701,
+        1.34594
+      ],
+      "triangles": 1430,
+      "animations": [],
+      "sha256": "b1e50959852ec6f91070f802edd1be42896b2c87fbacfebab72f6e1017832cd0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "radarEquipment.glb",
+      "bytes": 20288,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18893,
+          -0.01,
+          -1.27
+        ],
+        "max": [
+          0.4,
+          0.53311,
+          -0.85689
+        ]
+      },
+      "size": [
+        0.58893,
+        0.54311,
+        0.41311
+      ],
+      "triangles": 292,
+      "animations": [],
+      "sha256": "7606e6aec88124a4b9fe96c4898c5e381aa2954f18ae772438ae24b0356cf684",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "rail.glb",
+      "bytes": 5940,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.65
+        ],
+        "max": [
+          0.65,
+          0.15,
+          -0.6
+        ]
+      },
+      "size": [
+        1,
+        0.16,
+        0.05
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "c60d60e34b675d5d832d91c6f5d7c125a1020953c2e22dbcd1215397990aaaf4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "railDouble.glb",
+      "bytes": 8656,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -0.65
+        ],
+        "max": [
+          0.65,
+          0.27,
+          -0.6
+        ]
+      },
+      "size": [
+        1,
+        0.28,
+        0.05
+      ],
+      "triangles": 112,
+      "animations": [],
+      "sha256": "0f0c9b76ee9f384404aef6781438721512f7a4791a35fd27bb32f0ca75f9272f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "ramp.glb",
+      "bytes": 6996,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.38
+        ],
+        "max": [
+          0.2,
+          0.32,
+          -0.65
+        ]
+      },
+      "size": [
+        0.55,
+        0.33,
+        0.73
+      ],
+      "triangles": 94,
+      "animations": [],
+      "sha256": "a6f2c0e4f01fded7f9020cba4a0eb304d3724a9086071b52d5ae7e2b63d47253",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadBump.glb",
+      "bytes": 8400,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.09,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.1,
+        2
+      ],
+      "triangles": 94,
+      "animations": [],
+      "sha256": "02678f457f183d049dd12405fdee1f77f6240283226657d03b122fa20d4bd2d3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerBridgeLarge.glb",
+      "bytes": 20920,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.11662,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.12662,
+        2
+      ],
+      "triangles": 308,
+      "animations": [],
+      "sha256": "00e7bb113d47937352cbfbd5cd71ac7e5587b110e5796de9edef228c634fa4cf",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerBridgeLarger.glb",
+      "bytes": 20988,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -3.65
+        ],
+        "max": [
+          2.65,
+          0.11662,
+          -0.65
+        ]
+      },
+      "size": [
+        3,
+        0.12662,
+        3
+      ],
+      "triangles": 308,
+      "animations": [],
+      "sha256": "781ef28d348563b39bb4f9ea599a425eb3e086fe5c59bf072ebbb35f97beb2a3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerBridgeSmall.glb",
+      "bytes": 18104,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.11662,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.12662,
+        1
+      ],
+      "triangles": 260,
+      "animations": [],
+      "sha256": "7417915daac34dc54c40d132ad96850b33876039a56b8fab832ebfeb3b25c87d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLarge.glb",
+      "bytes": 15196,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 216,
+      "animations": [],
+      "sha256": "fe6e9db43a5f3fde04b56d9f9905bb69b725325053002627968b5cd9e0f72d15",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeBorder.glb",
+      "bytes": 6904,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.01,
+          -2.86
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2.21,
+        0.02,
+        2.21
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "c1d8986f2a68efab23a9564f188054757a04892dacd1476a8f800d3611b0756b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeBorderInner.glb",
+      "bytes": 6908,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0.65,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "d11acfc8a6a1b5340abe24ec9afd00076f59c8c9765b63b73fde2b1646289887",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLarger.glb",
+      "bytes": 12360,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -3.65
+        ],
+        "max": [
+          2.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3,
+        0.02,
+        3
+      ],
+      "triangles": 216,
+      "animations": [],
+      "sha256": "65a8189a5edcb2df6323daa558a3bcfbb55f0803d7df59a3c84f137fce1e0c6d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerBorder.glb",
+      "bytes": 7036,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.01,
+          -3.86
+        ],
+        "max": [
+          2.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3.21,
+        0.02,
+        3.21
+      ],
+      "triangles": 79,
+      "animations": [],
+      "sha256": "40d3412e358a8a35fbbb3c9bb46682ec9dcee140c4b50dd043caab5bf877da1b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerBorderInner.glb",
+      "bytes": 6908,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0.65,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          2.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "61923a96f08ef0c7259dbd8ad4d654b7f07b21eab83db0bd55349a3fc5e0dfbb",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerSand.glb",
+      "bytes": 2516,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.88,
+          -0.01,
+          -4.18
+        ],
+        "max": [
+          2.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3.53,
+        0,
+        3.53
+      ],
+      "triangles": 24,
+      "animations": [],
+      "sha256": "852736ec795cce262a1afa59d9791b09a18b2d6e111e3415ee3219d91a9e5cdb",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerSandInner.glb",
+      "bytes": 2512,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0.65,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          2.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0,
+        2
+      ],
+      "triangles": 24,
+      "animations": [],
+      "sha256": "f5731b2087c85eba8f1920504978d25c7b84a986142f453254baf54ff60bda88",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerWall.glb",
+      "bytes": 6900,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.93,
+          -0.01,
+          -4.23
+        ],
+        "max": [
+          2.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        3.58,
+        0.04,
+        3.58
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "c42040766c51d5a7f99ca3234dc292e980f576d8372ca6273f5c7da2694928ea",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargerWallInner.glb",
+      "bytes": 6912,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          1.18,
+          -0.01,
+          -2.12
+        ],
+        "max": [
+          2.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        1.47,
+        0.04,
+        1.47
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "f6a7363355ecb026eb62524f74090ab46cf397e4b40e1705af0f6ac5b7199d06",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeSand.glb",
+      "bytes": 2524,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.88,
+          -0.01,
+          -3.18
+        ],
+        "max": [
+          1.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2.53,
+        0,
+        2.53
+      ],
+      "triangles": 24,
+      "animations": [],
+      "sha256": "822aff491430f6f3a066a6311f8ac394e2a33f53ef3f4470b7f4be097e47c117",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeSandInner.glb",
+      "bytes": 2520,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          0.65,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0,
+        1
+      ],
+      "triangles": 24,
+      "animations": [],
+      "sha256": "d7d600d72b467b755236077db70f6517799bde4509952713aa0da8aa0ca8d574",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeWall.glb",
+      "bytes": 6904,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.93,
+          -0.01,
+          -3.23
+        ],
+        "max": [
+          1.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        2.58,
+        0.04,
+        2.58
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "50275a32f9de0fa583028c075d62b01b3da1bc7e13d8d05d53671dc79e990cf9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerLargeWallInner.glb",
+      "bytes": 7404,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          1.18,
+          -0.01,
+          -1.12
+        ],
+        "max": [
+          1.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        0.47,
+        0.04,
+        0.47
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "b2632879c3c4d6c3aee9aba5b1e1ba1c00a940a5a31932fd3a14f4626f6bcf55",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerSmall.glb",
+      "bytes": 14668,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 204,
+      "animations": [],
+      "sha256": "6b5005c8266a2447be176c1d04584f299db4a13bb0a259419584e3c81437f6a4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerSmallBorder.glb",
+      "bytes": 6920,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.56,
+          -0.01,
+          -1.86
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1.21,
+        0.02,
+        1.21
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "ec8321e6e6a370fb7845a47bf48b8a7d951a77f07cbf27efaf90d6dd399119ce",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerSmallSand.glb",
+      "bytes": 2556,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.88,
+          -0.01,
+          -2.18
+        ],
+        "max": [
+          0.65,
+          -0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1.53,
+        0,
+        1.53
+      ],
+      "triangles": 25,
+      "animations": [],
+      "sha256": "8cc1a10c80f0df5df6778a67a0ec25b6af240e5fbe4dd3f4377a37c355afa465",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerSmallSquare.glb",
+      "bytes": 18496,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 182,
+      "animations": [],
+      "sha256": "21c04a77cc95f74daabba556b3a9c6aa2c06ce94066a4cbf38363d5b80e8c957",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCornerSmallWall.glb",
+      "bytes": 6904,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.93,
+          -0.01,
+          -2.23
+        ],
+        "max": [
+          0.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        1.58,
+        0.04,
+        1.58
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "8bd73ce626792584e2f06d1c2cee833f135acfccec6b43705e795ada44c32426",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCrossing.glb",
+      "bytes": 18676,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.15
+        ],
+        "max": [
+          1.65,
+          0.01,
+          0.85
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 266,
+      "animations": [],
+      "sha256": "74c0e3b66606e9b6c0b64fc96f1a73c76163bfa712b3f07930776f4976c21df0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCurved.glb",
+      "bytes": 27512,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.85,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1.5,
+        0.02,
+        2
+      ],
+      "triangles": 432,
+      "animations": [],
+      "sha256": "6d87db94d3e36b7245496c07f2f87638fe19b3166377a5e36584e057f48baca9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadCurvedSplit.glb",
+      "bytes": 36872,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.85,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.15,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 592,
+      "animations": [],
+      "sha256": "98a01eadbe19f7b827db58fc161657123f222e77055fcd428fbc3f5227942982",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadEnd.glb",
+      "bytes": 9768,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.15
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1.5
+      ],
+      "triangles": 125,
+      "animations": [],
+      "sha256": "8b58514e96e6c3656b8ef251e51697ba4b3d539593a0aa853dcbc088113ac5cd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadPitEntry.glb",
+      "bytes": 4732,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 34,
+      "animations": [],
+      "sha256": "403dfa3778c238e98b2c0d574bcc4df4b98c7b49e7af8e5356daf584b32e67f3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadPitGarage.glb",
+      "bytes": 6056,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 58,
+      "animations": [],
+      "sha256": "1ea3840d42a143598bb9441eae8453b499d5e3cda9efe68ab15196ad7f67bcf6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadPitStraight.glb",
+      "bytes": 3492,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 16,
+      "animations": [],
+      "sha256": "8bf1af782920053beb71efbc44f01579ce97094a1d8f3d02f8edfeb5195feb8d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadPitStraightLong.glb",
+      "bytes": 3508,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        2
+      ],
+      "triangles": 16,
+      "animations": [],
+      "sha256": "93bedb4690e9aa92127e02921884481f2a46ee78616b127fcc8d9cb9afec171e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRamp.glb",
+      "bytes": 3644,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.26,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.27,
+        1
+      ],
+      "triangles": 18,
+      "animations": [],
+      "sha256": "a00bbce2d503406cfe9fb2ea799aa3d0c79f83eb19d3ef9ee7e18fc3d9badc46",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRampLong.glb",
+      "bytes": 3644,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        2
+      ],
+      "triangles": 18,
+      "animations": [],
+      "sha256": "b98d333680554683a233c73d0fd7bff32343adebc6d676d226b492a075da2675",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRampLongCurved.glb",
+      "bytes": 28276,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        2
+      ],
+      "triangles": 417,
+      "animations": [],
+      "sha256": "893b38f89a49a0521ab54dcf7ffc180c6b05aaf0efd8f28b4a72ba33d5c6b400",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRampLongCurvedWall.glb",
+      "bytes": 30960,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        2
+      ],
+      "triangles": 474,
+      "animations": [],
+      "sha256": "cc00a86ffeb6c81e91ca0fe7643fd401df89454ad6a3d330654631f73a285981",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRampLongWall.glb",
+      "bytes": 4364,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        2
+      ],
+      "triangles": 30,
+      "animations": [],
+      "sha256": "f1f1e1e04b0d7a3254d581181c8b5e37c0224a619a29862f1c3ccb116a6d4cec",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadRampWall.glb",
+      "bytes": 4364,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.26,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.27,
+        1
+      ],
+      "triangles": 30,
+      "animations": [],
+      "sha256": "753a47fa5bfc781d194e0574225d6d741b3d3992ce94653f4cc783262b4c3332",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSide.glb",
+      "bytes": 6276,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 60,
+      "animations": [],
+      "sha256": "8bd1906efe075d91abf8d8936e4805eabf3e26cd3d7f26e7b911d11a9687becf",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplit.glb",
+      "bytes": 4864,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -1.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3,
+        0.02,
+        2
+      ],
+      "triangles": 37,
+      "animations": [],
+      "sha256": "3a91ca753ca165f70bca564b387ec83a8cd26bd4474c4818adc593055baf8f40",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplitLarge.glb",
+      "bytes": 13472,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 187,
+      "animations": [],
+      "sha256": "2fc4c2239a46b569daaf31a2afe70d66c6e86b385e87e9d5809425b0c2be6c08",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplitLarger.glb",
+      "bytes": 19384,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -3.65
+        ],
+        "max": [
+          2.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3,
+        0.02,
+        3
+      ],
+      "triangles": 201,
+      "animations": [],
+      "sha256": "58a33161b592d5cdf7c68c700eec1a59cb94ac0b7f53dbb5d98b903270894b4c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplitRound.glb",
+      "bytes": 24256,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -1.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        3,
+        0.02,
+        2
+      ],
+      "triangles": 375,
+      "animations": [],
+      "sha256": "5a014cf6fdf2ef49d765bf77291aa993517cc572d6790d20c19365e434bcd9c0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplitRoundLarge.glb",
+      "bytes": 33700,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2.35,
+          -0.01,
+          -3.65
+        ],
+        "max": [
+          2.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        5,
+        0.02,
+        3
+      ],
+      "triangles": 393,
+      "animations": [],
+      "sha256": "75ba6c41d4b29e610736b8394a43363ed76f022d4fbdab33ce59c6cf0da9c52e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadSplitSmall.glb",
+      "bytes": 10624,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 134,
+      "animations": [],
+      "sha256": "9627aff618f1871e6a26cbe6bf49079266638b5ff6c151d9101a23071b6f3d93",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStart.glb",
+      "bytes": 13692,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.91,
+          0.6582,
+          -0.65
+        ]
+      },
+      "size": [
+        1.26,
+        0.6682,
+        2
+      ],
+      "triangles": 182,
+      "animations": [],
+      "sha256": "80fe439932c3d347a4bb4b4f1a6ce8a161b0e245f4f4dc69d09c01145e8bd705",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStartPositions.glb",
+      "bytes": 5444,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        2
+      ],
+      "triangles": 82,
+      "animations": [],
+      "sha256": "6b4493c4c3b80f7dc4fe99245b64bdec788e5e4001f5db003b9eb4491359e3c4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraight.glb",
+      "bytes": 3644,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 18,
+      "animations": [],
+      "sha256": "6b1f92e5859d417951f259e52c9c9eadad5bfceb3b545e074049bbc17d02f00d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightArrow.glb",
+      "bytes": 4164,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        1
+      ],
+      "triangles": 36,
+      "animations": [],
+      "sha256": "dc09f192f3628d54d2d47477b76f6a3cbb8a965f6cc8f4a99851924858ac6049",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightBridge.glb",
+      "bytes": 5600,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        1
+      ],
+      "triangles": 44,
+      "animations": [],
+      "sha256": "0b165922184f7db748e39b953bb047c4ade09736d7e923fab9cecb3be98d66d7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightBridgeMid.glb",
+      "bytes": 5292,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          0.38338,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.12662,
+        1
+      ],
+      "triangles": 48,
+      "animations": [],
+      "sha256": "fc6c40e5d54a0fc64ff5875067bd2cc2757278b5d120a9de739d8ad88dfd698e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightBridgeStart.glb",
+      "bytes": 6084,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.51,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.52,
+        1
+      ],
+      "triangles": 60,
+      "animations": [],
+      "sha256": "8cce404a619c3a10e744d4e3dcd5eee9431e49b6a6e58b6650d5bd2c261f6a48",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightLong.glb",
+      "bytes": 3652,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        2
+      ],
+      "triangles": 18,
+      "animations": [],
+      "sha256": "373339cbec076e9ae2dbb77795826268d2b21bf4bea48b3e58ad8267b5d281e4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightLongBump.glb",
+      "bytes": 54000,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.25,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.26,
+        2
+      ],
+      "triangles": 834,
+      "animations": [],
+      "sha256": "b79dc2cda3d702d60fbf1cc799a00d95bdba3a4f02dfe062f7905dedde05da9b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightLongBumpRound.glb",
+      "bytes": 9444,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.03,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.04,
+        2
+      ],
+      "triangles": 114,
+      "animations": [],
+      "sha256": "af5c057408b714b0b69d11a1a0de7e0f3428e788b2ca4c54a6f631525db144e3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightLongMid.glb",
+      "bytes": 9912,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          0.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.02,
+        2
+      ],
+      "triangles": 122,
+      "animations": [],
+      "sha256": "150da9241829e3f626d4ebb23a78bc4e941081a12b2a63795fbfa7f7254ed900",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "roadStraightSkew.glb",
+      "bytes": 3652,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -2.65
+        ],
+        "max": [
+          1.65,
+          0.01,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.02,
+        2
+      ],
+      "triangles": 18,
+      "animations": [],
+      "sha256": "36a31510c33513f8a9a2f15b4b0fbc64f6cdb199a206cdc90c88e2d56e623f7b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tent.glb",
+      "bytes": 6948,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.69,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.7,
+        1
+      ],
+      "triangles": 86,
+      "animations": [],
+      "sha256": "86ad24a0e86f4d247a170157404088325615b7125b90f8e9a180c4e75939105c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tentClosed.glb",
+      "bytes": 8588,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          0.65,
+          0.69,
+          -0.65
+        ]
+      },
+      "size": [
+        1,
+        0.7,
+        1
+      ],
+      "triangles": 110,
+      "animations": [],
+      "sha256": "7bbf4c3e177df46beccb4d3da15add979cfcc9cad9c1e5b42d4339a1e76c5f47",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tentClosedLong.glb",
+      "bytes": 8592,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.65,
+          0.69,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.7,
+        1
+      ],
+      "triangles": 110,
+      "animations": [],
+      "sha256": "dc100f1c865635c4028cb823f1c9a6e15fa1e092363d104176b27fbfc13f411b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tentLong.glb",
+      "bytes": 6952,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.65
+        ],
+        "max": [
+          1.65,
+          0.69,
+          -0.65
+        ]
+      },
+      "size": [
+        2,
+        0.7,
+        1
+      ],
+      "triangles": 86,
+      "animations": [],
+      "sha256": "aa1297953436fd8496a0ade725cb9777ed6483f3c3cc50020ed44b92f7c3d91f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tentRoof.glb",
+      "bytes": 10200,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.64
+        ],
+        "max": [
+          0.21,
+          0.62,
+          -0.65
+        ]
+      },
+      "size": [
+        0.56,
+        0.63,
+        0.99
+      ],
+      "triangles": 132,
+      "animations": [],
+      "sha256": "a5bb1b517ed67412f5c65b6422064b8ac1d575df977ca915e3d13cd550d3b303",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "tentRoofDouble.glb",
+      "bytes": 16136,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -0.01,
+          -1.64
+        ],
+        "max": [
+          0.77,
+          0.62,
+          -0.65
+        ]
+      },
+      "size": [
+        1.12,
+        0.63,
+        0.99
+      ],
+      "triangles": 236,
+      "animations": [],
+      "sha256": "0895c54fa0dc3040eb97b1e77332b7e05373d0a08f158c948c17efd50fcdb16a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "treeLarge.glb",
+      "bytes": 6964,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.52837,
+          -0.01,
+          -0.85597
+        ],
+        "max": [
+          -0.17163,
+          1.4968,
+          -0.44403
+        ]
+      },
+      "size": [
+        0.35675,
+        1.5068,
+        0.41194
+      ],
+      "triangles": 72,
+      "animations": [],
+      "sha256": "3fcba4474bc490a5e589ce4924e972ca629029f2ade17a20f4ca3a7f253a3168",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    },
+    {
+      "file": "treeSmall.glb",
+      "bytes": 6960,
+      "version": 2,
+      "externalResources": [],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.47665,
+          -0.01,
+          -0.79624
+        ],
+        "max": [
+          -0.22335,
+          1.05982,
+          -0.50376
+        ]
+      },
+      "size": [
+        0.25329,
+        1.06982,
+        0.29248
+      ],
+      "triangles": 72,
+      "animations": [],
+      "sha256": "151d1556b762768433ed9610589650ae8110cac2ed99a3fe1e4da53e1335be23",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_materials_unlit"
+      ]
+    }
+  ],
+  "textures": [],
+  "externalResourcesPresent": true,
+  "modelBytes": 1899872,
+  "modelCount": 112,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

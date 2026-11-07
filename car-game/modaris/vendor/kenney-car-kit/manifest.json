@@ -1,0 +1,1666 @@
+{
+  "source": "https://kenney.nl/assets/car-kit",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+  "models": [
+    {
+      "file": "ambulance.glb",
+      "bytes": 233612,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 7,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.65
+        ],
+        "max": [
+          0.75,
+          1.8,
+          1.6
+        ]
+      },
+      "size": [
+        1.5,
+        1.8,
+        3.25
+      ],
+      "triangles": 2804,
+      "animations": [],
+      "sha256": "9e429e2b6202c0d78d0c38b2adbaae6b77716bb2a0f6fbb2811556e1fb31edba",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "box.glb",
+      "bytes": 14108,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3575,
+          0,
+          -0.3575
+        ],
+        "max": [
+          0.3575,
+          0.715,
+          0.3575
+        ]
+      },
+      "size": [
+        0.715,
+        0.715,
+        0.715
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "b773815c791d2708a2a70f1a9bb6d197d7211269ad96e273f9e364ea536c1b18",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "cone-flat.glb",
+      "bytes": 16712,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2381,
+          0,
+          -0.2381
+        ],
+        "max": [
+          0.2381,
+          0.28095,
+          0.2381
+        ]
+      },
+      "size": [
+        0.47619,
+        0.28095,
+        0.47619
+      ],
+      "triangles": 172,
+      "animations": [],
+      "sha256": "ae3ffbf948c4c8c5c26d0d509f7de4c1dc66e3cc0dfd8ca8abf380aab2d6dd8e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "cone.glb",
+      "bytes": 16696,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2381,
+          0,
+          -0.2381
+        ],
+        "max": [
+          0.2381,
+          0.59524,
+          0.2381
+        ]
+      },
+      "size": [
+        0.47619,
+        0.59524,
+        0.47619
+      ],
+      "triangles": 172,
+      "animations": [],
+      "sha256": "d6659fc365de47c5d056b14f3d3fb3e191d3a5b869c43171753621dcf14b76bd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-bolt.glb",
+      "bytes": 4768,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0866,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.0866,
+          0.26,
+          0.1
+        ]
+      },
+      "size": [
+        0.17321,
+        0.26,
+        0.2
+      ],
+      "triangles": 36,
+      "animations": [],
+      "sha256": "7951734ddc5256a69e0f15ad1ff91b64fc8e5a3cd2d77be9d7d99b2e9f6d945a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-bumper.glb",
+      "bytes": 11312,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -0.225
+        ],
+        "max": [
+          0.65,
+          0.4,
+          0.225
+        ]
+      },
+      "size": [
+        1.3,
+        0.4,
+        0.45
+      ],
+      "triangles": 116,
+      "animations": [],
+      "sha256": "dac8b9a01766f187c4f116eb7070e13485b642120f4d53ec611bf987100a1792",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-door-window.glb",
+      "bytes": 7576,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.094,
+          0,
+          -0.4
+        ],
+        "max": [
+          0.094,
+          0.9,
+          0.4
+        ]
+      },
+      "size": [
+        0.188,
+        0.9,
+        0.8
+      ],
+      "triangles": 74,
+      "animations": [],
+      "sha256": "b1adc1a83d72f96754c000ab7661844ecc8c26a6b5b8053716c608f2aa91ca42",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-door.glb",
+      "bytes": 7052,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.094,
+          0,
+          -0.4
+        ],
+        "max": [
+          0.094,
+          0.9,
+          0.4
+        ]
+      },
+      "size": [
+        0.188,
+        0.9,
+        0.8
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "c62ab01c07be9be5dfc0f940dbc933fa836019ea1bc8fd0baa2d0e52cd764ea2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-drivetrain-axle.glb",
+      "bytes": 18740,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.60207,
+          0,
+          -0.174
+        ],
+        "max": [
+          0.60207,
+          0.296,
+          0.174
+        ]
+      },
+      "size": [
+        1.20415,
+        0.296,
+        0.348
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "5ac6335574ba941e8afa827a377d667686541668b71192972179b5439e53bf78",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-drivetrain.glb",
+      "bytes": 36896,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.60207,
+          0,
+          -0.96
+        ],
+        "max": [
+          0.60207,
+          0.296,
+          0.96
+        ]
+      },
+      "size": [
+        1.20415,
+        0.296,
+        1.92
+      ],
+      "triangles": 412,
+      "animations": [],
+      "sha256": "4a93bba25d3004b028f8494105d1774a91797d116dcb136fde00b4882bfec652",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-nut.glb",
+      "bytes": 4744,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.0866,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.0866,
+          0.1,
+          0.1
+        ]
+      },
+      "size": [
+        0.17321,
+        0.1,
+        0.2
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "1a535f639861746799d95853017c08273d25c2ae888f5cd1ff8d3c973c0b895a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-plate-a.glb",
+      "bytes": 5048,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -0.45
+        ],
+        "max": [
+          0.45,
+          0.1,
+          0.45
+        ]
+      },
+      "size": [
+        0.9,
+        0.1,
+        0.9
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "3ecb3242d9e984dadd149fcdd0ded5f43e803b6370b6ddf2b7ab24876aa361ae",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-plate-b.glb",
+      "bytes": 5380,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -0.45
+        ],
+        "max": [
+          0.45,
+          0.2,
+          0.45
+        ]
+      },
+      "size": [
+        0.9,
+        0.2,
+        0.9
+      ],
+      "triangles": 44,
+      "animations": [],
+      "sha256": "363f9baf530b25fe97b7c54f8ff186249cd974b34897d39dae4c95bafca2a181",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-plate-small-a.glb",
+      "bytes": 4224,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.225,
+          0,
+          -0.225
+        ],
+        "max": [
+          0.225,
+          0.1,
+          0.225
+        ]
+      },
+      "size": [
+        0.45,
+        0.1,
+        0.45
+      ],
+      "triangles": 28,
+      "animations": [],
+      "sha256": "d710da638e0709318a06fb06a71a6c8c3b2bc1a59b87c6736f4d14ea84a8ff09",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-plate-small-b.glb",
+      "bytes": 5392,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.225,
+          0,
+          -0.225
+        ],
+        "max": [
+          0.225,
+          0.2,
+          0.225
+        ]
+      },
+      "size": [
+        0.45,
+        0.2,
+        0.45
+      ],
+      "triangles": 44,
+      "animations": [],
+      "sha256": "4bca4c02db94ba05a611bf835a638aa7b0a66208d9dc49a66799682c7cbe8446",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-spoiler-a.glb",
+      "bytes": 5616,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -0.11869
+        ],
+        "max": [
+          0.55,
+          0.3,
+          0.11869
+        ]
+      },
+      "size": [
+        1.1,
+        0.3,
+        0.23737
+      ],
+      "triangles": 48,
+      "animations": [],
+      "sha256": "0deed006f429b46b2583b503d2b32cfe854c997eb63d1de39be2418d9e1bc0ab",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-spoiler-b.glb",
+      "bytes": 8596,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.16869
+        ],
+        "max": [
+          0.5,
+          0.35,
+          0.16869
+        ]
+      },
+      "size": [
+        1,
+        0.35,
+        0.33737
+      ],
+      "triangles": 88,
+      "animations": [],
+      "sha256": "93a3ff0d440ecd61f315e257ff81c7ba80cd6fa32a854ff8d0e2d3a0b9c3f498",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "debris-tire.glb",
+      "bytes": 26548,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.175,
+          -0.3,
+          -0.3
+        ],
+        "max": [
+          0.175,
+          0.3,
+          0.3
+        ]
+      },
+      "size": [
+        0.35,
+        0.6,
+        0.6
+      ],
+      "triangles": 288,
+      "animations": [],
+      "sha256": "7c3f5968244e2c617c698820e943493b8480c7bef8535fbab04d4a501b3489e9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "delivery-flat.glb",
+      "bytes": 214456,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.65
+        ],
+        "max": [
+          0.75,
+          1.35,
+          1.6
+        ]
+      },
+      "size": [
+        1.5,
+        1.35,
+        3.25
+      ],
+      "triangles": 2574,
+      "animations": [],
+      "sha256": "2973152df7699767692ce890b3a0845a11333a52a23aa74b86a12ed443254c1b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "delivery.glb",
+      "bytes": 240264,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.65
+        ],
+        "max": [
+          0.75,
+          1.65,
+          1.6
+        ]
+      },
+      "size": [
+        1.5,
+        1.65,
+        3.25
+      ],
+      "triangles": 2476,
+      "animations": [],
+      "sha256": "426a3e3a2c242c05c889b1445ba02ef95b2c8b7cd6f597e1275ef736a826014b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "firetruck.glb",
+      "bytes": 232448,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.7
+        ],
+        "max": [
+          0.75,
+          1.7,
+          1.7
+        ]
+      },
+      "size": [
+        1.5,
+        1.7,
+        3.4
+      ],
+      "triangles": 2767,
+      "animations": [],
+      "sha256": "c0c0a22809316536468da7e9c7f57b8ec1a8e387ec3a1cde032976c6d8a6c7a4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "garbage-truck.glb",
+      "bytes": 268224,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 7,
+      "bounds": {
+        "min": [
+          -0.8,
+          0,
+          -1.7
+        ],
+        "max": [
+          0.8,
+          1.6,
+          1.75
+        ]
+      },
+      "size": [
+        1.6,
+        1.6,
+        3.45
+      ],
+      "triangles": 3124,
+      "animations": [],
+      "sha256": "6f2943e0ba4c6d86eb69a9243224259d6e0f169f474228439cda0579d49d3509",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "hatchback-sports.glb",
+      "bytes": 197804,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.45
+        ],
+        "max": [
+          0.65,
+          1.1,
+          1.4
+        ]
+      },
+      "size": [
+        1.3,
+        1.1,
+        2.85
+      ],
+      "triangles": 2088,
+      "animations": [],
+      "sha256": "bd5c9d4c3b4bdd254a66b8426563a68b1487ae7a5076df3a2488e6ffed7be64f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "kart-oobi.glb",
+      "bytes": 251516,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.48715,
+          0,
+          -0.60188
+        ],
+        "max": [
+          0.48715,
+          1.32913,
+          0.82588
+        ]
+      },
+      "size": [
+        0.9743,
+        1.32913,
+        1.42775
+      ],
+      "triangles": 2884,
+      "animations": [],
+      "sha256": "035c80531d201f050fb38c3edb348833fd0f6be0b2a132fe8d804f52a15e5756",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "kart-oodi.glb",
+      "bytes": 230984,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.48715,
+          0,
+          -0.60188
+        ],
+        "max": [
+          0.48715,
+          1.32913,
+          0.82588
+        ]
+      },
+      "size": [
+        0.9743,
+        1.32913,
+        1.42775
+      ],
+      "triangles": 2726,
+      "animations": [],
+      "sha256": "1a6d7dc227d7f1edb8aebcecaeef0749c614dcb168b69a59e0127ad6a3a71a59",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "kart-ooli.glb",
+      "bytes": 233380,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.48715,
+          0,
+          -0.60188
+        ],
+        "max": [
+          0.48715,
+          1.32913,
+          0.82588
+        ]
+      },
+      "size": [
+        0.9743,
+        1.32913,
+        1.42775
+      ],
+      "triangles": 2706,
+      "animations": [],
+      "sha256": "8b496397361b92f481e83dd5d0b74649571bae53e900ffbd785bb2d384182cc2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "kart-oopi.glb",
+      "bytes": 236196,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.48715,
+          0,
+          -0.60188
+        ],
+        "max": [
+          0.48715,
+          1.32913,
+          0.82588
+        ]
+      },
+      "size": [
+        0.9743,
+        1.32913,
+        1.42775
+      ],
+      "triangles": 2726,
+      "animations": [],
+      "sha256": "09c1a7522345761dec9d0d1efbf6093aa1611a5ccbd825e1e3260b1607a2d8ab",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "kart-oozi.glb",
+      "bytes": 240776,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.48715,
+          0,
+          -0.60188
+        ],
+        "max": [
+          0.48715,
+          1.32913,
+          0.82588
+        ]
+      },
+      "size": [
+        0.9743,
+        1.32913,
+        1.42775
+      ],
+      "triangles": 2726,
+      "animations": [],
+      "sha256": "116afde6ab8e4b94ff8f2d79ea0ef8cca15bab3a3aad2c5d73c0dc0fed5da654",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "police.glb",
+      "bytes": 195336,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.55
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.55
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        3.1
+      ],
+      "triangles": 2304,
+      "animations": [],
+      "sha256": "a617b880594f56239b7ac4cf6fd4d74ebdae3ba6c5d842e77c76a5906eff352a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "race-future.glb",
+      "bytes": 173164,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.6,
+          0,
+          -1.32989
+        ],
+        "max": [
+          0.6,
+          0.83254,
+          1.32989
+        ]
+      },
+      "size": [
+        1.2,
+        0.83254,
+        2.65977
+      ],
+      "triangles": 2068,
+      "animations": [],
+      "sha256": "869e2a58d2c12de474e824aff137334491b8f234b97127cf23f1ea04e42deec6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "race.glb",
+      "bytes": 167272,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.27989
+        ],
+        "max": [
+          0.65,
+          0.73254,
+          1.27989
+        ]
+      },
+      "size": [
+        1.3,
+        0.73254,
+        2.55977
+      ],
+      "triangles": 1952,
+      "animations": [],
+      "sha256": "e1408c4c6e135f5a39c5f34cbfbcac9ae21c5c491e793fdee74bccac8334d942",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "sedan-sports.glb",
+      "bytes": 177676,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.65,
+          1.1,
+          1.25
+        ]
+      },
+      "size": [
+        1.3,
+        1.1,
+        2.55
+      ],
+      "triangles": 2088,
+      "animations": [],
+      "sha256": "2889c428ca1dd9c975c3ff760eb8757883490410555ab60b818f712f583826d6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "sedan.glb",
+      "bytes": 172216,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.25
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        2.55
+      ],
+      "triangles": 2032,
+      "animations": [],
+      "sha256": "b532ea7d2c59f7f6b22b138cf1955218a2c1898f1cea932af4d3fd563c3959b7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "suv-luxury.glb",
+      "bytes": 175908,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.4
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.45
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        2.85
+      ],
+      "triangles": 2086,
+      "animations": [],
+      "sha256": "9e2a79dc050189d4555a88d2e9da0f30ff946ba74f1d43b5b3bda3c193d1f7d7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "suv.glb",
+      "bytes": 207572,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.35
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        2.7
+      ],
+      "triangles": 2474,
+      "animations": [],
+      "sha256": "9df31f6e89e927a8176fc792aa125f0b19dc1ba29d2025bfef7c4f4d6ab1778a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "taxi.glb",
+      "bytes": 175608,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.4
+        ],
+        "max": [
+          0.75,
+          1.5,
+          1.35
+        ]
+      },
+      "size": [
+        1.5,
+        1.5,
+        2.75
+      ],
+      "triangles": 2072,
+      "animations": [],
+      "sha256": "3803539718ffd3b84b515dbce8ed6b489f1ff5be58edb1903d2c5db5c584bdc7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tractor-police.glb",
+      "bytes": 196308,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.67104,
+          0,
+          -1.10078
+        ],
+        "max": [
+          0.67104,
+          1.70205,
+          1.20078
+        ]
+      },
+      "size": [
+        1.34208,
+        1.70205,
+        2.30155
+      ],
+      "triangles": 2278,
+      "animations": [],
+      "sha256": "25cd7801798fd1c81bb82cd8e9d5ec1ec1797b9fb720304efff5e6cbc7949142",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tractor-shovel.glb",
+      "bytes": 222584,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.83028,
+          0,
+          -1.23503
+        ],
+        "max": [
+          0.83028,
+          1.51202,
+          1.23503
+        ]
+      },
+      "size": [
+        1.66056,
+        1.51203,
+        2.47006
+      ],
+      "triangles": 2646,
+      "animations": [],
+      "sha256": "1bc67bcc36dc563baf7b5060e2a790f67a5a0b42fbdf17c18ab933fcc8a4aa53",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "tractor.glb",
+      "bytes": 175960,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.67104,
+          0,
+          -1.10078
+        ],
+        "max": [
+          0.67104,
+          1.60205,
+          1.10078
+        ]
+      },
+      "size": [
+        1.34208,
+        1.60205,
+        2.20155
+      ],
+      "triangles": 2044,
+      "animations": [],
+      "sha256": "48b30b3e4bb0adb48378c473dc27ee5ae4d9296ec758c85816f17121a3ce8371",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "truck-flat.glb",
+      "bytes": 207424,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.37256
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.37256
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        2.74511
+      ],
+      "triangles": 2488,
+      "animations": [],
+      "sha256": "4279862f2442e96c6603c514edf50bfb932707545695d8c4747611cd3796cf3b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "truck.glb",
+      "bytes": 176360,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.5
+        ],
+        "max": [
+          0.75,
+          1.3,
+          1.45
+        ]
+      },
+      "size": [
+        1.5,
+        1.3,
+        2.95
+      ],
+      "triangles": 2082,
+      "animations": [],
+      "sha256": "5e1bc66c343501dd7d5734b57e672dd949bf95d7abdce680c6508cef99d374f8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "van.glb",
+      "bytes": 175664,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.75,
+          0,
+          -1.4
+        ],
+        "max": [
+          0.75,
+          1.35,
+          1.35
+        ]
+      },
+      "size": [
+        1.5,
+        1.35,
+        2.75
+      ],
+      "triangles": 2082,
+      "animations": [],
+      "sha256": "ed4ed56e8e5ed98db050af09ed2062b3b6bb7b93eab1e563cb6774b387b233a1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-dark.glb",
+      "bytes": 29116,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2,
+          -0.3,
+          -0.3
+        ],
+        "max": [
+          0.2,
+          0.3,
+          0.3
+        ]
+      },
+      "size": [
+        0.4,
+        0.6,
+        0.6
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "ca871b4db5c5300314c5873b4c8e412f30fc95c1f1deee87599fde736a7adc20",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-default.glb",
+      "bytes": 26820,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2,
+          -0.3,
+          -0.3
+        ],
+        "max": [
+          0.2,
+          0.3,
+          0.3
+        ]
+      },
+      "size": [
+        0.4,
+        0.6,
+        0.6
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "7d61941bc27bcc3b235e2e26c598cbcb4166bd66eb8f9920e26842a11015c62b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-racing.glb",
+      "bytes": 29120,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.2,
+          -0.3,
+          -0.3
+        ],
+        "max": [
+          0.2,
+          0.3,
+          0.3
+        ]
+      },
+      "size": [
+        0.4,
+        0.6,
+        0.6
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "5d8dbff9da004a2aabc471a12be0a4b70725c49463ec36ec3465b15c0cf64571",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-tractor-back.glb",
+      "bytes": 36628,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.26879,
+          -0.43758,
+          -0.43758
+        ],
+        "max": [
+          0.26879,
+          0.43758,
+          0.43758
+        ]
+      },
+      "size": [
+        0.53758,
+        0.87516,
+        0.87516
+      ],
+      "triangles": 428,
+      "animations": [],
+      "sha256": "818d83067e1196608fe81dbc04d354b0d65af51c2612e683ab755e92c49253b4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-tractor-dark-back.glb",
+      "bytes": 36644,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.26879,
+          -0.43758,
+          -0.43758
+        ],
+        "max": [
+          0.26879,
+          0.43758,
+          0.43758
+        ]
+      },
+      "size": [
+        0.53758,
+        0.87516,
+        0.87516
+      ],
+      "triangles": 428,
+      "animations": [],
+      "sha256": "a969fa48317f6da226c1c3505b917603c325080949fbc510bc6fe736bed8fed9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-tractor-dark-front.glb",
+      "bytes": 29156,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18464,
+          -0.26928,
+          -0.26928
+        ],
+        "max": [
+          0.18464,
+          0.26928,
+          0.26928
+        ]
+      },
+      "size": [
+        0.36928,
+        0.53856,
+        0.53856
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "76eda5c812243a85cac5074c4e0726cb521d45f1e8fdd30c62dacd1c6ba9d364",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-tractor-front.glb",
+      "bytes": 29140,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.18464,
+          -0.26928,
+          -0.26928
+        ],
+        "max": [
+          0.18464,
+          0.26928,
+          0.26928
+        ]
+      },
+      "size": [
+        0.36928,
+        0.53856,
+        0.53856
+      ],
+      "triangles": 332,
+      "animations": [],
+      "sha256": "427a632a5b930cdda9d55a63fba94f01f0c77e86face3878ce9fbc63e9879b2f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "wheel-truck.glb",
+      "bytes": 34304,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.175,
+          -0.3,
+          -0.3
+        ],
+        "max": [
+          0.175,
+          0.3,
+          0.3
+        ]
+      },
+      "size": [
+        0.35,
+        0.6,
+        0.6
+      ],
+      "triangles": 428,
+      "animations": [],
+      "sha256": "411ff9692f72e9b0490d20574e3efd94b20058732a587abc26f4952e2c91351e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 5629048,
+  "modelCount": 50,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

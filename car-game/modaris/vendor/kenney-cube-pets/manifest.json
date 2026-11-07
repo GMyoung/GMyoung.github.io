@@ -1,0 +1,1024 @@
+{
+  "source": "https://kenney.nl/assets/cube-pets",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "b3bdc99a2ec92c687b875718c5d01e9231d2711ed0e2845f295b474bb42a1283",
+  "models": [
+    {
+      "file": "animal-beaver.glb",
+      "bytes": 149728,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -1.04033
+        ],
+        "max": [
+          0.625,
+          1.50125,
+          0.79661
+        ]
+      },
+      "size": [
+        1.25,
+        1.50125,
+        1.83693
+      ],
+      "triangles": 670,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "20f91809e69c66625190eb02aebef9ab543f5cf5cb17b8211b1002330584bfac",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-bee.glb",
+      "bytes": 164356,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 7,
+      "bounds": {
+        "min": [
+          -0.6675,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.6675,
+          1.99883,
+          0.66806
+        ]
+      },
+      "size": [
+        1.335,
+        1.99883,
+        1.29306
+      ],
+      "triangles": 742,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "9d3116da6c22eabf0b46efeeec7fceae8fbd01e101fddd4e6746379ff851e192",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-bunny.glb",
+      "bytes": 131568,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.625,
+          2.01004,
+          0.70482
+        ]
+      },
+      "size": [
+        1.25,
+        2.01004,
+        1.32982
+      ],
+      "triangles": 575,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "94b654915d9de70071bcf0bfa13de379a3ba4fdfeb231f0fec49335232cbc821",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-cat.glb",
+      "bytes": 165164,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 7,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -1.10361
+        ],
+        "max": [
+          0.625,
+          1.70999,
+          0.70241
+        ]
+      },
+      "size": [
+        1.25,
+        1.70999,
+        1.80602
+      ],
+      "triangles": 684,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "1e73aaf7d497dd7d2946badf92d189d2333f163e66dced91feb446bc9bdee850",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-caterpillar.glb",
+      "bytes": 130968,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.72225,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.72225,
+          1.74661,
+          0.70697
+        ]
+      },
+      "size": [
+        1.4445,
+        1.74661,
+        1.33197
+      ],
+      "triangles": 578,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "470d2481ba246ff957da0164707326e805c54dde553468a104e83ad9c7281723",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-chick.glb",
+      "bytes": 125424,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -1.09799,
+          0,
+          -0.625
+        ],
+        "max": [
+          1.09799,
+          1.59425,
+          0.725
+        ]
+      },
+      "size": [
+        2.19599,
+        1.59425,
+        1.35
+      ],
+      "triangles": 490,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "86dd5f030c9341486313b35b9e827500c430274a83b5d683cab5b1f55bc1024d",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-cow.glb",
+      "bytes": 128084,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.76974,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.76974,
+          1.61238,
+          0.835
+        ]
+      },
+      "size": [
+        1.53948,
+        1.61238,
+        1.46
+      ],
+      "triangles": 578,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "57213ad1b06c1b6959c334215b4473039a7cd47c8500b65977df923e2e3e7929",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-crab.glb",
+      "bytes": 150768,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -1.16789,
+          0,
+          -0.67369
+        ],
+        "max": [
+          1.16789,
+          1.43125,
+          0.67369
+        ]
+      },
+      "size": [
+        2.33578,
+        1.43125,
+        1.34738
+      ],
+      "triangles": 676,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "80fa5fd7c3652938d9e3c3024bb97dc9391a0e174fcc8b9459b63c613ed050f6",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-deer.glb",
+      "bytes": 150400,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.76974,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.76974,
+          1.99279,
+          0.93465
+        ]
+      },
+      "size": [
+        1.53948,
+        1.99279,
+        1.55965
+      ],
+      "triangles": 760,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "b37162d91001eefda02bd111c8e836a0c4d805ab0191887459ded0d020624ec2",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-dog.glb",
+      "bytes": 119544,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.635,
+          1.58444,
+          0.87552
+        ]
+      },
+      "size": [
+        1.26,
+        1.58444,
+        1.50052
+      ],
+      "triangles": 490,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "c127d71ac8794f9710313bbb44800ae33a79f1182cf5c523c4233cc10a93851f",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-elephant.glb",
+      "bytes": 148892,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.93893,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.93893,
+          1.43125,
+          1.05021
+        ]
+      },
+      "size": [
+        1.87785,
+        1.43125,
+        1.67521
+      ],
+      "triangles": 676,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "0831346fb8ddb8e99e42e3f92fb48858551049dc7ea49e641d90fdfc65e057be",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-fish.glb",
+      "bytes": 91584,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.94173,
+          0.10425,
+          -0.625
+        ],
+        "max": [
+          0.94172,
+          1.73218,
+          0.635
+        ]
+      },
+      "size": [
+        1.88345,
+        1.62793,
+        1.26
+      ],
+      "triangles": 422,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "b8432e91000ee6ad3f9223198709329ce46a5886c954ad851d11ae215b1fbbb2",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-fox.glb",
+      "bytes": 141880,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -1.37377
+        ],
+        "max": [
+          0.625,
+          1.68632,
+          0.93465
+        ]
+      },
+      "size": [
+        1.25,
+        1.68632,
+        2.30842
+      ],
+      "triangles": 568,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "ac1ae804da301371509cff84206e3c6b78ff9c7d02411ef0cd004731090d6b82",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-giraffe.glb",
+      "bytes": 132676,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.76806,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.78745,
+          1.71375,
+          0.791
+        ]
+      },
+      "size": [
+        1.55551,
+        1.71375,
+        1.416
+      ],
+      "triangles": 598,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "ab3562e1edb4dc6b14d5c7c9083ba3052a44ca0ccdcac2c15461d84397dc2f31",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-hog.glb",
+      "bytes": 141596,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.675,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.675,
+          1.5158,
+          0.87591
+        ]
+      },
+      "size": [
+        1.35,
+        1.5158,
+        1.50091
+      ],
+      "triangles": 706,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "978b137c139f65c5659632bd9c12a521fbd44b5756168653157b069db8f2faf9",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-koala.glb",
+      "bytes": 131008,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.97134,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.97134,
+          1.46281,
+          0.764
+        ]
+      },
+      "size": [
+        1.94268,
+        1.46281,
+        1.389
+      ],
+      "triangles": 594,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "ba13a1975bd746c59e2dce8309736c26597c8a9839602f736e4ec8570ba84fa0",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-lion.glb",
+      "bytes": 172936,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.825,
+          0,
+          -1.10361
+        ],
+        "max": [
+          0.825,
+          1.74581,
+          0.7957
+        ]
+      },
+      "size": [
+        1.65,
+        1.74581,
+        1.89931
+      ],
+      "triangles": 889,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "64697c4a76357fe8d9688fe077a5e74e527a6602574fd0941895be84b5883703",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-monkey.glb",
+      "bytes": 174944,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.99115,
+          0,
+          -1.08022
+        ],
+        "max": [
+          0.99115,
+          1.60999,
+          0.70141
+        ]
+      },
+      "size": [
+        1.9823,
+        1.60999,
+        1.78163
+      ],
+      "triangles": 918,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "4f1ba41bd6380f0daa6205442f8fb797c167d7abceaaa58943eae0e6fc9044a6",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-panda.glb",
+      "bytes": 133624,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.67167,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.67167,
+          1.50125,
+          0.81486
+        ]
+      },
+      "size": [
+        1.34335,
+        1.50125,
+        1.43986
+      ],
+      "triangles": 734,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "e001aea4fcd1c2dcb384774019f84183e6d0b638ebd986da65fee32bd93d1359",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-parrot.glb",
+      "bytes": 154124,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 7,
+      "bounds": {
+        "min": [
+          -1.09799,
+          0,
+          -1.09392
+        ],
+        "max": [
+          1.09799,
+          1.68125,
+          0.80835
+        ]
+      },
+      "size": [
+        2.19599,
+        1.68125,
+        1.90227
+      ],
+      "triangles": 530,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "a028fcccd8559652ea100fabaceb82ef53633e3474025eca593a753b008f52ab",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-penguin.glb",
+      "bytes": 130396,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -1.09476,
+          0,
+          -0.625
+        ],
+        "max": [
+          1.09476,
+          1.59425,
+          0.725
+        ]
+      },
+      "size": [
+        2.18953,
+        1.59425,
+        1.35
+      ],
+      "triangles": 558,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "ff3d7ccae941ab06773a348b03446f97650043594ab1121a26514c3e2ea6cb29",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-pig.glb",
+      "bytes": 127032,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.625,
+          1.58444,
+          0.835
+        ]
+      },
+      "size": [
+        1.25,
+        1.58444,
+        1.46
+      ],
+      "triangles": 424,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "0e09d3c745a7daa1f53ecd320739b94d57a6ea1dfc498da01dd468f3f4c866a1",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-polar.glb",
+      "bytes": 98964,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.625,
+          0,
+          -0.625
+        ],
+        "max": [
+          0.625,
+          1.50125,
+          0.87015
+        ]
+      },
+      "size": [
+        1.25,
+        1.50125,
+        1.49515
+      ],
+      "triangles": 522,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "8e94b6a8f44b38198f698f2262c3ed7aed34bd1cb3a016f7613fb5eea0897564",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "animal-tiger.glb",
+      "bytes": 172348,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.675,
+          0,
+          -1.10361
+        ],
+        "max": [
+          0.675,
+          1.70999,
+          0.7957
+        ]
+      },
+      "size": [
+        1.35,
+        1.70999,
+        1.89931
+      ],
+      "triangles": 951,
+      "animations": [
+        "static",
+        "idle",
+        "walk",
+        "run",
+        "eat",
+        "dance",
+        "gesture-positive",
+        "gesture-negative"
+      ],
+      "sha256": "cc70cdfd27ec6550b7a4524a3cc75fd594f94d384cac2bb68504b60d379f47d4",
+      "animationCount": 8,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 3368008,
+  "modelCount": 24,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

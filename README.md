@@ -6,18 +6,22 @@ A browseable homepage with three destinations: the existing Instrumental and Kar
 
 - `/` is the visual Spaces gallery with three original SVG covers, essential title labels and no marketing copy. It does not load a video player or autoplay audio.
 - `/karaoke.html` is the existing music library, including search, filters, theater mode and the original/karaoke audio switch. Its header links back to Spaces.
-- The Harvey · 墨间 card navigates to `https://harvey-ink-universe.harvey-the-rabbit.chatgpt.site`. Its existing owner-private access remains unchanged; the application is not copied into this public repository.
-- The MODARIS / Car Game card navigates to `https://modaris-drive-worlds.harvey-the-rabbit.chatgpt.site/?edition=world`. Its existing access remains unchanged; the application is not copied into this public repository.
+- `/ink/` contains Harvey · 墨间, including its animated introduction, brush writing and lessons. The car icon enters `/car-game/?edition=world`.
+- `/car-game/?edition=world` contains MODARIS / Car Game. The Tour edition remains available at `/car-game/?edition=tour`.
+
+All three applications are served directly by public GitHub Pages and require no ChatGPT or GitHub login. The former ChatGPT Site URLs are retained only as historical origins in the project records. Browser-local progress and settings remain local to the site's origin; data previously saved under a ChatGPT Site domain does not automatically transfer to this domain.
 
 The portal uses only local HTML, CSS and SVG. Edit `index.template.html` and `portal.css` for the gallery; edit `karaoke.template.html`, `style.css`, `app.js` and `player.js` for the music library. Root-level `karaoke.html` keeps the existing relative catalog, media and audio URLs valid.
 
 ## Publishing
 
-GitHub Pages serves `https://gmyoung.github.io/` through the **Publish Harvey Spaces** workflow in `.github/workflows/pages.yml`. Pages must use the **GitHub Actions** publishing source. Every push to `main` builds and stages the public HTML, scripts, styles, catalog, icon, assets, audio and media, then uploads and deploys the Pages artifact. Source templates and development files are not included in that artifact. The workflow can also be started from Actions with **Run workflow** (or `gh workflow run pages.yml --ref main`); deployments are serialized without canceling a running release.
+GitHub Pages serves `https://gmyoung.github.io/` through the **Publish Harvey Spaces** workflow in `.github/workflows/pages.yml`. Pages must use the **GitHub Actions** publishing source. Every push to `main` builds and stages the public HTML, scripts, styles, catalog, icon, assets, audio, media, `ink/` and `car-game/`, then uploads and deploys the Pages artifact. Source templates and development files are not included in that artifact. The workflow can also be started from Actions with **Run workflow** (or `gh workflow run pages.yml --ref main`); deployments are serialized without canceling a running release.
 
 No third-party runtime dependencies, stored deployment secrets, or server are required. The workflow uses Node 24, official GitHub actions pinned to commit IDs, and the job's short-lived GitHub token/OIDC permissions (`contents: read`, `pages: write`, `id-token: write`). Run `node build.mjs` after changing the source files or catalog and before committing. JavaScript and CSS use content-hashed filenames to prevent layout/script mismatches. The mutable video catalog is fetched without cache on page load and window focus, so new videos appear without waiting for page cache expiry. Hashed catalog copies are archival snapshots.
 
 `index.html` and `karaoke.html` are generated together by the build. Portal CSS also uses a content-hashed filename. Old hashed assets remain available for visitors with cached pages; source media, audio and `videos.json` stay at their existing root-relative locations.
+
+`ink/` and `car-game/` are self-contained published application snapshots, with source provenance and license notices in each directory. Keep their relative/subdirectory asset paths when refreshing them from the original local projects. Never copy a source checkout, `.git`, `.openai`, environment files, private records or credentials into the public application folders. The root build only regenerates the portal and Karaoke pages; it does not overwrite either application snapshot.
 
 ## Add a video
 

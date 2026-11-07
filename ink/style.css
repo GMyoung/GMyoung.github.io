@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light;
+  --yellow: #ffdf00;
+  --green: #356316;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: var(--yellow); }
+body { overscroll-behavior: none; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+button:disabled { cursor: default; }
+button:active { transform: scale(.97); }
+main, .intro, .world { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; }
+.world { z-index: 0; overflow: hidden; }
+.world[aria-hidden="true"] { visibility: hidden; }
+.intro { z-index: 3; background: var(--yellow); color: var(--green); overflow: hidden; }
+.intro-vortex { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
+.intro-vortex canvas { display: block; width: 100%; height: 100%; }
+.spin-unlock { position: absolute; z-index: 3; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.spin-effects { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.spin-button {
+  position: absolute; z-index: 1; inset: 0;
+  width: 100%; height: 100%; padding: 0;
+  background: transparent;
+  touch-action: none; cursor: grab;
+}
+.spin-button:active { transform: none; cursor: grabbing; }
+.spin-button:focus-visible { outline: none; }
+.is-unlocking .spin-button { pointer-events: none; }
+.enter { position: absolute; z-index: 2; width: min(70vw, 740px); height: auto; aspect-ratio: 13 / 6; left: 50%; top: 47%; translate: -50% -50%; padding: 0; background: transparent; }
+.enter:focus-visible { outline: none; }
+.enter:focus-visible #wordmark { filter: drop-shadow(0 0 4px #fff6b0) drop-shadow(0 0 7px #e9f5ad); }
+.enter:focus-visible::after { content: ""; position: absolute; left: calc(50% - 18px); bottom: -12px; width: 36px; height: 3px; background: currentColor; border-radius: 3px; }
+.wordmark-flight { display: block; width: 100%; height: 100%; opacity: 0; transform: translate3d(-100vw, 85vh, 0); will-change: transform; }
+#wordmark { display: block; width: 100%; height: 100%; transition: transform 240ms var(--ease-out); }
+.wordmark-fallback { display: none; font-family: "Comic Sans MS", cursive; font-size: clamp(75px, 16vw, 190px); font-weight: 900; letter-spacing: -.065em; transform: rotate(-4deg); }
+.wordmark-fallback.visible { display: block; }
+.meteor-trail { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.enter-hint { position: absolute; z-index: 2; right: 40px; bottom: 10%; display: grid; place-items: center; width: 54px; height: 54px; padding: 9px; background: transparent; opacity: 0; transition: opacity 450ms ease, transform 200ms var(--ease-out); }
+.intro.ready .enter-hint { opacity: 1; }
+.iris { display: none; position: fixed; z-index: 5; background: #071511; border-radius: 50%; width: 1px; height: 1px; pointer-events: none; }
+.ink-surface canvas { display: block; width: 100%; height: 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .intro.ready .enter:hover #wordmark { transform: scale(1.02); }
+  .enter-hint:hover { transform: translate(2px, -2px); }
+}
+@media (max-width: 700px) {
+  .enter { width: 88vw; top: 45%; }
+  .enter-hint { right: 24px; bottom: 11%; }
+}
+@media (max-height: 500px) and (min-width: 600px) {
+  .enter { width: min(50vw, 490px); top: 43%; }
+  .enter-hint { bottom: 13%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .wordmark-flight { will-change: auto; }
+  .spin-button:active, .is-unlocking .spin-button { transform: none; }
+}

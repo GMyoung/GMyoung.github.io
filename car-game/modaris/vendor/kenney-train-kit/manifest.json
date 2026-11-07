@@ -1,0 +1,3415 @@
+{
+  "source": "https://kenney.nl/assets/train-kit",
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "archiveSha256": "cf50d77e8cbacbf38dd50826d4bce5392db8e4f67373d3c4e583b0ed0e474475",
+  "models": [
+    {
+      "file": "railroad-corner-large-ramp.glb",
+      "bytes": 51400,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1.00112,
+          1e-05
+        ],
+        "max": [
+          0.48752,
+          0.1,
+          4.48656
+        ]
+      },
+      "size": [
+        4.48752,
+        1.10112,
+        4.48656
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "df5d8b73750426e432301fda7764b003902838791cea119cfce7ce9e6576cecc",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-corner-large.glb",
+      "bytes": 51344,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.48727,
+          -0.9,
+          4.48727
+        ]
+      },
+      "size": [
+        4.48726,
+        0.1,
+        4.48726
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "be0ed13b14aa6753f707a50b6986f09f38a0a42eac5d87fd0f56176d3cbf70a5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-corner-small-ramp.glb",
+      "bytes": 34864,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1.01048,
+          0
+        ],
+        "max": [
+          0.4921,
+          0.1,
+          2.48938
+        ]
+      },
+      "size": [
+        2.4921,
+        1.11048,
+        2.48938
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "721411ab71bb1b9c323262f3b84490059a7bd803087697f85f3e078dcbd725f1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-corner-small.glb",
+      "bytes": 34828,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1,
+          0
+        ],
+        "max": [
+          0.49222,
+          -0.9,
+          2.49222
+        ]
+      },
+      "size": [
+        2.49222,
+        0.1,
+        2.49222
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "226bd0142198540a7f812f1e2826e9c2cc61dda0b097fdcd673146f8a2ed6ee6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-curve.glb",
+      "bytes": 41392,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2.4919,
+          -1,
+          0
+        ],
+        "max": [
+          0.4919,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        2.98381,
+        0.1,
+        3.99999
+      ],
+      "triangles": 452,
+      "animations": [],
+      "sha256": "2b82b46bf369a755e569f3990445b3189ad0e65c5d8ce23616d5ccfc25e54be9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-corner-large-ramp.glb",
+      "bytes": 54116,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1.00419,
+          1e-05
+        ],
+        "max": [
+          0.47785,
+          0.1,
+          4.48987
+        ]
+      },
+      "size": [
+        4.47785,
+        1.10419,
+        4.48987
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "09714c527e008baa878391a3008a013ad04727521471f43b6e588113099d2952",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-corner-large.glb",
+      "bytes": 54064,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.48865,
+          -0.9,
+          4.48095
+        ]
+      },
+      "size": [
+        4.48865,
+        0.1,
+        4.48095
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "79035eb63ddd0da4f9a1b63f3cc370dda10c1beb00ef4c98b4f99a92c80b384f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-corner-small-ramp.glb",
+      "bytes": 36424,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1.00759,
+          0
+        ],
+        "max": [
+          0.49317,
+          0.1,
+          2.49029
+        ]
+      },
+      "size": [
+        2.49317,
+        1.10759,
+        2.49029
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "dc8f3437ebeea8e3af451998c898b9987ed759fed56fad7f60eff37e02767972",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-corner-small.glb",
+      "bytes": 36392,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1,
+          -0.01022
+        ],
+        "max": [
+          0.49313,
+          -0.9,
+          2.49329
+        ]
+      },
+      "size": [
+        2.49313,
+        0.1,
+        2.50351
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "ecbd59ea8b61981ad6f4f50420110cf8f8e80d582c0b48a645b5775e63f7f624",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-curve.glb",
+      "bytes": 43340,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2.48743,
+          -1,
+          0
+        ],
+        "max": [
+          0.48229,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        2.96971,
+        0.1,
+        3.99999
+      ],
+      "triangles": 452,
+      "animations": [],
+      "sha256": "11b6636484fc6370c901e0f8b031a61181ef0df257369bf39aff843539cff06d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-bend-large.glb",
+      "bytes": 54104,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51298,
+          -1.00015,
+          1e-05
+        ],
+        "max": [
+          0.51298,
+          2.99999,
+          4
+        ]
+      },
+      "size": [
+        1.02596,
+        4.00014,
+        3.99999
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "e4a492538d678b182a7da633d4f37f7388dd5811fabf7a17b3e62049df64d870",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-bend.glb",
+      "bytes": 36432,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51363,
+          -1.00794,
+          0
+        ],
+        "max": [
+          0.51363,
+          1,
+          2.00913
+        ]
+      },
+      "size": [
+        1.02726,
+        2.00794,
+        2.00913
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "a738effbf8d9996f60b404d76ce19f803c69b62578bc5788c309bb57470d2cb2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-bump-down.glb",
+      "bytes": 40124,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51404,
+          -1.50619,
+          0
+        ],
+        "max": [
+          0.51404,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        1.02807,
+        0.60619,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "fd90789f01a92c761ca20ba923e58c5bfd9893578999a94ee5a4b19d6c124f6a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-bump-up.glb",
+      "bytes": 40100,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51319,
+          -1,
+          0
+        ],
+        "max": [
+          0.51319,
+          -0.40132,
+          4
+        ]
+      },
+      "size": [
+        1.02637,
+        0.59868,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "b82c336eee8f6cdd0c96a21a6c63faec6832cbe9dc5788194707fc1f7e000a96",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-hill-beginning.glb",
+      "bytes": 40160,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51305,
+          -1.00033,
+          0
+        ],
+        "max": [
+          0.51304,
+          0.07071,
+          4
+        ]
+      },
+      "size": [
+        1.02609,
+        1.07104,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "551324b1b06f612772d9f9148380246ced931415bc03768cc9808290bebdd860",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-hill-complete-half.glb",
+      "bytes": 40156,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51335,
+          -1.00046,
+          0
+        ],
+        "max": [
+          0.51335,
+          -0.4,
+          4
+        ]
+      },
+      "size": [
+        1.0267,
+        0.60046,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "32de3f8a286ac5a3a2a6f040112bcb4679481be8c4dbb43141ebc70457ea706a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-hill-complete.glb",
+      "bytes": 40120,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51165,
+          -1,
+          0
+        ],
+        "max": [
+          0.51165,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        1.0233,
+        1.1,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "79516f9cd98194127c6b6dd7fda8474ef7936fdf899b42bf9d6d417e7dac53ff",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-hill-end.glb",
+      "bytes": 40136,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51405,
+          -1,
+          -0.07071
+        ],
+        "max": [
+          0.51405,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        1.02811,
+        1.1,
+        4.0707
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "2cb8b9e32d302a7fcc4e1b7294189927e91f1d7bbf5aee212d45a971c0f1eb41",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-skew-left-side.glb",
+      "bytes": 36436,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.50731,
+          -1.49511,
+          0
+        ],
+        "max": [
+          0.51524,
+          -0.49696,
+          4
+        ]
+      },
+      "size": [
+        1.02255,
+        0.99815,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "962720752de27aa281c5b9ae321bdab5d776af022ac90ecb2deb27699470e1af",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-skew-left.glb",
+      "bytes": 36428,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51049,
+          -1.34496,
+          0
+        ],
+        "max": [
+          0.51281,
+          -0.61809,
+          4
+        ]
+      },
+      "size": [
+        1.0233,
+        0.72687,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "cf199d28088d592b2f29d38a3c1af393d57412d49a5263e7f68b5ece6e4cc408",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-skew-right-side.glb",
+      "bytes": 36440,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51055,
+          -1.5044,
+          0
+        ],
+        "max": [
+          0.50261,
+          -0.48767,
+          4
+        ]
+      },
+      "size": [
+        1.01316,
+        1.01673,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "94caf388cf7fe25c03445a7998d1b37823d45360b9bf5d2c59b9a3d828a1c837",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight-skew-right.glb",
+      "bytes": 36432,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51514,
+          -1.34392,
+          0
+        ],
+        "max": [
+          0.51213,
+          -0.61912,
+          4
+        ]
+      },
+      "size": [
+        1.02727,
+        0.7248,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "49f823457f81c5a1ead5bd6ca1c90bff98188310962a59a8c5b15ae4374613e7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-damaged-straight.glb",
+      "bytes": 36332,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.51388,
+          -1,
+          0
+        ],
+        "max": [
+          0.51388,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        1.02777,
+        0.1,
+        4
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "da9f7d69c1c3902c2fa5058c2e2b9ebc67018b2852df99499c726d73c87f604a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-corner-large-ramp.glb",
+      "bytes": 25104,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.35,
+          0.1,
+          4.35
+        ]
+      },
+      "size": [
+        4.34999,
+        1.1,
+        4.34999
+      ],
+      "triangles": 280,
+      "animations": [],
+      "sha256": "0f4fee27f4c67c53daf9fa1334f58858e86d8731a91aed430af0c22f49a392a8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-corner-large.glb",
+      "bytes": 25068,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -3.99999,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.35,
+          -0.9,
+          4.35
+        ]
+      },
+      "size": [
+        4.34999,
+        0.1,
+        4.34999
+      ],
+      "triangles": 280,
+      "animations": [],
+      "sha256": "43864465850c69d4d13b18b29df6604ed7866f074b73f60b2412769258978dd4",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-corner-small-ramp.glb",
+      "bytes": 15148,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          0.1,
+          2.35
+        ]
+      },
+      "size": [
+        2.35,
+        1.1,
+        2.35
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "388a510fafe953aed5957fbc855598b5abe16f0b78d8f90a99bf929643c5e62a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-corner-small.glb",
+      "bytes": 15132,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.9,
+          2.35
+        ]
+      },
+      "size": [
+        2.35,
+        0.1,
+        2.35
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "0f6cc1d10a0e7a60b83555a4a15b6964edc016315bb0ac56d09b77659919378f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-curve.glb",
+      "bytes": 18408,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -2.35,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        2.7,
+        0.1,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "70d874679e7ac8f1909e02a66875f7dc11874302c9012cbcd35a8195d594d051",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-bend-large.glb",
+      "bytes": 25076,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35003,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.35,
+          2.99999,
+          4
+        ]
+      },
+      "size": [
+        0.70003,
+        3.99999,
+        3.99999
+      ],
+      "triangles": 280,
+      "animations": [],
+      "sha256": "8f75c79edc314a6e3bc0e855f012f50a81e20dcbc94c687d54e8cbc6d4fb5ca3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-bend.glb",
+      "bytes": 15116,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35003,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          1,
+          2
+        ]
+      },
+      "size": [
+        0.70003,
+        2,
+        2
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "36aad797b8f905a73b742adfc24e8e5e1b2bc935c446022d052f9d6c55dddfde",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-bump-down.glb",
+      "bytes": 18464,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1.49872,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        0.59872,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "9f9299c9b7239d0499adc91b0f35689d7abeed7b7638f02341b8bd51dc8695fc",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-bump-up.glb",
+      "bytes": 18440,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.40132,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        0.59868,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "8ad85ac9ad1ecb099112d52accc832844ee5b6c266b5c5e54976406c163a38ae",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-hill-beginning.glb",
+      "bytes": 18476,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35003,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          0.07071,
+          4
+        ]
+      },
+      "size": [
+        0.70003,
+        1.07071,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "0d794703d07d2690d0305a09d40e956cb994cc32eec2ba5d4eb900b76d45d5b2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-hill-complete-half.glb",
+      "bytes": 18472,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.4,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        0.6,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "38f97e0c2185fc86b5c7e824c9bd32efb4a6b667e2becf741ed85216a1e49eec",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-hill-complete.glb",
+      "bytes": 18456,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        1.1,
+        3.99999
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "128fcfe025223e503d4326dd8ee552395718cd7d333ca466b13d0f2e46e9d034",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-hill-end.glb",
+      "bytes": 18476,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1,
+          -0.07071
+        ],
+        "max": [
+          0.35,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        1.1,
+        4.0707
+      ],
+      "triangles": 200,
+      "animations": [],
+      "sha256": "df87e97c008682d9433a4332e62e4306887bbd0c9225adad7b4f63e5b815757e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-skew-left-side.glb",
+      "bytes": 15144,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1.35,
+          0
+        ],
+        "max": [
+          0.3636,
+          -0.6364,
+          4
+        ]
+      },
+      "size": [
+        0.7136,
+        0.7136,
+        3.99999
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "2940d6c60a7df971f435acfa2c683cf6ec68e86f45df0cd22acf6aac1814d26f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-skew-left.glb",
+      "bytes": 15164,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1.24749,
+          0
+        ],
+        "max": [
+          0.36398,
+          -0.6818,
+          4
+        ]
+      },
+      "size": [
+        0.71398,
+        0.56569,
+        3.99999
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "8fa791e793aa1cd4c38eda6cae6485c44b09b8d1755769a91ce3b38e0728e6b5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-skew-right-side.glb",
+      "bytes": 15148,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.3636,
+          -1.35,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.6364,
+          4
+        ]
+      },
+      "size": [
+        0.7136,
+        0.7136,
+        3.99999
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "8cce72edbcba0b7ef9f717bdc26da4df37fc654a2ff98392a2fdf7bc0d7c236d",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight-skew-right.glb",
+      "bytes": 15136,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.36398,
+          -1.24749,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.6818,
+          4
+        ]
+      },
+      "size": [
+        0.71398,
+        0.56569,
+        3.99999
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "5b035173481b8891e3cf47a3dfcf4cc8c8788ad8497459464380016b9c956c1f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-rail-straight.glb",
+      "bytes": 15072,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          -1,
+          0
+        ],
+        "max": [
+          0.35,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        0.7,
+        0.1,
+        4
+      ],
+      "triangles": 160,
+      "animations": [],
+      "sha256": "1942036b3f5ecdc0a2be7e245a3ce81df0e953cd0929ac345b4c0e008d65a146",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-bend-large.glb",
+      "bytes": 51348,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.50002,
+          -1,
+          1e-05
+        ],
+        "max": [
+          0.5,
+          2.99999,
+          4
+        ]
+      },
+      "size": [
+        1.00002,
+        3.99999,
+        3.99999
+      ],
+      "triangles": 568,
+      "animations": [],
+      "sha256": "f60ad048cfc81d25710149ce8f67e5c181709d14faa0d5715b6fe6b62820f6b5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-bend.glb",
+      "bytes": 34820,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.50002,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          1,
+          2
+        ]
+      },
+      "size": [
+        1.00002,
+        2,
+        2
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "ccfb1e3f25cbc14a08ef47d8d4b4037fb7841552084f9d84e3bdb5cabf051802",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-bump-down.glb",
+      "bytes": 38148,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1.49872,
+          0
+        ],
+        "max": [
+          0.5,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        1,
+        0.59872,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "fa84c60144cf402c69762db62c85f077d1e1406caf96e69df822a45ecb2fb885",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-bump-up.glb",
+      "bytes": 38120,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          -0.40132,
+          4
+        ]
+      },
+      "size": [
+        1,
+        0.59868,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "143a5e57a34ba83118478cd058edd5ac174a5401c8ac1e6980e794d483cff56f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-hill-beginning.glb",
+      "bytes": 38176,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.50002,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          0.07071,
+          4
+        ]
+      },
+      "size": [
+        1.00002,
+        1.07071,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "af10f6ca75a4ddf70da28efa3d5d54d502ff1514494fdf91f8058940e1709965",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-hill-complete-half.glb",
+      "bytes": 38156,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          -0.4,
+          4
+        ]
+      },
+      "size": [
+        1,
+        0.6,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "68e8bad1160d081c3ae802912b4feed3d13e7dff439edd790ac8a59989dfe079",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-hill-complete.glb",
+      "bytes": 38140,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        1,
+        1.1,
+        3.99999
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "30cc06f5257a17197e31e8f4976141019e7edf631a242a95d010cae0e7c44900",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-hill-end.glb",
+      "bytes": 38160,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1,
+          -0.07071
+        ],
+        "max": [
+          0.5,
+          0.1,
+          4
+        ]
+      },
+      "size": [
+        1,
+        1.1,
+        4.0707
+      ],
+      "triangles": 416,
+      "animations": [],
+      "sha256": "8225ab428cd54be55d5205d9c9cc288d2fddde82f67902009d622e3879b20d1a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-skew-left-side.glb",
+      "bytes": 34864,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.49366,
+          -1.49366,
+          0
+        ],
+        "max": [
+          0.5016,
+          -0.4984,
+          4
+        ]
+      },
+      "size": [
+        0.99526,
+        0.99526,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "da7a9b39e07e8648118b7e4335dc1b09b0ac24d41793c59c03b1faed53635d9f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-skew-left.glb",
+      "bytes": 34876,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.49946,
+          -1.33676,
+          0
+        ],
+        "max": [
+          0.50178,
+          -0.62628,
+          4
+        ]
+      },
+      "size": [
+        1.00124,
+        0.71048,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "431514c92815bf9eb52d0264d14aa9f384c56cbbe6c328f6dd44a35a56c62f9f",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-skew-right-side.glb",
+      "bytes": 34868,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5016,
+          -1.49366,
+          0
+        ],
+        "max": [
+          0.49366,
+          -0.4984,
+          4
+        ]
+      },
+      "size": [
+        0.99526,
+        0.99526,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "5e82eb540fcf8e2e52b4fbcdcabecc34b31cc786e802a0c8b31726f2949b20aa",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight-skew-right.glb",
+      "bytes": 34852,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.50178,
+          -1.33676,
+          0
+        ],
+        "max": [
+          0.49946,
+          -0.62628,
+          4
+        ]
+      },
+      "size": [
+        1.00124,
+        0.71048,
+        3.99999
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "b6e1e01a0f3b57ec2b5bbd8a5acc17f9a9e2038e5397ac7c6e0a67d01baf222e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "railroad-straight.glb",
+      "bytes": 34736,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          -1,
+          0
+        ],
+        "max": [
+          0.5,
+          -0.9,
+          4
+        ]
+      },
+      "size": [
+        1,
+        0.1,
+        4
+      ],
+      "triangles": 376,
+      "animations": [],
+      "sha256": "bcbd501f74b754b61f2ddb5cba2d45d5d694bfd25c497fa72af65202a53930d9",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "spline-segment.glb",
+      "bytes": 4892,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.125
+        ],
+        "max": [
+          0.5,
+          0.075,
+          0.125
+        ]
+      },
+      "size": [
+        1,
+        0.075,
+        0.25
+      ],
+      "triangles": 36,
+      "animations": [],
+      "sha256": "253237f333dd17b89fe2f2580ff11753d3a268fb523d593580e09a34cb7274f5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "spline-track-damaged.glb",
+      "bytes": 5356,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.35,
+          0.1,
+          0.5
+        ]
+      },
+      "size": [
+        0.7,
+        0.1,
+        1
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "b038790d9d5f7f66fed4a8176ad0151fa7fc541b0f74aafeb515c96f6cf072f8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "spline-track.glb",
+      "bytes": 4944,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.35,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.35,
+          0.1,
+          0.5
+        ]
+      },
+      "size": [
+        0.7,
+        0.1,
+        1
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "75940a354bda3a39ed12beaf657912ead4d78e0d83ee5cb1379f0c79de00e25b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "track-detailed.glb",
+      "bytes": 13228,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.15,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.15,
+        1
+      ],
+      "triangles": 124,
+      "animations": [],
+      "sha256": "b56cab0c6cf54ea1e3e3dbdffc06995b7a432db41ee39bf063d54b171f937351",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "track-single-detailed.glb",
+      "bytes": 7704,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.15,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.15,
+        1
+      ],
+      "triangles": 68,
+      "animations": [],
+      "sha256": "511dc965864bba9c3c0fb0e4e60beefe13d00b1dd23beb8eb02cb662b9e7a7d7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "track-single.glb",
+      "bytes": 6104,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.15,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.15,
+        1
+      ],
+      "triangles": 52,
+      "animations": [],
+      "sha256": "cd73c5b63845659d77f1dfe82a0dc54e8dbacebf3b62d1e9971b3a931994f104",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "track.glb",
+      "bytes": 8464,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          0.15,
+          0.5
+        ]
+      },
+      "size": [
+        1,
+        0.15,
+        1
+      ],
+      "triangles": 76,
+      "animations": [],
+      "sha256": "a288815a2d74cea1e06c66e8cd9d7006fbe14c62d991cd25096306ec7681ed2b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-box.glb",
+      "bytes": 98768,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.60001,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.60001,
+          1.2977,
+          1.35
+        ]
+      },
+      "size": [
+        1.20002,
+        1.2977,
+        2.7
+      ],
+      "triangles": 1076,
+      "animations": [],
+      "sha256": "6b594f3f7ef779879043219e2ee79eb37523427e2100855296a0c9662b36689c",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-coal.glb",
+      "bytes": 110244,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.60001,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.60001,
+          1.6457,
+          1.35
+        ]
+      },
+      "size": [
+        1.20002,
+        1.6457,
+        2.7
+      ],
+      "triangles": 1184,
+      "animations": [],
+      "sha256": "95c6282a6b13317640ac48bd75d7aeec10faa9bfc035ba21977bb0296df7199a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-container-blue.glb",
+      "bytes": 116192,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.5,
+          1.3595,
+          1.35
+        ]
+      },
+      "size": [
+        1,
+        1.3595,
+        2.7
+      ],
+      "triangles": 1242,
+      "animations": [],
+      "sha256": "3e76c5367080f8b82efc4ab8ecf50af15c01e5b41e96576515ede0a76a6257e2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-container-green.glb",
+      "bytes": 116196,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.5,
+          1.3595,
+          1.35
+        ]
+      },
+      "size": [
+        1,
+        1.3595,
+        2.7
+      ],
+      "triangles": 1242,
+      "animations": [],
+      "sha256": "0c3b0ab9f64f3dba22e9d97f9d36b8df20e3b6cfaab8e4c484e75ef820919f27",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-container-red.glb",
+      "bytes": 116192,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.5,
+          1.3595,
+          1.35
+        ]
+      },
+      "size": [
+        1,
+        1.3595,
+        2.7
+      ],
+      "triangles": 1242,
+      "animations": [],
+      "sha256": "c210aff0fc5d4ee92446b1fdc24ad502df4eabda639c29cc88dd6e64b5abe111",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-dirt.glb",
+      "bytes": 110244,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.60001,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.60001,
+          1.6457,
+          1.35
+        ]
+      },
+      "size": [
+        1.20002,
+        1.6457,
+        2.7
+      ],
+      "triangles": 1184,
+      "animations": [],
+      "sha256": "cced086b987896d9f57b92aaccb4c6495e22f9f83596b5f9c122311af021f535",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-flatbed-wood.glb",
+      "bytes": 103004,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.55,
+          1.1595,
+          1.35
+        ]
+      },
+      "size": [
+        1.1,
+        1.1595,
+        2.7
+      ],
+      "triangles": 1094,
+      "animations": [],
+      "sha256": "a8e0e3d5c8c86414aa8531b0c728e0481f04df4e820edd554f3ac82292f4c18b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-flatbed.glb",
+      "bytes": 100148,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.55,
+          1.1595,
+          1.35
+        ]
+      },
+      "size": [
+        1.1,
+        1.1595,
+        2.7
+      ],
+      "triangles": 1070,
+      "animations": [],
+      "sha256": "2dc5ebc40ec9e550f0c06f59622a44b42024b593194a207a7f66ad30c44f4ff8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-lumber.glb",
+      "bytes": 110308,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.55,
+          1.1595,
+          1.35
+        ]
+      },
+      "size": [
+        1.1,
+        1.1595,
+        2.7
+      ],
+      "triangles": 1170,
+      "animations": [],
+      "sha256": "c205eff406b60d1c3df668c688ec5841a476568aaccc970a195287aa863b9bf6",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-tank-large.glb",
+      "bytes": 106772,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.693,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.693,
+          1.7525,
+          1.35
+        ]
+      },
+      "size": [
+        1.386,
+        1.7525,
+        2.7
+      ],
+      "triangles": 1146,
+      "animations": [],
+      "sha256": "12ef83eea173dcceb180b4fa1909276d094477ea06235e27c4bcfd9257fa45fe",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-tank.glb",
+      "bytes": 106752,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.693,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.693,
+          1.7525,
+          1.35
+        ]
+      },
+      "size": [
+        1.386,
+        1.7525,
+        2.7
+      ],
+      "triangles": 1146,
+      "animations": [],
+      "sha256": "0de1d92587c0b4d79e6dd1dad7d4d2e8ef849330af07e2f1701b98b9e0cf4e6a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-carriage-wood.glb",
+      "bytes": 105368,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.60001,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.60001,
+          1.57482,
+          1.35
+        ]
+      },
+      "size": [
+        1.20002,
+        1.57482,
+        2.7
+      ],
+      "triangles": 1136,
+      "animations": [],
+      "sha256": "14dc6c4bb62143d1213d60f503a005165c3cdf864cbe2a14e41e9f41b43facf7",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-connector.glb",
+      "bytes": 4940,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 1,
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -0.1
+        ],
+        "max": [
+          0.45,
+          0.9,
+          0.1
+        ]
+      },
+      "size": [
+        0.9,
+        0.9,
+        0.2
+      ],
+      "triangles": 40,
+      "animations": [],
+      "sha256": "9d9d5154308e9298c0904be683d7471d23ab80bf00523f1d82326258ab7c2a4e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-a.glb",
+      "bytes": 156432,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.6,
+          0,
+          -1.2
+        ],
+        "max": [
+          0.6,
+          1.597,
+          1.2
+        ]
+      },
+      "size": [
+        1.2,
+        1.597,
+        2.4
+      ],
+      "triangles": 1742,
+      "animations": [],
+      "sha256": "20c6c7c23c005e8cda1c1e922473c0fc9c93fc7c1d1bc5a637d640424f811cc3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-b.glb",
+      "bytes": 114744,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -1.2
+        ],
+        "max": [
+          0.5,
+          1.4845,
+          1.2
+        ]
+      },
+      "size": [
+        1,
+        1.4845,
+        2.4
+      ],
+      "triangles": 1244,
+      "animations": [],
+      "sha256": "d2cec12f8a237b22ebf52d8c7131587d5c1199a43714e01c0d33fb881d9ea8e8",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-box-a.glb",
+      "bytes": 156056,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.675,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.675,
+          1.67465,
+          1.47322
+        ]
+      },
+      "size": [
+        1.35,
+        1.67465,
+        2.62322
+      ],
+      "triangles": 1726,
+      "animations": [],
+      "sha256": "396a7d723d748efb249f16083e9ec5bf9a017a4eab3ed16a30facd3faea8d4b1",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-box-b.glb",
+      "bytes": 113124,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.65,
+          1.64912,
+          1.45
+        ]
+      },
+      "size": [
+        1.3,
+        1.64912,
+        2.6
+      ],
+      "triangles": 1228,
+      "animations": [],
+      "sha256": "5e4adfffe4274921addb04d8ce463edac001de63cbd8e77e92b00d29d9f2b81a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-box-c.glb",
+      "bytes": 135900,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.675,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.675,
+          1.64912,
+          1.45
+        ]
+      },
+      "size": [
+        1.35,
+        1.64912,
+        2.6
+      ],
+      "triangles": 1504,
+      "animations": [],
+      "sha256": "d003eb3ffe340141cc9f3e9843a8d5170050c0d612b0760f477faa63fb70cb00",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-diesel-c.glb",
+      "bytes": 116200,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -1.2
+        ],
+        "max": [
+          0.5,
+          1.4595,
+          1.2
+        ]
+      },
+      "size": [
+        1,
+        1.4595,
+        2.4
+      ],
+      "triangles": 1263,
+      "animations": [],
+      "sha256": "dd33696ee0cc61e621259a706e52a3f7689f08e367966189b187233c02affdb2",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-bullet-a.glb",
+      "bytes": 114608,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.66,
+          0,
+          -1.39951
+        ],
+        "max": [
+          0.66,
+          1.63742,
+          1.39951
+        ]
+      },
+      "size": [
+        1.32,
+        1.63742,
+        2.79902
+      ],
+      "triangles": 1261,
+      "animations": [],
+      "sha256": "523bba3b09d7e6c30d4040316f3f8ecaf8441943cbca82855769438c40c3b2c0",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-bullet-b.glb",
+      "bytes": 125828,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.65,
+          1.63742,
+          1.3
+        ]
+      },
+      "size": [
+        1.3,
+        1.63742,
+        2.6
+      ],
+      "triangles": 1394,
+      "animations": [],
+      "sha256": "471759f93fe13e2abe27dba78e23adadea3d73a83bc7641b27154baf6a5eb4bf",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-bullet-c.glb",
+      "bytes": 103920,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.65,
+          1.63742,
+          1.3
+        ]
+      },
+      "size": [
+        1.3,
+        1.63742,
+        2.6
+      ],
+      "triangles": 1138,
+      "animations": [],
+      "sha256": "3aab1660dd38abd8c8f846f6d1874f79ede21a9f9f12e25068315dc7a31c3c91",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-city-a.glb",
+      "bytes": 104168,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.2
+        ],
+        "max": [
+          0.55,
+          1.6828,
+          1.2
+        ]
+      },
+      "size": [
+        1.1,
+        1.6828,
+        2.4
+      ],
+      "triangles": 1130,
+      "animations": [],
+      "sha256": "9f63a93e65e530982bf5ac3ad15b3c9f3b2608561b3773164d970c67bd2272bd",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-city-b.glb",
+      "bytes": 135720,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.65,
+          2.21919,
+          1.35
+        ]
+      },
+      "size": [
+        1.3,
+        2.21919,
+        2.7
+      ],
+      "triangles": 1500,
+      "animations": [],
+      "sha256": "b22ab193904eb78868ffdf1cca12a938ec63f30c1c573f22f030537bc4615361",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-city-c.glb",
+      "bytes": 121344,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.35
+        ],
+        "max": [
+          0.55,
+          1.6828,
+          1.35
+        ]
+      },
+      "size": [
+        1.1,
+        1.6828,
+        2.7
+      ],
+      "triangles": 1336,
+      "animations": [],
+      "sha256": "16b3d6817e5e3fed42aa780b59f336322252d4b88b06a3003082b7f338320a76",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-double-a.glb",
+      "bytes": 134184,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.64248,
+          0,
+          -1.25
+        ],
+        "max": [
+          0.64248,
+          1.92402,
+          1.25
+        ]
+      },
+      "size": [
+        1.28495,
+        1.92402,
+        2.5
+      ],
+      "triangles": 1445,
+      "animations": [],
+      "sha256": "1086113a2fb6d805959bdf2ffbeea1a3c48e8a8b9b0542f514ee07debe30a17b",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-double-b.glb",
+      "bytes": 134260,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.64248,
+          0,
+          -1.31875
+        ],
+        "max": [
+          0.64248,
+          1.92402,
+          1.31875
+        ]
+      },
+      "size": [
+        1.28495,
+        1.92402,
+        2.6375
+      ],
+      "triangles": 1462,
+      "animations": [],
+      "sha256": "a384ee9825c97972f2a2692fa5e1157acab4dd4bf297f9a0ee18aa63f84e3106",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-double-c.glb",
+      "bytes": 116932,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.64248,
+          0,
+          -1.31875
+        ],
+        "max": [
+          0.64248,
+          1.92402,
+          1.31875
+        ]
+      },
+      "size": [
+        1.28495,
+        1.92402,
+        2.6375
+      ],
+      "triangles": 1262,
+      "animations": [],
+      "sha256": "df75b5ae2956c8283d2249a01d36717c190ca20ab7769a0524593c18541f0512",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-square-a.glb",
+      "bytes": 145944,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.56383,
+          0,
+          -1.25
+        ],
+        "max": [
+          0.56383,
+          2.31919,
+          1.35
+        ]
+      },
+      "size": [
+        1.12766,
+        2.31919,
+        2.6
+      ],
+      "triangles": 1616,
+      "animations": [],
+      "sha256": "eda1492a88b08655e92958fdf1ec1c47ac58fe974d7cb207bf59ae74cee0c74a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-square-b.glb",
+      "bytes": 128948,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.65,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.65,
+          1.7828,
+          1.3
+        ]
+      },
+      "size": [
+        1.3,
+        1.7828,
+        2.6
+      ],
+      "triangles": 1418,
+      "animations": [],
+      "sha256": "d7cd7143803677d5ade54e927185b6543a5528dd084773ecc6d8c3380a29ce71",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-square-c.glb",
+      "bytes": 124004,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.55,
+          1.7828,
+          1.3
+        ]
+      },
+      "size": [
+        1.1,
+        1.7828,
+        2.6
+      ],
+      "triangles": 1362,
+      "animations": [],
+      "sha256": "7991ec55386a2bf25118cf8090d83ead4c6343492139b0b657de52124cda98fe",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-subway-a.glb",
+      "bytes": 139896,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.7625,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.5875,
+          1.5712,
+          1.3
+        ]
+      },
+      "size": [
+        1.35,
+        1.5712,
+        2.6
+      ],
+      "triangles": 1544,
+      "animations": [],
+      "sha256": "394f305ad8f27ec3af59080bdbc362961946541dca8925301979e75696787f7e",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-subway-b.glb",
+      "bytes": 119664,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.55,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.55,
+          1.5712,
+          1.3
+        ]
+      },
+      "size": [
+        1.1,
+        1.5712,
+        2.6
+      ],
+      "triangles": 1310,
+      "animations": [],
+      "sha256": "07bc007707ff8da1bcba0f536930d72e1a5b0fe6bc6b41509ac75eb024c8a4c5",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-electric-subway-c.glb",
+      "bytes": 140064,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.675,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.675,
+          1.5712,
+          1.3
+        ]
+      },
+      "size": [
+        1.35,
+        1.5712,
+        2.6
+      ],
+      "triangles": 1554,
+      "animations": [],
+      "sha256": "155052faeb23becec3578864d5b1618b73a95b15d6fb7f4d175836b1a04b6950",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-locomotive-a.glb",
+      "bytes": 154620,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.71467,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.71467,
+          1.6595,
+          1.3
+        ]
+      },
+      "size": [
+        1.42933,
+        1.6595,
+        2.6
+      ],
+      "triangles": 1666,
+      "animations": [],
+      "sha256": "8dfe9d20667c1534652286149fb0e1639ff48975a4187d3ad2fd956add0bba2a",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-locomotive-b.glb",
+      "bytes": 142648,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.65817,
+          0,
+          -1.3
+        ],
+        "max": [
+          0.65817,
+          1.6595,
+          1.3
+        ]
+      },
+      "size": [
+        1.31633,
+        1.6595,
+        2.6
+      ],
+      "triangles": 1542,
+      "animations": [],
+      "sha256": "ed82b635fa1dedd8017e40442a88cc8e2f05362f696a7c8b6e516db9037f8450",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-locomotive-c.glb",
+      "bytes": 157420,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 6,
+      "bounds": {
+        "min": [
+          -0.75172,
+          0,
+          -1.4
+        ],
+        "max": [
+          0.67761,
+          1.6595,
+          1.4
+        ]
+      },
+      "size": [
+        1.42933,
+        1.6595,
+        2.8
+      ],
+      "triangles": 1700,
+      "animations": [],
+      "sha256": "f446d90590a85e94f4e00559e6fd6d34ef8646c7acd32ff21bd1d7e1774e1399",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-locomotive-passenger-a.glb",
+      "bytes": 119852,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.59686,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.59686,
+          1.64912,
+          1.45
+        ]
+      },
+      "size": [
+        1.19372,
+        1.64912,
+        2.6
+      ],
+      "triangles": 1308,
+      "animations": [],
+      "sha256": "fc4eddc8056dd838747fa5cc4a2aae7f94379c00d202d2048461573887e371f3",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-locomotive-passenger-b.glb",
+      "bytes": 129056,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 3,
+      "bounds": {
+        "min": [
+          -0.59686,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.65,
+          1.64912,
+          1.45
+        ]
+      },
+      "size": [
+        1.24686,
+        1.64912,
+        2.6
+      ],
+      "triangles": 1416,
+      "animations": [],
+      "sha256": "874203faec1a078fdf88ee202ecdf9bc007867dc5f432e840329fae1d769e779",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-tram-classic.glb",
+      "bytes": 143536,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.6,
+          0,
+          -1.25
+        ],
+        "max": [
+          0.65,
+          2.51919,
+          1.3625
+        ]
+      },
+      "size": [
+        1.25,
+        2.51919,
+        2.6125
+      ],
+      "triangles": 1648,
+      "animations": [],
+      "sha256": "2f64db140f523985f29714c6b4e5844b15a0c789b2d486963d7eba3f9b1ac194",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-tram-modern.glb",
+      "bytes": 135128,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 4,
+      "bounds": {
+        "min": [
+          -0.56383,
+          0,
+          -1.3433
+        ],
+        "max": [
+          0.56383,
+          2.3009,
+          1.3433
+        ]
+      },
+      "size": [
+        1.12766,
+        2.3009,
+        2.6866
+      ],
+      "triangles": 1498,
+      "animations": [],
+      "sha256": "a4c82a34554adfc27a2847832d82d1cb75f3e1ff98ad2cbaf7aad35bb292aecc",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    },
+    {
+      "file": "train-tram-round.glb",
+      "bytes": 176932,
+      "version": 2,
+      "externalResources": [
+        "Textures/colormap.png"
+      ],
+      "meshes": 5,
+      "bounds": {
+        "min": [
+          -0.60184,
+          0,
+          -1.25
+        ],
+        "max": [
+          0.65184,
+          2.49476,
+          1.35
+        ]
+      },
+      "size": [
+        1.25368,
+        2.49476,
+        2.6
+      ],
+      "triangles": 1944,
+      "animations": [],
+      "sha256": "fcbc9739d0f76e116519775cfd984f6c68ff23bd9bcc7eeda2cc026db7625648",
+      "animationCount": 0,
+      "extensionsUsed": [
+        "KHR_texture_transform"
+      ]
+    }
+  ],
+  "textures": [
+    "Textures/colormap.png"
+  ],
+  "externalResourcesPresent": true,
+  "modelBytes": 6963280,
+  "modelCount": 103,
+  "modelUnits": "glTF asset units; Y up; refer to per-model bounds before scaling"
+}

@@ -1,0 +1,108 @@
+{
+  "author": "Kenney",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-11-06",
+  "packs": [
+    {
+      "source": "https://kenney.nl/assets/car-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 50,
+      "modelBytes": 5629048,
+      "directory": "kenney-car-kit",
+      "manifest": "kenney-car-kit/manifest.json",
+      "licenseFile": "kenney-car-kit/LICENSE.txt",
+      "preview": "kenney-car-kit/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/castle-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 76,
+      "modelBytes": 2080872,
+      "directory": "kenney-castle-kit",
+      "manifest": "kenney-castle-kit/manifest.json",
+      "licenseFile": "kenney-castle-kit/LICENSE.txt",
+      "preview": "kenney-castle-kit/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/city-kit-suburban",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 40,
+      "modelBytes": 2609760,
+      "directory": "kenney-city-kit-suburban",
+      "manifest": "kenney-city-kit-suburban/manifest.json",
+      "licenseFile": "kenney-city-kit-suburban/LICENSE.txt",
+      "preview": "kenney-city-kit-suburban/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/cube-pets",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 24,
+      "modelBytes": 3368008,
+      "directory": "kenney-cube-pets",
+      "manifest": "kenney-cube-pets/manifest.json",
+      "licenseFile": "kenney-cube-pets/LICENSE.txt",
+      "preview": "kenney-cube-pets/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/mini-dungeon",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 30,
+      "modelBytes": 897568,
+      "directory": "kenney-mini-dungeon",
+      "manifest": "kenney-mini-dungeon/manifest.json",
+      "licenseFile": "kenney-mini-dungeon/LICENSE.txt",
+      "preview": "kenney-mini-dungeon/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/nature-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 329,
+      "modelBytes": 3034380,
+      "directory": "kenney-nature-kit",
+      "manifest": "kenney-nature-kit/manifest.json",
+      "licenseFile": "kenney-nature-kit/LICENSE.txt",
+      "preview": "kenney-nature-kit/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/racing-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 112,
+      "modelBytes": 1899872,
+      "directory": "kenney-racing-kit",
+      "manifest": "kenney-racing-kit/manifest.json",
+      "licenseFile": "kenney-racing-kit/LICENSE.txt",
+      "preview": "kenney-racing-kit/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/survival-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 80,
+      "modelBytes": 1298392,
+      "directory": "kenney-survival-kit",
+      "manifest": "kenney-survival-kit/manifest.json",
+      "licenseFile": "kenney-survival-kit/LICENSE.txt",
+      "preview": "kenney-survival-kit/preview.png"
+    },
+    {
+      "source": "https://kenney.nl/assets/train-kit",
+      "author": "Kenney",
+      "license": "CC0-1.0",
+      "modelCount": 103,
+      "modelBytes": 6963280,
+      "directory": "kenney-train-kit",
+      "manifest": "kenney-train-kit/manifest.json",
+      "licenseFile": "kenney-train-kit/LICENSE.txt",
+      "preview": "kenney-train-kit/preview.png"
+    }
+  ],
+  "totalModels": 844,
+  "totalModelBytes": 27781180
+}

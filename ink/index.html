@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#ffdf00">
+    <meta name="description" content="提笔入墨，随形而行。Harvey 的水墨跟练空间。">
+    <title>Harvey — 墨间</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="preload" as="image" href="./assets/harvey-original.jpeg">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./writer.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="bamboo" x1="0" x2="1"><stop stop-color="#8a6844"/><stop offset=".45" stop-color="#b79b69"/><stop offset="1" stop-color="#876740"/></linearGradient>
+        <linearGradient id="bristles" x1="0" y1="0" x2=".6" y2="1"><stop stop-color="#777564"/><stop offset=".45" stop-color="#353c30"/><stop offset="1" stop-color="#172019"/></linearGradient>
+        <symbol id="brush-fine" viewBox="0 0 44 116"><path d="M22 8v8" stroke="#746047" stroke-width="2"/><rect x="19" y="16" width="6" height="57" rx="3" fill="url(#bamboo)"/><path d="M20 29h4m-4 21h4" stroke="#725e3d" opacity=".4"/><rect x="18.5" y="69" width="7" height="9" rx="1" fill="#c6baa0"/><path d="M19 77c-2 8-1 14 3 26 4-12 5-18 3-26Z" fill="url(#bristles)"/><path d="m21 78 1 20" stroke="#a5aa92" stroke-width=".6" opacity=".5"/></symbol>
+        <symbol id="brush-medium" viewBox="0 0 44 116"><path d="M22 8v8" stroke="#746047" stroke-width="2"/><rect x="17.5" y="16" width="9" height="57" rx="4" fill="url(#bamboo)"/><path d="M19 29h6m-6 21h6" stroke="#725e3d" opacity=".4"/><rect x="17" y="69" width="10" height="9" rx="1" fill="#c6baa0"/><path d="M17 77c-5 9-2 18 5 29 7-11 10-20 5-29Z" fill="url(#bristles)"/><path d="m20 78 2 22m3-22-2 20" stroke="#a5aa92" stroke-width=".7" opacity=".45"/></symbol>
+        <symbol id="brush-broad" viewBox="0 0 44 116"><path d="M22 8v8" stroke="#746047" stroke-width="2"/><rect x="16" y="16" width="12" height="57" rx="4" fill="url(#bamboo)"/><path d="M18 29h8m-8 21h8" stroke="#725e3d" opacity=".4"/><rect x="15" y="69" width="14" height="10" rx="1" fill="#c6baa0"/><path d="M15 77c-9 12-5 21 7 31 12-10 16-19 7-31Z" fill="url(#bristles)"/><path d="m17 80 5 23m1-23v23m4-23-4 20" stroke="#a5aa92" stroke-width=".8" opacity=".45"/></symbol>
+        <symbol id="wash-bowl" viewBox="0 0 76 65"><path d="m13 25 6 24c3 15 39 15 42 0l5-24" fill="#b4b6a2" stroke="#777f69" stroke-width="1.2"/><ellipse cx="39.5" cy="26" rx="27" ry="10" fill="#dce1ca" stroke="#777f69" stroke-width="1.2"/><ellipse cx="39.5" cy="27" rx="22" ry="6.6" fill="#879d91"/><path d="M23 27c7-4 10 4 18 0s10-1 15 0" fill="none" stroke="#e3e9d5" stroke-width="1.3"/><path d="m47 32 15-27" stroke="#8e7148" stroke-width="5" stroke-linecap="round"/><path d="m46 29-4 10 8-7" fill="#384735"/><path d="M22 42c8 6 25 9 34 2" fill="none" stroke="#d8d8c2" stroke-width="1.2"/></symbol>
+        <symbol id="rubbing" viewBox="0 0 76 65"><path d="M17 14h42v41H17Z" fill="#faf6e7" stroke="#9e9c86" stroke-width="1.3"/><path d="M17 15c-8 0-8-10 0-10h42c8 0 8 10 0 10M17 55c-8 0-8 6 0 6h42c8 0 8-6 0-6" fill="#d7d3ba" stroke="#9e9c86" stroke-width="1.3"/><path d="m27 25 19-2m-15 9 17 1m-9-12-2 22m-6-6-5 9m18-9 6 8" stroke="#43513b" fill="none" stroke-linecap="round" stroke-width="2.4"/><rect x="13" y="47" width="50" height="7" rx="3.5" fill="#9c7a4a"/></symbol>
+        <symbol id="practice-icon" viewBox="0 0 36 36"><path d="M7 7h22v22H7Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M11 17c5-2 10-1 15-3" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/><circle cx="10" cy="18" r="2.5" fill="#a25440"/></symbol>
+        <symbol id="names-icon" viewBox="0 0 36 36"><path d="M18 9C13 6 8 6 4 8v21c5-2 10-2 14 1 4-3 9-3 14-1V8c-4-2-9-2-14 1Zm0 0v21" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="m9 14 4 6m-5 2 5-1m10-6 4-1m-3 0-1 8m-1-4 6 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+        <symbol id="next-icon" viewBox="0 0 36 36"><path d="M10 10a11 11 0 1 1-3 13M9 5v7h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="back-icon" viewBox="0 0 36 36"><path d="m19 10-8 8 8 8m-8-8h16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="water-flow-icon" viewBox="0 0 36 36"><path d="M18 4c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path class="water-current" d="M5 23c4-4 8 4 12 0s8 4 14 0M5 29c4-4 8 4 12 0s8 4 14 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="water-light-icon" viewBox="0 0 36 36"><path d="M18 6c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 28c4-3 7 3 11 0s7 3 11 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+        <symbol id="water-still-icon" viewBox="0 0 36 36"><path d="M18 6c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 28h18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+        <symbol id="car-icon" viewBox="0 0 36 36"><path d="m9 17 4-7h10l4 7m-19 0h20c2 0 3 2 3 4v5H5v-5c0-2 1-4 3-4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 26v3m20-3v3m-19-8h4m10 0h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      </defs>
+    </svg>
+    <main>
+      <section id="ink-world" class="world" aria-label="水墨笔画跟练" aria-hidden="true" inert>
+        <div id="writing-paper" class="writing-paper">
+          <div id="ink-surface" class="ink-surface" aria-hidden="true"></div>
+          <canvas id="practice-guide" aria-hidden="true"></canvas>
+          <canvas id="writing-strokes" tabindex="0" role="img" aria-label="水墨练字区域，跟随示范笔画从起点描画"></canvas>
+          <canvas id="practice-feedback" aria-hidden="true"></canvas>
+        </div>
+        <button id="back" class="quiet-button back-button" aria-label="回到手绘开场"><svg aria-hidden="true"><use href="#back-icon"/></svg></button>
+        <button id="writing-flow" class="quiet-button flow-button selected" data-water-mode="heavy" aria-label="重水流：有水声，墨迹快速消散。点击切换轻水，适合写字。"><svg aria-hidden="true"><use href="#water-flow-icon"/></svg></button>
+        <div class="lesson-controls" role="group" aria-label="选择学习内容">
+          <button id="practice-toggle" class="quiet-button" aria-label="开启或关闭基础笔画跟练" aria-pressed="false"><svg aria-hidden="true"><use href="#practice-icon"/></svg></button>
+          <button id="names-toggle" class="quiet-button" aria-label="选择艾达或伊莱名字教学" aria-pressed="false" aria-expanded="false" aria-controls="name-picker"><svg aria-hidden="true"><use href="#names-icon"/></svg></button>
+          <button id="practice-next" class="quiet-button" aria-label="重新示范当前笔画" disabled><svg aria-hidden="true"><use href="#next-icon"/></svg></button>
+        </div>
+        <div id="name-picker" class="name-picker" role="group" aria-label="选择要学习的名字" hidden>
+          <button class="name-choice" data-word-index="0" aria-label="学习艾达" disabled><canvas class="name-preview" width="480" height="240" aria-hidden="true"></canvas></button>
+          <button class="name-choice" data-word-index="1" aria-label="学习伊莱" disabled><canvas class="name-preview" width="480" height="240" aria-hidden="true"></canvas></button>
+        </div>
+        <aside class="ink-tools" aria-label="画具">
+          <div class="brush-rack" role="group" aria-label="选择毛笔粗细">
+            <button class="brush-size" data-size="fine" aria-label="细毛笔" aria-pressed="false"><svg aria-hidden="true"><use href="#brush-fine"/></svg></button>
+            <button class="brush-size selected" data-size="medium" aria-label="中毛笔" aria-pressed="true"><svg aria-hidden="true"><use href="#brush-medium"/></svg></button>
+            <button class="brush-size" data-size="broad" aria-label="粗毛笔" aria-pressed="false"><svg aria-hidden="true"><use href="#brush-broad"/></svg></button>
+          </div>
+          <div class="object-tools">
+            <button id="clear-writing" class="object-button" aria-label="洗笔并清空画面"><svg aria-hidden="true"><use href="#wash-bowl"/></svg></button>
+            <button id="save-writing" class="object-button" aria-label="拓印并保存图片"><svg aria-hidden="true"><use href="#rubbing"/></svg></button>
+            <a id="car-entry" class="quiet-button car-entry" href="../car-game/?edition=world" aria-label="进入 Car Game · MODARIS"><svg aria-hidden="true"><use href="#car-icon"/></svg></a>
+          </div>
+        </aside>
+        <div id="wash-overlay" hidden aria-hidden="true"></div>
+        <div id="print-sheet" hidden aria-hidden="true"></div>
+        <span id="writing-status" class="sr-only" role="status" aria-live="polite"></span>
+      </section>
+      <section id="intro" class="intro" aria-label="Harvey 手绘开场">
+        <div id="intro-vortex" class="intro-vortex" aria-hidden="true"></div>
+        <canvas id="meteor-trail" class="meteor-trail" aria-hidden="true"></canvas>
+        <button id="enter" class="enter" aria-label="进入水墨跟练" hidden disabled>
+          <span id="wordmark-flight" class="wordmark-flight">
+            <canvas id="wordmark" width="1040" height="480" aria-hidden="true"></canvas>
+            <span id="wordmark-fallback" class="wordmark-fallback" aria-hidden="true">Harvey</span>
+          </span>
+        </button>
+        <button id="enter-hint" class="enter-hint" aria-label="进入水墨跟练" hidden disabled><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M10 26 26 10M10 10h16v16" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div id="spin-unlock" class="spin-unlock">
+          <canvas id="spin-effects" class="spin-effects" aria-hidden="true"></canvas>
+          <button id="spin-button" class="spin-button" aria-label="画出漩涡，解锁 Harvey" aria-describedby="spin-hint spin-keyboard-hint"></button>
+          <span id="spin-hint" class="sr-only">按住画面，围绕绿色笔触碎片画圈约两秒。</span>
+          <span id="spin-keyboard-hint" class="sr-only">鼠标或手指按住后，顺时针或逆时针画圈，唤醒漩涡。也可聚焦后按住空格或回车约两秒解锁。</span>
+          <span id="spin-status" class="sr-only" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+      <div id="iris" class="iris" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
