@@ -1,4 +1,4 @@
-import { IntroVortex } from './vortex.js';
+import { IntroVortex } from './vortex.js?v=1.13.0';
 
 const TAU = Math.PI * 2;
 const DURATION = 2100;
@@ -8,8 +8,7 @@ const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 // A gentle partial circle and about two seconds of moving input open the title.
 // Timing comes from input samples, never from merely holding a pointer down.
 export class SpinUnlock {
-  constructor({ intro, onUnlock, audio, reducedMotion = false }) {
-    this.intro = intro;
+  constructor({ onUnlock, audio, reducedMotion = false }) {
     this.onUnlock = onUnlock;
     this.audio = audio;
     this.reducedMotion = reducedMotion;
@@ -89,8 +88,6 @@ export class SpinUnlock {
     this.motion = 0;
     this.brushTrail = [];
     this.lastWakeSample = null;
-    this.turnDirection = 1;
-    this.directionChosen = false;
     this.lastInputKeyboard = false;
     this.direction = 0;
     this.reverseAngle = 0;
@@ -103,7 +100,6 @@ export class SpinUnlock {
     this.wrapper.hidden = false;
     this.wrapper.classList.remove('is-spinning', 'is-unlocking', 'keyboard-focus');
     this.button.disabled = false;
-    this.intro.style.transform = '';
     this.hint.textContent = '按住转圈，解锁 Harvey';
     this.status.textContent = '按住画面，围绕中央轻轻画圈约两秒。键盘可按住空格或回车约两秒。';
     this.audioCall('reset');
@@ -117,10 +113,11 @@ export class SpinUnlock {
     this.vortex.setReducedMotion(value);
     if (value) {
       this.shakeAmplitude = 0;
+      this.shaderAngle = 0;
+      this.velocity = 0;
       this.brushTrail = [];
       this.lastWakeSample = null;
     }
-    this.intro.style.transform = '';
     this.renderVortex();
     this.schedule();
   }
@@ -138,7 +135,6 @@ export class SpinUnlock {
       this.motion = 0;
       this.brushTrail = [];
       this.shakeAmplitude = 0;
-      this.intro.style.transform = '';
       this.audioCall('stop');
       return;
     }
@@ -157,14 +153,17 @@ export class SpinUnlock {
     this.vortex.resize(innerWidth, innerHeight);
   }
 
-  renderVortex() {
+  renderVortex(shakeX = 0, shakeY = 0) {
     const now = performance.now();
     this.brushTrail = this.brushTrail.filter(point => now - point.born < 850);
     const brushTrail = this.reducedMotion ? [] : this.brushTrail.map(point => ({
       x: point.x, y: point.y, dx: point.dx, dy: point.dy,
       weight: Math.pow(clamp(1 - (now - point.born) / 850), 1.25),
     }));
-    this.vortex.render({ time: this.shaderTime, angle: this.shaderAngle, velocity: this.velocity, progress: this.progress(), energy: this.reducedMotion ? 0 : this.energy, brushTrail });
+    this.vortex.render({
+      time: this.shaderTime, angle: this.shaderAngle, velocity: this.velocity,
+      progress: this.progress(), energy: this.energy, shakeX, shakeY, brushTrail,
+    });
   }
 
   audioCall(method, value) {
@@ -260,14 +259,10 @@ export class SpinUnlock {
         this.reverseTime = 0;
       }
     }
-    if (now - this.lastMovement > 180) this.inputVelocity = 0;
     const measuredVelocity = clamp(delta / (dt / 1000), -18, 18);
-    this.inputVelocity += (measuredVelocity - this.inputVelocity) * (1 - Math.exp(-dt / 55));
+    if (!this.lastMovement || now - this.lastMovement > 180) this.inputVelocity = measuredVelocity;
+    else this.inputVelocity += (measuredVelocity - this.inputVelocity) * (1 - Math.exp(-dt / 38));
     this.lastMovement = now;
-    if (!this.directionChosen && this.angle > .15) {
-      this.turnDirection = this.direction;
-      this.directionChosen = true;
-    }
     if (this.progress() >= 1) this.complete(now);
   }
 
@@ -370,7 +365,6 @@ export class SpinUnlock {
     this.energy = 0;
     this.motion = 0;
     this.brushTrail = [];
-    this.intro.style.transform = '';
     this.audioCall('stop');
     // Hidden-tab time is never credited, including the final reveal flourish.
     if (this.state === 'releasing') this.reset();
@@ -425,7 +419,7 @@ export class SpinUnlock {
       }
     }
     const progress = this.progress();
-    const moving = this.key || (this.pointer !== null && now - this.lastMovement < 220);
+    const moving = this.key || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
     if (this.state === 'locked') {
       const text = moving ? (this.key ? '继续按住，约两秒解锁' : '轻轻画圈，约两秒解锁') :
         this.pointer !== null ? '围绕中央轻轻画圈' : progress > .02 ? '按住继续画圈，即可解锁' : '按住转圈，解锁 Harvey';
@@ -437,17 +431,16 @@ export class SpinUnlock {
       }
       if (progress === 0) this.lastAnnouncement = 0;
     }
-    const activity = this.key ? .7 : moving ? clamp(Math.abs(this.inputVelocity) / 3) : 0;
-    this.motion += (activity - this.motion) * (1 - Math.exp(-dt / (activity > this.motion ? 160 : 380)));
+    const activity = this.key ? .7 : moving ? clamp(Math.abs(this.inputVelocity) / 4.5) : 0;
+    this.motion += (activity - this.motion) * (1 - Math.exp(-dt / (activity > this.motion ? 85 : 250)));
     if (this.motion < .001) this.motion = 0;
-    // Drawing awakens the field. Progress gently raises its energy; raw hand
-    // speed no longer dictates the scene's angle or forces sharp reversals.
-    const energyTarget = moving ? clamp(.12 + progress * .76 + this.motion * .12) : 0;
-    this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 420 : 1300)));
+    const energyTarget = moving ? clamp(.16 + progress * .57 + this.motion * .28) : 0;
+    this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
-    const breathing = .88 + .12 * Math.sin(this.shaderTime * .8 + .4);
-    const velocityTarget = moving ? this.turnDirection * this.energy * (.12 + progress * .43) * breathing : 0;
-    this.velocity += (velocityTarget - this.velocity) * (1 - Math.exp(-dt / (Math.abs(velocityTarget) > Math.abs(this.velocity) ? 650 : 1000)));
+    // Use the signed hand speed as a torque target. Both renderers share the
+    // integrated angle, and the field keeps its momentum when the hand pauses.
+    const velocityTarget = this.key ? 2.35 : moving ? clamp(this.inputVelocity * (.72 + .25 * progress), -5.8, 5.8) : 0;
+    this.velocity += (velocityTarget - this.velocity) * (1 - Math.exp(-dt / (moving ? 74 : 295)));
     if (Math.abs(this.velocity) < .001) this.velocity = 0;
     if (this.reducedMotion) {
       this.velocity = 0;
@@ -457,12 +450,11 @@ export class SpinUnlock {
     // velocity would jump whenever a hand speeds up, reverses, or resumes.
     if (!this.reducedMotion) {
       this.shaderTime += dt / 1000;
-      this.shaderAngle += this.velocity * dt / 1000;
+      this.shaderAngle = (this.shaderAngle + this.velocity * dt / 1000) % TAU;
     }
-    this.renderVortex();
     const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
     const held = this.pointer !== null || this.key !== null;
-    this.audioCall('update', { progress, motion: moving ? this.motion : 0, energy: this.energy, held });
+    this.audioCall('update', { progress, motion: this.motion, held });
     const targetShake = this.reducedMotion || !held ? 0 : moving ? .12 + .72 * this.energy : .12;
     // The small contact tremor starts immediately, then settles smoothly when
     // the hand lifts. Its amplitude follows the actual gesture's progress.
@@ -472,35 +464,34 @@ export class SpinUnlock {
     const shake = Math.min(1.5, this.shakeAmplitude) * (1 - release);
     const shakeX = shake * .86 * (Math.sin(now * .048) * .7 + Math.sin(now * .071) * .3);
     const shakeY = shake * .5 * (Math.cos(now * .052) * .75 + Math.sin(now * .081) * .25);
-    this.intro.style.transform = shake ? `translate3d(${shakeX}px,${shakeY}px,0)` : '';
-    if (this.state !== 'unlocked' && !this.wrapper.hidden) this.draw(now, progress, release);
+    this.renderVortex(shakeX, shakeY);
+    if (this.state !== 'unlocked' && !this.wrapper.hidden) this.draw(progress, release, shakeX, shakeY);
     if (this.state === 'releasing' && release >= 1) {
       this.state = 'unlocked';
-      this.intro.style.transform = '';
-      this.audioCall('reveal');
       this.onUnlock({ keyboard: this.lastInputKeyboard });
     }
     if (!this.reducedMotion || held || (this.state === 'locked' && progress > 0) || this.state === 'releasing' || this.shakeAmplitude > 0) this.schedule();
   }
 
-  draw(now, progress, release) {
+  draw(progress, release, shakeX, shakeY) {
     const ctx = this.context;
     const { x, y, radius } = this.center;
     ctx.clearRect(0, 0, innerWidth, innerHeight);
     const focused = this.wrapper.classList.contains('keyboard-focus');
     const scale = clamp(radius / 112, .52, 1);
     const gather = 1 - progress * .3;
-    const motion = this.reducedMotion ? 0 : this.shaderAngle;
+    ctx.save();
+    ctx.translate(x + shakeX, y + shakeY);
+    ctx.rotate(this.reducedMotion ? 0 : this.shaderAngle);
     for (let index = 0; index < 16; index++) {
-      const spiral = index * .79 + Math.sin(index * 1.7) * .32;
-      const orbit = spiral + motion * (.64 + (index % 4) * .08);
+      const orbit = index * .79 + Math.sin(index * 1.7) * .32;
       const distance = radius * (.3 + index / 15 * 1.25) * gather;
       const floatAmplitude = (12 + index % 5 * 3) * Math.max(.75, scale);
       const driftX = this.reducedMotion ? 0 : Math.sin(this.shaderTime * (.43 + index % 3 * .08) + index * 1.9) * floatAmplitude;
       const driftY = this.reducedMotion ? 0 : Math.cos(this.shaderTime * (.51 + index % 4 * .06) + index * 2.1) * floatAmplitude * .84;
       const tumble = this.reducedMotion ? 0 : Math.sin(this.shaderTime * .46 + index * .9) * .18 + Math.cos(this.shaderTime * .71 + index * 1.2) * .09;
-      const px = x + Math.cos(orbit) * distance + Math.sin(index * 2.4) * radius * .14 + driftX;
-      const py = y + Math.sin(orbit) * distance * .81 + Math.cos(index * 1.3) * radius * .1 + driftY;
+      const px = Math.cos(orbit) * distance + Math.sin(index * 2.4) * radius * .14 + driftX;
+      const py = Math.sin(orbit) * distance * .81 + Math.cos(index * 1.3) * radius * .1 + driftY;
       const length = (15 + (index % 4) * 8 + Math.sin(index * 2) * 3) * scale;
       const width = (index % 3 === 2 ? 2.5 : 5 + index % 4 * 1.8) * scale;
       ctx.save();
@@ -545,6 +536,7 @@ export class SpinUnlock {
       }
       ctx.restore();
     }
+    ctx.restore();
   }
 }
 

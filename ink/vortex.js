@@ -12,6 +12,7 @@ void main() {
 // of Balatro. No original game shader or third-party shader source is bundled.
 const fragmentBody = `
 uniform vec2 u_resolution;
+uniform vec2 u_shift;
 uniform float u_time;
 uniform float u_angle;
 uniform float u_velocity;
@@ -39,7 +40,13 @@ void main() {
     wake += length(drag) * 10.0 * influence;
   }
   wakeWarp /= max(1.0, length(wakeWarp) / 0.12);
-  p -= wakeWarp;
+  p -= wakeWarp + u_shift / edge;
+  // Sample in the rotating paint space. All bands, grain and their wandering
+  // centers turn together while the drag samples stay in screen coordinates.
+  float c = cos(u_angle);
+  float s = sin(u_angle);
+  p = mat2(c, -s, s, c) * p;
+  vec2 material = p;
   float drift = u_time * 0.08;
   float energy = clamp(u_energy + wake * 0.07, 0.0, 1.0);
   // Broad wandering motion remains visible even between gestures. It changes
@@ -47,8 +54,8 @@ void main() {
   p += 0.085 * vec2(sin(drift * 2.0), cos(drift * 3.0));
   p *= 1.0 + 0.045 * sin(drift);
   float radius = length(p);
-  float polar = (radius < 0.00001 ? 0.0 : atan(p.y, p.x)) - u_angle;
-  polar -= radius * (5.2 + energy * 0.8 + u_velocity * 0.018);
+  float polar = radius < 0.00001 ? 0.0 : atan(p.y, p.x);
+  polar -= radius * (5.2 + energy * 0.8 + abs(u_velocity) * 0.032);
   polar -= 0.25 * sin(radius * 5.0 - drift * 4.0);
   vec2 q = radius * vec2(cos(polar), sin(polar)) * 2.8;
   for (int i = 0; i < 3; i++) {
@@ -76,7 +83,7 @@ void main() {
   float glow = edgeLight * (0.10 + energy * 0.42)
              + veins * (0.025 + energy * 0.16);
   colour = mix(colour, vec3(1.0, 0.97, 0.47), clamp(glow, 0.0, 0.65));
-  float grain = fract(sin(dot(floor(cell * 0.5) * 0.01, vec2(17.1, 61.7))) * 971.3);
+  float grain = fract(sin(dot(floor(material * edge * 0.5) * 0.01, vec2(17.1, 61.7))) * 971.3);
   colour *= 0.989 + grain * (0.019 + u_progress * 0.003);
   gl_FragColor = vec4(colour, 1.0);
 }`;
@@ -157,7 +164,7 @@ export class IntroVortex {
     const position = gl.getAttribLocation(this.program, 'a_position');
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    this.uniforms = Object.fromEntries(['resolution', 'time', 'angle', 'velocity', 'progress', 'energy']
+    this.uniforms = Object.fromEntries(['resolution', 'shift', 'time', 'angle', 'velocity', 'progress', 'energy']
       .map(name => [name, gl.getUniformLocation(this.program, `u_${name}`)]));
     this.uniforms.trail = gl.getUniformLocation(this.program, 'u_trail[0]');
     this.canvas.addEventListener('webglcontextlost', this.onContextLost);
@@ -252,9 +259,12 @@ export class IntroVortex {
     this.render(this.lastFrame);
   }
 
-  render({ time = 0, angle = 0, velocity = 0, progress = 0, energy = 0, brushTrail = [] } = {}) {
+  render({ time = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0, brushTrail = [] } = {}) {
     if (this.disposed) return;
-    this.lastFrame = { time, angle, velocity, progress, energy, brushTrail };
+    this.lastFrame = { time, angle, velocity, progress, energy, shakeX, shakeY, brushTrail };
+    const { width, height } = this.canvas;
+    const shiftX = this.reducedMotion ? 0 : finite(shakeX) * width / this.width;
+    const shiftY = this.reducedMotion ? 0 : finite(shakeY) * height / this.height;
     const phase = this.reducedMotion ? 0 : finite(angle) % TAU;
     // All time-dependent waves are integer multiples of the base .08t phase.
     const drift = this.reducedMotion ? 0 : finite(time) % (TAU / .08);
@@ -274,7 +284,8 @@ export class IntroVortex {
     if (this.gl) {
       const gl = this.gl;
       gl.useProgram(this.program);
-      gl.uniform2f(this.uniforms.resolution, this.canvas.width, this.canvas.height);
+      gl.uniform2f(this.uniforms.resolution, width, height);
+      gl.uniform2f(this.uniforms.shift, shiftX, shiftY);
       gl.uniform1f(this.uniforms.time, drift);
       gl.uniform1f(this.uniforms.angle, phase);
       gl.uniform1f(this.uniforms.velocity, speed);
@@ -286,12 +297,11 @@ export class IntroVortex {
     }
     const ctx = this.context;
     if (!ctx || !this.textures) return;
-    const { width, height } = this.canvas;
     // Overscan includes the breathing and drift, so no edge can become exposed.
     const side = Math.hypot(width, height) * 1.22 + 2;
     const wave = drift * .08;
     ctx.save();
-    ctx.setTransform(1, 0, 0, 1, width / 2, height / 2);
+    ctx.setTransform(1, 0, 0, 1, width / 2 + shiftX, height / 2 + shiftY);
     ctx.rotate(phase);
     ctx.translate(side * .045 * Math.sin(wave * 2), side * .045 * Math.cos(wave * 3));
     const breath = 1 + .035 * Math.sin(wave);

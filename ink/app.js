@@ -1,5 +1,5 @@
-import { SpinUnlock } from './spin-unlock.js';
-import { IntroAudio } from './intro-audio.js';
+import { SpinUnlock } from './spin-unlock.js?v=1.13.0';
+import { IntroAudio } from './intro-audio.js?v=1.13.0';
 import { WaterAudio } from './water-audio.js';
 
 const intro = document.querySelector('#intro');
@@ -30,7 +30,7 @@ let writerPromise;
 let writer;
 let paused = reducedMotion();
 let waterMode = 'heavy';
-const introAudio = new IntroAudio();
+const introAudio = new IntroAudio(document.querySelector('#intro-sound'));
 const waterAudio = new WaterAudio();
 
 const smoothstep = (min, max, value) => {
@@ -193,6 +193,7 @@ function playOpening() {
   enterHint.disabled = true;
   resizeTrail();
   const start = performance.now();
+  let titleCue = false;
   openingAnimation = now => {
     if (inWorld || document.hidden) return;
     const seconds = reducedMotion() ? 2 : (now - start) / 1000;
@@ -200,6 +201,13 @@ function playOpening() {
     const pose = openingPose(bounds, seconds);
     flight.style.opacity = '1';
     flight.style.transform = `translate3d(${pose.x}px, ${pose.y}px, 0) scale(${pose.scale})`;
+    // Cue the duet when the visible part of the drawing crosses the corner.
+    const visibleRight = bounds.left + bounds.width * (.5 + pose.scale * .46) + pose.x;
+    const visibleTop = bounds.top + bounds.height * (.5 - pose.scale * .40) + pose.y;
+    if (!titleCue && visibleRight > 0 && visibleTop < innerHeight) {
+      titleCue = true;
+      introAudio.reveal();
+    }
     drawGreenTail(bounds, pose, seconds);
     if (pose.progress === 1 && !intro.classList.contains('ready')) {
       intro.classList.add('ready');
@@ -383,7 +391,6 @@ const wordmarkReady = prepareWordmark().catch(error => {
 });
 
 const unlock = new SpinUnlock({
-  intro,
   audio: introAudio,
   reducedMotion: reducedMotion(),
   onUnlock: async ({ keyboard = false } = {}) => {

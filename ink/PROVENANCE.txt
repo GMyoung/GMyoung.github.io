@@ -1,12 +1,13 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Migrated 2026-11-07 from the published Harvey Ink v1.12.0 distribution.
-Source commit: 676171423c2a506694d144c723d8af4713640c2b
+Current snapshot: Harvey Ink v1.13.0, 2026-11-08.
+Source commit: 5417a3dc6bf9f3b05258978deec58ad65a671c9d
 Public path: https://gmyoung.github.io/ink/
 
-The dist directory was copied intact, including original artwork, character
-data, vendored source, licenses and attribution. The only application change
-for this distribution is the car icon's destination: ../car-game/?edition=world.
+Originally migrated from the published v1.12.0 distribution on 2026-11-07.
+This release refreshes the opening motion and bundles the score and title cue.
+Audio credits are in vendor/intro-audio-NOTICE.txt. The car icon is adapted
+to the GitHub Pages distribution: ../car-game/?edition=world.
 All application modules and assets use relative paths and run in the browser.
 No ChatGPT sign-in, backend, runtime API key or remote script is required.
 

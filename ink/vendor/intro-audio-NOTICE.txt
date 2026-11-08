@@ -1,0 +1,15 @@
+Harvey Ink introduction audio, 2026-11-08
+
+assets/midnight-paper.mp3 — "Midnight Paper", an original 20-second
+96 BPM loop arranged for electric keys, bass, brushed drums and reed synth.
+Composed and rendered for this site. Reference for atmosphere: Balatro's
+original soundtrack by LouisF, https://store.steampowered.com/app/2834460/.
+
+assets/harvey-yay.mp3 — original D6/9 title chord with a two-part harmony
+mixed from pitch and timing edits of the human recording "Joyful - YAY"
+by Sadiquecat, Creative Commons Zero 1.0.
+https://freesound.org/people/Sadiquecat/sounds/801292/
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Both rendered files are served locally with the site. The rising air sound
+is generated in the browser as the visitor draws a circle.

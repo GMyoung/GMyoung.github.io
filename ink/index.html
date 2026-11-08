@@ -8,9 +8,9 @@
     <title>Harvey — 墨间</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="./assets/harvey-original.jpeg">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css?v=1.13.0">
     <link rel="stylesheet" href="./writer.css">
-    <script type="module" src="./app.js"></script>
+    <script type="module" src="./app.js?v=1.13.0"></script>
   </head>
   <body>
     <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -80,6 +80,13 @@
         <div id="spin-unlock" class="spin-unlock">
           <canvas id="spin-effects" class="spin-effects" aria-hidden="true"></canvas>
           <button id="spin-button" class="spin-button" aria-label="画出漩涡，解锁 Harvey" aria-describedby="spin-hint spin-keyboard-hint"></button>
+          <button id="intro-sound" class="intro-sound" aria-label="开场声音" aria-pressed="false" hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 10v4h4l5 4V6l-5 4Z"/>
+              <path class="sound-waves" d="M16 9a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10"/>
+              <path class="sound-slash" d="m16 10 5 5m0-5-5 5"/>
+            </svg>
+          </button>
           <span id="spin-hint" class="sr-only">按住画面，围绕绿色笔触碎片画圈约两秒。</span>
           <span id="spin-keyboard-hint" class="sr-only">鼠标或手指按住后，顺时针或逆时针画圈，唤醒漩涡。也可聚焦后按住空格或回车约两秒解锁。</span>
           <span id="spin-status" class="sr-only" role="status" aria-live="polite"></span>

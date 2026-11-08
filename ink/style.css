@@ -32,6 +32,16 @@ main, .intro, .world { position: fixed; inset: 0; width: 100%; height: 100%; hei
 .spin-button:active { transform: none; cursor: grabbing; }
 .spin-button:focus-visible { outline: none; }
 .is-unlocking .spin-button { pointer-events: none; }
+.intro-sound {
+  position: absolute; z-index: 3;
+  left: max(14px, env(safe-area-inset-left)); bottom: max(14px, env(safe-area-inset-bottom));
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 10px;
+  color: #294417; background: #fff4a5d9; border: 1px solid #36551a45; border-radius: 13px;
+  transition: background-color 150ms var(--ease-out), transform 150ms var(--ease-out);
+}
+.intro-sound[aria-pressed="true"] { background: #fff4a5a6; }
+.intro-sound[aria-pressed="false"] .sound-waves,
+.intro-sound[aria-pressed="true"] .sound-slash { display: none; }
 .enter { position: absolute; z-index: 2; width: min(70vw, 740px); height: auto; aspect-ratio: 13 / 6; left: 50%; top: 47%; translate: -50% -50%; padding: 0; background: transparent; }
 .enter:focus-visible { outline: none; }
 .enter:focus-visible #wordmark { filter: drop-shadow(0 0 4px #fff6b0) drop-shadow(0 0 7px #e9f5ad); }
