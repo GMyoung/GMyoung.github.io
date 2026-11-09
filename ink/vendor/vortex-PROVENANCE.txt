@@ -19,10 +19,11 @@ This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
 The gesture controller integrates a shared angle. A catch nudges the sheet,
 then the first 0.32 radians of signed relative hand travel build cloth strain.
-Beyond that slack the sheet turns, taking up strain as it catches the hand.
-The grip spreads through a moving patch of the constrained triangle mesh.
-The patch slips tangentially with the turn and gradually transfers the pull
-to other vertices. Paint and floating brush fragments follow the material
+Beyond that slack the sheet accelerates gradually. Part of the tension slips
+away, letting the sheet trail even a steady turn. The moving grip patch follows
+with damping and transfers the pull to other vertices. Unlock is measured from
+the input and requires 7.35 seconds of motion and 1.08 turns in one direction.
+Paint and floating brush fragments follow the material
 coordinates. A flat resting mesh restores the earlier paint colors and fine
 pixel grain. Soft lighting appears on the temporary folds. Release lets the
 mesh settle flat while the sheet coasts to a slow idle turn.

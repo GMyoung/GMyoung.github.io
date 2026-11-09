@@ -1,14 +1,16 @@
-import { IntroVortex } from './vortex.js?v=1.16.1';
+import { IntroVortex } from './vortex.js?v=1.16.2';
 
 const TAU = Math.PI * 2;
-const DURATION = 2940;
-const REQUIRED_SWEEP = TAU * .98;
+const DURATION = 7350;
+const REQUIRED_SWEEP = TAU * 1.08;
+const SPIN_HINT = '持续同向画圈约七秒半，累计略多于一圈';
+const HOLD_HINT = '继续按住，约七秒半解锁';
 const IDLE_SPEED = .16;
 const GRIP_SLACK = .32;
 const MAX_STRAIN = 1.1;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 
-// A near-full circle and about three seconds of moving input open the title.
+// The title requires both a minimum sweep and sustained moving input.
 // The idle turn is decorative. Progress comes from gesture samples or a key hold.
 export class SpinUnlock {
   constructor({ onUnlock, audio, reducedMotion = false }) {
@@ -104,7 +106,7 @@ export class SpinUnlock {
     this.wrapper.classList.remove('is-spinning', 'is-unlocking', 'keyboard-focus');
     this.button.disabled = false;
     this.hint.textContent = '按住转圈，解锁 Harvey';
-    this.status.textContent = '按住画面，围绕中央转近一整圈，持续约三秒。键盘可按住空格或回车约三秒。';
+    this.status.textContent = `${SPIN_HINT}。键盘可按住空格或回车约七秒半。`;
     this.audioCall('reset');
     this.vortex.reset();
     this.measure();
@@ -309,7 +311,7 @@ export class SpinUnlock {
     this.wrapper.classList.add('keyboard-focus');
     this.shakeAmplitude = Math.max(this.shakeAmplitude, .18);
     this.wrapper.classList.add('is-spinning');
-    this.hint.textContent = '继续按住，约三秒解锁';
+    this.hint.textContent = HOLD_HINT;
     this.audioCall('start');
     this.schedule();
   }
@@ -391,14 +393,12 @@ export class SpinUnlock {
     }
     const grip = this.grip;
     const gripped = this.pointer !== null && Boolean(grip);
+    const taut = gripped ? grip.strain - clamp(grip.strain, -GRIP_SLACK, GRIP_SLACK) : 0;
     let speed = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
     if (this.key) speed = 2.35;
-    else if (gripped) {
-      const taut = grip.strain - clamp(grip.strain, -GRIP_SLACK, GRIP_SLACK);
-      speed = clamp(taut * 16, -5.8, 5.8);
-    }
-    const damping = gripped ? 54 : this.key ? 74 : 310;
-    this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / damping));
+    else if (gripped) speed = clamp(taut * 11, -5.8, 5.8);
+    const responseTime = gripped ? 110 : this.key ? 74 : 355;
+    this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / responseTime));
     if (Math.abs(this.velocity) < .001) this.velocity = 0;
     if ((gripped || this.key) && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
     const seconds = dt / 1000;
@@ -406,9 +406,13 @@ export class SpinUnlock {
     this.shaderTime += seconds * (gripped ? .27 : .8);
 
     if (grip) {
-      // A short initial nudge acknowledges the catch. Traction then consumes
-      // the stored angular strain as the fabric catches up to the hand.
-      if (gripped) grip.strain = clamp(grip.strain - turn, -MAX_STRAIN, MAX_STRAIN);
+      // Part of the tension slips away under the hand, so even a steady turn
+      // leaves the cloth moving a little slower than the pointer.
+      if (gripped) {
+        const slip = taut * (1 - Math.exp(-seconds * 1.5));
+        grip.strain = clamp(grip.strain - turn - slip, -MAX_STRAIN, MAX_STRAIN);
+      }
+      // A short initial nudge acknowledges the catch.
       const kick = grip.kick * (1 - Math.exp(-dt / 84));
       grip.kick -= kick;
       turn += kick * .084;
@@ -451,7 +455,7 @@ export class SpinUnlock {
     const progress = this.progress();
     const moving = this.key || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
     if (this.state === 'locked') {
-      const text = moving ? (this.key ? '继续按住，约三秒解锁' : '持续画圈约三秒，转近一整圈') :
+      const text = moving ? (this.key ? HOLD_HINT : SPIN_HINT) :
         this.pointer !== null ? '围绕中央轻轻画圈' : progress > .02 ? '按住继续画圈，即可解锁' : '按住转圈，解锁 Harvey';
       if (this.hint.textContent !== text) this.hint.textContent = text;
       const milestone = Math.floor(progress * 4);

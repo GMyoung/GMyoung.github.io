@@ -77,7 +77,7 @@ export class ClothMesh {
     if (!grab) return;
     // Rotation lets the fabric slip tangentially beneath the pointer. Measure
     // in short-edge units so the offset is comparable on touch and desktop.
-    const slip = clamp(spin * .03, -.13, .13) / Math.max(.14, Math.hypot(x, y));
+    const slip = clamp(spin * .038, -.15, .15) / Math.max(.14, Math.hypot(x, y));
     grab.slipX = -y * slip;
     grab.slipY = x * slip;
     grab.targetX = x - grab.slipX;
@@ -145,12 +145,12 @@ export class ClothMesh {
 
   applyGrab(grab) {
     const gapX = grab.targetX - grab.x, gapY = grab.targetY - grab.y;
-    grab.x += gapX * .085;
-    grab.y += gapY * .085;
+    grab.x += gapX * .052;
+    grab.y += gapY * .052;
     grab.lift += (.074 + .15 * grab.load - grab.lift) * .15;
 
-    const pullX = gapX * .73 + grab.slipX * .58;
-    const pullY = gapY * .73 + grab.slipY * .58;
+    const pullX = (gapX + grab.slipX) * .52;
+    const pullY = (gapY + grab.slipY) * .52;
     const pull = Math.hypot(pullX, pullY);
     if (pull > .004) {
       // A half turn in the axis would describe the same ellipse. Keeping the
