@@ -1,11 +1,10 @@
-// Verlet integration, structural/shear/bend constraints and weighted grip
-// adapted from Dmitry Kurash's Holocloth (MIT), src/cloth.ts at
+// Verlet integration and structural/shear/bend constraints adapted from
+// Dmitry Kurash's Holocloth (MIT), src/cloth.ts at
 // a6078ba698a53cbf18be870cea555c1971f84103. See cloth-LICENSE.txt.
-// This viewport-sized sheet uses pinned overscan edges and a draped rest pose.
+// This sheet uses pinned overscan edges and a moving, soft pull over the mesh.
 
 export const CLOTH_PERSPECTIVE = .34;
 const STEP = 1 / 120;
-const GRAB_RADIUS = .145;
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
 export class ClothMesh {
@@ -31,9 +30,7 @@ export class ClothMesh {
         const u = x * this.spacing - span / 2;
         const v = y * this.spacing - span / 2;
         this.material.set([u, v], i * 2);
-        const drape = .049 * Math.sin(u * 8.5 + v * 2.8 + .85 * Math.sin(v * 4))
-          + .024 * Math.sin(v * 13.2 - u * 4.1) + .033 * Math.cos(v * 4.8 + u * 1.6);
-        this.rest.set([u, v, drape], i * 3);
+        this.rest.set([u, v, 0], i * 3);
         this.mobility[i] = clamp(Math.min(x, y, segments - x, segments - y) / 2, 0, 1);
         if (x < segments) links.push([i, i + 1, 1]);
         if (y < segments) links.push([i, i + this.cols, 1]);
@@ -66,64 +63,56 @@ export class ClothMesh {
     this.previous.set(this.rest);
     this.grab = null;
     this.accumulator = 0;
+    this.settleTime = 0;
     this.updateSurface();
   }
 
   startGrab(x, y) {
-    const p = this.positions;
-    let nearest = -1;
-    let distance = Infinity;
-    for (let i = 0; i < this.count; i++) {
-      if (this.mobility[i] === 0) continue;
-      const k = i * 3;
-      const scale = 1 / (1 - CLOTH_PERSPECTIVE * p[k + 2]);
-      const dx = p[k] * scale - x;
-      const dy = p[k + 1] * scale - y;
-      const d = dx * dx + dy * dy;
-      if (d < distance) { nearest = i; distance = d; }
-    }
-    if (nearest < 0) return;
-    const at = nearest * 3;
-    const cx = p[at], cy = p[at + 1], cz = p[at + 2];
-    const scale = 1 / (1 - CLOTH_PERSPECTIVE * cz);
-    const nodes = [];
-    for (let i = 0; i < this.count; i++) {
-      if (!this.mobility[i]) continue;
-      const k = i * 3;
-      const dx = p[k] - cx, dy = p[k + 1] - cy, dz = p[k + 2] - cz;
-      const t = 1 - Math.sqrt(dx * dx + dy * dy + dz * dz) / GRAB_RADIUS;
-      if (t <= 0) continue;
-      nodes.push({ k, dx, dy, dz, weight: t * t * (3 - 2 * t) * this.mobility[i] });
-    }
-    this.grab = { nodes, offsetX: cx * scale - x, offsetY: cy * scale - y,
-      baseZ: cz, x, y, z: cz, lift: 0, load: 0 };
+    this.grab = { x, y, targetX: x, targetY: y, slipX: 0, slipY: 0,
+      axisX: 1, axisY: 0, lift: 0, load: 0 };
   }
 
-  moveGrab(x, y, load) {
-    if (!this.grab) return;
-    this.grab.x = x;
-    this.grab.y = y;
-    this.grab.load = load;
+  moveGrab(x, y, load, spin) {
+    const grab = this.grab;
+    if (!grab) return;
+    // Rotation lets the fabric slip tangentially beneath the pointer. Measure
+    // in short-edge units so the offset is comparable on touch and desktop.
+    const slip = clamp(spin * .03, -.13, .13) / Math.max(.14, Math.hypot(x, y));
+    grab.slipX = -y * slip;
+    grab.slipY = x * slip;
+    grab.targetX = x - grab.slipX;
+    grab.targetY = y - grab.slipY;
+    grab.load = load;
   }
 
-  endGrab() { this.grab = null; }
+  endGrab() {
+    this.grab = null;
+    this.settleTime = 1;
+  }
 
-  step(dt, time) {
+  step(dt) {
+    if (!this.grab && this.settleTime <= 0) return;
     this.accumulator += Math.min(Math.max(0, dt), 4 * STEP);
     let steps = 0;
     while (this.accumulator >= STEP && steps < 4) {
-      this.substep(time);
+      this.substep();
       this.accumulator -= STEP;
       steps++;
+    }
+    if (!this.grab) {
+      this.settleTime -= steps * STEP;
+      if (this.settleTime <= 0) {
+        this.reset();
+        return;
+      }
     }
     if (steps) this.updateSurface();
   }
 
-  substep(time) {
+  substep() {
     const p = this.positions;
     const rest = this.rest;
     const prev = this.previous;
-    const air = Math.sin(time * .93) * .00023;
     for (let i = 0; i < this.count; i++) {
       const mobility = this.mobility[i];
       if (mobility === 0) continue;
@@ -135,14 +124,9 @@ export class ClothMesh {
         p[k] = current + (current - prev[k]) * .91 + (rest[k] - current) * returning;
         prev[k] = current;
       }
-      p[at + 2] += air * Math.cos(rest[at] * 3.2 + rest[at + 1] * 2.1);
     }
 
-    const g = this.grab;
-    if (g) {
-      g.lift += (.105 + .13 * g.load - g.lift) * .18;
-      g.z = clamp(g.baseZ + g.lift, -.16, .38);
-    }
+    if (this.grab) this.applyGrab(this.grab);
     for (let iteration = 0; iteration < 5; iteration++) {
       for (let c = 0; c < this.cA.length; c++) {
         const a = this.cA[c], b = this.cB[c];
@@ -156,23 +140,50 @@ export class ClothMesh {
         p[ia] += dx * diff * wa; p[ia + 1] += dy * diff * wa; p[ia + 2] += dz * diff * wa;
         p[ib] -= dx * diff * wb; p[ib + 1] -= dy * diff * wb; p[ib + 2] -= dz * diff * wb;
       }
-      if (g) this.applyGrab(g);
     }
   }
 
-  applyGrab(g) {
+  applyGrab(grab) {
+    const gapX = grab.targetX - grab.x, gapY = grab.targetY - grab.y;
+    grab.x += gapX * .085;
+    grab.y += gapY * .085;
+    grab.lift += (.074 + .15 * grab.load - grab.lift) * .15;
+
+    const pullX = gapX * .73 + grab.slipX * .58;
+    const pullY = gapY * .73 + grab.slipY * .58;
+    const pull = Math.hypot(pullX, pullY);
+    if (pull > .004) {
+      // A half turn in the axis would describe the same ellipse. Keeping the
+      // closer direction makes the footprint ease through a reversal.
+      const sign = pullX * grab.axisX + pullY * grab.axisY < 0 ? -1 : 1;
+      grab.axisX += (sign * pullX / pull - grab.axisX) * .22;
+      grab.axisY += (sign * pullY / pull - grab.axisY) * .22;
+      const length = Math.hypot(grab.axisX, grab.axisY);
+      grab.axisX /= length;
+      grab.axisY /= length;
+    }
+    const reach = .26 + .095 * grab.load + Math.min(.17, pull * .85);
+    const breadth = .19 + .065 * grab.load;
+    const travel = Math.min(1, .14 / Math.max(.001, pull));
+    const gather = .22 + .26 * grab.load;
     const p = this.positions;
-    const depth = 1 - CLOTH_PERSPECTIVE * g.z;
-    const x = (g.x + g.offsetX) * depth;
-    const y = (g.y + g.offsetY) * depth;
-    // Pull specific vertices together at the contact so the surplus length
-    // buckles into the surrounding cloth. UVs never move between vertices.
-    const pinch = 1 - clamp(g.lift * 2.35, 0, .57);
-    for (const { k, dx, dy, dz, weight } of g.nodes) {
-      const hold = .80 * weight;
-      p[k] += (x + dx * pinch - p[k]) * hold;
-      p[k + 1] += (y + dy * pinch - p[k + 1]) * hold;
-      p[k + 2] += (g.z + dz - p[k + 2]) * hold;
+    // A tapered spring acts on whichever vertices are in reach this step.
+    // Vertices leaving the patch carry their momentum into the next fold.
+    for (let i = 0; i < this.count; i++) {
+      const mobility = this.mobility[i];
+      if (!mobility) continue;
+      const k = i * 3;
+      const dx = this.rest[k] - grab.x, dy = this.rest[k + 1] - grab.y;
+      if (Math.abs(dx) > reach || Math.abs(dy) > reach) continue;
+      const along = (dx * grab.axisX + dy * grab.axisY) / reach;
+      const across = (dy * grab.axisX - dx * grab.axisY) / breadth;
+      const falloff = 1 - along * along - across * across;
+      if (falloff <= 0) continue;
+      const spring = .085 * falloff * falloff * mobility;
+      const crease = 1 - .64 * Math.abs(across);
+      p[k] += (this.rest[k] + pullX * travel - dx * gather - p[k]) * spring;
+      p[k + 1] += (this.rest[k + 1] + pullY * travel - dy * gather - p[k + 1]) * spring;
+      p[k + 2] += (grab.lift * crease - p[k + 2]) * spring;
     }
   }
 

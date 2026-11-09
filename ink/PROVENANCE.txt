@@ -1,11 +1,12 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.16.0, 2026-11-09.
-Source commit: 29f3dd023d28a92d866939b9ea99b6c5f7c3293d
+Current snapshot: Harvey Ink v1.16.1, 2026-11-09.
+Source commit: b547c59408df41a2ddb93b2a4a489a13688cc73f
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
-The opening maps the paint and brush fragments onto a deforming cloth mesh.
+The opening uses the earlier yellow-green paint and floating brush fragments.
+A broad grip slides under the pointer and passes folds across the cloth mesh.
 The title uses a short recording of children cheering. The writing room plays
 a quiet 36-minute guzheng suite. The wash bowl clears writing only, and each
 stroke retains the water mode chosen when it began. Car Game is on the homepage.

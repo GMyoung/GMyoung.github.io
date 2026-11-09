@@ -1,7 +1,7 @@
 Harvey introductory vortex and cloth, updated 2026-11-09
 
 Implementation: dist/vortex.js and dist/vendor/cloth-sim.js.
-Cloth constraints, damped Verlet integration and point grip adapted from
+Cloth constraints and damped Verlet integration adapted from
 Dmitry Kurash's Holocloth (MIT), src/cloth.ts at commit
 a6078ba698a53cbf18be870cea555c1971f84103. License in cloth-LICENSE.txt.
 https://github.com/dmitrykurash/holocloth/tree/a6078ba698a53cbf18be870cea555c1971f84103
@@ -20,12 +20,14 @@ sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain
 The gesture controller integrates a shared angle. A catch nudges the sheet,
 then the first 0.32 radians of signed relative hand travel build cloth strain.
 Beyond that slack the sheet turns, taking up strain as it catches the hand.
-The grip pulls and pinches vertices of a draped, constrained triangle mesh.
-Paint and brush fragments follow its material coordinates. Perspective depth,
-surface normals and cavity shadows respond to the same folds. Release returns
-the mesh to its draped rest shape while the sheet coasts to a slow idle turn.
+The grip spreads through a moving patch of the constrained triangle mesh.
+The patch slips tangentially with the turn and gradually transfers the pull
+to other vertices. Paint and floating brush fragments follow the material
+coordinates. A flat resting mesh restores the earlier paint colors and fine
+pixel grain. Soft lighting appears on the temporary folds. Release lets the
+mesh settle flat while the sheet coasts to a slow idle turn.
 Movement energy modulates the filaments and palette. Reduced motion holds the
-draped cloth still. The Canvas2D renderer uses the same cloth and depth at a
+flat paint still. The Canvas2D renderer uses the same cloth and depth at a
 bounded resolution with precomputed paint textures. WebGL is capped at DPR 1.5
 and 1.5M pixels, and Canvas is capped at 115K pixels.
 

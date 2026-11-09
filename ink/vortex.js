@@ -1,22 +1,26 @@
-import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.16.0';
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.16.1';
 
 const TAU = Math.PI * 2;
 const TEXTURE = 256;
+const MARK_TEXTURE = 512;
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
 const smoothstep = (a, b, value) => {
   const t = clamp((value - a) / (b - a), 0, 1);
   return t * t * (3 - 2 * t);
 };
 
+const paintInterface = precision => `
+uniform ${precision} vec2 u_resolution;
+uniform ${precision} float u_angle;
+varying ${precision} vec2 v_material;
+varying mediump vec4 v_surface;
+`;
+
 const vertexSource = `
 attribute vec3 a_position;
 attribute vec4 a_surface;
 attribute vec2 a_material;
-uniform mediump vec2 u_resolution;
 uniform vec2 u_shift;
-uniform float u_angle;
-varying mediump vec2 v_material;
-varying mediump vec4 v_surface;
 
 void main() {
   float c = cos(u_angle);
@@ -33,22 +37,26 @@ void main() {
 // The original paint is evaluated in material coordinates. It follows the
 // vertices through every fold, along with the brush fragments printed on it.
 const fragmentBody = `
-uniform mediump vec2 u_resolution;
 uniform float u_time;
 uniform float u_velocity;
+uniform float u_progress;
 uniform float u_energy;
 uniform float u_markSpan;
 uniform float u_markOpacity;
 uniform sampler2D u_marks;
-varying mediump vec2 v_material;
-varying mediump vec4 v_surface;
 
 void main() {
-  vec2 p = v_material;
+  float edge = min(u_resolution.x, u_resolution.y);
+  float pixel = max(1.0, edge / 570.0);
+  vec2 pixelOffset = mod(gl_FragCoord.xy, pixel) * vec2(-1.0, 1.0) / edge;
+  float c = cos(u_angle);
+  float s = sin(u_angle);
+  vec2 material = v_material + mat2(c, -s, s, c) * pixelOffset;
+  vec2 p = material;
   float drift = u_time * 0.08;
   float energy = u_energy;
-  p += 0.063 * vec2(sin(drift * 2.0), cos(drift * 3.0));
-  p *= 1.0 + 0.036 * sin(drift);
+  p += 0.085 * vec2(sin(drift * 2.0), cos(drift * 3.0));
+  p *= 1.0 + 0.045 * sin(drift);
   float radius = length(p);
   float polar = radius < 0.00001 ? 0.0 : atan(p.y, p.x);
   polar -= radius * (5.2 + energy * 0.8 + abs(u_velocity) * 0.032);
@@ -76,22 +84,19 @@ void main() {
   color = mix(color, green, veins * (0.10 + energy * 0.22));
   float glow = edgeLight * (0.10 + energy * 0.42) + veins * (0.025 + energy * 0.16);
   color = mix(color, vec3(1.0, 0.97, 0.47), clamp(glow, 0.0, 0.65));
+  float grain = fract(sin(dot(floor(material * edge * 0.5) * 0.01, vec2(17.1, 61.7))) * 971.3);
+  color *= 0.989 + grain * (0.019 + u_progress * 0.003);
   vec2 markUV = v_material / u_markSpan + 0.5;
   vec4 mark = texture2D(u_marks, markUV);
-  color = mix(color, mark.rgb, mark.a * u_markOpacity);
+  color = color * (1.0 - mark.a * u_markOpacity) + mark.rgb * u_markOpacity;
 
+  // A flat sheet leaves the old paint colors untouched. Only slopes and
+  // cavities made by the moving folds catch light.
   vec3 normal = normalize(v_surface.xyz);
   if (normal.z < 0.0) normal = -normal;
-  vec3 key = normalize(vec3(-0.58, -0.48, 0.68));
-  vec3 halfVector = normalize(key + vec3(0.0, 0.0, 1.0));
-  float diffuse = max(0.0, dot(normal, key));
-  float sheen = pow(max(0.0, dot(normal, halfVector)), 9.0);
-  float light = max(0.31, 0.62 + 0.43 * diffuse + 0.095 * sheen - 0.43 * v_surface.w);
-  float frequency = min(1030.0, min(u_resolution.x, u_resolution.y) * 1.55);
-  float warp = sin(v_material.x * frequency);
-  float weft = sin(v_material.y * frequency * 1.03);
-  float weave = 0.984 + 0.023 * warp * weft + 0.012 * (warp + weft);
-  gl_FragColor = vec4(color * light * weave, 1.0);
+  float light = 1.0 + 0.23 * dot(normal.xy, vec2(-0.70, -0.48))
+    - 0.09 * (1.0 - normal.z) - 0.14 * v_surface.w;
+  gl_FragColor = vec4(color * clamp(light, 0.78, 1.16), 1.0);
 }`;
 
 function makeCanvas() {
@@ -101,37 +106,42 @@ function makeCanvas() {
   return canvas;
 }
 
-function drawMarks(canvas, radius, focused) {
-  const ctx = canvas.getContext('2d', { willReadFrequently: true });
-  const side = canvas.width;
-  const unit = side / (radius * 3.85);
+function drawMarks(ctx, radius, span, time, progress, focused, still) {
+  const side = MARK_TEXTURE;
+  const unit = side / span;
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.clearRect(0, 0, side, side);
   ctx.setTransform(unit, 0, 0, unit, side / 2, side / 2);
   const size = clamp(radius / 112, .52, 1);
+  const gather = 1 - progress * .3;
   for (let i = 0; i < 16; i++) {
     const orbit = i * .79 + Math.sin(i * 1.7) * .32;
-    const distance = radius * (.30 + i / 15 * 1.25);
-    const x = Math.cos(orbit) * distance + Math.sin(i * 2.4) * radius * .14;
-    const y = Math.sin(orbit) * distance * .81 + Math.cos(i * 1.3) * radius * .10;
-    const length = (16 + (i % 4) * 8 + Math.sin(i * 2) * 3) * size;
-    const width = (i % 3 === 2 ? 2.8 : 5 + i % 4 * 1.8) * size;
+    const distance = radius * (.30 + i / 15 * 1.25) * gather;
+    const amplitude = (12 + i % 5 * 3) * Math.max(.75, size);
+    const driftX = still ? 0 : Math.sin(time * (.43 + i % 3 * .08) + i * 1.9) * amplitude;
+    const driftY = still ? 0 : Math.cos(time * (.51 + i % 4 * .06) + i * 2.1) * amplitude * .84;
+    const tumble = still ? 0 : Math.sin(time * .46 + i * .9) * .18 + Math.cos(time * .71 + i * 1.2) * .09;
+    const x = Math.cos(orbit) * distance + Math.sin(i * 2.4) * radius * .14 + driftX;
+    const y = Math.sin(orbit) * distance * .81 + Math.cos(i * 1.3) * radius * .10 + driftY;
+    const length = (15 + (i % 4) * 8 + Math.sin(i * 2) * 3) * size;
+    const width = (i % 3 === 2 ? 2.5 : 5 + i % 4 * 1.8) * size;
     ctx.save();
     ctx.translate(x, y);
-    ctx.rotate(orbit + .55 + Math.sin(i * 2.8) * .8);
-    ctx.fillStyle = `rgb(${43 + i % 3 * 5},${104 + i % 4 * 7},${24 + i % 4 * 3})`;
+    ctx.rotate(orbit + .55 + Math.sin(i * 2.8) * .8 + tumble);
+    ctx.fillStyle = `rgb(${44 + i % 3 * 6},${Math.round(96 + progress * 31 + i % 3 * 9)},${25 + i % 4 * 4})`;
     ctx.beginPath();
-    ctx.moveTo(-length * .5, -width * .32);
     if (i % 3 === 1) {
-      ctx.quadraticCurveTo(length * .08, -width * .68, length * .53, width * .20);
-      ctx.lineTo(length * .31, width * .17);
+      ctx.moveTo(-length * .5, -width * .46);
+      ctx.quadraticCurveTo(length * .12, -width * .65, length * .53, width * .20);
+      ctx.lineTo(length * .30, width * .18);
       ctx.lineTo(length * .48, width * .40);
-      ctx.quadraticCurveTo(-length * .1, width * .55, -length * .5, width * .37);
+      ctx.quadraticCurveTo(-length * .1, width * .54, -length * .5, width * .40);
     } else {
-      ctx.lineTo(-length * .27, -width * .54);
+      ctx.moveTo(-length * .5, -width * .32);
+      ctx.lineTo(-length * .30, -width * .54);
       ctx.lineTo(length * .48, -width * .31);
       ctx.lineTo(length * .53, width * .29);
-      ctx.lineTo(length * .30, width * .47);
+      ctx.lineTo(length * .31, width * .46);
       ctx.lineTo(-length * .47, width * .40);
     }
     ctx.closePath();
@@ -143,12 +153,12 @@ function drawMarks(canvas, radius, focused) {
     }
     ctx.clip();
     ctx.lineWidth = Math.max(.5, size * .7);
-    for (let fiber = 0; fiber < 6; fiber++) {
-      const line = (fiber / 5 - .5) * width;
+    for (let fiber = 0; fiber < 7; fiber++) {
+      const line = (fiber / 6 - .5) * width;
       ctx.strokeStyle = fiber % 3 ? '#cbdd7f50' : '#183e1050';
       ctx.beginPath();
-      ctx.moveTo(-length * .49 + Math.sin(fiber + i) * 2 * size, line);
-      ctx.lineTo(length * (.20 + fiber % 3 * .13), line + Math.sin(fiber * 2.4 + i) * 1.65 * size);
+      ctx.moveTo(-length * .48 + Math.sin(fiber + i) * 3 * size, line);
+      ctx.lineTo(length * (.20 + fiber % 3 * .12), line + Math.sin(fiber * 2.4 + i) * 1.7 * size);
       ctx.stroke();
     }
     ctx.restore();
@@ -161,7 +171,7 @@ function bakePaint(span, energy) {
   for (let y = 0; y < TEXTURE; y++) {
     for (let x = 0; x < TEXTURE; x++) {
       const px = (x / (TEXTURE - 1) - .5) * span;
-      const py = (y / (TEXTURE - 1) - .5) * span + .063;
+      const py = (y / (TEXTURE - 1) - .5) * span + .085;
       const r = Math.hypot(px, py);
       const theta = Math.atan2(py, px) - r * (5.2 + energy * .8) - .25 * Math.sin(r * 5);
       let qx = r * Math.cos(theta) * 2.8;
@@ -173,19 +183,21 @@ function bakePaint(span, energy) {
         qx = nx;
       }
       const field = Math.sin(qx * 3.2 + Math.sin(qy * 1.6)) + .65 * Math.cos(qy * 2.7 - qx * .6);
-      const band = smoothstep(-.1, .65, field) * .78;
+      const band = smoothstep(-.1, .65, field);
       const dark = smoothstep(.8, 1.35, field) * .82;
       const veins = smoothstep(.48, .9, Math.sin(field * (7 + energy * 6) + qx * 1.5 - qy * 1.8)) * band;
-      const glow = (1 - smoothstep(.02, .18, Math.abs(field - .28))) * (.10 + energy * .42);
+      const glow = (1 - smoothstep(.02, .18, Math.abs(field - .28))) * (.10 + energy * .42)
+        + veins * (.025 + energy * .16);
       const yellow = [1, .875 + .055 * energy, .015 + .165 * energy];
       const pollen = [.69 + .09 * energy, .73 + .11 * energy, .08 + .07 * energy];
       const green = [.17 + .12 * energy, .39 + .16 * energy, .10 + .03 * energy];
       const light = [1, .97, .47];
       const at = (y * TEXTURE + x) * 3;
       for (let channel = 0; channel < 3; channel++) {
-        let value = yellow[channel] + (pollen[channel] - yellow[channel]) * band;
-        value += (green[channel] - value) * Math.min(1, dark + veins * (.12 + energy * .23));
-        out[at + channel] = (value + (light[channel] - value) * glow) * 255;
+        let value = yellow[channel] + (pollen[channel] - yellow[channel]) * band * .78;
+        value += (green[channel] - value) * dark;
+        value += (green[channel] - value) * veins * (.10 + energy * .22);
+        out[at + channel] = (value + (light[channel] - value) * clamp(glow, 0, .65)) * 255;
       }
     }
   }
@@ -198,7 +210,8 @@ export class IntroVortex {
     this.canvas = makeCanvas();
     host.append(this.canvas);
     this.markCanvas = document.createElement('canvas');
-    this.markCanvas.width = this.markCanvas.height = 512;
+    this.markCanvas.width = this.markCanvas.height = MARK_TEXTURE;
+    this.markContext = this.markCanvas.getContext('2d', { willReadFrequently: true });
     this.lastFrame = {};
     this.resources = [];
     this.onContextLost = event => {
@@ -228,15 +241,16 @@ export class IntroVortex {
       return handle;
     };
     const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT)?.precision ? 'highp' : 'mediump';
+    const shared = paintInterface(precision);
     const program = gl.createProgram();
     this.resources.push(['deleteProgram', program]);
-    gl.attachShader(program, shader(gl.VERTEX_SHADER, vertexSource));
-    gl.attachShader(program, shader(gl.FRAGMENT_SHADER, `precision ${precision} float;\n${fragmentBody}`));
+    gl.attachShader(program, shader(gl.VERTEX_SHADER, shared + vertexSource));
+    gl.attachShader(program, shader(gl.FRAGMENT_SHADER, `precision ${precision} float;\n${shared}${fragmentBody}`));
     gl.linkProgram(program);
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
     this.program = program;
     gl.useProgram(program);
-    this.uniforms = Object.fromEntries(['resolution','shift','angle','time','velocity','energy','markSpan','markOpacity','marks']
+    this.uniforms = Object.fromEntries(['resolution', 'shift', 'angle', 'time', 'velocity', 'progress', 'energy', 'markSpan', 'markOpacity', 'marks']
       .map(name => [name, gl.getUniformLocation(program, `u_${name}`)]));
     this.attributes = ['position','surface','material'].map((name, i) => {
       const buffer = gl.createBuffer();
@@ -254,6 +268,8 @@ export class IntroVortex {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, MARK_TEXTURE, MARK_TEXTURE, 0, gl.RGBA, gl.UNSIGNED_BYTE, null);
     gl.enable(gl.DEPTH_TEST);
     gl.clearColor(1, .875, .015, 1);
     this.canvas.dataset.renderer = 'cloth-webgl';
@@ -295,7 +311,8 @@ export class IntroVortex {
     this.mesh = new ClothMesh(span, segments);
     this.contact = null;
     this.markRadius = Math.max(1, Math.min(112, width * .26, height * .245));
-    this.markSpan = this.markRadius * 3.85 / edge;
+    this.markWidth = this.markRadius * 3.85 + 38;
+    this.markSpan = this.markWidth / edge;
     this.markFocus = undefined;
     if (this.gl) {
       const gl = this.gl;
@@ -328,30 +345,37 @@ export class IntroVortex {
     this.contact = null;
   }
 
-  refreshMarks(focused) {
-    if (this.markFocus === focused) return;
+  refreshMarks(time, progress, focused) {
+    // Slow drifting fragments only need a new decal at these small intervals.
+    const step = Math.floor(time * 24);
+    const gather = Math.round(progress * 50);
+    const still = this.reducedMotion;
+    if (this.markFocus === focused && this.markStep === step && this.markGather === gather && this.markStill === still) return;
     this.markFocus = focused;
-    drawMarks(this.markCanvas, this.markRadius, focused);
+    this.markStep = step;
+    this.markGather = gather;
+    this.markStill = still;
+    drawMarks(this.markContext, this.markRadius, this.markWidth, step / 24, gather / 50, focused, still);
     if (this.gl) {
       const gl = this.gl;
       gl.activeTexture(gl.TEXTURE0);
       gl.bindTexture(gl.TEXTURE_2D, this.markTexture);
-      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.markCanvas);
+      gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, this.markCanvas);
     } else {
-      this.markPixels = this.markCanvas.getContext('2d').getImageData(0, 0, 512, 512).data;
+      this.markPixels = this.markContext.getImageData(0, 0, MARK_TEXTURE, MARK_TEXTURE).data;
     }
   }
 
   render(frame = {}) {
     this.lastFrame = frame;
     if (!this.mesh) return;
-    let { time = 0, dt = 0, angle = 0, velocity = 0, energy = 0, shakeX = 0, shakeY = 0,
-      grip = null, focused = false, marks = .70 } = frame;
+    let { time = 0, dt = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0,
+      grip = null, focused = false, marks = .65 } = frame;
     if (this.reducedMotion) {
-      time = dt = angle = velocity = energy = shakeX = shakeY = 0;
+      time = dt = angle = velocity = progress = energy = shakeX = shakeY = 0;
       grip = null;
     }
-    this.refreshMarks(focused);
+    this.refreshMarks(time, progress, focused);
     const edge = Math.min(this.width, this.height);
     if (grip) {
       const x = ((grip.x - .5) * this.width - shakeX) / edge;
@@ -359,19 +383,19 @@ export class IntroVortex {
       const c = Math.cos(angle), s = Math.sin(angle);
       const u = x * c + y * s, v = y * c - x * s;
       if (this.contact !== grip) this.mesh.startGrab(u, v);
-      this.mesh.moveGrab(u, v, grip.load);
+      this.mesh.moveGrab(u, v, grip.load, velocity);
     } else if (this.contact) {
       this.mesh.endGrab();
     }
     this.contact = grip;
-    this.mesh.step(dt, time);
+    this.mesh.step(dt);
     const shiftX = shakeX * this.canvas.width / this.width;
     const shiftY = shakeY * this.canvas.height / this.height;
-    if (this.gl) this.drawGL(time, angle, velocity, energy, marks, shiftX, shiftY);
-    else if (this.context) this.drawSoftware(angle, energy, marks, shiftX, shiftY);
+    if (this.gl) this.drawGL(time, angle, velocity, progress, energy, marks, shiftX, shiftY);
+    else if (this.context) this.drawSoftware(time, angle, energy, marks, shiftX, shiftY);
   }
 
-  drawGL(time, angle, velocity, energy, marks, x, y) {
+  drawGL(time, angle, velocity, progress, energy, marks, x, y) {
     const gl = this.gl, u = this.uniforms;
     gl.useProgram(this.program);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -380,6 +404,7 @@ export class IntroVortex {
     gl.uniform1f(u.time, time % (TAU / .08));
     gl.uniform1f(u.angle, angle);
     gl.uniform1f(u.velocity, velocity);
+    gl.uniform1f(u.progress, progress);
     gl.uniform1f(u.energy, energy);
     gl.uniform1f(u.markSpan, this.markSpan);
     gl.uniform1f(u.markOpacity, marks);
@@ -392,7 +417,7 @@ export class IntroVortex {
     gl.drawElements(gl.TRIANGLES, this.mesh.indices.length, gl.UNSIGNED_SHORT, 0);
   }
 
-  drawSoftware(angle, energy, marks, shiftX, shiftY) {
+  drawSoftware(time, angle, energy, marks, shiftX, shiftY) {
     // Same geometry, UVs and occlusion at a bounded resolution for Canvas-only
     // browsers. A depth buffer keeps the front of a folded triangle visible.
     const { width, height } = this.canvas;
@@ -413,8 +438,7 @@ export class IntroVortex {
       const nx = (surface[n] * c - surface[n + 1] * s) * direction;
       const ny = (surface[n] * s + surface[n + 1] * c) * direction;
       const nz = Math.abs(surface[n + 2]);
-      const diffuse = Math.max(0, nx * -.58 + ny * -.48 + nz * .68);
-      points[n + 3] = Math.max(.31, .66 + .43 * diffuse - .43 * surface[n + 3]);
+      points[n + 3] = clamp(1 + .23 * (-.70 * nx - .48 * ny) - .09 * (1 - nz) - .14 * surface[n + 3], .78, 1.16);
     }
     depth.fill(-Infinity);
     for (let i = 0; i < pixels.length; i += 4) {
@@ -423,7 +447,12 @@ export class IntroVortex {
     const [low, high] = this.paint;
     const paintScale = (TEXTURE - 1) / span;
     const paintCenter = (TEXTURE - 1) / 2;
-    const markScale = 512 / this.markSpan;
+    const drift = time * .08;
+    const zoom = 1 + .045 * Math.sin(drift);
+    const paintX = .085 * Math.sin(drift * 2) * zoom;
+    const paintY = .085 * (Math.cos(drift * 3) * zoom - 1);
+    const markScale = MARK_TEXTURE / this.markSpan;
+    const markCenter = MARK_TEXTURE / 2;
     for (let i = 0; i < indices.length; i += 3) {
       const ia = indices[i], ib = indices[i + 1], ic = indices[i + 2];
       const a = ia * 4, b = ib * 4, d = ic * 4;
@@ -446,12 +475,12 @@ export class IntroVortex {
           depth[pixel] = z;
           const u = wa * material[ia * 2] + wb * material[ib * 2] + wc * material[ic * 2];
           const v = wa * material[ia * 2 + 1] + wb * material[ib * 2 + 1] + wc * material[ic * 2 + 1];
-          const tx = clamp(Math.round(u * paintScale + paintCenter), 0, TEXTURE - 1);
-          const ty = clamp(Math.round(v * paintScale + paintCenter), 0, TEXTURE - 1);
+          const tx = clamp(Math.round((u * zoom + paintX) * paintScale + paintCenter), 0, TEXTURE - 1);
+          const ty = clamp(Math.round((v * zoom + paintY) * paintScale + paintCenter), 0, TEXTURE - 1);
           const color = (ty * TEXTURE + tx) * 3;
-          const mx = Math.floor(u * markScale + 256), my = Math.floor(v * markScale + 256);
-          const mi = (my * 512 + mx) * 4;
-          const opacity = mx >= 0 && my >= 0 && mx < 512 && my < 512 ? this.markPixels[mi + 3] * marks / 255 : 0;
+          const mx = Math.floor(u * markScale + markCenter), my = Math.floor(v * markScale + markCenter);
+          const mi = (my * MARK_TEXTURE + mx) * 4;
+          const opacity = mx >= 0 && my >= 0 && mx < MARK_TEXTURE && my < MARK_TEXTURE ? this.markPixels[mi + 3] * marks / 255 : 0;
           const light = wa * points[a + 3] + wb * points[b + 3] + wc * points[d + 3];
           for (let j = 0; j < 3; j++) {
             let value = low[color + j] + (high[color + j] - low[color + j]) * energy;

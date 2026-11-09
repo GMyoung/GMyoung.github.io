@@ -1,4 +1,4 @@
-import { IntroVortex } from './vortex.js?v=1.16.0';
+import { IntroVortex } from './vortex.js?v=1.16.1';
 
 const TAU = Math.PI * 2;
 const DURATION = 2940;
@@ -155,11 +155,12 @@ export class SpinUnlock {
 
   renderVortex(shakeX = 0, shakeY = 0, dt = 0, release = 0) {
     const focused = this.wrapper.classList.contains('keyboard-focus');
+    const progress = this.progress();
     this.vortex.render({
       time: this.shaderTime, dt: dt / 1000, angle: this.shaderAngle, velocity: this.velocity,
-      energy: this.energy, shakeX, shakeY, focused,
+      progress, energy: this.energy, shakeX, shakeY, focused,
       grip: this.pointer !== null ? this.grip : null,
-      marks: this.state === 'unlocked' ? 0 : (1 - release) * (focused ? .95 : .72 + this.progress() * .16),
+      marks: this.state === 'unlocked' ? 0 : (1 - release) * (focused ? .95 : .65 + progress * .23),
     });
   }
 
