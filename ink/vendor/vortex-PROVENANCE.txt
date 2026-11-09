@@ -22,12 +22,14 @@ Visual/technical references consulted:
 This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
 The gesture controller integrates a shared angle. A catch nudges the sheet.
-The difference between hand and cloth angles builds spring tension. The cloth
-starts loose, then couples to the hand as the grip tightens. A strong pull
-stores more tension and reduces damping, letting the turn carry through.
-Unlock is measured from the input and requires 7.35 seconds and 1.08 turns in
-one direction. A flat resting mesh keeps the original paint colors and fine
-pixel grain. Soft lighting appears on the temporary folds.
+The difference between hand and cloth angles builds spring tension. About a
+quarter radian of slack delays the turn. Once taut, the nonlinear spring
+accelerates more strongly and loses less energy on a hard pull. Drag unlock
+requires 7.35 seconds and 1.08 turns in one direction. Desktop wheel and
+touchpad input credit scroll distance into the same sequence. The sequence
+can pause between scrolls and takes at least 3.7 seconds to play through.
+A flat resting mesh keeps the original paint colors and fine pixel grain.
+Soft lighting appears on the temporary folds.
 
 The 36 orbiting pieces come from the user's original painted letters. While
 the user turns, elapsed moving time brings each letter together and sends it

@@ -1,14 +1,17 @@
-import { IntroVortex } from './vortex.js?v=1.17.1';
+import { IntroVortex } from './vortex.js?v=1.17.2';
 
 const TAU = Math.PI * 2;
 const DURATION = 7350;
 const REQUIRED_SWEEP = TAU * 1.08;
 const SPIN_HINT = '持续同向画圈约七秒半，累计略多于一圈';
 const HOLD_HINT = '继续按住，约七秒半解锁';
+const WHEEL_HINT = '用滚轮或触控板双指滚动，解锁 Harvey';
+const WHEEL_TRAVEL = 760;
+const WHEEL_TIME = 3700;
 const IDLE_SPEED = .16;
 const GRIP_SLACK = .32;
 const MAX_STRAIN = 1.1;
-const TURN_SLACK = .12;
+const TURN_SLACK = .25;
 const TURN_STEP = 1 / 100;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 const smooth = value => {
@@ -16,8 +19,8 @@ const smooth = value => {
   return t * t * (3 - 2 * t);
 };
 
-// The title requires both a minimum sweep and sustained moving input.
-// The idle turn is decorative. Progress comes from gesture samples or a key hold.
+// Dragging requires a minimum sweep and sustained movement. Keyboard and
+// wheel input advance the same sequence without tracing a circle.
 export class SpinUnlock {
   constructor({ onUnlock, onSpinFrame, audio, reducedMotion = false }) {
     this.onUnlock = onUnlock;
@@ -31,6 +34,7 @@ export class SpinUnlock {
     this.frame = 0;
     this.pointer = null;
     this.key = null;
+    this.wheel = null;
     this.suppressedKey = null;
     this.suspended = false;
     this.active = true;
@@ -45,6 +49,7 @@ export class SpinUnlock {
     this.button.addEventListener('click', event => event.preventDefault());
     this.button.addEventListener('contextmenu', event => event.preventDefault());
     this.button.addEventListener('keydown', event => this.keyDown(event));
+    this.wrapper.addEventListener('wheel', event => this.roll(event), { passive: false });
     // Completion may focus the next control while a key is still held.
     // Keep consuming that original hold until its keyup, even after hiding.
     window.addEventListener('keydown', event => {
@@ -114,7 +119,7 @@ export class SpinUnlock {
     this.wrapper.classList.remove('is-spinning', 'is-unlocking', 'keyboard-focus');
     this.button.disabled = false;
     this.hint.textContent = '按住转圈，解锁 Harvey';
-    this.status.textContent = `${SPIN_HINT}。键盘可按住空格或回车约七秒半。`;
+    this.status.textContent = `${SPIN_HINT}。${WHEEL_HINT}。键盘可按住空格或回车约七秒半。`;
     this.audioCall('reset');
     this.vortex.reset();
     this.measure();
@@ -202,6 +207,7 @@ export class SpinUnlock {
     if (!this.active || this.state !== 'locked' || this.pointer !== null || this.key || !event.isPrimary || event.button !== 0) return;
     event.preventDefault();
     this.measure();
+    this.wheel = null;
     this.pointer = event.pointerId;
     this.lastSample = null;
     this.lastFrame = performance.now();
@@ -213,7 +219,7 @@ export class SpinUnlock {
       this.grip = {
         x: clamp(event.clientX / innerWidth), y: clamp(event.clientY / innerHeight),
         stretch: 0, load: 0, follow: 0,
-        strain: 0, kick: this.coastDirection * .42, last: null,
+        strain: 0, kick: this.coastDirection * .28, last: null,
       };
       this.velocity = 0;
     }
@@ -313,10 +319,35 @@ export class SpinUnlock {
     this.schedule();
   }
 
+  roll(event) {
+    if (!this.active || this.suspended || this.state !== 'locked' || this.pointer !== null || this.key || event.ctrlKey || event.metaKey) return;
+    const mode = event.deltaMode;
+    const delta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+    if (!Number.isFinite(delta) || delta === 0) return;
+    const unit = mode === 1 ? 28 : mode === 2 ? innerHeight : 1;
+    event.preventDefault();
+    if (!this.wheel) {
+      // Preserve completed progress when changing from a drag or key hold.
+      const progress = this.progress();
+      this.elapsed = progress * DURATION;
+      this.angle = progress * REQUIRED_SWEEP;
+      this.wheel = { distance: progress * WHEEL_TRAVEL, direction: Math.sign(delta) };
+      this.direction = 0;
+      this.reverseAngle = 0;
+      this.reverseTime = 0;
+      this.grip = null;
+      this.audioCall('start');
+    }
+    this.wheel.distance = Math.min(WHEEL_TRAVEL, this.wheel.distance + Math.min(180, Math.abs(delta) * unit));
+    this.wheel.direction = Math.sign(delta);
+    this.schedule();
+  }
+
   keyDown(event) {
     if (![' ', 'Enter'].includes(event.key)) return;
     event.preventDefault();
     if (!this.active || this.state !== 'locked' || this.pointer !== null || this.key || event.repeat) return;
+    this.wheel = null;
     this.key = event.key;
     this.lastFrame = performance.now();
     this.lastMovement = this.lastFrame;
@@ -350,9 +381,10 @@ export class SpinUnlock {
 
   cancelHold() {
     const pointer = this.pointer;
-    const wasHeld = pointer !== null || this.key !== null;
+    const wasHeld = pointer !== null || this.key !== null || this.wheel !== null;
     this.pointer = null;
     this.key = null;
+    this.wheel = null;
     this.lastSample = null;
     this.releasedAt = performance.now();
     if (pointer !== null && this.button.hasPointerCapture(pointer)) this.button.releasePointerCapture(pointer);
@@ -405,14 +437,14 @@ export class SpinUnlock {
     let turn = 0;
     for (let index = 0; index < steps; index++) {
       const stretch = grip.strain - clamp(grip.strain, -TURN_SLACK, TURN_SLACK);
-      grip.follow = smooth((Math.abs(grip.strain) - .075) / .09);
-      const force = stretch * (102 + 126 * clamp(Math.abs(stretch) / .32));
+      grip.follow = smooth((Math.abs(grip.strain) - (TURN_SLACK - .045)) / .105);
+      const force = stretch * (116 + 212 * clamp(Math.abs(stretch) / .28));
       // A harder pull stores more tension and loses less of it to damping.
       // As the spring unwinds, the sheet can briefly lead the hand.
       const pace = Math.max(Math.abs(hand), Math.abs(this.velocity));
-      const contact = grip.follow * (18 - 10 * smooth((pace - 2.25) / 4));
+      const contact = grip.follow * (19 - 13 * smooth((pace - 2.3) / 3.6));
       const friction = contact + 3.6;
-      const target = clamp((force + contact * hand) / friction, -18, 18);
+      const target = clamp((force + contact * hand) / friction, -20, 20);
       const before = this.velocity;
       this.velocity += (target - before) * (1 - Math.exp(-step * friction));
       const rotation = (before + this.velocity) * step / 2;
@@ -422,7 +454,7 @@ export class SpinUnlock {
     return turn;
   }
 
-  turnCloth(dt, now) {
+  turnCloth(dt, now, wheelDirection) {
     if (this.reducedMotion) {
       this.velocity = 0;
       this.energy = 0;
@@ -436,13 +468,14 @@ export class SpinUnlock {
       const hand = this.inputVelocity * (1 - smooth((now - this.lastMovement - 34) / 105));
       turn = this.pullCloth(grip, seconds, hand);
     } else {
-      const speed = this.key ? 2.35 : this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
-      const responseTime = this.key ? 74 : 355;
+      const idle = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
+      const speed = wheelDirection ? wheelDirection * (2.3 + this.progress() * 1.05) : this.key ? 2.35 : idle;
+      const responseTime = wheelDirection ? 95 : this.key ? 74 : 355;
       this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / responseTime));
       turn = this.velocity * seconds;
     }
     if (Math.abs(this.velocity) < .001) this.velocity = 0;
-    if ((gripped || this.key) && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
+    if ((gripped || this.key || wheelDirection) && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
     this.shaderTime += seconds * (gripped ? .27 : .8);
 
     if (grip) {
@@ -464,12 +497,21 @@ export class SpinUnlock {
     if (!this.active || this.suspended || document.hidden) return;
     const dt = this.lastFrame ? clamp(now - this.lastFrame, 0, 64) : 0;
     this.lastFrame = now;
+    let wheelDirection = 0;
     if (this.state === 'locked') {
       if (this.key) {
         this.elapsed = Math.min(DURATION, this.elapsed + dt);
         this.angle = Math.min(REQUIRED_SWEEP, this.angle + dt / DURATION * REQUIRED_SWEEP);
         this.lastMovement = now;
         if (this.progress() >= 1) this.complete(now);
+      } else if (this.wheel) {
+        // Spend wheel distance gradually so one fast swipe cannot skip letters.
+        const target = this.wheel.distance / WHEEL_TRAVEL * DURATION;
+        const next = Math.min(target, this.elapsed + dt / WHEEL_TIME * DURATION);
+        if (next > this.elapsed) wheelDirection = this.wheel.direction;
+        this.elapsed = next;
+        this.angle = next / DURATION * REQUIRED_SWEEP;
+        if (next === DURATION) this.complete(now);
       } else {
         const grace = this.pointer === null ? 800 : 300;
         const idleFrom = this.pointer === null ? Math.max(this.releasedAt, this.lastMovement) : this.lastMovement;
@@ -487,9 +529,9 @@ export class SpinUnlock {
       }
     }
     const progress = this.progress();
-    const moving = this.key || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
+    const moving = this.key || wheelDirection || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
     if (this.state === 'locked') {
-      const text = moving ? (this.key ? HOLD_HINT : SPIN_HINT) :
+      const text = this.wheel ? WHEEL_HINT : moving ? (this.key ? HOLD_HINT : SPIN_HINT) :
         this.pointer !== null ? '围绕中央轻轻画圈' : progress > .02 ? '按住继续画圈，即可解锁' : '按住转圈，解锁 Harvey';
       if (this.hint.textContent !== text) this.hint.textContent = text;
       const milestone = Math.floor(progress * 4);
@@ -499,21 +541,21 @@ export class SpinUnlock {
       }
       if (progress === 0) this.lastAnnouncement = 0;
     }
-    const activity = this.key ? .62 : moving ? clamp(Math.abs(this.inputVelocity) / 6) : 0;
+    const activity = this.key ? .62 : wheelDirection ? .58 : moving ? clamp(Math.abs(this.inputVelocity) / 6) : 0;
     this.motion += (activity - this.motion) * (1 - Math.exp(-dt / (activity > this.motion ? 85 : 250)));
     if (this.motion < .001) this.motion = 0;
     const energyTarget = moving ? clamp(.16 + progress * .57 + this.motion * .28) : 0;
     this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
-    this.turnCloth(dt, now);
+    this.turnCloth(dt, now, wheelDirection);
     const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
-    const held = this.pointer !== null || this.key !== null;
+    const held = this.pointer !== null || this.key !== null || wheelDirection !== 0;
     this.audioCall('update', { progress, motion: this.motion, held });
     const tension = progress ** 3;
     const pace = Math.sqrt(this.motion);
     // Keep contact light. The last stretch raises both the amplitude and tempo
     // of the same shared tremor, with the hand's speed setting its strength.
-    const gripLoad = this.key ? 1 : this.grip?.load ?? 0;
+    const gripLoad = this.key ? 1 : wheelDirection ? .72 : this.grip?.load ?? 0;
     const targetShake = this.reducedMotion || !held ? 0 : .11 + gripLoad * (pace * (.95 + 3.35 * tension) + (moving ? tension * .66 : 0));
     const response = 1 - Math.exp(-dt / (targetShake > this.shakeAmplitude ? 62 : 115));
     this.shakeAmplitude += (targetShake - this.shakeAmplitude) * response;

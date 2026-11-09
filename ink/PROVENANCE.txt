@@ -1,13 +1,14 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.17.1, 2026-11-09.
-Source commit: 9bf80c6270d200b102f9c03ef525808af3c3ffb6
+Current snapshot: Harvey Ink v1.17.2, 2026-11-09.
+Source commit: 175c379a8b1b7149c6573e1d01390a6acf9b355b
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
 The opening uses the earlier yellow-green paint and floating brush fragments.
 Unlock requires 7.35 seconds of motion and 1.08 turns in one direction.
-The grip tightens as spring tension builds, with more carry on a hard turn.
+The cloth has more initial slack and accelerates faster once pulled taut.
+Desktop wheel and touchpad scrolling can advance the same opening.
 While turning, the drawing pieces form each letter in order and send it away.
 At unlock the full wordmark returns once with a green trail and the title cheer.
 The title uses a short recording of children cheering. The writing room plays

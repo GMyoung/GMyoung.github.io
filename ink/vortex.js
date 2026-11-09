@@ -1,4 +1,4 @@
-import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.1';
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.2';
 
 const TAU = Math.PI * 2;
 const TEXTURE = 256;
