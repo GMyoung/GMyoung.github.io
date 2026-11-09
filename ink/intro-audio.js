@@ -2,7 +2,7 @@
 // the rising air, which follows the energy of the live gesture.
 const ASSETS = {
   music: new URL('./assets/midnight-paper.mp3', import.meta.url),
-  cheer: new URL('./assets/harvey-yay.mp3', import.meta.url),
+  cheer: new URL('./assets/harvey-yay.mp3?v=1.14.0', import.meta.url),
 };
 const clamp = value => Math.max(0, Math.min(1, value));
 
@@ -32,13 +32,13 @@ export class IntroAudio {
       this.muted = this.phase !== 'idle' && this.context?.state === 'running' && !this.muted;
       if (this.phase === 'idle') this.phase = 'spinning';
       if (this.muted) this.syncPlayback();
-      else this.resumeFromGesture();
+      else this.resumePlayback();
     });
     // A touch pointerdown may not grant audio permission. Capture the release
     // even if completing the spin has already hidden the original hit target.
     const unlockTouchAudio = event => {
       if (event.isTrusted && !this.button.contains(event.target) && this.context?.state !== 'running') {
-        this.resumeFromGesture();
+        this.resumePlayback();
       }
     };
     window.addEventListener('pointerup', event => {
@@ -85,20 +85,19 @@ export class IntroAudio {
     this.button.setAttribute('aria-pressed', String(audible));
   }
 
-  resumeFromGesture() {
+  resumePlayback() {
     if (!this.Context || this.phase === 'idle' || this.muted || document.hidden) return;
     if (!this.context) this.initialize();
-    if (this.context.state === 'running') {
-      this.syncPlayback();
-      return;
-    }
-    // resume must be called within the trusted event, before waiting on media.
-    this.context.resume().then(() => this.syncPlayback()).catch(() => this.updateControl());
+    // Try on entry, then retry directly inside input events if autoplay needs
+    // activation. Issue resume even if a suspend from the previous view is queued.
+    const resumed = this.context.resume();
+    if (this.context.state === 'running') this.syncPlayback();
+    resumed.then(() => this.syncPlayback()).catch(() => this.updateControl());
   }
 
   start() {
     if (this.phase === 'idle') this.phase = 'spinning';
-    this.resumeFromGesture();
+    this.resumePlayback();
   }
 
   play(buffer, { level, loop = false, filterType, frequency }) {
@@ -162,13 +161,18 @@ export class IntroAudio {
     const now = this.context.currentTime;
     const progress = clamp(values.progress);
     const motion = values.held ? Math.sqrt(clamp(values.motion)) : 0;
-    if (this.music) {
-      this.music.gain.gain.setTargetAtTime(.49 + .12 * motion, now, .09);
-      this.music.filter.frequency.setTargetAtTime(5100 + 5400 * motion, now, .13);
+    const music = this.music;
+    if (music && music.motion !== motion) {
+      music.motion = motion;
+      music.gain.gain.setTargetAtTime(.49 + .12 * motion, now, .09);
+      music.filter.frequency.setTargetAtTime(5100 + 5400 * motion, now, .13);
     }
-    if (this.air) {
-      this.air.filter.frequency.setTargetAtTime(540 * Math.pow(9, progress), now, .08);
-      this.air.gain.gain.setTargetAtTime(motion * (.16 + progress * .19), now, motion ? .07 : .045);
+    const air = this.air;
+    if (air && (air.progress !== progress || air.motion !== motion)) {
+      air.progress = progress;
+      air.motion = motion;
+      air.filter.frequency.setTargetAtTime(540 * Math.pow(9, progress), now, .08);
+      air.gain.gain.setTargetAtTime(motion * (.16 + progress * .19), now, motion ? .07 : .045);
     }
   }
 

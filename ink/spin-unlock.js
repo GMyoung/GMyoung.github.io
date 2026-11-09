@@ -1,12 +1,13 @@
 import { IntroVortex } from './vortex.js?v=1.13.0';
 
 const TAU = Math.PI * 2;
-const DURATION = 2100;
-const REQUIRED_SWEEP = TAU * .7;
+const DURATION = 2940;
+const REQUIRED_SWEEP = TAU * .98;
+const IDLE_SPEED = .46;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 
-// A gentle partial circle and about two seconds of moving input open the title.
-// Timing comes from input samples, never from merely holding a pointer down.
+// A near-full circle and about three seconds of moving input open the title.
+// The idle turn is decorative. Progress comes from gesture samples or a key hold.
 export class SpinUnlock {
   constructor({ onUnlock, audio, reducedMotion = false }) {
     this.onUnlock = onUnlock;
@@ -83,7 +84,8 @@ export class SpinUnlock {
     this.shaderAngle = 0;
     this.shaderTime = 0;
     this.inputVelocity = 0;
-    this.velocity = 0;
+    this.velocity = this.reducedMotion ? 0 : IDLE_SPEED;
+    this.coastDirection = 1;
     this.energy = 0;
     this.motion = 0;
     this.brushTrail = [];
@@ -97,11 +99,12 @@ export class SpinUnlock {
     this.lastFrame = 0;
     this.lastAnnouncement = 0;
     this.shakeAmplitude = 0;
+    this.shakePhase = 0;
     this.wrapper.hidden = false;
     this.wrapper.classList.remove('is-spinning', 'is-unlocking', 'keyboard-focus');
     this.button.disabled = false;
     this.hint.textContent = '按住转圈，解锁 Harvey';
-    this.status.textContent = '按住画面，围绕中央轻轻画圈约两秒。键盘可按住空格或回车约两秒。';
+    this.status.textContent = '按住画面，围绕中央转近一整圈，持续约三秒。键盘可按住空格或回车约三秒。';
     this.audioCall('reset');
     this.measure();
     this.renderVortex();
@@ -139,6 +142,7 @@ export class SpinUnlock {
       return;
     }
     this.renderVortex();
+    if (this.state === 'locked' && !this.suspended) this.audioCall('start');
     this.schedule();
   }
 
@@ -317,7 +321,7 @@ export class SpinUnlock {
     this.wrapper.classList.add('keyboard-focus');
     this.shakeAmplitude = Math.max(this.shakeAmplitude, .18);
     this.wrapper.classList.add('is-spinning');
-    this.hint.textContent = '继续按住，约两秒解锁';
+    this.hint.textContent = '继续按住，约三秒解锁';
     this.audioCall('start');
     this.schedule();
   }
@@ -371,9 +375,10 @@ export class SpinUnlock {
   }
 
   resume() {
-    if (document.hidden) return;
+    if (document.hidden || !this.active) return;
     this.suspended = false;
     this.lastFrame = 0;
+    if (this.state === 'locked') this.audioCall('start');
     this.schedule();
   }
 
@@ -421,7 +426,7 @@ export class SpinUnlock {
     const progress = this.progress();
     const moving = this.key || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
     if (this.state === 'locked') {
-      const text = moving ? (this.key ? '继续按住，约两秒解锁' : '轻轻画圈，约两秒解锁') :
+      const text = moving ? (this.key ? '继续按住，约三秒解锁' : '持续画圈约三秒，转近一整圈') :
         this.pointer !== null ? '围绕中央轻轻画圈' : progress > .02 ? '按住继续画圈，即可解锁' : '按住转圈，解锁 Harvey';
       if (this.hint.textContent !== text) this.hint.textContent = text;
       const milestone = Math.floor(progress * 4);
@@ -431,16 +436,18 @@ export class SpinUnlock {
       }
       if (progress === 0) this.lastAnnouncement = 0;
     }
-    const activity = this.key ? .7 : moving ? clamp(Math.abs(this.inputVelocity) / 4.5) : 0;
+    const activity = this.key ? .62 : moving ? clamp(Math.abs(this.inputVelocity) / 6) : 0;
     this.motion += (activity - this.motion) * (1 - Math.exp(-dt / (activity > this.motion ? 85 : 250)));
     if (this.motion < .001) this.motion = 0;
     const energyTarget = moving ? clamp(.16 + progress * .57 + this.motion * .28) : 0;
     this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
-    // Use the signed hand speed as a torque target. Both renderers share the
-    // integrated angle, and the field keeps its momentum when the hand pauses.
-    const velocityTarget = this.key ? 2.35 : moving ? clamp(this.inputVelocity * (.72 + .25 * progress), -5.8, 5.8) : 0;
+    // Start with a slow turn. Hand speed takes over during the gesture, then
+    // the field coasts back to the idle pace in the last direction of travel.
+    const idleSpeed = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
+    const velocityTarget = this.key ? 2.35 : moving ? clamp(this.inputVelocity * (.72 + .25 * progress), -5.8, 5.8) : idleSpeed;
     this.velocity += (velocityTarget - this.velocity) * (1 - Math.exp(-dt / (moving ? 74 : 295)));
+    if (moving && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
     if (Math.abs(this.velocity) < .001) this.velocity = 0;
     if (this.reducedMotion) {
       this.velocity = 0;
@@ -455,15 +462,19 @@ export class SpinUnlock {
     const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
     const held = this.pointer !== null || this.key !== null;
     this.audioCall('update', { progress, motion: this.motion, held });
-    const targetShake = this.reducedMotion || !held ? 0 : moving ? .12 + .72 * this.energy : .12;
-    // The small contact tremor starts immediately, then settles smoothly when
-    // the hand lifts. Its amplitude follows the actual gesture's progress.
-    const response = 1 - Math.exp(-dt / (targetShake > this.shakeAmplitude ? 55 : 85));
+    const tension = progress ** 3;
+    const pace = Math.sqrt(this.motion);
+    // Keep contact light. The last stretch raises both the amplitude and tempo
+    // of the same shared tremor, with the hand's speed setting its strength.
+    const targetShake = this.reducedMotion || !held ? 0 : .17 + pace * (.95 + 3.35 * tension) + (moving ? tension * .66 : 0);
+    const response = 1 - Math.exp(-dt / (targetShake > this.shakeAmplitude ? 62 : 115));
     this.shakeAmplitude += (targetShake - this.shakeAmplitude) * response;
     if (this.reducedMotion || this.shakeAmplitude < .01) this.shakeAmplitude = 0;
-    const shake = Math.min(1.5, this.shakeAmplitude) * (1 - release);
-    const shakeX = shake * .86 * (Math.sin(now * .048) * .7 + Math.sin(now * .071) * .3);
-    const shakeY = shake * .5 * (Math.cos(now * .052) * .75 + Math.sin(now * .081) * .25);
+    const shake = Math.min(4.8, this.shakeAmplitude) * (1 - release);
+    this.shakePhase = (this.shakePhase + TAU * (5.2 + 2.4 * this.motion + 1.35 * tension) * dt / 1000) % TAU;
+    const phase = this.shakePhase;
+    const shakeX = shake * (.80 * Math.sin(phase) + .20 * Math.cos(2 * phase + .4));
+    const shakeY = shake * .60 * (.74 * Math.cos(phase + .25) + .26 * Math.sin(2 * phase + 1));
     this.renderVortex(shakeX, shakeY);
     if (this.state !== 'unlocked' && !this.wrapper.hidden) this.draw(progress, release, shakeX, shakeY);
     if (this.state === 'releasing' && release >= 1) {

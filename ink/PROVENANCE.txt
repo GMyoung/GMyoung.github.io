@@ -1,11 +1,11 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.13.0, 2026-11-08.
-Source commit: 5417a3dc6bf9f3b05258978deec58ad65a671c9d
+Current snapshot: Harvey Ink v1.14.0, 2026-11-09.
+Source commit: bba828e084fb8ec0f4a313cb39ae11aa3ec34f1d
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
-This release refreshes the opening motion and bundles the score and title cue.
+This release starts the idle turn and attempts music on entry, raises the unlock thresholds by 40%, and updates the tremor and title duet.
 Audio credits are in vendor/intro-audio-NOTICE.txt. The car icon is adapted
 to the GitHub Pages distribution: ../car-game/?edition=world.
 All application modules and assets use relative paths and run in the browser.
