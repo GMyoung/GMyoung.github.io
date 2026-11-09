@@ -1,17 +1,17 @@
 import { IntroVortex } from './vortex.js?v=1.17.3';
 
 const TAU = Math.PI * 2;
-const DURATION = 7350;
-const REQUIRED_SWEEP = TAU * 1.08;
-const SPIN_HINT = '持续同向画圈约七秒半，累计略多于一圈';
-const HOLD_HINT = '继续按住，约七秒半解锁';
+const DURATION = 5400;
+const REQUIRED_SWEEP = TAU * .82;
+const SPIN_HINT = '轻轻画圈，累计约五秒半和大半圈';
+const HOLD_HINT = '累计按住约五秒半即可解锁';
 const WHEEL_HINT = '用滚轮或触控板双指滚动，解锁 Harvey';
 const WHEEL_TRAVEL = 760;
 const WHEEL_TIME = 3700;
-const IDLE_SPEED = .16;
+const IDLE_SPEED = .07;
 const GRIP_SLACK = .32;
 const MAX_STRAIN = 1.1;
-const TURN_SLACK = .25;
+const TURN_SLACK = .12;
 const TURN_STEP = 1 / 100;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 const smooth = value => {
@@ -31,6 +31,7 @@ export class SpinUnlock {
     this.button = document.querySelector('#spin-button');
     this.hint = document.querySelector('#spin-hint');
     this.status = document.querySelector('#spin-status');
+    this.meter = document.querySelector('#spin-progress');
     this.frame = 0;
     this.pointer = null;
     this.key = null;
@@ -96,7 +97,6 @@ export class SpinUnlock {
     this.state = 'locked';
     this.elapsed = 0;
     this.angle = 0;
-    this.fragmentProgress = 0;
     this.clothAngle = 0;
     this.paintAngle = 0;
     this.shaderTime = 0;
@@ -110,9 +110,7 @@ export class SpinUnlock {
     this.lastInputKeyboard = false;
     this.direction = 0;
     this.reverseAngle = 0;
-    this.reverseTime = 0;
     this.lastMovement = 0;
-    this.releasedAt = 0;
     this.lastFrame = 0;
     this.lastAnnouncement = 0;
     this.shakeAmplitude = 0;
@@ -121,7 +119,8 @@ export class SpinUnlock {
     this.wrapper.classList.remove('is-spinning', 'is-unlocking', 'keyboard-focus');
     this.button.disabled = false;
     this.hint.textContent = '按住转圈，解锁 Harvey';
-    this.status.textContent = `${SPIN_HINT}。${WHEEL_HINT}。键盘可按住空格或回车约七秒半。`;
+    this.status.textContent = `${SPIN_HINT}，可以松手后继续。${WHEEL_HINT}。键盘可按住空格或回车。`;
+    this.meter.value = 0;
     this.audioCall('reset');
     this.vortex.reset();
     this.measure();
@@ -176,13 +175,10 @@ export class SpinUnlock {
   renderVortex(shakeX = 0, shakeY = 0, dt = 0, release = 0) {
     const focused = this.wrapper.classList.contains('keyboard-focus');
     const progress = this.progress();
-    // Use moving time for the letters so a sudden gain in angular progress
-    // cannot jump past a letter. A full restart returns the pieces to orbit.
-    this.fragmentProgress = progress === 0 ? 0 : Math.max(this.fragmentProgress, clamp(this.elapsed / DURATION));
     const frame = {
       time: this.shaderTime, dt: dt / 1000, angle: this.clothAngle, velocity: this.velocity,
       paintAngle: this.paintAngle, paintVelocity: this.paintVelocity,
-      progress, fragmentProgress: this.reducedMotion ? 0 : this.fragmentProgress,
+      progress, fragmentProgress: this.reducedMotion ? 0 : progress,
       energy: this.energy, shakeX, shakeY, focused,
       grip: this.pointer !== null ? this.grip : null,
       marks: this.state === 'unlocked' ? 0 : (1 - release) * (focused ? .95 : .65 + progress * .23),
@@ -219,15 +215,15 @@ export class SpinUnlock {
     this.lastFrame = performance.now();
     this.lastMovement = 0;
     this.inputVelocity = 0;
-    this.releasedAt = 0;
+    this.direction = 0;
+    this.reverseAngle = 0;
     this.lastInputKeyboard = false;
     if (!this.reducedMotion) {
       this.grip = {
         x: clamp(event.clientX / innerWidth), y: clamp(event.clientY / innerHeight),
         stretch: 0, load: 0, follow: 0,
-        strain: 0, kick: this.coastDirection * .28, last: null,
+        strain: 0, kick: this.coastDirection * .14, last: null,
       };
-      this.velocity = 0;
     }
     this.wrapper.classList.remove('keyboard-focus');
     this.shakeAmplitude = Math.max(this.shakeAmplitude, .18);
@@ -255,7 +251,7 @@ export class SpinUnlock {
     const now = performance.now();
     const stamp = Number.isFinite(event.timeStamp) && Math.abs(event.timeStamp - now) < 60000 ? event.timeStamp : now;
     this.sampleGrip({ x: event.clientX, y: event.clientY, stamp });
-    if (radius < clamp(this.center.radius * .17, 16, 24)) {
+    if (radius < clamp(this.center.radius * .12, 9, 15)) {
       this.lastSample = null;
       return;
     }
@@ -267,36 +263,30 @@ export class SpinUnlock {
     const delta = Math.atan2(Math.sin(current.angle - previous.angle), Math.cos(current.angle - previous.angle));
     const speed = Math.abs(delta) / (dt / 1000);
     // Break continuity across dropped/teleported samples and the center deadzone.
-    if (dt <= 0 || dt > 190 || Math.abs(delta) > .95 || speed > 24 ||
+    if (dt <= 0 || dt > 230 || Math.abs(delta) > 1.1 || speed > 30 ||
         Math.abs(radius - previous.radius) > Math.max(this.center.radius * .8, previous.radius * .75)) return;
     if (this.grip) this.grip.strain = clamp(this.grip.strain + delta, -MAX_STRAIN, MAX_STRAIN);
-    if (speed < .28 || Math.abs(delta) < .0004) return;
+    if (speed < .18 || Math.abs(delta) < .0004) return;
     if (!this.direction) this.direction = Math.sign(delta);
     const forward = delta * this.direction;
     if (forward > 0) {
-      this.elapsed = Math.min(DURATION, this.elapsed + dt);
-      this.angle = Math.min(REQUIRED_SWEEP * 3, this.angle + forward);
-      this.reverseAngle = 0;
-      this.reverseTime = 0;
+      // Recover any small backward motion before earning more progress.
+      const earned = Math.max(0, forward - this.reverseAngle);
+      this.reverseAngle = Math.max(0, this.reverseAngle - forward);
+      this.elapsed = Math.min(DURATION, this.elapsed + dt * earned / forward);
+      this.angle = Math.min(REQUIRED_SWEEP, this.angle + earned);
     } else {
-      // Tiny back-and-forth wiggles cannot bank forward-only rotation.
-      this.elapsed = Math.max(0, this.elapsed - dt);
-      this.angle = Math.max(0, this.angle + forward);
       this.reverseAngle -= forward;
-      this.reverseTime += dt;
       if (this.reverseAngle > .55) {
         this.direction *= -1;
-        this.elapsed = this.reverseTime;
-        this.angle = this.reverseAngle;
         this.reverseAngle = 0;
-        this.reverseTime = 0;
       }
     }
     const measuredVelocity = clamp(delta / (dt / 1000), -18, 18);
     if (!this.lastMovement || now - this.lastMovement > 180) this.inputVelocity = measuredVelocity;
     else this.inputVelocity += (measuredVelocity - this.inputVelocity) * (1 - Math.exp(-dt / 26));
     this.lastMovement = now;
-    if (this.progress() >= 1) this.complete(now);
+    if (this.progress() >= 1) this.complete();
   }
 
   sampleGrip(current) {
@@ -335,12 +325,7 @@ export class SpinUnlock {
     if (!this.wheel) {
       // Preserve completed progress when changing from a drag or key hold.
       const progress = this.progress();
-      this.elapsed = progress * DURATION;
-      this.angle = progress * REQUIRED_SWEEP;
-      this.wheel = { distance: progress * WHEEL_TRAVEL, direction: Math.sign(delta) };
-      this.direction = 0;
-      this.reverseAngle = 0;
-      this.reverseTime = 0;
+      this.wheel = { distance: progress * WHEEL_TRAVEL, elapsed: progress * DURATION, direction: Math.sign(delta) };
       this.grip = null;
       this.audioCall('start');
     }
@@ -357,7 +342,6 @@ export class SpinUnlock {
     this.key = event.key;
     this.lastFrame = performance.now();
     this.lastMovement = this.lastFrame;
-    this.releasedAt = 0;
     this.lastInputKeyboard = true;
     this.wrapper.classList.add('keyboard-focus');
     this.shakeAmplitude = Math.max(this.shakeAmplitude, .18);
@@ -392,7 +376,6 @@ export class SpinUnlock {
     this.key = null;
     this.wheel = null;
     this.lastSample = null;
-    this.releasedAt = performance.now();
     if (pointer !== null && this.button.hasPointerCapture(pointer)) this.button.releasePointerCapture(pointer);
     this.wrapper.classList.remove('is-spinning');
     if (wasHeld) this.audioCall('release');
@@ -412,8 +395,6 @@ export class SpinUnlock {
     this.motion = 0;
     this.grip = null;
     this.audioCall('stop');
-    // Hidden-tab time is never credited, including the final reveal flourish.
-    if (this.state === 'releasing') this.reset();
   }
 
   resume() {
@@ -424,10 +405,10 @@ export class SpinUnlock {
     this.schedule();
   }
 
-  complete(now) {
+  complete() {
     if (this.state !== 'locked') return;
     this.state = 'releasing';
-    this.releaseStart = now;
+    this.releaseElapsed = 0;
     this.lastInputKeyboard = this.key !== null;
     this.suppressedKey = this.key;
     this.cancelHold();
@@ -438,7 +419,7 @@ export class SpinUnlock {
     this.schedule();
   }
 
-  pullCloth(grip, seconds, hand) {
+  pullCloth(grip, seconds, hand, warmup) {
     const steps = Math.max(1, Math.ceil(seconds / TURN_STEP));
     const step = seconds / steps;
     let turn = 0;
@@ -451,7 +432,8 @@ export class SpinUnlock {
       const pace = Math.max(Math.abs(hand), Math.abs(this.velocity));
       const contact = grip.follow * (19 - 13 * smooth((pace - 2.3) / 3.6));
       const friction = contact + 3.6;
-      const target = clamp((force + contact * hand) / friction, -20, 20);
+      const speedLimit = .85 + 7.15 * warmup;
+      const target = clamp((force + contact * hand) / friction * (.62 + .38 * warmup), -speedLimit, speedLimit);
       const before = this.velocity;
       this.velocity += (target - before) * (1 - Math.exp(-step * friction));
       const rotation = (before + this.velocity) * step / 2;
@@ -471,13 +453,14 @@ export class SpinUnlock {
     const grip = this.grip;
     const gripped = this.pointer !== null && Boolean(grip);
     const seconds = dt / 1000;
+    const warmup = smooth(this.elapsed / 2000);
     const idle = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
     let turn;
     if (gripped) {
       const hand = this.inputVelocity * (1 - smooth((now - this.lastMovement - 34) / 105));
-      turn = this.pullCloth(grip, seconds, hand);
+      turn = this.pullCloth(grip, seconds, hand, warmup);
     } else {
-      const speed = wheelDirection ? wheelDirection * (2.3 + this.progress() * 1.05) : this.key ? 2.35 : idle;
+      const speed = wheelDirection ? wheelDirection * (.75 + 2.6 * warmup) : this.key ? .75 + 1.6 * warmup : idle;
       const responseTime = wheelDirection ? 95 : this.key ? 74 : 355;
       this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / responseTime));
       turn = this.velocity * seconds;
@@ -521,32 +504,20 @@ export class SpinUnlock {
         this.elapsed = Math.min(DURATION, this.elapsed + dt);
         this.angle = Math.min(REQUIRED_SWEEP, this.angle + dt / DURATION * REQUIRED_SWEEP);
         this.lastMovement = now;
-        if (this.progress() >= 1) this.complete(now);
+        if (this.progress() >= 1) this.complete();
       } else if (this.wheel) {
         // Spend wheel distance gradually so one fast swipe cannot skip letters.
         const target = this.wheel.distance / WHEEL_TRAVEL * DURATION;
-        const next = Math.min(target, this.elapsed + dt / WHEEL_TIME * DURATION);
-        if (next > this.elapsed) wheelDirection = this.wheel.direction;
-        this.elapsed = next;
-        this.angle = next / DURATION * REQUIRED_SWEEP;
-        if (next === DURATION) this.complete(now);
-      } else {
-        const grace = this.pointer === null ? 800 : 300;
-        const idleFrom = this.pointer === null ? Math.max(this.releasedAt, this.lastMovement) : this.lastMovement;
-        if (now - idleFrom > grace) {
-          this.elapsed = Math.max(0, this.elapsed - dt * .95);
-          this.angle = Math.max(0, this.angle - dt / DURATION * REQUIRED_SWEEP * .95);
-          if (this.elapsed === 0 || this.angle === 0) {
-            this.elapsed = 0;
-            this.angle = 0;
-            this.direction = 0;
-            this.reverseAngle = 0;
-            this.reverseTime = 0;
-          }
-        }
+        const next = Math.min(target, this.wheel.elapsed + dt / WHEEL_TIME * DURATION);
+        if (next > this.wheel.elapsed) wheelDirection = this.wheel.direction;
+        this.wheel.elapsed = next;
+        this.elapsed = Math.max(this.elapsed, next);
+        this.angle = Math.max(this.angle, next / DURATION * REQUIRED_SWEEP);
+        if (this.progress() >= 1) this.complete();
       }
     }
     const progress = this.progress();
+    if (this.meter.value !== progress) this.meter.value = progress;
     const moving = this.key || wheelDirection || (this.pointer !== null && this.lastMovement > 0 && now - this.lastMovement < 145);
     if (this.state === 'locked') {
       const text = this.wheel ? WHEEL_HINT : moving ? (this.key ? HOLD_HINT : SPIN_HINT) :
@@ -566,7 +537,8 @@ export class SpinUnlock {
     this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
     this.turnCloth(dt, now, wheelDirection);
-    const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
+    if (this.state === 'releasing') this.releaseElapsed += dt;
+    const release = this.state === 'releasing' ? clamp(this.releaseElapsed / 220) : 0;
     const held = this.pointer !== null || this.key !== null || wheelDirection !== 0;
     this.audioCall('update', { progress, motion: this.motion, held });
     const tension = progress ** 3;
@@ -588,6 +560,6 @@ export class SpinUnlock {
       this.state = 'unlocked';
       this.onUnlock({ keyboard: this.lastInputKeyboard });
     }
-    if (!this.reducedMotion || held || (this.state === 'locked' && progress > 0) || this.state === 'releasing' || this.shakeAmplitude > 0) this.schedule();
+    if (!this.reducedMotion || held || this.state === 'releasing' || this.shakeAmplitude > 0) this.schedule();
   }
 }
