@@ -1,15 +1,27 @@
-Harvey Ink introduction audio, updated 2026-11-09
+Harvey Ink audio credits, updated 2026-11-09
 
 assets/midnight-paper.mp3 — "Midnight Paper", an original 20-second
 96 BPM loop arranged for electric keys, bass, brushed drums and reed synth.
 Composed and rendered for this site. Reference for atmosphere: Balatro's
 original soundtrack by LouisF, https://store.steampowered.com/app/2834460/.
 
-assets/harvey-yay.mp3 — a single quiet title vocal with raised pitch and
-formants, softened upper frequencies and a short room tail. It is an edit
-of the human recording "Joyful - YAY" by Sadiquecat, Creative Commons Zero 1.0.
-https://freesound.org/people/Sadiquecat/sounds/801292/
+assets/harvey-yay.mp3 — "Children Screaming Yay Sound Effect" by Free Sounds
+Library, licensed CC BY 4.0. The title cue uses the author's downloadable
+recording with a shorter cut, level adjustment and brief fades. Pitch and
+formants retain the recorded children's voices.
+https://www.freesoundslibrary.com/children-screaming-yay-sound-effect/
+https://www.youtube.com/watch?v=DWqwmIz9vRU
+https://creativecommons.org/licenses/by/4.0/
+
+assets/jasmine-ink-suite.mp3 — "Jasmine Ink Suite", 36 minutes of quiet sampled
+guzheng. Original instrumental arrangement and variations on the traditional
+Jiangsu folk melody "Jasmine Flower". Melody reference: Harmony and Keyboard
+Improvisation, Tsinghua University Press, p. 10 (unaccompanied melody).
+https://www.tup.com.cn/upload/books/yz/085260-01.pdf#page=10
+Guzheng pluck sampled from "Chinese Guzheng Single note" by nanliu_music,
+Creative Commons Zero 1.0. The sample was tuned and arranged into nine sections.
+https://freesound.org/people/nanliu_music/sounds/847157/
 https://creativecommons.org/publicdomain/zero/1.0/
 
-Both rendered files are served locally with the site. The rising air sound
-is generated in the browser as the visitor draws a circle.
+All audio files are served locally with the site. The rising air sound and the
+writing room's two water sounds are generated in the browser.

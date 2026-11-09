@@ -1,6 +1,6 @@
-import { SpinUnlock } from './spin-unlock.js?v=1.15.0';
-import { IntroAudio } from './intro-audio.js?v=1.15.0';
-import { WaterAudio } from './water-audio.js';
+import { SpinUnlock } from './spin-unlock.js?v=1.16.0';
+import { IntroAudio } from './intro-audio.js?v=1.16.0';
+import { WaterAudio } from './water-audio.js?v=1.16.0';
 
 const intro = document.querySelector('#intro');
 const world = document.querySelector('#ink-world');
@@ -14,6 +14,8 @@ const iris = document.querySelector('#iris');
 const surface = document.querySelector('#ink-surface');
 const status = document.querySelector('#writing-status');
 const flowButton = document.querySelector('#writing-flow');
+const musicButton = document.querySelector('#music-toggle');
+const inkMusic = document.querySelector('#ink-music');
 const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
 const reducedMotion = () => motionPreference.matches;
 let scene;
@@ -30,8 +32,15 @@ let writerPromise;
 let writer;
 let paused = reducedMotion();
 let waterMode = 'heavy';
+let musicEnabled = true;
 const introAudio = new IntroAudio(document.querySelector('#intro-sound'));
 const waterAudio = new WaterAudio();
+inkMusic.volume = .8;
+
+function playInkMusic() {
+  if (!musicEnabled || document.hidden || !inkMusic.paused) return;
+  inkMusic.play().catch(() => {});
+}
 
 const smoothstep = (min, max, value) => {
   const t = Math.max(0, Math.min(1, (value - min) / (max - min)));
@@ -225,13 +234,14 @@ function playOpening() {
 
 function ensureWriter() {
   if (!writerPromise) {
-    writerPromise = import('./writer.js').then(({ InkWriter }) => {
+    writerPromise = import('./writer.js?v=1.16.0').then(({ InkWriter }) => {
       writer = new InkWriter({
         reducedMotion: reducedMotion(),
         paintBrush: (...args) => scene?.paintBrushStamps(...args),
         getWritingClock: () => scene?.getWritingClock() || 0,
+        getWaterMode: () => waterMode,
         clearPracticeInk: () => scene?.clearWriting(),
-        clearInk: () => scene?.clear(),
+        clearInk: () => scene?.clearWriting(),
         captureBackground: () => scene?.capture(),
       });
       return writer;
@@ -246,7 +256,7 @@ function ensureWriter() {
 
 function ensureScene() {
   if (!scenePromise) {
-    scenePromise = import('./ink.js').then(({ InkScene }) => {
+    scenePromise = import('./ink.js?v=1.16.0').then(({ InkScene }) => {
       scene = new InkScene(surface, {
         reducedMotion: reducedMotion(),
         onFallback: () => { status.textContent = '纸上留墨 · 轻量背景'; },
@@ -292,6 +302,7 @@ async function enterWorld(event) {
   if (transitionRunning || inWorld || !unlocked || !intro.classList.contains('ready')) return;
   transitionRunning = true;
   waterAudio.start(waterMode);
+  playInkMusic();
   unlock.setActive(false);
   cancelAnimationFrame(flightFrame);
   flight.style.transform = 'none';
@@ -322,7 +333,7 @@ async function returnToIntro(event) {
   if (transitionRunning) return;
   transitionRunning = true;
   inWorld = false;
-  waterAudio.stop();
+  pauseWorldAudio();
   scene?.setActive(false);
   writer?.setActive(false);
   intro.hidden = false;
@@ -342,9 +353,9 @@ flowButton.addEventListener('click', () => {
   const modes = ['heavy', 'light', 'still'];
   waterMode = modes[(modes.indexOf(waterMode) + 1) % modes.length];
   const labels = {
-    heavy: '重水流：有水声，墨迹快速消散。点击切换轻水，适合写字。',
-    light: '轻水流：水声轻柔，墨迹缓慢消散。点击停水，保留墨迹。',
-    still: '已停水：墨迹保留。点击开启重水流。',
+    heavy: '小水流：有轻微流水声，新笔迹较快淡去。点击切换细水。',
+    light: '细水：水声更轻，新笔迹缓慢淡去。点击停水。',
+    still: '停水：无水声，新笔迹保留。点击开启小水流。',
   };
   const icons = { heavy: 'water-flow-icon', light: 'water-light-icon', still: 'water-still-icon' };
   flowButton.setAttribute('aria-label', labels[waterMode]);
@@ -354,20 +365,36 @@ flowButton.addEventListener('click', () => {
   scene?.setWaterMode(waterMode);
   waterAudio.start(waterMode);
 });
-world.addEventListener('pointerdown', () => {
-  if (inWorld && !document.hidden) waterAudio.start(waterMode);
-}, { passive: true });
-world.addEventListener('keydown', () => {
-  if (inWorld && !document.hidden) waterAudio.start(waterMode);
+musicButton.addEventListener('click', () => {
+  musicEnabled = !musicEnabled;
+  musicButton.setAttribute('aria-pressed', String(musicEnabled));
+  if (musicEnabled) playInkMusic();
+  else inkMusic.pause();
 });
-window.addEventListener('blur', () => waterAudio.stop());
+
+function resumeWorldAudio(event) {
+  if (!inWorld || document.hidden || musicButton.contains(event?.target ?? null)) return;
+  waterAudio.start(waterMode);
+  playInkMusic();
+}
+
+function pauseWorldAudio() {
+  waterAudio.stop();
+  inkMusic.pause();
+}
+
+world.addEventListener('pointerdown', resumeWorldAudio, { passive: true });
+world.addEventListener('keydown', resumeWorldAudio);
+window.addEventListener('focus', () => resumeWorldAudio());
+window.addEventListener('blur', pauseWorldAudio);
 document.querySelector('#back').addEventListener('click', returnToIntro);
 window.addEventListener('resize', () => {
   resizeTrail();
   if (reducedMotion() && !inWorld && openingAnimation) openingAnimation(performance.now());
 });
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) waterAudio.stop();
+  if (document.hidden) pauseWorldAudio();
+  else resumeWorldAudio();
   scene?.setActive(inWorld && !document.hidden);
   writer?.setActive(inWorld && !document.hidden);
   cancelAnimationFrame(flightFrame);

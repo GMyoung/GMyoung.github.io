@@ -1,4 +1,4 @@
-import { createFluid } from './vendor/fluid-solver.js';
+import { createFluid, inkDecay } from './vendor/fluid-solver.js?v=1.16.0';
 import { paintBrushStamps as paintSharedBrushStamps } from './brush.js';
 
 const palettes = {
@@ -9,13 +9,12 @@ const palettes = {
 };
 
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-const WRITING_FADE_RATE = .8;
-const WRITING_LIFETIME = Math.log(255) / WRITING_FADE_RATE;
 const waterModes = {
-  heavy: { fade: 1, current: 1.2, drift: 1, emission: 1 },
-  light: { fade: .15, current: .55, drift: .7, emission: .92 },
-  still: { fade: 0, current: .22, drift: .45, emission: .8 },
+  heavy: { current: 1.2, drift: 1, emission: 1 },
+  light: { current: .55, drift: .7, emission: .92 },
+  still: { current: .22, drift: .45, emission: .8 },
 };
+const opacityAt = (now, inkTime, mode) => Math.exp(-inkDecay[mode] * Math.max(0, now - inkTime));
 
 // Three separate ink masses frame the writing space. Coordinates use the same
 // top-left origin in GPU and Canvas composition; only GPU injection flips y.
@@ -49,8 +48,8 @@ export class InkScene {
     this.reducedMotion = Boolean(options.reducedMotion);
     this.time = 0;
     this.waterMode = 'heavy';
-    this.writingFlow = true;
     this.writingClock = 0;
+    this.writingUntil = 0;
     this.ambientAge = 0;
     this.emissionResumeAt = 0;
     this.ambientTrail = [];
@@ -65,8 +64,7 @@ export class InkScene {
     this.brushMask = document.createElement('canvas');
     this.brushMaskContext = this.brushMask.getContext('2d');
     this.maskDirty = false;
-    this.writingCheckpoint = null;
-    this.checkpointAt = 0;
+    this.writingCheckpoints = new Map();
     this.writingSurface = document.createElement('canvas');
     this.pendingMotion = null;
     this.ambientAmount = 1;
@@ -77,7 +75,6 @@ export class InkScene {
     container.append(this.canvas);
     try {
       this.engine = createFluid(this.canvas);
-      this.engine.setWritingFlow(true);
       this.seedInk();
       this.engine.render();
       this.canvas.addEventListener('webglcontextlost', event => {
@@ -189,7 +186,7 @@ export class InkScene {
       context.fillRect(x - radius, y - radius, radius * 2, radius * 2);
     }
     this.pruneBrushHistory();
-    if (this.brushHistory.length || this.fallbackMarks.length || this.writingCheckpoint) {
+    if (this.brushHistory.length || this.fallbackMarks.length || this.writingCheckpoints.size) {
       const surface = this.composeWritingMask();
       const inkContext = surface.getContext('2d', { willReadFrequently: true });
       const image = inkContext.getImageData(0, 0, surface.width, surface.height);
@@ -229,7 +226,8 @@ export class InkScene {
 
   syncLoop() {
     cancelAnimationFrame(this.frame);
-    if (!this.active || ((this.paused || this.reducedMotion) && !this.writingFlow)) return;
+    this.frame = 0;
+    if (!this.active || ((this.paused || this.reducedMotion) && this.writingClock >= this.writingUntil)) return;
     this.lastFrame = performance.now();
     this.frame = requestAnimationFrame(this.tick);
   }
@@ -261,16 +259,12 @@ export class InkScene {
     if (!Object.hasOwn(waterModes, mode)) return;
     this.flushBrushMask();
     this.waterMode = mode;
-    this.writingFlow = waterModes[mode].fade > 0;
-    this.engine?.setWritingFlow(this.writingFlow);
-    this.syncLoop();
     this.engine?.render();
     if (!this.engine) this.renderFallback();
   }
 
   getWritingClock() {
-    // Integrated heavy-flow-equivalent seconds keep restored stamps at the
-    // correct opacity after any number of heavy/light/still changes.
+    // Each stamp uses this active-time clock and its own original flow mode.
     return this.writingClock;
   }
 
@@ -305,6 +299,7 @@ export class InkScene {
     this.brushMaskContext.fillRect(0, 0, this.brushMask.width, this.brushMask.height);
     this.brushMaskContext.restore();
     this.maskDirty = false;
+    this.maskMode = null;
     this.pendingMotion = null;
   }
 
@@ -326,28 +321,32 @@ export class InkScene {
   }
 
   pruneBrushHistory() {
-    this.brushHistory = this.brushHistory.filter(batch => this.writingClock - batch.latestInkTime < WRITING_LIFETIME);
+    const visible = (mode, at) => opacityAt(this.writingClock, at, mode) >= 1 / 255;
+    this.brushHistory = this.brushHistory.filter(batch => visible(batch.mode, batch.latestInkTime));
     this.brushHistoryCount = this.brushHistory.reduce((count, batch) => count + batch.stamps.length, 0);
-    this.fallbackMarks = this.fallbackMarks.filter(mark => this.writingClock - mark.inkTime < WRITING_LIFETIME);
-    if (this.writingCheckpoint && this.writingClock - this.checkpointAt >= WRITING_LIFETIME) {
-      this.writingCheckpoint = null;
+    this.fallbackMarks = this.fallbackMarks.filter(mark => visible(mark.mode, mark.inkTime));
+    for (const [mode, checkpoint] of this.writingCheckpoints) {
+      if (!visible(mode, checkpoint.at)) this.writingCheckpoints.delete(mode);
     }
     // Visible old ink is flattened, never deleted to satisfy the memory cap.
     if (this.brushHistoryCount > 40000 || this.fallbackMarks.length > 7000) {
-      const surface = this.composeWritingMask();
-      const checkpoint = document.createElement('canvas');
-      checkpoint.width = surface.width;
-      checkpoint.height = surface.height;
-      checkpoint.getContext('2d').drawImage(surface, 0, 0);
-      this.writingCheckpoint = checkpoint;
-      this.checkpointAt = this.writingClock;
+      const modes = new Set([...this.writingCheckpoints.keys(),
+        ...this.brushHistory.map(batch => batch.mode), ...this.fallbackMarks.map(mark => mark.mode)]);
+      for (const mode of modes) {
+        const surface = this.composeWritingMask(mode);
+        const canvas = document.createElement('canvas');
+        canvas.width = surface.width;
+        canvas.height = surface.height;
+        canvas.getContext('2d').drawImage(surface, 0, 0);
+        this.writingCheckpoints.set(mode, { canvas, at: this.writingClock });
+      }
       this.brushHistory.length = 0;
       this.brushHistoryCount = 0;
       this.fallbackMarks.length = 0;
     }
   }
 
-  paintTimedStamps(context, stamps, createdAt) {
+  paintTimedStamps(context, stamps, createdAt, mode) {
     context.save();
     context.globalCompositeOperation = 'lighten';
     let start = 0;
@@ -356,7 +355,7 @@ export class InkScene {
       const inkTime = stampTime(stamps[start]);
       let end = start + 1;
       while (end < stamps.length && stampTime(stamps[end]) === inkTime) end++;
-      const opacity = Math.exp(-WRITING_FADE_RATE * Math.max(0, this.writingClock - inkTime));
+      const opacity = opacityAt(this.writingClock, inkTime, mode);
       if (opacity >= 1 / 255) {
         const gray = Math.round(opacity * 255);
         paintSharedBrushStamps(context, stamps.slice(start, end), `rgb(${gray},${gray},${gray})`);
@@ -366,7 +365,7 @@ export class InkScene {
     context.restore();
   }
 
-  composeWritingMask() {
+  composeWritingMask(layer = null) {
     const width = Math.max(1, this.container.clientWidth);
     const height = Math.max(1, this.container.clientHeight);
     const ratio = Math.min(devicePixelRatio || 1, 2, 1536 / Math.max(width, height));
@@ -381,23 +380,37 @@ export class InkScene {
     context.globalCompositeOperation = 'source-over';
     context.fillStyle = '#000';
     context.fillRect(0, 0, pixelsWide, pixelsHigh);
-    if (this.writingCheckpoint) {
-      context.globalAlpha = Math.exp(-WRITING_FADE_RATE * Math.max(0, this.writingClock - this.checkpointAt));
-      context.drawImage(this.writingCheckpoint, 0, 0, pixelsWide, pixelsHigh);
-      context.globalAlpha = 1;
+    context.globalCompositeOperation = 'lighten';
+    for (const [mode, checkpoint] of this.writingCheckpoints) {
+      if (layer && layer !== mode) continue;
+      const opacity = opacityAt(this.writingClock, checkpoint.at, mode);
+      if (opacity < 1 / 255) continue;
+      // Fade over black first, then max-combine with the other modes.
+      const scratch = this.checkpointSurface ??= document.createElement('canvas');
+      if (scratch.width !== pixelsWide) scratch.width = pixelsWide;
+      if (scratch.height !== pixelsHigh) scratch.height = pixelsHigh;
+      const faded = scratch.getContext('2d');
+      faded.globalAlpha = 1;
+      faded.fillStyle = '#000';
+      faded.fillRect(0, 0, pixelsWide, pixelsHigh);
+      faded.globalAlpha = opacity;
+      faded.drawImage(checkpoint.canvas, 0, 0, pixelsWide, pixelsHigh);
+      context.drawImage(scratch, 0, 0);
     }
     context.setTransform(pixelsWide / width, 0, 0, pixelsHigh / height, 0, 0);
     for (const batch of this.brushHistory) {
+      if (layer && batch.mode !== layer) continue;
       context.save();
       context.scale(width / batch.width, height / batch.height);
-      this.paintTimedStamps(context, batch.stamps, batch.inkTime);
+      this.paintTimedStamps(context, batch.stamps, batch.inkTime, batch.mode);
       context.restore();
     }
     context.globalCompositeOperation = 'lighten';
     context.lineCap = 'round';
     context.lineJoin = 'round';
     for (const mark of this.fallbackMarks) {
-      const opacity = Math.exp(-WRITING_FADE_RATE * Math.max(0, this.writingClock - mark.inkTime));
+      if (layer && mark.mode !== layer) continue;
+      const opacity = opacityAt(this.writingClock, mark.inkTime, mark.mode);
       const gray = Math.round(255 * opacity * (.68 + mark.pressure * .25));
       context.strokeStyle = `rgb(${gray},${gray},${gray})`;
       context.lineWidth = mark.radius * height * 2;
@@ -412,20 +425,34 @@ export class InkScene {
 
   // Demo and real writing share this exact geometry painter. The GPU receives
   // its opacity mask, never a separately reconstructed stroke silhouette.
-  // Legacy holdSeconds is intentionally superseded by the global flow switch.
   paintBrushStamps(stamps, { motion } = {}) {
     if (!this.active || !Array.isArray(stamps) || !stamps.length) return;
+    const modeOf = stamp => Object.hasOwn(waterModes, stamp.inkMode) ? stamp.inkMode : this.waterMode;
+    for (let start = 0; start < stamps.length;) {
+      const mode = modeOf(stamps[start]);
+      let end = start + 1;
+      while (end < stamps.length && modeOf(stamps[end]) === mode) end++;
+      this.paintStampBatch(stamps.slice(start, end), mode, end === stamps.length ? motion : null);
+      start = end;
+    }
+    if (!this.frame && this.writingClock < this.writingUntil) this.syncLoop();
+  }
+
+  paintStampBatch(stamps, mode, motion) {
+    if (this.maskDirty && this.maskMode !== mode) this.flushBrushMask();
     const { width, height } = this.prepareBrushMask();
     const inkTime = this.writingClock;
     const latestInkTime = stamps.reduce((latest, stamp) => Math.max(latest,
       Number.isFinite(stamp.inkTime) ? stamp.inkTime : inkTime), -Infinity);
-    const batch = { stamps: stamps.slice(), width, height, inkTime, latestInkTime };
+    const batch = { stamps, mode, width, height, inkTime, latestInkTime };
+    if (inkDecay[mode]) this.writingUntil = Math.max(this.writingUntil, latestInkTime + Math.log(255) / inkDecay[mode]);
     this.brushHistory.push(batch);
     this.brushHistoryCount += stamps.length;
     if (this.brushHistoryCount > 40000) this.pruneBrushHistory();
     if (this.engine) {
-      this.paintTimedStamps(this.brushMaskContext, stamps, inkTime);
+      this.paintTimedStamps(this.brushMaskContext, stamps, inkTime, mode);
       this.maskDirty = true;
+      this.maskMode = mode;
       if (motion && [motion.x, motion.y, motion.dx, motion.dy].every(Number.isFinite)) {
         const previous = this.pendingMotion;
         this.pendingMotion = {
@@ -447,10 +474,10 @@ export class InkScene {
     if (!this.maskDirty) return;
     if (this.engine) {
       try {
-        this.engine.depositMask(this.brushMask);
+        this.engine.depositMask(this.brushMask, this.maskMode);
         const motion = this.pendingMotion;
         if (motion && (motion.dx || motion.dy)) {
-          const current = waterModes[this.waterMode].current;
+          const current = waterModes[this.maskMode].current;
           this.engine.moveInk(motion.x, motion.y, motion.dx * current, motion.dy * current);
         }
       } catch (error) {
@@ -502,24 +529,28 @@ export class InkScene {
     const radius = size * (0.42 + pressure * 0.75) * (1 - flick * 0.18) / bounds.height;
     const previousX = clamp(x - dx / bounds.width, -0.1, 1.1);
     const previousY = clamp(y - dy / bounds.height, -0.1, 1.1);
+    const mode = this.waterMode;
+    if (inkDecay[mode]) this.writingUntil = Math.max(this.writingUntil, this.writingClock + Math.log(255) / inkDecay[mode]);
     if (this.engine) {
       const force = (1.8 + flick * 5) * waterModes[this.waterMode].current;
       this.engine.brush(x, 1 - y, previousX, 1 - previousY,
         radius, 0.85 + pressure * 2,
-        clamp(dx * force, -190, 190), clamp(-dy * force, -190, 190), flick, holdSeconds);
+        clamp(dx * force, -190, 190), clamp(-dy * force, -190, 190), flick, mode);
       if (this.paused || this.reducedMotion) this.engine.render();
     } else {
-      this.fallbackMarks.push({ x, y, px: previousX, py: previousY, radius, pressure, inkTime: this.writingClock });
+      this.fallbackMarks.push({ x, y, px: previousX, py: previousY, radius, pressure, mode, inkTime: this.writingClock });
       this.pruneBrushHistory();
       this.requestFallbackRender();
     }
+    if (!this.frame && this.writingClock < this.writingUntil) this.syncLoop();
   }
 
   clearWriting() {
     this.fallbackMarks.length = 0;
     this.brushHistory.length = 0;
     this.brushHistoryCount = 0;
-    this.writingCheckpoint = null;
+    this.writingCheckpoints.clear();
+    this.writingUntil = this.writingClock;
     this.resetBrushMask();
     if (this.engine) {
       this.engine.clearWriting();
@@ -533,7 +564,8 @@ export class InkScene {
     this.fallbackMarks.length = 0;
     this.brushHistory.length = 0;
     this.brushHistoryCount = 0;
-    this.writingCheckpoint = null;
+    this.writingCheckpoints.clear();
+    this.writingUntil = this.writingClock;
     this.resetBrushMask();
     this.ambientAmount = 0;
     this.ambientTrail.length = 0;
@@ -549,14 +581,15 @@ export class InkScene {
   }
 
   tick(now) {
-    if (!this.active || ((this.paused || this.reducedMotion) && !this.writingFlow)) return;
+    this.frame = 0;
+    if (!this.active || ((this.paused || this.reducedMotion) && this.writingClock >= this.writingUntil)) return;
     const elapsed = clamp((now - this.lastFrame) / 1000, 0, .25);
     const dt = Math.min(elapsed, 1 / 30);
     this.lastFrame = now;
     const animateFluid = !this.paused && !this.reducedMotion;
     const mode = waterModes[this.waterMode];
-    const writingElapsed = elapsed * mode.fade;
-    this.writingClock += writingElapsed;
+    const writingElapsed = this.writingClock < this.writingUntil ? elapsed : 0;
+    this.writingClock += elapsed;
     if (animateFluid) {
       this.time += dt * mode.drift;
       this.ambientAge += dt;
@@ -570,10 +603,10 @@ export class InkScene {
       if (animateFluid) this.engine?.step(dt, writingElapsed);
       else this.engine?.stepWriting(writingElapsed);
       this.engine?.render();
-    } else if (!this.lastFallbackFrame || now - this.lastFallbackFrame > 80) {
+    } else if (!this.lastFallbackFrame || now - this.lastFallbackFrame > 80 || (!animateFluid && this.writingClock >= this.writingUntil)) {
       this.renderFallback();
       this.lastFallbackFrame = now;
     }
-    this.frame = requestAnimationFrame(this.tick);
+    if (animateFluid || this.writingClock < this.writingUntil) this.frame = requestAnimationFrame(this.tick);
   }
 }

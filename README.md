@@ -6,7 +6,7 @@ A browseable homepage with three destinations: the existing Instrumental and Kar
 
 - `/` is the visual Spaces gallery with three original SVG covers, essential title labels and no marketing copy. It does not load a video player or autoplay audio.
 - `/karaoke.html` is the existing music library, including search, filters, theater mode and the original/karaoke audio switch. Its header links back to Spaces.
-- `/ink/` contains Harvey · 墨间, including its animated introduction, brush writing and lessons. The car icon enters `/car-game/?edition=world`.
+- `/ink/` contains Harvey · 墨间, including its animated introduction, brush writing and lessons.
 - `/car-game/?edition=world` contains MODARIS / Car Game. The Tour edition remains available at `/car-game/?edition=tour`.
 
 All three applications are served directly by public GitHub Pages and require no ChatGPT or GitHub login. The former ChatGPT Site URLs are retained only as historical origins in the project records. Browser-local progress and settings remain local to the site's origin; data previously saved under a ChatGPT Site domain does not automatically transfer to this domain.

@@ -1,13 +1,16 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.15.0, 2026-11-09.
-Source commit: f36feda0ebaa28f0c8deb4e619642e11daf98e57
+Current snapshot: Harvey Ink v1.16.0, 2026-11-09.
+Source commit: 29f3dd023d28a92d866939b9ea99b6c5f7c3293d
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
-This release slows the idle turn, makes the paint fold and turn under grip, and gives Harvey a quiet single-voice title cue.
-Audio credits are in vendor/intro-audio-NOTICE.txt. The car icon is adapted
-to the GitHub Pages distribution: ../car-game/?edition=world.
+The opening maps the paint and brush fragments onto a deforming cloth mesh.
+The title uses a short recording of children cheering. The writing room plays
+a quiet 36-minute guzheng suite. The wash bowl clears writing only, and each
+stroke retains the water mode chosen when it began. Car Game is on the homepage.
+Audio credits are in vendor/intro-audio-NOTICE.txt and the cloth license is in
+vendor/cloth-LICENSE.txt.
 All application modules and assets use relative paths and run in the browser.
 No ChatGPT sign-in, backend, runtime API key or remote script is required.
 

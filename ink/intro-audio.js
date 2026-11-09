@@ -2,7 +2,7 @@
 // the rising air, which follows the energy of the live gesture.
 const ASSETS = {
   music: new URL('./assets/midnight-paper.mp3', import.meta.url),
-  cheer: new URL('./assets/harvey-yay.mp3?v=1.15.0', import.meta.url),
+  cheer: new URL('./assets/harvey-yay.mp3?v=1.16.0', import.meta.url),
 };
 const clamp = value => Math.max(0, Math.min(1, value));
 

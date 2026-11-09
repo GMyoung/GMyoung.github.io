@@ -13,6 +13,9 @@
 .quiet-button.selected { background: #68735316; }
 .quiet-button:disabled, .object-button:disabled { opacity: .35; cursor: wait; }
 .world > .back-button { position: absolute; z-index: 6; left: max(25px, env(safe-area-inset-left)); top: max(25px, env(safe-area-inset-top)); }
+.world > .music-button { position: absolute; z-index: 6; left: max(25px, env(safe-area-inset-left)); top: calc(max(25px, env(safe-area-inset-top)) + 48px); }
+.music-button[aria-pressed="true"] .music-slash { display: none; }
+.music-button[aria-pressed="false"] { opacity: .58; }
 .world > .flow-button { position: absolute; z-index: 6; right: max(25px, env(safe-area-inset-right)); top: max(25px, env(safe-area-inset-top)); width: 44px; height: 44px; opacity: .65; }
 .world > .flow-button.selected { opacity: 1; color: #3c7369; background: #63948b1a; }
 .flow-button.selected::after { content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background: currentColor; bottom: 0; left: calc(50% - 2px); }
@@ -24,8 +27,6 @@
 .brush-size.selected { transform: translateY(-7px); opacity: 1; }
 .brush-size.selected::after { content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #a15843; bottom: 0; left: calc(50% - 2px); box-shadow: 0 0 0 3px #a158430d; }
 .object-tools { display: flex; flex-direction: column; gap: 22px; }
-.car-entry { align-self: center; text-decoration: none; width: 44px; height: 44px; }
-.car-entry:focus-visible { outline: 2px solid #687353; outline-offset: 3px; }
 .object-button { padding: 0; background: transparent; width: 70px; height: 61px; transition: transform 180ms var(--ease-out), filter 180ms ease; }
 .object-button svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 4px #5a523c15); }
 .lesson-controls { position: absolute; z-index: 6; left: 50%; top: max(22px, env(safe-area-inset-top)); transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 5px 8px; background: #f2efdfbd; border: 1px solid #79826620; border-radius: 40px; }
@@ -37,7 +38,7 @@
 .name-choice.selected { border-color: #a66e4c8a; background: #eee7d5; }
 .name-choice:disabled { opacity: .4; }
 .name-preview { width: 100%; height: auto; aspect-ratio: 2 / 1; display: block; }
-#wash-overlay { position: absolute; z-index: 8; inset: -15%; background: linear-gradient(105deg, #f2efdf 12%, #e2e6dcd9 55%, #b8cac49c 70%, transparent 82%); pointer-events: none; overflow: hidden; }
+#wash-overlay { position: absolute; z-index: 8; inset: -15%; background: linear-gradient(105deg, #f2efdf42 12%, #e2e6dc6e 55%, #b8cac455 70%, transparent 82%); pointer-events: none; overflow: hidden; }
 #wash-overlay::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(106deg, transparent 0 27px, #fafff329 29px 33px, transparent 37px 80px); }
 #print-sheet { position: absolute; z-index: 9; inset: 10% 17%; pointer-events: none; overflow: hidden; background-color: #f4f0e2; background-size: contain; background-position: center; background-repeat: no-repeat; box-shadow: 0 15px 75px #1f271748, 0 0 0 12px #f4f0e2; border-radius: 2px; transform-origin: bottom right; }
 #print-sheet::after { content: ""; position: absolute; inset: 0; background: linear-gradient(112deg, transparent 50%, #fffbe9aa 80%, #99977c44 100%); }
@@ -49,6 +50,7 @@
 }
 @media (max-width: 700px) {
   .world > .back-button { left: 15px; top: max(16px, env(safe-area-inset-top)); }
+  .world > .music-button { left: 15px; top: calc(max(16px, env(safe-area-inset-top)) + 42px); }
   .world > .flow-button { right: 15px; top: max(12px, env(safe-area-inset-top)); }
   .ink-tools { top: auto; bottom: max(18px, env(safe-area-inset-bottom)); left: 50%; right: auto; transform: translateX(-50%); flex-direction: row; gap: 10px; padding: 5px 10px; background: #eeeddeca; border: 1px solid #a2a68b28; border-radius: 55px; backdrop-filter: blur(6px); }
   .brush-rack { gap: 0; padding: 0; }
@@ -59,7 +61,6 @@
   .brush-size.selected::after { bottom: -2px; width: 3px; height: 3px; }
   .object-tools { flex-direction: row; gap: 7px; }
   .object-button { width: 45px; height: 43px; }
-  .object-tools .car-entry { width: 44px; height: 44px; flex: 0 0 44px; }
   .lesson-controls { top: max(12px, env(safe-area-inset-top)); gap: 4px; padding: 4px 6px; }
   .name-picker { top: calc(max(12px, env(safe-area-inset-top)) + 62px); }
   .quiet-button { width: 34px; height: 36px; }

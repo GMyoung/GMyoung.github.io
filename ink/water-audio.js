@@ -1,10 +1,11 @@
 // Procedural water: a soft stream bed, fine ripples and quiet bubbling.
 // The buffers are synthesized locally; there are no recordings or requests.
 const modes = {
-  heavy: { body: .25, spray: .095, bubbles: .12, cutoff: 2350 },
-  light: { body: .073, spray: .019, bubbles: .038, cutoff: 1300 },
-  still: { body: 0, spray: 0, bubbles: 0, cutoff: 900 },
+  heavy: { body: .126, spray: .023, bubbles: .034, cutoff: 1460, pace: .87 },
+  light: { body: .011, spray: .004, bubbles: .078, cutoff: 890, pace: .48 },
+  still: { body: 0, spray: 0, bubbles: 0, cutoff: 890, pace: .48 },
 };
+const waterLevel = .24;
 
 export class WaterAudio {
   constructor() {
@@ -22,7 +23,7 @@ export class WaterAudio {
     const context = new Context({ latencyHint: 'interactive' });
     this.context = context;
     this.master = context.createGain();
-    this.master.gain.value = .46;
+    this.master.gain.value = waterLevel;
     this.master.connect(context.destination);
     const length = Math.ceil(context.sampleRate * 7);
     this.waterBuffer = context.createBuffer(2, length, context.sampleRate);
@@ -99,8 +100,9 @@ export class WaterAudio {
     rippleFilter.Q.value = .65;
     source(this.waterBuffer, .91).connect(rumbleFilter).connect(bodyFilter).connect(body).connect(this.master);
     source(this.waterBuffer, 1.13).connect(rippleFilter).connect(spray).connect(this.master);
-    source(this.bubbleBuffer, .87).connect(bubbles).connect(this.master);
-    this.stream = { nodes, sources, body, spray, bubbles, bodyFilter };
+    const droplets = source(this.bubbleBuffer, .87);
+    droplets.connect(bubbles).connect(this.master);
+    this.stream = { nodes, sources, body, spray, bubbles, bodyFilter, droplets };
     for (const node of sources) node.start();
   }
 
@@ -116,7 +118,7 @@ export class WaterAudio {
       Promise.resolve(resumed).then(() => {
         if (epoch !== this.epoch || !this.active || document.hidden || context.state !== 'running') return;
         this.master.gain.cancelScheduledValues(context.currentTime);
-        this.master.gain.setTargetAtTime(.46, context.currentTime, .06);
+        this.master.gain.setTargetAtTime(waterLevel, context.currentTime, .06);
         this.makeStream();
         this.setMode(this.mode);
       }).catch(() => { /* A blocked sound must never block drawing. */ });
@@ -134,6 +136,7 @@ export class WaterAudio {
       parameter.setTargetAtTime(settings[layer], now, .16);
     }
     this.stream.bodyFilter.frequency.setTargetAtTime(settings.cutoff, now, .23);
+    this.stream.droplets.playbackRate.setTargetAtTime(settings.pace, now, .23);
   }
 
   stop() {

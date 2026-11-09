@@ -1,7 +1,10 @@
-Harvey introductory vortex, added 2026-11-06, cloth interaction added 2026-11-09
+Harvey introductory vortex and cloth, updated 2026-11-09
 
-Implementation: dist/vortex.js, original project code.
-No original Balatro game shader, third-party shader source, or library is bundled.
+Implementation: dist/vortex.js and dist/vendor/cloth-sim.js.
+Cloth constraints, damped Verlet integration and point grip adapted from
+Dmitry Kurash's Holocloth (MIT), src/cloth.ts at commit
+a6078ba698a53cbf18be870cea555c1971f84103. License in cloth-LICENSE.txt.
+https://github.com/dmitrykurash/holocloth/tree/a6078ba698a53cbf18be870cea555c1971f84103
 
 Visual/technical references consulted:
 - Azkun/balatroShader author README:
@@ -17,14 +20,14 @@ sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain
 The gesture controller integrates a shared angle. A catch nudges the sheet,
 then the first 0.32 radians of signed relative hand travel build cloth strain.
 Beyond that slack the sheet turns, taking up strain as it catches the hand.
-A contact-local field gathers the paint, stretches it along the pull and lights
-the resulting ridges. The same fold field moves the foreground fragments.
-Release eases the folds flat and coasts the sheet back to a slow idle turn.
-Movement energy modulates the filaments and palette. The angle is integrated
-and reduced motion holds the texture still.
-Canvas2D fallback blends two precomputed paint textures and shares the global
-angle. It remaps a feathered 96-by-96 patch of the backdrop at the contact.
-Rendering is capped at DPR 1.5 and 1.5M pixels.
+The grip pulls and pinches vertices of a draped, constrained triangle mesh.
+Paint and brush fragments follow its material coordinates. Perspective depth,
+surface normals and cavity shadows respond to the same folds. Release returns
+the mesh to its draped rest shape while the sheet coasts to a slow idle turn.
+Movement energy modulates the filaments and palette. Reduced motion holds the
+draped cloth still. The Canvas2D renderer uses the same cloth and depth at a
+bounded resolution with precomputed paint textures. WebGL is capped at DPR 1.5
+and 1.5M pixels, and Canvas is capped at 115K pixels.
 
 Balatro and its branding belong to their respective owners; this is an original
 green/yellow website treatment inspired by its background, not official assets.

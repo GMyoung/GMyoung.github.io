@@ -24,6 +24,9 @@ SOFTWARE.
 
 // Adapted from Pavel Dobryakov's WebGL Fluid Simulation (MIT).
 // Simulation passes retain the upstream solver. Host lifecycle and pigment display are site-specific.
+export const inkDecay = Object.freeze({ heavy: .8, light: .12, still: 0 });
+const pigmentLayers = { heavy: [1, 0, 0], light: [0, 1, 0], still: [0, 0, 1] };
+
 export function createFluid(canvas) {
 const resources = { textures: new Set(), framebuffers: new Set(), programs: new Set(), shaders: new Set(), buffers: new Set() };
 const config = {
@@ -40,7 +43,6 @@ resizeCanvas();
 const { gl, ext } = getWebGLContext(canvas);
 if (!ext.formatRGBA || !ext.formatRG || !ext.formatR) throw new Error('Floating-point fluid textures are unavailable');
 let inkColor = [0.12, 0.15, 0.13];
-let writingFlow = false;
 function getWebGLContext (canvas) {
     const params = { alpha: true, premultipliedAlpha: true, depth: false, stencil: false, antialias: false, preserveDrawingBuffer: false };
 
@@ -429,12 +431,13 @@ const gradientSubtractShader = compileShader(gl.FRAGMENT_SHADER, `
     }
 `);
 
-// Written opacity shares the display with wet ink but never enters its dye
-// field. This lets the water-flow switch freeze exactly the ink still visible.
+// Writing occupies three independent opacity channels, one for each mode at
+// the start of a stroke. Background dye stays on its own framebuffer.
 const brushShader = compileShader(gl.FRAGMENT_SHADER, `
     precision highp float;
     varying vec2 vUv;
     uniform sampler2D uPigment;
+    uniform vec3 uLayer;
     uniform vec2 point;
     uniform vec2 previousPoint;
     uniform float aspectRatio;
@@ -451,9 +454,9 @@ const brushShader = compileShader(gl.FRAGMENT_SHADER, `
         float fiber = sin(dot(delta, normal) / max(radius, 0.00001) * 61.0);
         float bristles = mix(0.92 + 0.08 * fiber, 0.44 + 0.56 * smoothstep(-0.65, 0.7, fiber), dryness);
         float mask = (1.0 - smoothstep(radius * 0.64, radius, length(delta))) * bristles;
-        float old = texture2D(uPigment, vUv).r;
+        vec3 old = texture2D(uPigment, vUv).rgb;
         float opacity = 1.0 - exp(-amount * mask * 2.16);
-        gl_FragColor = vec4(max(old, opacity), 0.0, 0.0, 1.0);
+        gl_FragColor = vec4(max(old, uLayer * opacity), 1.0);
     }
 `);
 
@@ -465,11 +468,12 @@ const brushMaskShader = compileShader(gl.FRAGMENT_SHADER, `
     varying vec2 vUv;
     uniform sampler2D uPigment;
     uniform sampler2D uMask;
+    uniform vec3 uLayer;
     void main () {
-        float old = texture2D(uPigment, vUv).r;
+        vec3 old = texture2D(uPigment, vUv).rgb;
         // Match the former 2.4-density brush's fresh opacity at full coverage.
         float opacity = texture2D(uMask, vUv).r * 0.9944;
-        gl_FragColor = vec4(max(old, opacity), 0.0, 0.0, 1.0);
+        gl_FragColor = vec4(max(old, uLayer * opacity), 1.0);
     }
 `);
 
@@ -477,11 +481,11 @@ const agePigmentShader = compileShader(gl.FRAGMENT_SHADER, `
     precision highp float;
     varying vec2 vUv;
     uniform sampler2D uPigment;
-    uniform float dt;
+    uniform vec3 fade;
     void main () {
-        float opacity = texture2D(uPigment, vUv).r * exp(-dt * 0.8);
-        if (opacity < 1.0 / 255.0) opacity = 0.0;
-        gl_FragColor = vec4(opacity, 0.0, 0.0, 1.0);
+        vec3 opacity = texture2D(uPigment, vUv).rgb * fade;
+        opacity.rg *= step(vec2(1.0 / 255.0), opacity.rg);
+        gl_FragColor = vec4(opacity, 1.0);
     }
 `);
 
@@ -546,7 +550,8 @@ const pigmentShader = compileShader(gl.FRAGMENT_SHADER, `
     uniform vec3 inkColor;
     void main () {
         float wet = max(0.0, texture2D(uTexture, vUv).r);
-        float retained = max(0.0, texture2D(uPigment, vUv).r);
+        vec3 layers = texture2D(uPigment, vUv).rgb;
+        float retained = max(max(layers.r, layers.g), layers.b);
         float wetOpacity = 1.0 - exp(-wet * 0.65 * 1.8);
         float alpha = (retained + wetOpacity * (1.0 - retained)) * 0.95;
         // Premultiplied dark ink on transparent paper, with no luminous RGB glow.
@@ -759,11 +764,11 @@ function step (dt) {
 }
 
 function stepWriting(dt) {
-    if (!writingFlow || dt <= 0) return;
+    if (dt <= 0) return;
     gl.disable(gl.BLEND);
     agePigmentProgram.bind();
     gl.uniform1i(agePigmentProgram.uniforms.uPigment, retainedPigment.read.attach(0));
-    gl.uniform1f(agePigmentProgram.uniforms.dt, dt);
+    gl.uniform3f(agePigmentProgram.uniforms.fade, Math.exp(-dt * inkDecay.heavy), Math.exp(-dt * inkDecay.light), 1);
     blit(retainedPigment.write);
     retainedPigment.swap();
 }
@@ -785,10 +790,11 @@ function splat (x, y, dx, dy, color, radius = correctRadius(config.SPLAT_RADIUS 
     dye.swap();
 }
 
-function brush(x, y, previousX, previousY, radius, amount, dx, dy, flick) {
+function brush(x, y, previousX, previousY, radius, amount, dx, dy, flick, mode = 'heavy') {
     gl.disable(gl.BLEND);
     brushProgram.bind();
     gl.uniform1i(brushProgram.uniforms.uPigment, retainedPigment.read.attach(0));
+    gl.uniform3fv(brushProgram.uniforms.uLayer, pigmentLayers[mode] ?? pigmentLayers.heavy);
     gl.uniform2f(brushProgram.uniforms.point, x, y);
     gl.uniform2f(brushProgram.uniforms.previousPoint, previousX, previousY);
     gl.uniform1f(brushProgram.uniforms.aspectRatio, canvas.width / canvas.height);
@@ -800,7 +806,7 @@ function brush(x, y, previousX, previousY, radius, amount, dx, dy, flick) {
     moveInk(x, y, dx, dy);
 }
 
-function depositMask(source) {
+function depositMask(source, mode = 'heavy') {
     if (!source.width || !source.height) return;
     gl.disable(gl.BLEND);
     gl.activeTexture(gl.TEXTURE1);
@@ -832,6 +838,7 @@ function depositMask(source) {
     brushMaskProgram.bind();
     gl.uniform1i(brushMaskProgram.uniforms.uPigment, retainedPigment.read.attach(0));
     gl.uniform1i(brushMaskProgram.uniforms.uMask, 1);
+    gl.uniform3fv(brushMaskProgram.uniforms.uLayer, pigmentLayers[mode] ?? pigmentLayers.heavy);
     blit(retainedPigment.write);
     retainedPigment.swap();
 }
@@ -893,7 +900,6 @@ return {
         stepWriting(Math.max(0, Math.min(writingDt, .25)));
     },
     stepWriting(dt) { stepWriting(Math.max(0, Math.min(dt, .25))); },
-    setWritingFlow(enabled) { writingFlow = Boolean(enabled); },
     render,
     brush,
     depositMask,

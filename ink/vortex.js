@@ -1,67 +1,54 @@
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.16.0';
+
 const TAU = Math.PI * 2;
+const TEXTURE = 256;
 const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
-const finite = (value, fallback = 0) => Number.isFinite(value) ? value : fallback;
+const smoothstep = (a, b, value) => {
+  const t = clamp((value - a) / (b - a), 0, 1);
+  return t * t * (3 - 2 * t);
+};
 
 const vertexSource = `
-attribute vec2 a_position;
-void main() {
-  gl_Position = vec4(a_position, 0.0, 1.0);
-}`;
-
-// Original polar-warp implementation, inspired by the broad painted ribbons
-// of Balatro. No original game shader or third-party shader source is bundled.
-const fragmentBody = `
-uniform vec2 u_resolution;
+attribute vec3 a_position;
+attribute vec4 a_surface;
+attribute vec2 a_material;
+uniform mediump vec2 u_resolution;
 uniform vec2 u_shift;
-uniform float u_time;
 uniform float u_angle;
-uniform float u_velocity;
-uniform float u_progress;
-uniform float u_energy;
-uniform vec4 u_grip;
-uniform vec2 u_pull;
+varying mediump vec2 v_material;
+varying mediump vec4 v_surface;
 
 void main() {
-  float edge = min(u_resolution.x, u_resolution.y);
-  float pixel = max(1.0, edge / 570.0);
-  vec2 cell = floor(gl_FragCoord.xy / pixel) * pixel;
-  vec2 p = (cell - u_resolution * 0.5) / edge;
-  p.y = -p.y;
-  float clothLight = 1.0;
-  if (u_grip.z > 0.006) {
-    // Gather the material at the contact. The ridges fan out along the pull,
-    // and both the sampling warp and its light follow the same folds.
-    vec2 contact = (u_grip.xy - 0.5) * u_resolution / edge;
-    vec2 offset = p - contact;
-    vec2 crossPull = vec2(-u_pull.y, u_pull.x);
-    float along = dot(offset, u_pull);
-    float across = dot(offset, crossPull);
-    float back = max(-along, 0.0);
-    float load = u_grip.w;
-    vec3 shape = vec3(back / (0.18 + 0.25 * load), max(along, 0.0) / 0.17,
-      across / (0.09 + 0.07 * load + back * 0.16));
-    float cloth = u_grip.z * exp(-2.0 * dot(shape, shape));
-    float tuck = u_grip.z * 0.34 * exp(-88.0 * dot(offset, offset));
-    float ridge = across * (65.0 + 22.0 * load) / (1.0 + 2.25 * back) + 0.58 * sin(along * 17.0) + 0.55;
-    float curl = sin(ridge) * (0.79 + 0.21 * sin(along * 19.0 + across * 13.0));
-    vec2 pull = u_pull * (cloth * (0.022 + 0.075 * load) - along * tuck)
-              + crossPull * (cloth * curl * (0.008 + 0.017 * load) - across * tuck);
-    p -= pull;
-    clothLight += cloth * (0.17 + 0.19 * load) * cos(ridge + 0.58) - tuck * 0.23;
-  }
-  p -= u_shift / edge;
-  // Sample in the rotating paint space. All bands, grain and their wandering
-  // centers turn together while the folds stay attached to the hand.
   float c = cos(u_angle);
   float s = sin(u_angle);
-  p = mat2(c, -s, s, c) * p;
-  vec2 material = p;
+  mat2 spin = mat2(c, s, -s, c);
+  float edge = min(u_resolution.x, u_resolution.y);
+  float w = 1.0 - a_position.z * ${CLOTH_PERSPECTIVE};
+  vec2 projected = (spin * a_position.xy * edge + u_shift * w) * 2.0 / u_resolution;
+  gl_Position = vec4(projected.x, -projected.y, -a_position.z * 0.85, w);
+  v_material = a_material;
+  v_surface = vec4(spin * a_surface.xy, a_surface.zw);
+}`;
+
+// The original paint is evaluated in material coordinates. It follows the
+// vertices through every fold, along with the brush fragments printed on it.
+const fragmentBody = `
+uniform mediump vec2 u_resolution;
+uniform float u_time;
+uniform float u_velocity;
+uniform float u_energy;
+uniform float u_markSpan;
+uniform float u_markOpacity;
+uniform sampler2D u_marks;
+varying mediump vec2 v_material;
+varying mediump vec4 v_surface;
+
+void main() {
+  vec2 p = v_material;
   float drift = u_time * 0.08;
   float energy = u_energy;
-  // Broad wandering motion remains visible even between gestures. It changes
-  // the paint, while the accumulated drawing gently awakens its own rotation.
-  p += 0.085 * vec2(sin(drift * 2.0), cos(drift * 3.0));
-  p *= 1.0 + 0.045 * sin(drift);
+  p += 0.063 * vec2(sin(drift * 2.0), cos(drift * 3.0));
+  p *= 1.0 + 0.036 * sin(drift);
   float radius = length(p);
   float polar = radius < 0.00001 ? 0.0 : atan(p.y, p.x);
   polar -= radius * (5.2 + energy * 0.8 + abs(u_velocity) * 0.032);
@@ -78,131 +65,205 @@ void main() {
               + 0.65 * cos(q.y * 2.7 - q.x * 0.6 - drift * 3.0);
   float band = smoothstep(-0.10, 0.65, field);
   float dark = smoothstep(0.80, 1.35, field);
-  // More moving paint exposes nested, finer filaments, not just a faster copy
-  // of the same texture. Smooth input energy keeps these changes continuous.
   float filament = sin(field * (7.0 + energy * 6.0) + q.x * 1.5 - q.y * 1.8 + drift * 4.0);
   float veins = smoothstep(0.48, 0.90, filament) * band;
   float edgeLight = 1.0 - smoothstep(0.02, 0.18, abs(field - 0.28));
   vec3 yellow = mix(vec3(1.0, 0.875, 0.015), vec3(1.0, 0.93, 0.18), energy);
   vec3 pollen = mix(vec3(0.69, 0.73, 0.08), vec3(0.78, 0.84, 0.15), energy);
   vec3 green = mix(vec3(0.17, 0.39, 0.10), vec3(0.29, 0.55, 0.13), energy);
-  vec3 colour = mix(yellow, pollen, band * 0.78);
-  colour = mix(colour, green, dark * 0.82);
-  colour = mix(colour, green, veins * (0.10 + energy * 0.22));
-  float glow = edgeLight * (0.10 + energy * 0.42)
-             + veins * (0.025 + energy * 0.16);
-  colour = mix(colour, vec3(1.0, 0.97, 0.47), clamp(glow, 0.0, 0.65));
-  float grain = fract(sin(dot(floor(material * edge * 0.5) * 0.01, vec2(17.1, 61.7))) * 971.3);
-  colour *= 0.989 + grain * (0.019 + u_progress * 0.003);
-  colour *= clothLight;
-  gl_FragColor = vec4(colour, 1.0);
+  vec3 color = mix(yellow, pollen, band * 0.78);
+  color = mix(color, green, dark * 0.82);
+  color = mix(color, green, veins * (0.10 + energy * 0.22));
+  float glow = edgeLight * (0.10 + energy * 0.42) + veins * (0.025 + energy * 0.16);
+  color = mix(color, vec3(1.0, 0.97, 0.47), clamp(glow, 0.0, 0.65));
+  vec2 markUV = v_material / u_markSpan + 0.5;
+  vec4 mark = texture2D(u_marks, markUV);
+  color = mix(color, mark.rgb, mark.a * u_markOpacity);
+
+  vec3 normal = normalize(v_surface.xyz);
+  if (normal.z < 0.0) normal = -normal;
+  vec3 key = normalize(vec3(-0.58, -0.48, 0.68));
+  vec3 halfVector = normalize(key + vec3(0.0, 0.0, 1.0));
+  float diffuse = max(0.0, dot(normal, key));
+  float sheen = pow(max(0.0, dot(normal, halfVector)), 9.0);
+  float light = max(0.31, 0.62 + 0.43 * diffuse + 0.095 * sheen - 0.43 * v_surface.w);
+  float frequency = min(1030.0, min(u_resolution.x, u_resolution.y) * 1.55);
+  float warp = sin(v_material.x * frequency);
+  float weft = sin(v_material.y * frequency * 1.03);
+  float weave = 0.984 + 0.023 * warp * weft + 0.012 * (warp + weft);
+  gl_FragColor = vec4(color * light * weave, 1.0);
 }`;
 
 function makeCanvas() {
   const canvas = document.createElement('canvas');
   canvas.className = 'intro-vortex-canvas';
   canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText = 'display:block;width:100%;height:100%;pointer-events:none';
   return canvas;
 }
 
-function smoothstep(a, b, value) {
-  const t = clamp((value - a) / (b - a), 0, 1);
-  return t * t * (3 - 2 * t);
+function drawMarks(canvas, radius, focused) {
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  const side = canvas.width;
+  const unit = side / (radius * 3.85);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, side, side);
+  ctx.setTransform(unit, 0, 0, unit, side / 2, side / 2);
+  const size = clamp(radius / 112, .52, 1);
+  for (let i = 0; i < 16; i++) {
+    const orbit = i * .79 + Math.sin(i * 1.7) * .32;
+    const distance = radius * (.30 + i / 15 * 1.25);
+    const x = Math.cos(orbit) * distance + Math.sin(i * 2.4) * radius * .14;
+    const y = Math.sin(orbit) * distance * .81 + Math.cos(i * 1.3) * radius * .10;
+    const length = (16 + (i % 4) * 8 + Math.sin(i * 2) * 3) * size;
+    const width = (i % 3 === 2 ? 2.8 : 5 + i % 4 * 1.8) * size;
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(orbit + .55 + Math.sin(i * 2.8) * .8);
+    ctx.fillStyle = `rgb(${43 + i % 3 * 5},${104 + i % 4 * 7},${24 + i % 4 * 3})`;
+    ctx.beginPath();
+    ctx.moveTo(-length * .5, -width * .32);
+    if (i % 3 === 1) {
+      ctx.quadraticCurveTo(length * .08, -width * .68, length * .53, width * .20);
+      ctx.lineTo(length * .31, width * .17);
+      ctx.lineTo(length * .48, width * .40);
+      ctx.quadraticCurveTo(-length * .1, width * .55, -length * .5, width * .37);
+    } else {
+      ctx.lineTo(-length * .27, -width * .54);
+      ctx.lineTo(length * .48, -width * .31);
+      ctx.lineTo(length * .53, width * .29);
+      ctx.lineTo(length * .30, width * .47);
+      ctx.lineTo(-length * .47, width * .40);
+    }
+    ctx.closePath();
+    ctx.fill();
+    if (focused) {
+      ctx.lineWidth = 1.25;
+      ctx.strokeStyle = '#234414';
+      ctx.stroke();
+    }
+    ctx.clip();
+    ctx.lineWidth = Math.max(.5, size * .7);
+    for (let fiber = 0; fiber < 6; fiber++) {
+      const line = (fiber / 5 - .5) * width;
+      ctx.strokeStyle = fiber % 3 ? '#cbdd7f50' : '#183e1050';
+      ctx.beginPath();
+      ctx.moveTo(-length * .49 + Math.sin(fiber + i) * 2 * size, line);
+      ctx.lineTo(length * (.20 + fiber % 3 * .13), line + Math.sin(fiber * 2.4 + i) * 1.65 * size);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
 }
 
-// The same local fold field moves fragments and remaps the Canvas backdrop.
-// Coordinates and displacements are in units of the viewport's short edge.
-export function foldAt(along, across, { pressure, load }, result) {
-  const back = Math.max(-along, 0);
-  const cloth = pressure * Math.exp(-2 * ((back / (.18 + .25 * load)) ** 2 +
-    (Math.max(along, 0) / .17) ** 2 + (across / (.09 + .07 * load + back * .16)) ** 2));
-  const tuck = pressure * .34 * Math.exp(-88 * (along * along + across * across));
-  const ridge = across * (65 + 22 * load) / (1 + 2.25 * back) + .58 * Math.sin(along * 17) + .55;
-  const curl = Math.sin(ridge) * (.79 + .21 * Math.sin(along * 19 + across * 13));
-  result.along = cloth * (.022 + .075 * load) - along * tuck;
-  result.across = cloth * curl * (.008 + .017 * load) - across * tuck;
-  result.light = 1 + cloth * (.17 + .19 * load) * Math.cos(ridge + .58) - tuck * .23;
+function bakePaint(span, energy) {
+  const out = new Uint8ClampedArray(TEXTURE * TEXTURE * 3);
+  for (let y = 0; y < TEXTURE; y++) {
+    for (let x = 0; x < TEXTURE; x++) {
+      const px = (x / (TEXTURE - 1) - .5) * span;
+      const py = (y / (TEXTURE - 1) - .5) * span + .063;
+      const r = Math.hypot(px, py);
+      const theta = Math.atan2(py, px) - r * (5.2 + energy * .8) - .25 * Math.sin(r * 5);
+      let qx = r * Math.cos(theta) * 2.8;
+      let qy = r * Math.sin(theta) * 2.8;
+      for (let i = 0; i < 3; i++) {
+        const amplitude = .34 - i * .05;
+        const nx = qx + amplitude * Math.sin(qy * 1.6 + i * 1.8);
+        qy += amplitude * Math.cos(qx * 1.9 - i * .9);
+        qx = nx;
+      }
+      const field = Math.sin(qx * 3.2 + Math.sin(qy * 1.6)) + .65 * Math.cos(qy * 2.7 - qx * .6);
+      const band = smoothstep(-.1, .65, field) * .78;
+      const dark = smoothstep(.8, 1.35, field) * .82;
+      const veins = smoothstep(.48, .9, Math.sin(field * (7 + energy * 6) + qx * 1.5 - qy * 1.8)) * band;
+      const glow = (1 - smoothstep(.02, .18, Math.abs(field - .28))) * (.10 + energy * .42);
+      const yellow = [1, .875 + .055 * energy, .015 + .165 * energy];
+      const pollen = [.69 + .09 * energy, .73 + .11 * energy, .08 + .07 * energy];
+      const green = [.17 + .12 * energy, .39 + .16 * energy, .10 + .03 * energy];
+      const light = [1, .97, .47];
+      const at = (y * TEXTURE + x) * 3;
+      for (let channel = 0; channel < 3; channel++) {
+        let value = yellow[channel] + (pollen[channel] - yellow[channel]) * band;
+        value += (green[channel] - value) * Math.min(1, dark + veins * (.12 + energy * .23));
+        out[at + channel] = (value + (light[channel] - value) * glow) * 255;
+      }
+    }
+  }
+  return out;
 }
 
 export class IntroVortex {
   constructor(host, { reducedMotion = false } = {}) {
-    this.host = host;
     this.reducedMotion = reducedMotion;
     this.canvas = makeCanvas();
-    this.host.append(this.canvas);
-    this.gl = null;
-    this.program = null;
-    this.buffer = null;
-    this.shaders = [];
-    this.disposed = false;
+    host.append(this.canvas);
+    this.markCanvas = document.createElement('canvas');
+    this.markCanvas.width = this.markCanvas.height = 512;
     this.lastFrame = {};
+    this.resources = [];
     this.onContextLost = event => {
       event.preventDefault();
-      if (this.disposed) return;
       this.useFallback();
       this.resize(this.width, this.height);
-      this.render(this.lastFrame);
     };
     try {
       this.initializeGL();
-    } catch {
+    } catch (error) {
+      console.info('Intro cloth is using its software renderer.', error);
       this.useFallback();
     }
     this.resize(host.clientWidth || innerWidth, host.clientHeight || innerHeight);
-    this.render(this.lastFrame);
   }
 
   initializeGL() {
-    const gl = this.canvas.getContext('webgl', {
-      alpha: false, antialias: false, depth: false, stencil: false,
-      powerPreference: 'low-power', preserveDrawingBuffer: false,
-    });
+    const gl = this.canvas.getContext('webgl', { alpha: false, depth: true, antialias: false, powerPreference: 'low-power' });
     if (!gl) throw new Error('WebGL unavailable');
     this.gl = gl;
-    const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
-    const qualifier = precision && precision.precision > 0 ? 'highp' : 'mediump';
-    const compile = (type, source) => {
-      const shader = gl.createShader(type);
-      if (!shader) throw new Error('Shader allocation failed');
-      this.shaders.push(shader);
-      gl.shaderSource(shader, source);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error('Shader compilation failed');
-      return shader;
+    const shader = (type, source) => {
+      const handle = gl.createShader(type);
+      this.resources.push(['deleteShader', handle]);
+      gl.shaderSource(handle, source);
+      gl.compileShader(handle);
+      if (!gl.getShaderParameter(handle, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(handle));
+      return handle;
     };
-    const vertex = compile(gl.VERTEX_SHADER, vertexSource);
-    const fragment = compile(gl.FRAGMENT_SHADER, `precision ${qualifier} float;\n${fragmentBody}`);
-    this.program = gl.createProgram();
-    if (!this.program) throw new Error('Program allocation failed');
-    gl.attachShader(this.program, vertex);
-    gl.attachShader(this.program, fragment);
-    gl.linkProgram(this.program);
-    if (!gl.getProgramParameter(this.program, gl.LINK_STATUS)) throw new Error('Shader linking failed');
-    gl.useProgram(this.program);
-    this.buffer = gl.createBuffer();
-    if (!this.buffer) throw new Error('Buffer allocation failed');
-    gl.bindBuffer(gl.ARRAY_BUFFER, this.buffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
-    const position = gl.getAttribLocation(this.program, 'a_position');
-    gl.enableVertexAttribArray(position);
-    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    this.uniforms = Object.fromEntries(['resolution', 'shift', 'time', 'angle', 'velocity', 'progress', 'energy', 'grip', 'pull']
-      .map(name => [name, gl.getUniformLocation(this.program, `u_${name}`)]));
+    const precision = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT)?.precision ? 'highp' : 'mediump';
+    const program = gl.createProgram();
+    this.resources.push(['deleteProgram', program]);
+    gl.attachShader(program, shader(gl.VERTEX_SHADER, vertexSource));
+    gl.attachShader(program, shader(gl.FRAGMENT_SHADER, `precision ${precision} float;\n${fragmentBody}`));
+    gl.linkProgram(program);
+    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
+    this.program = program;
+    gl.useProgram(program);
+    this.uniforms = Object.fromEntries(['resolution','shift','angle','time','velocity','energy','markSpan','markOpacity','marks']
+      .map(name => [name, gl.getUniformLocation(program, `u_${name}`)]));
+    this.attributes = ['position','surface','material'].map((name, i) => {
+      const buffer = gl.createBuffer();
+      const location = gl.getAttribLocation(program, `a_${name}`);
+      this.resources.push(['deleteBuffer', buffer]);
+      return { name, buffer, location, size: [3, 4, 2][i] };
+    });
+    this.faces = gl.createBuffer();
+    this.resources.push(['deleteBuffer', this.faces]);
+    this.markTexture = gl.createTexture();
+    this.resources.push(['deleteTexture', this.markTexture]);
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, this.markTexture);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    gl.enable(gl.DEPTH_TEST);
+    gl.clearColor(1, .875, .015, 1);
+    this.canvas.dataset.renderer = 'cloth-webgl';
     this.canvas.addEventListener('webglcontextlost', this.onContextLost);
-    this.canvas.dataset.renderer = 'webgl';
   }
 
   releaseGL() {
     this.canvas.removeEventListener('webglcontextlost', this.onContextLost);
-    if (this.gl) {
-      if (this.buffer) this.gl.deleteBuffer(this.buffer);
-      if (this.program) this.gl.deleteProgram(this.program);
-      for (const shader of this.shaders) this.gl.deleteShader(shader);
-    }
-    this.buffer = null;
-    this.program = null;
-    this.shaders = [];
+    if (this.gl) for (const [method, resource] of this.resources) this.gl[method](resource);
+    this.resources.length = 0;
     this.gl = null;
   }
 
@@ -211,190 +272,201 @@ export class IntroVortex {
     const replacement = makeCanvas();
     this.canvas.replaceWith(replacement);
     this.canvas = replacement;
-    this.canvas.dataset.renderer = 'canvas';
-    this.context = this.canvas.getContext('2d', { alpha: false });
-    this.textures = [this.makeFallbackTexture(0), this.makeFallbackTexture(1)];
-  }
-
-  makeFallbackTexture(energy) {
-    // Low/high energy paint is computed once and crossfaded during interaction.
-    // Every frame only transforms and blends these small textures.
-    const texture = document.createElement('canvas');
-    texture.width = texture.height = 256;
-    const context = texture.getContext('2d');
-    const image = context.createImageData(256, 256);
-    for (let y = 0; y < 256; y++) {
-      for (let x = 0; x < 256; x++) {
-        const px = (x - 128) / 128;
-        const py = (y - 128) / 128 + .085;
-        const radius = Math.hypot(px, py);
-        const angle = Math.atan2(py, px) - radius * (5.2 + energy * .8) - .25 * Math.sin(radius * 5);
-        let qx = radius * Math.cos(angle) * 2.8;
-        let qy = radius * Math.sin(angle) * 2.8;
-        for (let layer = 0; layer < 3; layer++) {
-          const amplitude = .34 - layer * .05;
-          const nextX = qx + amplitude * Math.sin(qy * 1.6 + layer * 1.8);
-          qy += amplitude * Math.cos(qx * 1.9 - layer * .9);
-          qx = nextX;
-        }
-        const field = Math.sin(qx * 3.2 + Math.sin(qy * 1.6)) + .65 * Math.cos(qy * 2.7 - qx * .6);
-        const band = smoothstep(-.1, .65, field);
-        const dark = smoothstep(.8, 1.35, field);
-        const filament = Math.sin(field * (7 + energy * 6) + qx * 1.5 - qy * 1.8);
-        const veins = smoothstep(.48, .9, filament) * band;
-        const edgeLight = 1 - smoothstep(.02, .18, Math.abs(field - .28));
-        const glow = clamp(edgeLight * (.10 + energy * .42) + veins * (.025 + energy * .16), 0, .65);
-        const yellow = [1, .875 + .055 * energy, .015 + .165 * energy];
-        const pollen = [.69 + .09 * energy, .73 + .11 * energy, .08 + .07 * energy];
-        const green = [.17 + .12 * energy, .39 + .16 * energy, .10 + .03 * energy];
-        const light = [1, .97, .47];
-        const at = (y * 256 + x) * 4;
-        for (let channel = 0; channel < 3; channel++) {
-          let colour = yellow[channel] + (pollen[channel] - yellow[channel]) * band * .78;
-          colour += (green[channel] - colour) * dark * .82;
-          colour += (green[channel] - colour) * veins * (.10 + energy * .22);
-          colour += (light[channel] - colour) * glow;
-          image.data[at + channel] = Math.round(colour * 255);
-        }
-        image.data[at + 3] = 255;
-      }
-    }
-    context.putImageData(image, 0, 0);
-    return texture;
+    this.canvas.dataset.renderer = 'cloth-canvas';
+    this.context = replacement.getContext('2d', { alpha: false });
+    this.mesh = null;
+    this.markFocus = undefined;
   }
 
   resize(width, height) {
-    if (this.disposed) return;
-    this.width = Math.max(1, finite(width, 1));
-    this.height = Math.max(1, finite(height, 1));
-    const pixelRatio = Math.min(finite(devicePixelRatio, 1), 1.5, Math.sqrt(1500000 / (this.width * this.height)));
-    const bufferWidth = Math.max(1, Math.round(this.width * pixelRatio));
-    const bufferHeight = Math.max(1, Math.round(this.height * pixelRatio));
-    if (this.canvas.width !== bufferWidth) this.canvas.width = bufferWidth;
-    if (this.canvas.height !== bufferHeight) this.canvas.height = bufferHeight;
-    if (this.gl) this.gl.viewport(0, 0, bufferWidth, bufferHeight);
+    width = Math.max(1, width);
+    height = Math.max(1, height);
+    if (this.mesh && this.width === width && this.height === height) return;
+    this.width = width;
+    this.height = height;
+    const edge = Math.min(width, height);
+    const ratio = this.gl
+      ? Math.min(devicePixelRatio || 1, 1.5, Math.sqrt(1500000 / (width * height)))
+      : Math.min(1, Math.sqrt(115000 / (width * height)));
+    this.canvas.width = Math.max(1, Math.round(width * ratio));
+    this.canvas.height = Math.max(1, Math.round(height * ratio));
+    const span = Math.hypot(width, height) / edge * 1.25;
+    const segments = this.gl ? clamp(Math.ceil(span / .053), 40, 68) : clamp(Math.ceil(span / .085), 28, 44);
+    this.mesh = new ClothMesh(span, segments);
+    this.contact = null;
+    this.markRadius = Math.max(1, Math.min(112, width * .26, height * .245));
+    this.markSpan = this.markRadius * 3.85 / edge;
+    this.markFocus = undefined;
+    if (this.gl) {
+      const gl = this.gl;
+      gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.faces);
+      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, this.mesh.indices, gl.STATIC_DRAW);
+      for (const attr of this.attributes) {
+        const data = this.mesh[attr.name === 'position' ? 'positions' : attr.name];
+        gl.bindBuffer(gl.ARRAY_BUFFER, attr.buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, data, attr.name === 'material' ? gl.STATIC_DRAW : gl.DYNAMIC_DRAW);
+        gl.enableVertexAttribArray(attr.location);
+        gl.vertexAttribPointer(attr.location, attr.size, gl.FLOAT, false, 0, 0);
+      }
+    } else if (this.context) {
+      this.paint = [bakePaint(span, 0), bakePaint(span, 1)];
+      this.pixels = this.context.createImageData(this.canvas.width, this.canvas.height);
+      this.depth = new Float32Array(this.canvas.width * this.canvas.height);
+      this.projected = new Float32Array(this.mesh.count * 4);
+    }
     this.render(this.lastFrame);
   }
 
   setReducedMotion(value) {
     this.reducedMotion = Boolean(value);
-    this.render(this.lastFrame);
+    if (value) this.reset();
   }
 
-  render({ time = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0, grip = null } = {}) {
-    if (this.disposed) return;
-    this.lastFrame = { time, angle, velocity, progress, energy, shakeX, shakeY, grip };
-    const { width, height } = this.canvas;
-    const shiftX = this.reducedMotion ? 0 : finite(shakeX) * width / this.width;
-    const shiftY = this.reducedMotion ? 0 : finite(shakeY) * height / this.height;
-    const phase = this.reducedMotion ? 0 : finite(angle) % TAU;
-    // All time-dependent waves are integer multiples of the base .08t phase.
-    const drift = this.reducedMotion ? 0 : finite(time) % (TAU / .08);
-    const speed = this.reducedMotion ? 0 : clamp(finite(velocity), -12, 12);
-    const filled = clamp(finite(progress), 0, 1);
-    const motion = this.reducedMotion ? 0 : clamp(finite(energy), 0, 1);
-    const contact = !this.reducedMotion && grip?.pressure > .006 ? grip : null;
+  reset() {
+    this.mesh?.reset();
+    this.contact = null;
+  }
+
+  refreshMarks(focused) {
+    if (this.markFocus === focused) return;
+    this.markFocus = focused;
+    drawMarks(this.markCanvas, this.markRadius, focused);
     if (this.gl) {
       const gl = this.gl;
-      gl.useProgram(this.program);
-      gl.uniform2f(this.uniforms.resolution, width, height);
-      gl.uniform2f(this.uniforms.shift, shiftX, shiftY);
-      gl.uniform1f(this.uniforms.time, drift);
-      gl.uniform1f(this.uniforms.angle, phase);
-      gl.uniform1f(this.uniforms.velocity, speed);
-      gl.uniform1f(this.uniforms.progress, filled);
-      gl.uniform1f(this.uniforms.energy, motion);
-      gl.uniform4f(this.uniforms.grip, contact?.x ?? .5, contact?.y ?? .5, contact?.pressure ?? 0, contact?.load ?? 0);
-      const direction = contact?.direction ?? 0;
-      gl.uniform2f(this.uniforms.pull, Math.cos(direction), Math.sin(direction));
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-      return;
+      gl.activeTexture(gl.TEXTURE0);
+      gl.bindTexture(gl.TEXTURE_2D, this.markTexture);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.markCanvas);
+    } else {
+      this.markPixels = this.markCanvas.getContext('2d').getImageData(0, 0, 512, 512).data;
     }
-    const ctx = this.context;
-    if (!ctx || !this.textures) return;
-    // Overscan includes the breathing and drift, so no edge can become exposed.
-    const side = Math.hypot(width, height) * 1.22 + 2;
-    const wave = drift * .08;
-    ctx.save();
-    ctx.setTransform(1, 0, 0, 1, width / 2 + shiftX, height / 2 + shiftY);
-    ctx.rotate(phase);
-    ctx.translate(side * .045 * Math.sin(wave * 2), side * .045 * Math.cos(wave * 3));
-    const breath = 1 + .035 * Math.sin(wave);
-    ctx.scale(breath, 1 / breath);
-    ctx.imageSmoothingEnabled = false;
-    ctx.globalAlpha = 1;
-    ctx.drawImage(this.textures[0], -side / 2, -side / 2, side, side);
-    if (motion > 0) {
-      ctx.globalAlpha = motion;
-      ctx.drawImage(this.textures[1], -side / 2, -side / 2, side, side);
-    }
-    ctx.restore();
-    if (contact) this.paintCloth(ctx, contact);
   }
 
-  paintCloth(ctx, grip) {
-    // On devices without WebGL, remap a small patch of the real paint. Its
-    // edges feather out so the folded patch remains part of the same sheet.
-    const size = 96;
-    if (!this.clothBuffers) {
-      const source = document.createElement('canvas');
-      const target = document.createElement('canvas');
-      source.width = source.height = target.width = target.height = size;
-      const sample = source.getContext('2d', { willReadFrequently: true });
-      const paint = target.getContext('2d');
-      this.clothBuffers = { sample, paint, pixels: paint.createImageData(size, size) };
+  render(frame = {}) {
+    this.lastFrame = frame;
+    if (!this.mesh) return;
+    let { time = 0, dt = 0, angle = 0, velocity = 0, energy = 0, shakeX = 0, shakeY = 0,
+      grip = null, focused = false, marks = .70 } = frame;
+    if (this.reducedMotion) {
+      time = dt = angle = velocity = energy = shakeX = shakeY = 0;
+      grip = null;
     }
-    const { sample, paint, pixels } = this.clothBuffers;
-    const { width, height } = this.canvas;
-    const shortEdge = Math.min(width, height);
-    const span = shortEdge * .90;
-    const x = grip.x * width;
-    const y = grip.y * height;
-    const anchor = size * .65;
-    const middle = size * .5;
-    sample.clearRect(0, 0, size, size);
-    sample.save();
-    sample.translate(anchor, middle);
-    sample.scale(size / span, size / span);
-    sample.rotate(-grip.direction);
-    sample.translate(-x, -y);
-    sample.drawImage(this.canvas, 0, 0);
-    sample.restore();
+    this.refreshMarks(focused);
+    const edge = Math.min(this.width, this.height);
+    if (grip) {
+      const x = ((grip.x - .5) * this.width - shakeX) / edge;
+      const y = ((grip.y - .5) * this.height - shakeY) / edge;
+      const c = Math.cos(angle), s = Math.sin(angle);
+      const u = x * c + y * s, v = y * c - x * s;
+      if (this.contact !== grip) this.mesh.startGrab(u, v);
+      this.mesh.moveGrab(u, v, grip.load);
+    } else if (this.contact) {
+      this.mesh.endGrab();
+    }
+    this.contact = grip;
+    this.mesh.step(dt, time);
+    const shiftX = shakeX * this.canvas.width / this.width;
+    const shiftY = shakeY * this.canvas.height / this.height;
+    if (this.gl) this.drawGL(time, angle, velocity, energy, marks, shiftX, shiftY);
+    else if (this.context) this.drawSoftware(angle, energy, marks, shiftX, shiftY);
+  }
 
-    const original = sample.getImageData(0, 0, size, size).data;
-    const result = pixels.data;
-    const step = .90 / size;
-    const fold = { along: 0, across: 0, light: 1 };
-    for (let row = 0; row < size; row++) {
-      const across = (row + .5 - middle) * step;
-      for (let column = 0; column < size; column++) {
-        const along = (column + .5 - anchor) * step;
-        foldAt(along, across, grip, fold);
-        const fromX = clamp(Math.round(column - fold.along / step), 0, size - 1);
-        const fromY = clamp(Math.round(row - fold.across / step), 0, size - 1);
-        const from = (fromY * size + fromX) * 4;
-        const at = (row * size + column) * 4;
-        const edge = Math.max(Math.abs((column + .5) / size - .5), Math.abs((row + .5) / size - .5));
-        for (let channel = 0; channel < 3; channel++) result[at + channel] = original[from + channel] * fold.light;
-        result[at + 3] = original[from + 3] * (1 - smoothstep(.36, .5, edge));
+  drawGL(time, angle, velocity, energy, marks, x, y) {
+    const gl = this.gl, u = this.uniforms;
+    gl.useProgram(this.program);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    gl.uniform2f(u.resolution, this.canvas.width, this.canvas.height);
+    gl.uniform2f(u.shift, x, y);
+    gl.uniform1f(u.time, time % (TAU / .08));
+    gl.uniform1f(u.angle, angle);
+    gl.uniform1f(u.velocity, velocity);
+    gl.uniform1f(u.energy, energy);
+    gl.uniform1f(u.markSpan, this.markSpan);
+    gl.uniform1f(u.markOpacity, marks);
+    gl.uniform1i(u.marks, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.attributes[0].buffer);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, this.mesh.positions);
+    gl.bindBuffer(gl.ARRAY_BUFFER, this.attributes[1].buffer);
+    gl.bufferSubData(gl.ARRAY_BUFFER, 0, this.mesh.surface);
+    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.faces);
+    gl.drawElements(gl.TRIANGLES, this.mesh.indices.length, gl.UNSIGNED_SHORT, 0);
+  }
+
+  drawSoftware(angle, energy, marks, shiftX, shiftY) {
+    // Same geometry, UVs and occlusion at a bounded resolution for Canvas-only
+    // browsers. A depth buffer keeps the front of a folded triangle visible.
+    const { width, height } = this.canvas;
+    const edge = Math.min(width, height);
+    const { positions, surface, material, span, count, indices } = this.mesh;
+    const points = this.projected;
+    const depth = this.depth;
+    const pixels = this.pixels.data;
+    const c = Math.cos(angle), s = Math.sin(angle);
+    for (let i = 0; i < count; i++) {
+      const p = i * 3, n = i * 4;
+      const z = positions[p + 2];
+      const scale = edge / (1 - CLOTH_PERSPECTIVE * z);
+      points[n] = (positions[p] * c - positions[p + 1] * s) * scale + width / 2 + shiftX;
+      points[n + 1] = (positions[p] * s + positions[p + 1] * c) * scale + height / 2 + shiftY;
+      points[n + 2] = z;
+      const direction = surface[n + 2] < 0 ? -1 : 1;
+      const nx = (surface[n] * c - surface[n + 1] * s) * direction;
+      const ny = (surface[n] * s + surface[n + 1] * c) * direction;
+      const nz = Math.abs(surface[n + 2]);
+      const diffuse = Math.max(0, nx * -.58 + ny * -.48 + nz * .68);
+      points[n + 3] = Math.max(.31, .66 + .43 * diffuse - .43 * surface[n + 3]);
+    }
+    depth.fill(-Infinity);
+    for (let i = 0; i < pixels.length; i += 4) {
+      pixels[i] = 255; pixels[i + 1] = 223; pixels[i + 2] = 4; pixels[i + 3] = 255;
+    }
+    const [low, high] = this.paint;
+    const paintScale = (TEXTURE - 1) / span;
+    const paintCenter = (TEXTURE - 1) / 2;
+    const markScale = 512 / this.markSpan;
+    for (let i = 0; i < indices.length; i += 3) {
+      const ia = indices[i], ib = indices[i + 1], ic = indices[i + 2];
+      const a = ia * 4, b = ib * 4, d = ic * 4;
+      const ax = points[a], ay = points[a + 1], bx = points[b], by = points[b + 1], cx = points[d], cy = points[d + 1];
+      const left = Math.max(0, Math.floor(Math.min(ax, bx, cx))), right = Math.min(width - 1, Math.ceil(Math.max(ax, bx, cx)));
+      const top = Math.max(0, Math.floor(Math.min(ay, by, cy))), bottom = Math.min(height - 1, Math.ceil(Math.max(ay, by, cy)));
+      const det = (by - cy) * (ax - cx) + (cx - bx) * (ay - cy);
+      if (left > right || top > bottom || Math.abs(det) < .001) continue;
+      const inv = 1 / det;
+      for (let y = top; y <= bottom; y++) {
+        for (let x = left; x <= right; x++) {
+          const ox = x + .5 - cx, oy = y + .5 - cy;
+          const wa = ((by - cy) * ox + (cx - bx) * oy) * inv;
+          const wb = ((cy - ay) * ox + (ax - cx) * oy) * inv;
+          const wc = 1 - wa - wb;
+          if (wa < -.0001 || wb < -.0001 || wc < -.0001) continue;
+          const z = wa * points[a + 2] + wb * points[b + 2] + wc * points[d + 2];
+          const pixel = y * width + x;
+          if (z <= depth[pixel]) continue;
+          depth[pixel] = z;
+          const u = wa * material[ia * 2] + wb * material[ib * 2] + wc * material[ic * 2];
+          const v = wa * material[ia * 2 + 1] + wb * material[ib * 2 + 1] + wc * material[ic * 2 + 1];
+          const tx = clamp(Math.round(u * paintScale + paintCenter), 0, TEXTURE - 1);
+          const ty = clamp(Math.round(v * paintScale + paintCenter), 0, TEXTURE - 1);
+          const color = (ty * TEXTURE + tx) * 3;
+          const mx = Math.floor(u * markScale + 256), my = Math.floor(v * markScale + 256);
+          const mi = (my * 512 + mx) * 4;
+          const opacity = mx >= 0 && my >= 0 && mx < 512 && my < 512 ? this.markPixels[mi + 3] * marks / 255 : 0;
+          const light = wa * points[a + 3] + wb * points[b + 3] + wc * points[d + 3];
+          for (let j = 0; j < 3; j++) {
+            let value = low[color + j] + (high[color + j] - low[color + j]) * energy;
+            if (opacity) value += (this.markPixels[mi + j] - value) * opacity;
+            pixels[pixel * 4 + j] = value * light;
+          }
+        }
       }
     }
-    paint.putImageData(pixels, 0, 0);
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.rotate(grip.direction);
-    ctx.globalAlpha = Math.min(1, grip.pressure * 1.5);
-    ctx.imageSmoothingEnabled = true;
-    ctx.drawImage(paint.canvas, -anchor / size * span, -span / 2, span, span);
-    ctx.restore();
+    this.context.putImageData(this.pixels, 0, 0);
   }
 
   dispose() {
-    if (this.disposed) return;
-    this.disposed = true;
     this.releaseGL();
-    this.textures = null;
-    this.clothBuffers = null;
+    this.mesh = null;
     this.canvas.remove();
   }
 }

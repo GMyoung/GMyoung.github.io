@@ -1,4 +1,4 @@
-import { IntroVortex, foldAt } from './vortex.js?v=1.15.0';
+import { IntroVortex } from './vortex.js?v=1.16.0';
 
 const TAU = Math.PI * 2;
 const DURATION = 2940;
@@ -17,8 +17,6 @@ export class SpinUnlock {
     this.reducedMotion = reducedMotion;
     this.wrapper = document.querySelector('#spin-unlock');
     this.button = document.querySelector('#spin-button');
-    this.canvas = document.querySelector('#spin-effects');
-    this.context = this.canvas.getContext('2d');
     this.hint = document.querySelector('#spin-hint');
     this.status = document.querySelector('#spin-status');
     this.frame = 0;
@@ -108,6 +106,7 @@ export class SpinUnlock {
     this.hint.textContent = '按住转圈，解锁 Harvey';
     this.status.textContent = '按住画面，围绕中央转近一整圈，持续约三秒。键盘可按住空格或回车约三秒。';
     this.audioCall('reset');
+    this.vortex.reset();
     this.measure();
     this.renderVortex();
     this.schedule();
@@ -151,17 +150,16 @@ export class SpinUnlock {
     // The entire viewport accepts input, but the invisible pivot remains fixed.
     // It must never follow the hit target's dimensions or the screen tremor.
     this.center = { x: innerWidth / 2, y: innerHeight / 2, radius: Math.min(112, innerWidth * .26, innerHeight * .245) };
-    this.ratio = Math.min(devicePixelRatio || 1, 2);
-    this.canvas.width = Math.round(innerWidth * this.ratio);
-    this.canvas.height = Math.round(innerHeight * this.ratio);
-    this.context.setTransform(this.ratio, 0, 0, this.ratio, 0, 0);
     this.vortex.resize(innerWidth, innerHeight);
   }
 
-  renderVortex(shakeX = 0, shakeY = 0) {
+  renderVortex(shakeX = 0, shakeY = 0, dt = 0, release = 0) {
+    const focused = this.wrapper.classList.contains('keyboard-focus');
     this.vortex.render({
-      time: this.shaderTime, angle: this.shaderAngle, velocity: this.velocity,
-      progress: this.progress(), energy: this.energy, shakeX, shakeY, grip: this.grip,
+      time: this.shaderTime, dt: dt / 1000, angle: this.shaderAngle, velocity: this.velocity,
+      energy: this.energy, shakeX, shakeY, focused,
+      grip: this.pointer !== null ? this.grip : null,
+      marks: this.state === 'unlocked' ? 0 : (1 - release) * (focused ? .95 : .72 + this.progress() * .16),
     });
   }
 
@@ -174,7 +172,7 @@ export class SpinUnlock {
   }
 
   schedule() {
-    if (!this.frame && this.active && !this.suspended && !document.hidden) {
+    if (!this.frame && this.active && this.state !== 'unlocked' && !this.suspended && !document.hidden) {
       this.frame = requestAnimationFrame(now => this.tick(now));
     }
   }
@@ -195,10 +193,9 @@ export class SpinUnlock {
     this.releasedAt = 0;
     this.lastInputKeyboard = false;
     if (!this.reducedMotion) {
-      const direction = Math.atan2(event.clientY - this.center.y, event.clientX - this.center.x) + this.coastDirection * Math.PI / 2;
       this.grip = {
         x: clamp(event.clientX / innerWidth), y: clamp(event.clientY / innerHeight),
-        direction, pullDirection: direction, pressure: .2, stretch: 0, load: 0,
+        stretch: 0, load: 0,
         strain: 0, kick: this.coastDirection * .78, last: null,
       };
       this.velocity = 0;
@@ -290,7 +287,6 @@ export class SpinUnlock {
     if (dt > 190 || distance > Math.max(60, shortEdge * .35) || distance / dt > 10 || distance < .12) return;
     // Straight pulls bunch the cloth too. Only angular travel takes up slack
     // around the pivot and begins to turn the entire sheet.
-    grip.pullDirection = Math.atan2(travelY, travelX);
     grip.stretch = clamp(grip.stretch + distance / (shortEdge * .13));
   }
 
@@ -416,21 +412,10 @@ export class SpinUnlock {
       grip.kick -= kick;
       turn += kick * .084;
 
-      grip.pressure += ((gripped ? 1 : 0) - grip.pressure) * (1 - Math.exp(-dt / (gripped ? 44 : 110)));
       const load = gripped ? clamp(Math.max(Math.abs(grip.strain) / GRIP_SLACK, grip.stretch * .72)) : 0;
       grip.load += (load - grip.load) * (1 - Math.exp(-dt / (gripped ? 52 : 120)));
       grip.stretch *= Math.exp(-dt / 145);
-      if (gripped) {
-        const x = grip.x * innerWidth - this.center.x;
-        const y = grip.y * innerHeight - this.center.y;
-        const direction = Math.abs(grip.strain) > .14 && Math.hypot(x, y) > 18
-          ? Math.atan2(y, x) + Math.sign(grip.strain) * Math.PI / 2
-          : grip.pullDirection;
-        const delta = direction - grip.direction;
-        grip.direction += Math.atan2(Math.sin(delta), Math.cos(delta)) * (1 - Math.exp(-dt / 54));
-      } else if (grip.pressure < .006) {
-        this.grip = null;
-      }
+      if (!gripped && Math.abs(grip.kick) < .003) this.grip = null;
     }
     this.shaderAngle = (this.shaderAngle + turn) % TAU;
   }
@@ -499,100 +484,11 @@ export class SpinUnlock {
     const phase = this.shakePhase;
     const shakeX = shake * (.80 * Math.sin(phase) + .20 * Math.cos(2 * phase + .4));
     const shakeY = shake * .60 * (.74 * Math.cos(phase + .25) + .26 * Math.sin(2 * phase + 1));
-    this.renderVortex(shakeX, shakeY);
-    if (this.state !== 'unlocked' && !this.wrapper.hidden) this.draw(progress, release, shakeX, shakeY);
+    this.renderVortex(shakeX, shakeY, dt, release);
     if (this.state === 'releasing' && release >= 1) {
       this.state = 'unlocked';
       this.onUnlock({ keyboard: this.lastInputKeyboard });
     }
     if (!this.reducedMotion || held || (this.state === 'locked' && progress > 0) || this.state === 'releasing' || this.shakeAmplitude > 0) this.schedule();
   }
-
-  draw(progress, release, shakeX, shakeY) {
-    const ctx = this.context;
-    const { x, y, radius } = this.center;
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-    const focused = this.wrapper.classList.contains('keyboard-focus');
-    const scale = clamp(radius / 112, .52, 1);
-    const gather = 1 - progress * .3;
-    const angle = this.reducedMotion ? 0 : this.shaderAngle;
-    const c = Math.cos(angle);
-    const s = Math.sin(angle);
-    const grip = this.grip;
-    const gripX = grip ? grip.x * innerWidth : 0;
-    const gripY = grip ? grip.y * innerHeight : 0;
-    const u = grip ? Math.cos(grip.direction) : 1;
-    const v = grip ? Math.sin(grip.direction) : 0;
-    const edge = Math.max(1, Math.min(innerWidth, innerHeight));
-    const fold = { along: 0, across: 0, light: 1 };
-    ctx.save();
-    ctx.translate(x + shakeX, y + shakeY);
-    ctx.rotate(angle);
-    for (let index = 0; index < 16; index++) {
-      const orbit = index * .79 + Math.sin(index * 1.7) * .32;
-      const distance = radius * (.3 + index / 15 * 1.25) * gather;
-      const floatAmplitude = (12 + index % 5 * 3) * Math.max(.75, scale);
-      const driftX = this.reducedMotion ? 0 : Math.sin(this.shaderTime * (.43 + index % 3 * .08) + index * 1.9) * floatAmplitude;
-      const driftY = this.reducedMotion ? 0 : Math.cos(this.shaderTime * (.51 + index % 4 * .06) + index * 2.1) * floatAmplitude * .84;
-      const tumble = this.reducedMotion ? 0 : Math.sin(this.shaderTime * .46 + index * .9) * .18 + Math.cos(this.shaderTime * .71 + index * 1.2) * .09;
-      let px = Math.cos(orbit) * distance + Math.sin(index * 2.4) * radius * .14 + driftX;
-      let py = Math.sin(orbit) * distance * .81 + Math.cos(index * 1.3) * radius * .1 + driftY;
-      if (grip) {
-        const rx = (x + shakeX + px * c - py * s - gripX) / edge;
-        const ry = (y + shakeY + px * s + py * c - gripY) / edge;
-        foldAt(rx * u + ry * v, ry * u - rx * v, grip, fold);
-        const dx = (fold.along * u - fold.across * v) * edge;
-        const dy = (fold.along * v + fold.across * u) * edge;
-        px += dx * c + dy * s;
-        py += dy * c - dx * s;
-      }
-      const length = (15 + (index % 4) * 8 + Math.sin(index * 2) * 3) * scale;
-      const width = (index % 3 === 2 ? 2.5 : 5 + index % 4 * 1.8) * scale;
-      ctx.save();
-      ctx.translate(px, py);
-      ctx.rotate(orbit + .55 + Math.sin(index * 2.8) * .8 + tumble);
-      ctx.globalAlpha = (focused ? .95 : .65 + progress * .23) * (1 - release);
-      const red = Math.round((44 + index % 3 * 6) * fold.light);
-      const green = Math.round((96 + progress * 31 + index % 3 * 9) * fold.light);
-      const blue = Math.round((25 + index % 4 * 4) * fold.light);
-      ctx.fillStyle = `rgb(${red},${green},${blue})`;
-      ctx.beginPath();
-      if (index % 3 === 1) {
-        // A tapered bristle fragment, with an imperfect split at the tip.
-        ctx.moveTo(-length * .5, -width * .46);
-        ctx.quadraticCurveTo(length * .12, -width * .65, length * .53, width * .2);
-        ctx.lineTo(length * .3, width * .18);
-        ctx.lineTo(length * .48, width * .4);
-        ctx.quadraticCurveTo(-length * .1, width * .54, -length * .5, width * .4);
-      } else {
-        ctx.moveTo(-length * .5, -width * .32);
-        ctx.lineTo(-length * .3, -width * .54);
-        ctx.lineTo(length * .48, -width * .31);
-        ctx.lineTo(length * .53, width * .29);
-        ctx.lineTo(length * .31, width * .46);
-        ctx.lineTo(-length * .47, width * .4);
-      }
-      ctx.closePath();
-      ctx.fill();
-      if (focused) {
-        ctx.strokeStyle = '#234414';
-        ctx.lineWidth = 1.25;
-        ctx.stroke();
-      }
-      ctx.clip();
-      ctx.lineCap = 'butt';
-      ctx.lineWidth = Math.max(.5, scale * .7);
-      for (let fiber = 0; fiber < 7; fiber++) {
-        ctx.strokeStyle = fiber % 3 ? 'rgba(203,221,127,.3)' : 'rgba(24,62,16,.32)';
-        const grainY = (fiber / 6 - .5) * width;
-        ctx.beginPath();
-        ctx.moveTo(-length * .48 + Math.sin(fiber + index) * 3 * scale, grainY);
-        ctx.lineTo(length * (.2 + fiber % 3 * .12), grainY + Math.sin(fiber * 2.4 + index) * 1.7 * scale);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-    ctx.restore();
-  }
 }
-

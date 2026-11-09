@@ -477,6 +477,7 @@ export class InkWriter {
       x: point.x * this.width,
       y: point.y * this.height,
       brush: new BrushStroke({ size: this.brushSize(), input }),
+      inkMode: this.options.getWaterMode?.() ?? 'heavy',
       profile: [],
       stamps: [],
       reference: this.practice ? this.currentDemo() : null,
@@ -502,7 +503,7 @@ export class InkWriter {
     const dy = y - pointer.y;
     const inkTime = this.options.getWritingClock?.() || 0;
     const stamps = pointer.brush.add({ x, y, time: event.timeStamp, pressure: event.pressure, pointerType: event.pointerType, ending: event.type === 'pointerup' })
-      .map(stamp => ({ ...stamp, inkTime }));
+      .map(stamp => ({ ...stamp, inkTime, inkMode: pointer.inkMode }));
     const holdSeconds = this.practice && this.target?.kind === 'character' ? 90 : 18;
     pointer.stamps.push(...stamps);
     this.options.paintBrush?.(stamps, { holdSeconds, motion: { x, y, dx, dy, speed: pointer.brush.lastSample?.speed || 0 } });

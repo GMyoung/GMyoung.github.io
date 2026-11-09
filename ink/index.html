@@ -8,9 +8,10 @@
     <title>Harvey — 墨间</title>
     <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
     <link rel="preload" as="image" href="./assets/harvey-original.jpeg">
-    <link rel="stylesheet" href="./style.css?v=1.13.0">
-    <link rel="stylesheet" href="./writer.css">
-    <script type="module" src="./app.js?v=1.15.0"></script>
+    <link rel="license" href="./vendor/intro-audio-NOTICE.txt">
+    <link rel="stylesheet" href="./style.css?v=1.16.0">
+    <link rel="stylesheet" href="./writer.css?v=1.16.0">
+    <script type="module" src="./app.js?v=1.16.0"></script>
   </head>
   <body>
     <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -29,7 +30,6 @@
         <symbol id="water-flow-icon" viewBox="0 0 36 36"><path d="M18 4c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path class="water-current" d="M5 23c4-4 8 4 12 0s8 4 14 0M5 29c4-4 8 4 12 0s8 4 14 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
         <symbol id="water-light-icon" viewBox="0 0 36 36"><path d="M18 6c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M7 28c4-3 7 3 11 0s7 3 11 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
         <symbol id="water-still-icon" viewBox="0 0 36 36"><path d="M18 6c-2 4-5 7-5 10a5 5 0 0 0 10 0c0-3-3-6-5-10Z" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M9 28h18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
-        <symbol id="car-icon" viewBox="0 0 36 36"><path d="m9 17 4-7h10l4 7m-19 0h20c2 0 3 2 3 4v5H5v-5c0-2 1-4 3-4Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 26v3m20-3v3m-19-8h4m10 0h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
       </defs>
     </svg>
     <main>
@@ -41,7 +41,15 @@
           <canvas id="practice-feedback" aria-hidden="true"></canvas>
         </div>
         <button id="back" class="quiet-button back-button" aria-label="回到手绘开场"><svg aria-hidden="true"><use href="#back-icon"/></svg></button>
-        <button id="writing-flow" class="quiet-button flow-button selected" data-water-mode="heavy" aria-label="重水流：有水声，墨迹快速消散。点击切换轻水，适合写字。"><svg aria-hidden="true"><use href="#water-flow-icon"/></svg></button>
+        <button id="music-toggle" class="quiet-button music-button" aria-label="古筝背景音乐" aria-pressed="true">
+          <svg viewBox="0 0 36 36" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 21 27 9c1.3-.7 2.4.4 2.4 1.8v4.1a3 3 0 0 1-1.5 2.6L8.5 27C7.3 27.6 6 27 6 25.7v-2.8c0-.8.4-1.5 1-1.9Z"/>
+            <path d="m9 22.8 18-10m-18 13 18-9.9m-14 5.2 1.4-3m4.5-.2 1.3-3m3.7-.1 1.2-2.7"/>
+            <path class="music-slash" d="m8 8 20 20"/>
+          </svg>
+        </button>
+        <audio id="ink-music" src="./assets/jasmine-ink-suite.mp3?v=1.16.0" preload="none" loop></audio>
+        <button id="writing-flow" class="quiet-button flow-button selected" data-water-mode="heavy" aria-label="小水流：有轻微流水声，新笔迹较快淡去。点击切换细水。"><svg aria-hidden="true"><use href="#water-flow-icon"/></svg></button>
         <div class="lesson-controls" role="group" aria-label="选择学习内容">
           <button id="practice-toggle" class="quiet-button" aria-label="开启或关闭基础笔画跟练" aria-pressed="false"><svg aria-hidden="true"><use href="#practice-icon"/></svg></button>
           <button id="names-toggle" class="quiet-button" aria-label="选择艾达或伊莱名字教学" aria-pressed="false" aria-expanded="false" aria-controls="name-picker"><svg aria-hidden="true"><use href="#names-icon"/></svg></button>
@@ -60,7 +68,6 @@
           <div class="object-tools">
             <button id="clear-writing" class="object-button" aria-label="洗笔并清空画面"><svg aria-hidden="true"><use href="#wash-bowl"/></svg></button>
             <button id="save-writing" class="object-button" aria-label="拓印并保存图片"><svg aria-hidden="true"><use href="#rubbing"/></svg></button>
-            <a id="car-entry" class="quiet-button car-entry" href="../car-game/?edition=world" aria-label="进入 Car Game · MODARIS"><svg aria-hidden="true"><use href="#car-icon"/></svg></a>
           </div>
         </aside>
         <div id="wash-overlay" hidden aria-hidden="true"></div>
@@ -78,7 +85,6 @@
         </button>
         <button id="enter-hint" class="enter-hint" aria-label="进入水墨跟练" hidden disabled><svg viewBox="0 0 36 36" aria-hidden="true"><path d="M10 26 26 10M10 10h16v16" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
         <div id="spin-unlock" class="spin-unlock">
-          <canvas id="spin-effects" class="spin-effects" aria-hidden="true"></canvas>
           <button id="spin-button" class="spin-button" aria-label="画出漩涡，解锁 Harvey" aria-describedby="spin-hint spin-keyboard-hint"></button>
           <button id="intro-sound" class="intro-sound" aria-label="开场声音" aria-pressed="false" hidden>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

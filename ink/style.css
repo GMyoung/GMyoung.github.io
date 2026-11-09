@@ -22,7 +22,6 @@ main, .intro, .world { position: fixed; inset: 0; width: 100%; height: 100%; hei
 .intro-vortex { position: absolute; z-index: 0; inset: 0; pointer-events: none; }
 .intro-vortex canvas { display: block; width: 100%; height: 100%; }
 .spin-unlock { position: absolute; z-index: 3; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
-.spin-effects { position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .spin-button {
   position: absolute; z-index: 1; inset: 0;
   width: 100%; height: 100%; padding: 0;
