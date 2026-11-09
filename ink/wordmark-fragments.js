@@ -1,10 +1,8 @@
 const CUTS = [8, 6, 5, 5, 6, 6];
-const LETTER_GAP = .205;
-const PIECE_GAP = .013;
-const PIECE_TIME = .30;
-const DEPART_AT = LETTER_GAP * (CUTS.length - 1) + PIECE_TIME + PIECE_GAP * (Math.max(...CUTS) - 1) + .13;
-const DEPART_TIME = .345;
-export const ASSEMBLY_END = DEPART_AT + DEPART_TIME + .105;
+const FIRST_LETTER = .075;
+const LETTER_SPAN = .15;
+const ASSEMBLED = .54;
+const DEPART_AT = .71;
 
 const clamp = value => Math.max(0, Math.min(1, value));
 const smooth = value => {
@@ -85,15 +83,12 @@ function pixelsByLetter(context, source, contours) {
   return letters.map(letter => letter.pixels);
 }
 
-function orbit(piece, radius, diagonal, time, progress, still) {
+function orbit(piece, radius, edge, time, progress, still) {
   const index = piece.index;
-  const start = .035 + (index * 11 % 19) / 18 * .38;
-  const end = .70 + (index * 7 % 23) / 22 * .295;
-  const spread = smooth((progress - start) / (end - start));
+  const spread = smooth(progress);
   const angle = index * 2.399963 + Math.sin(index * 1.17) * .24 + spread * (.35 + index % 3 * .10);
   const near = radius * (.30 + (index * 7 % 17) / 16 * 1.20);
-  const far = diagonal * .60 + 22 + index % 6 * 8;
-  const distance = near + (far - near) * spread;
+  const distance = Math.min(near * (1 + .36 * spread), edge * .41);
   const drift = still ? 0 : 9 + index % 5 * 2.5;
   return {
     x: Math.cos(angle) * distance + Math.sin(time * .56 + index * 1.7) * drift,
@@ -114,7 +109,7 @@ function drawPiece(context, piece, x, y, angle, scale) {
 
 export class WordmarkFragments {
   constructor(context, source, contours) {
-    this.width = source.width;
+    this.assemblyVisible = false;
     let index = 0;
     this.letters = pixelsByLetter(context, source, contours).map((pixels, letter) => {
       if (!pixels.length) throw new Error('A Harvey letter has no visible pixels');
@@ -122,13 +117,17 @@ export class WordmarkFragments {
       const pieces = splitLetter(pixels, CUTS[letter], source.width).map(group => ({ ...makeSprite(source, group), index: index++ }));
       return { sprite, pieces };
     });
-    this.pieces = this.letters.flatMap(letter => letter.pieces);
   }
 
-  drawOrbit(context, { radius, diagonal, time, progress, focused, still }) {
-    const poses = this.pieces.map(piece => orbit(piece, radius, diagonal, time, progress, still));
+  stage(progress) {
+    return Math.floor((progress - FIRST_LETTER) / LETTER_SPAN);
+  }
+
+  drawOrbit(context, { radius, edge, time, progress, focused, still }) {
+    const waiting = this.letters.slice(this.stage(progress) + 1).flatMap(letter => letter.pieces);
+    const poses = waiting.map(piece => orbit(piece, radius, edge, time, progress, still));
     const extent = poses.reduce((maximum, pose, i) => {
-      const piece = this.pieces[i];
+      const piece = waiting[i];
       return Math.max(maximum, Math.max(Math.abs(pose.x), Math.abs(pose.y)) + Math.hypot(piece.width, piece.height) * pose.scale / 2);
     }, radius * 1.75);
     const span = 2 * (extent + 10);
@@ -142,49 +141,48 @@ export class WordmarkFragments {
       context.shadowColor = '#f7f09f';
       context.shadowBlur = 3;
     }
-    poses.forEach((pose, i) => drawPiece(context, this.pieces[i], pose.x, pose.y, pose.angle, pose.scale));
+    poses.forEach((pose, i) => drawPiece(context, waiting[i], pose.x, pose.y, pose.angle, pose.scale));
     context.restore();
     return span;
   }
 
-  drawAssembly(context, wordmark, bounds, seconds, { width, height, angle, time, direction }) {
-    context.clearRect(0, 0, width, height);
-    if (seconds >= DEPART_AT) {
-      const exit = clamp((seconds - DEPART_AT) / DEPART_TIME);
-      if (exit < 1) {
-        const distance = exit * exit;
-        const travel = direction < 0 ? -bounds.right - 24 : width - bounds.left + 24;
-        context.drawImage(wordmark, bounds.left + travel * distance,
-          bounds.top - Math.min(95, height * .16) * distance, bounds.width, bounds.height);
-      }
+  drawAssembly(context, { width, height, angle, time, shakeX, shakeY, fragmentProgress, marks }) {
+    const letter = this.stage(fragmentProgress);
+    const visible = letter >= 0 && letter < this.letters.length;
+    if (this.assemblyVisible || visible) context.clearRect(0, 0, width, height);
+    this.assemblyVisible = visible;
+    if (!visible) return;
+    const phase = (fragmentProgress - FIRST_LETTER - letter * LETTER_SPAN) / LETTER_SPAN;
+    const { sprite, pieces } = this.letters[letter];
+    const scale = Math.min(1.45, width * .28 / sprite.width, height * .23 / sprite.height);
+    const glyphWidth = sprite.width * scale, glyphHeight = sprite.height * scale;
+    const left = (width - glyphWidth) / 2, top = height * .47 - glyphHeight / 2;
+    if (phase >= ASSEMBLED) {
+      const exit = clamp((phase - DEPART_AT) / (1 - DEPART_AT)) ** 2;
+      const side = letter % 2 ? -1 : 1;
+      const travel = side * (width / 2 + glyphWidth + 24);
+      context.drawImage(sprite.canvas, left + travel * exit, top - Math.min(95, height * .16) * exit,
+        glyphWidth, glyphHeight);
       return;
     }
     const radius = Math.min(112, width * .26, height * .245);
-    const diagonal = Math.hypot(width, height);
+    const edge = Math.min(width, height);
     const c = Math.cos(angle), s = Math.sin(angle);
-    const scale = bounds.width / this.width;
-    this.letters.forEach(({ sprite, pieces }, letter) => {
-      const local = seconds - letter * LETTER_GAP;
-      if (local < 0) return;
-      if (local >= PIECE_TIME + (pieces.length - 1) * PIECE_GAP) {
-        context.drawImage(sprite.canvas, bounds.left + sprite.left * scale, bounds.top + sprite.top * scale,
-          sprite.width * scale, sprite.height * scale);
-        return;
-      }
-      pieces.forEach((piece, index) => {
-        const t = clamp((local - index * PIECE_GAP) / PIECE_TIME);
-        if (t === 0) return;
-        const start = orbit(piece, radius, diagonal, time, 1, false);
-        const fromX = width / 2 + start.x * c - start.y * s;
-        const fromY = height / 2 + start.x * s + start.y * c;
-        const toX = bounds.left + (piece.left + piece.width / 2) * scale;
-        const toY = bounds.top + (piece.top + piece.height / 2) * scale;
-        const travel = 1 - (1 - t) ** 2.5;
-        const bow = Math.sin(Math.PI * travel) * Math.min(85, bounds.width * .15) * (index % 2 ? -.76 : 1);
-        const turn = Math.atan2(Math.sin(start.angle + angle), Math.cos(start.angle + angle)) * (1 - travel);
-        drawPiece(context, piece, fromX + (toX - fromX) * travel,
-          fromY + (toY - fromY) * travel + bow, turn, start.scale + (scale - start.scale) * travel);
-      });
+    context.save();
+    pieces.forEach((piece, index) => {
+      const delay = index * .018;
+      const travel = smooth((phase - delay) / (ASSEMBLED - delay));
+      const start = orbit(piece, radius, edge, time, fragmentProgress, false);
+      const fromX = width / 2 + shakeX + start.x * c - start.y * s;
+      const fromY = height / 2 + shakeY + start.x * s + start.y * c;
+      const toX = left + (piece.left - sprite.left + piece.width / 2) * scale;
+      const toY = top + (piece.top - sprite.top + piece.height / 2) * scale;
+      const bow = Math.sin(Math.PI * travel) * Math.min(38, glyphWidth * .22) * (index % 2 ? -.76 : 1);
+      const turn = Math.atan2(Math.sin(start.angle + angle), Math.cos(start.angle + angle)) * (1 - travel);
+      context.globalAlpha = marks + (1 - marks) * travel;
+      drawPiece(context, piece, fromX + (toX - fromX) * travel,
+        fromY + (toY - fromY) * travel + bow, turn, start.scale + (scale - start.scale) * travel);
     });
+    context.restore();
   }
 }

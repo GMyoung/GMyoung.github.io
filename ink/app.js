@@ -1,7 +1,7 @@
-import { SpinUnlock } from './spin-unlock.js?v=1.17.0';
+import { SpinUnlock } from './spin-unlock.js?v=1.17.1';
 import { IntroAudio } from './intro-audio.js?v=1.16.0';
 import { WaterAudio } from './water-audio.js?v=1.16.0';
-import { ASSEMBLY_END, WordmarkFragments } from './wordmark-fragments.js?v=1.17.0';
+import { WordmarkFragments } from './wordmark-fragments.js?v=1.17.1';
 
 const intro = document.querySelector('#intro');
 const world = document.querySelector('#ink-world');
@@ -201,7 +201,7 @@ function drawGreenTail(bounds, pose, seconds) {
   }
 }
 
-function playOpening(assembledFrom) {
+function playOpening() {
   cancelAnimationFrame(flightFrame);
   intro.classList.remove('ready');
   enter.hidden = false;
@@ -210,7 +210,6 @@ function playOpening(assembledFrom) {
   enterHint.disabled = true;
   flight.style.opacity = '0';
   resizeTrail();
-  const assembly = assembledFrom && fragments && !reducedMotion() ? ASSEMBLY_END : 0;
   let elapsed = 0;
   openingFrameTime = 0;
   let titleCue = false;
@@ -219,14 +218,8 @@ function playOpening(assembledFrom) {
     if (openingFrameTime) elapsed += Math.min(64, Math.max(0, now - openingFrameTime)) / 1000;
     openingFrameTime = now;
     const bounds = enter.getBoundingClientRect();
-    if (elapsed < assembly && !reducedMotion()) {
-      fragments.drawAssembly(trail.getContext('2d'), wordmark, bounds, elapsed, {
-        ...assembledFrom, width: innerWidth, height: innerHeight,
-      });
-      flightFrame = requestAnimationFrame(openingAnimation);
-      return;
-    }
-    const seconds = reducedMotion() ? 2 : elapsed - assembly;
+    if (reducedMotion()) elapsed = Math.max(2, elapsed);
+    const seconds = elapsed;
     const pose = openingPose(bounds, seconds);
     flight.style.opacity = '1';
     flight.style.transform = `translate3d(${pose.x}px, ${pose.y}px, 0) scale(${pose.scale})`;
@@ -430,7 +423,11 @@ motionPreference.addEventListener('change', () => {
   scene?.setPaused(paused);
   writer?.setReducedMotion(reducedMotion());
   unlock.setReducedMotion(reducedMotion());
-  if (unlocked && !inWorld) playOpening();
+  if (unlocked && !inWorld && openingAnimation) {
+    cancelAnimationFrame(flightFrame);
+    openingFrameTime = 0;
+    flightFrame = requestAnimationFrame(openingAnimation);
+  }
 });
 const wordmarkReady = prepareWordmark().then(() => {
   if (fragments) unlock.vortex.setFragments(fragments);
@@ -443,12 +440,16 @@ const wordmarkReady = prepareWordmark().then(() => {
 const unlock = new SpinUnlock({
   audio: introAudio,
   reducedMotion: reducedMotion(),
-  onUnlock: async ({ keyboard, angle, time, direction }) => {
+  onSpinFrame: frame => {
+    if (!fragments || unlocked || document.hidden) return;
+    fragments.drawAssembly(trail.getContext('2d'), { ...frame, width: innerWidth, height: innerHeight });
+  },
+  onUnlock: async ({ keyboard }) => {
     await wordmarkReady;
     unlocked = true;
     openingKeyboard = keyboard;
     spinPanel.hidden = true;
-    playOpening({ angle, time, direction });
+    playOpening();
   },
 });
 

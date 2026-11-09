@@ -1,4 +1,4 @@
-import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.0';
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.1';
 
 const TAU = Math.PI * 2;
 const TEXTURE = 256;
@@ -357,13 +357,15 @@ export class IntroVortex {
     const gather = Math.round(progress * 50);
     const still = this.reducedMotion;
     const frame = this.fragments ? (still ? 0 : Math.floor(performance.now() * .030)) : step * 51 + gather;
-    if (this.markFocus === focused && this.markFrame === frame && this.markStill === still) return;
+    const stage = this.fragments?.stage(progress);
+    if (this.markFocus === focused && this.markFrame === frame && this.markStill === still && this.markStage === stage) return;
     this.markFocus = focused;
     this.markFrame = frame;
     this.markStill = still;
+    this.markStage = stage;
     if (this.fragments) {
       const span = this.fragments.drawOrbit(this.markContext, {
-        radius: this.markRadius, diagonal: Math.hypot(this.width, this.height), time, progress, focused, still,
+        radius: this.markRadius, edge: Math.min(this.width, this.height), time, progress, focused, still,
       });
       this.markSpan = span / Math.min(this.width, this.height);
     } else {
@@ -382,13 +384,13 @@ export class IntroVortex {
   render(frame = {}) {
     this.lastFrame = frame;
     if (!this.mesh) return;
-    let { time = 0, dt = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0,
+    let { time = 0, dt = 0, angle = 0, velocity = 0, progress = 0, fragmentProgress = progress, energy = 0, shakeX = 0, shakeY = 0,
       grip = null, focused = false, marks = .65 } = frame;
     if (this.reducedMotion) {
-      time = dt = angle = velocity = progress = energy = shakeX = shakeY = 0;
+      time = dt = angle = velocity = progress = fragmentProgress = energy = shakeX = shakeY = 0;
       grip = null;
     }
-    this.refreshMarks(time, progress, focused);
+    this.refreshMarks(time, fragmentProgress, focused);
     const edge = Math.min(this.width, this.height);
     if (grip) {
       const x = ((grip.x - .5) * this.width - shakeX) / edge;

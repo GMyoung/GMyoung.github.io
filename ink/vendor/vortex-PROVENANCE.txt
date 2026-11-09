@@ -22,17 +22,18 @@ Visual/technical references consulted:
 This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
 The gesture controller integrates a shared angle. A catch nudges the sheet.
-Angular travel eases the sheet and grip from initial slack to matching the
-hand's speed. A hard turn adds a single 560 ms bell-shaped speed boost. Unlock
-is measured from the input and requires 7.35 seconds and 1.08 turns in one
-direction. A flat resting mesh keeps the original paint colors and fine pixel
-grain. Soft lighting appears on the temporary folds.
+The difference between hand and cloth angles builds spring tension. The cloth
+starts loose, then couples to the hand as the grip tightens. A strong pull
+stores more tension and reduces damping, letting the turn carry through.
+Unlock is measured from the input and requires 7.35 seconds and 1.08 turns in
+one direction. A flat resting mesh keeps the original paint colors and fine
+pixel grain. Soft lighting appears on the temporary folds.
 
-The 36 orbiting pieces come from the user's original painted letters. They
-follow the cloth's material coordinates and spread out as unlock progresses.
-The same pieces reassemble the six letters in order. The intact name slides
-out, then returns from below with its green trail. The local cheer starts on
-its first visible frame. The reference videos supply timing inspiration only.
+The 36 orbiting pieces come from the user's original painted letters. While
+the user turns, elapsed moving time brings each letter together and sends it
+off screen before the next letter assembles. At unlock the intact name returns
+once from below with its green trail. The local cheer starts on its first
+visible frame. The reference videos supply timing inspiration only.
 Movement energy modulates the filaments and palette. Reduced motion holds the
 flat paint still. The Canvas2D renderer uses the same cloth and depth at a
 bounded resolution with precomputed paint textures. WebGL is capped at DPR 1.5

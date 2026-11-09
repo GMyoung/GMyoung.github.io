@@ -77,7 +77,8 @@ export class ClothMesh {
     if (!grab) return;
     // Rotation lets the fabric slip tangentially beneath the pointer. Measure
     // in short-edge units so the offset is comparable on touch and desktop.
-    const slip = clamp(spin * (.038 - follow * .020), -.15, .15) / Math.max(.14, Math.hypot(x, y));
+    const slipRate = .034 - follow * .027 + .013 * clamp((Math.abs(spin) - 2.4) / 4, 0, 1);
+    const slip = clamp(spin * slipRate, -.15, .15) / Math.max(.14, Math.hypot(x, y));
     grab.slipX = -y * slip;
     grab.slipY = x * slip;
     grab.targetX = x - grab.slipX;
@@ -146,7 +147,7 @@ export class ClothMesh {
 
   applyGrab(grab) {
     const gapX = grab.targetX - grab.x, gapY = grab.targetY - grab.y;
-    const response = .052 + grab.follow * .053;
+    const response = .046 + grab.follow * .094;
     grab.x += gapX * response;
     grab.y += gapY * response;
     grab.lift += (.074 + .15 * grab.load - grab.lift) * .15;
