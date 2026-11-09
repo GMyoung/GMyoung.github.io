@@ -1,9 +1,11 @@
-import { IntroVortex } from './vortex.js?v=1.13.0';
+import { IntroVortex, foldAt } from './vortex.js?v=1.15.0';
 
 const TAU = Math.PI * 2;
 const DURATION = 2940;
 const REQUIRED_SWEEP = TAU * .98;
-const IDLE_SPEED = .46;
+const IDLE_SPEED = .16;
+const GRIP_SLACK = .32;
+const MAX_STRAIN = 1.1;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 
 // A near-full circle and about three seconds of moving input open the title.
@@ -63,6 +65,7 @@ export class SpinUnlock {
     window.addEventListener('focus', () => this.resume());
     window.addEventListener('resize', () => {
       this.cancelHold();
+      this.grip = null;
       this.measure();
       this.renderVortex();
       this.schedule();
@@ -88,8 +91,7 @@ export class SpinUnlock {
     this.coastDirection = 1;
     this.energy = 0;
     this.motion = 0;
-    this.brushTrail = [];
-    this.lastWakeSample = null;
+    this.grip = null;
     this.lastInputKeyboard = false;
     this.direction = 0;
     this.reverseAngle = 0;
@@ -118,8 +120,7 @@ export class SpinUnlock {
       this.shakeAmplitude = 0;
       this.shaderAngle = 0;
       this.velocity = 0;
-      this.brushTrail = [];
-      this.lastWakeSample = null;
+      this.grip = null;
     }
     this.renderVortex();
     this.schedule();
@@ -136,7 +137,7 @@ export class SpinUnlock {
       this.velocity = 0;
       this.energy = 0;
       this.motion = 0;
-      this.brushTrail = [];
+      this.grip = null;
       this.shakeAmplitude = 0;
       this.audioCall('stop');
       return;
@@ -158,15 +159,9 @@ export class SpinUnlock {
   }
 
   renderVortex(shakeX = 0, shakeY = 0) {
-    const now = performance.now();
-    this.brushTrail = this.brushTrail.filter(point => now - point.born < 850);
-    const brushTrail = this.reducedMotion ? [] : this.brushTrail.map(point => ({
-      x: point.x, y: point.y, dx: point.dx, dy: point.dy,
-      weight: Math.pow(clamp(1 - (now - point.born) / 850), 1.25),
-    }));
     this.vortex.render({
       time: this.shaderTime, angle: this.shaderAngle, velocity: this.velocity,
-      progress: this.progress(), energy: this.energy, shakeX, shakeY, brushTrail,
+      progress: this.progress(), energy: this.energy, shakeX, shakeY, grip: this.grip,
     });
   }
 
@@ -199,6 +194,15 @@ export class SpinUnlock {
     this.inputVelocity = 0;
     this.releasedAt = 0;
     this.lastInputKeyboard = false;
+    if (!this.reducedMotion) {
+      const direction = Math.atan2(event.clientY - this.center.y, event.clientX - this.center.x) + this.coastDirection * Math.PI / 2;
+      this.grip = {
+        x: clamp(event.clientX / innerWidth), y: clamp(event.clientY / innerHeight),
+        direction, pullDirection: direction, pressure: .2, stretch: 0, load: 0,
+        strain: 0, kick: this.coastDirection * .78, last: null,
+      };
+      this.velocity = 0;
+    }
     this.wrapper.classList.remove('keyboard-focus');
     this.shakeAmplitude = Math.max(this.shakeAmplitude, .18);
     this.button.setPointerCapture(event.pointerId);
@@ -224,9 +228,7 @@ export class SpinUnlock {
     const radius = Math.hypot(x, y);
     const now = performance.now();
     const stamp = Number.isFinite(event.timeStamp) && Math.abs(event.timeStamp - now) < 60000 ? event.timeStamp : now;
-    // Local ink responds to every plausible drag, including radial strokes and
-    // motion through the center. Circular scoring remains independent below.
-    this.sampleWake({ x: event.clientX, y: event.clientY, stamp });
+    this.sampleGrip({ x: event.clientX, y: event.clientY, stamp });
     if (radius < clamp(this.center.radius * .17, 16, 24)) {
       this.lastSample = null;
       return;
@@ -241,6 +243,7 @@ export class SpinUnlock {
     // Break continuity across dropped/teleported samples and the center deadzone.
     if (dt <= 0 || dt > 190 || Math.abs(delta) > .95 || speed > 24 ||
         Math.abs(radius - previous.radius) > Math.max(this.center.radius * .8, previous.radius * .75)) return;
+    if (this.grip) this.grip.strain = clamp(this.grip.strain + delta, -MAX_STRAIN, MAX_STRAIN);
     if (speed < .28 || Math.abs(delta) < .0004) return;
     if (!this.direction) this.direction = Math.sign(delta);
     const forward = delta * this.direction;
@@ -270,37 +273,25 @@ export class SpinUnlock {
     if (this.progress() >= 1) this.complete(now);
   }
 
-  sampleWake(current) {
-    if (this.reducedMotion || !Number.isFinite(current.x) || !Number.isFinite(current.y)) return;
-    const previous = this.lastWakeSample;
+  sampleGrip(current) {
+    const grip = this.grip;
+    if (!grip || !Number.isFinite(current.x) || !Number.isFinite(current.y)) return;
+    const previous = grip.last;
     if (previous && current.stamp <= previous.stamp) return;
-    this.lastWakeSample = current;
+    grip.last = current;
+    grip.x = clamp(current.x / innerWidth);
+    grip.y = clamp(current.y / innerHeight);
     if (!previous) return;
     const dt = current.stamp - previous.stamp;
     const travelX = current.x - previous.x;
     const travelY = current.y - previous.y;
     const distance = Math.hypot(travelX, travelY);
     const shortEdge = Math.max(1, Math.min(innerWidth, innerHeight));
-    // Break continuity across input gaps or cursor teleports; use the actual
-    // event clock so coalesced events keep their proper ordering and spacing.
     if (dt > 190 || distance > Math.max(60, shortEdge * .35) || distance / dt > 10 || distance < .12) return;
-    const magnitude = Math.min(.065, distance / shortEdge * 3);
-    const point = {
-      x: clamp(current.x / innerWidth), y: clamp(current.y / innerHeight),
-      dx: travelX / distance * magnitude, dy: travelY / distance * magnitude,
-      born: current.stamp,
-    };
-    const head = this.brushTrail[this.brushTrail.length - 1];
-    const reversed = head && point.dx * head.dx + point.dy * head.dy < 0;
-    if (!head || current.stamp - head.sampledAt >= 16 ||
-        Math.hypot(current.x - head.sampledX, current.y - head.sampledY) >= 4 || reversed) {
-      this.brushTrail.push({ ...point, sampledAt: current.stamp, sampledX: current.x, sampledY: current.y });
-      if (this.brushTrail.length > 6) this.brushTrail.shift();
-    } else {
-      // The newest contact is never throttled: even sub-sample changes and
-      // direction reversals reach the next rendered frame immediately.
-      Object.assign(head, point);
-    }
+    // Straight pulls bunch the cloth too. Only angular travel takes up slack
+    // around the pivot and begins to turn the entire sheet.
+    grip.pullDirection = Math.atan2(travelY, travelX);
+    grip.stretch = clamp(grip.stretch + distance / (shortEdge * .13));
   }
 
   releasePointer(event) {
@@ -350,7 +341,6 @@ export class SpinUnlock {
     this.pointer = null;
     this.key = null;
     this.lastSample = null;
-    this.lastWakeSample = null;
     this.releasedAt = performance.now();
     if (pointer !== null && this.button.hasPointerCapture(pointer)) this.button.releasePointerCapture(pointer);
     this.wrapper.classList.remove('is-spinning');
@@ -368,7 +358,7 @@ export class SpinUnlock {
     this.velocity = 0;
     this.energy = 0;
     this.motion = 0;
-    this.brushTrail = [];
+    this.grip = null;
     this.audioCall('stop');
     // Hidden-tab time is never credited, including the final reveal flourish.
     if (this.state === 'releasing') this.reset();
@@ -394,6 +384,55 @@ export class SpinUnlock {
     this.hint.textContent = '解锁成功';
     this.status.textContent = '已解锁 Harvey';
     this.schedule();
+  }
+
+  turnCloth(dt) {
+    if (this.reducedMotion) {
+      this.velocity = 0;
+      this.energy = 0;
+      return;
+    }
+    const grip = this.grip;
+    const gripped = this.pointer !== null && Boolean(grip);
+    let speed = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
+    if (this.key) speed = 2.35;
+    else if (gripped) {
+      const taut = grip.strain - clamp(grip.strain, -GRIP_SLACK, GRIP_SLACK);
+      speed = clamp(taut * 16, -5.8, 5.8);
+    }
+    const damping = gripped ? 54 : this.key ? 74 : 310;
+    this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / damping));
+    if (Math.abs(this.velocity) < .001) this.velocity = 0;
+    if ((gripped || this.key) && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
+    const seconds = dt / 1000;
+    let turn = this.velocity * seconds;
+    this.shaderTime += seconds * (gripped ? .27 : .8);
+
+    if (grip) {
+      // A short initial nudge acknowledges the catch. Traction then consumes
+      // the stored angular strain as the fabric catches up to the hand.
+      if (gripped) grip.strain = clamp(grip.strain - turn, -MAX_STRAIN, MAX_STRAIN);
+      const kick = grip.kick * (1 - Math.exp(-dt / 84));
+      grip.kick -= kick;
+      turn += kick * .084;
+
+      grip.pressure += ((gripped ? 1 : 0) - grip.pressure) * (1 - Math.exp(-dt / (gripped ? 44 : 110)));
+      const load = gripped ? clamp(Math.max(Math.abs(grip.strain) / GRIP_SLACK, grip.stretch * .72)) : 0;
+      grip.load += (load - grip.load) * (1 - Math.exp(-dt / (gripped ? 52 : 120)));
+      grip.stretch *= Math.exp(-dt / 145);
+      if (gripped) {
+        const x = grip.x * innerWidth - this.center.x;
+        const y = grip.y * innerHeight - this.center.y;
+        const direction = Math.abs(grip.strain) > .14 && Math.hypot(x, y) > 18
+          ? Math.atan2(y, x) + Math.sign(grip.strain) * Math.PI / 2
+          : grip.pullDirection;
+        const delta = direction - grip.direction;
+        grip.direction += Math.atan2(Math.sin(delta), Math.cos(delta)) * (1 - Math.exp(-dt / 54));
+      } else if (grip.pressure < .006) {
+        this.grip = null;
+      }
+    }
+    this.shaderAngle = (this.shaderAngle + turn) % TAU;
   }
 
   tick(now) {
@@ -442,23 +481,7 @@ export class SpinUnlock {
     const energyTarget = moving ? clamp(.16 + progress * .57 + this.motion * .28) : 0;
     this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
-    // Start with a slow turn. Hand speed takes over during the gesture, then
-    // the field coasts back to the idle pace in the last direction of travel.
-    const idleSpeed = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
-    const velocityTarget = this.key ? 2.35 : moving ? clamp(this.inputVelocity * (.72 + .25 * progress), -5.8, 5.8) : idleSpeed;
-    this.velocity += (velocityTarget - this.velocity) * (1 - Math.exp(-dt / (moving ? 74 : 295)));
-    if (moving && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
-    if (Math.abs(this.velocity) < .001) this.velocity = 0;
-    if (this.reducedMotion) {
-      this.velocity = 0;
-      this.energy = 0;
-    }
-    // Integrate angular displacement. Multiplying absolute time by the current
-    // velocity would jump whenever a hand speeds up, reverses, or resumes.
-    if (!this.reducedMotion) {
-      this.shaderTime += dt / 1000;
-      this.shaderAngle = (this.shaderAngle + this.velocity * dt / 1000) % TAU;
-    }
+    this.turnCloth(dt);
     const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
     const held = this.pointer !== null || this.key !== null;
     this.audioCall('update', { progress, motion: this.motion, held });
@@ -466,7 +489,8 @@ export class SpinUnlock {
     const pace = Math.sqrt(this.motion);
     // Keep contact light. The last stretch raises both the amplitude and tempo
     // of the same shared tremor, with the hand's speed setting its strength.
-    const targetShake = this.reducedMotion || !held ? 0 : .17 + pace * (.95 + 3.35 * tension) + (moving ? tension * .66 : 0);
+    const gripLoad = this.key ? 1 : this.grip?.load ?? 0;
+    const targetShake = this.reducedMotion || !held ? 0 : .11 + gripLoad * (pace * (.95 + 3.35 * tension) + (moving ? tension * .66 : 0));
     const response = 1 - Math.exp(-dt / (targetShake > this.shakeAmplitude ? 62 : 115));
     this.shakeAmplitude += (targetShake - this.shakeAmplitude) * response;
     if (this.reducedMotion || this.shakeAmplitude < .01) this.shakeAmplitude = 0;
@@ -491,9 +515,19 @@ export class SpinUnlock {
     const focused = this.wrapper.classList.contains('keyboard-focus');
     const scale = clamp(radius / 112, .52, 1);
     const gather = 1 - progress * .3;
+    const angle = this.reducedMotion ? 0 : this.shaderAngle;
+    const c = Math.cos(angle);
+    const s = Math.sin(angle);
+    const grip = this.grip;
+    const gripX = grip ? grip.x * innerWidth : 0;
+    const gripY = grip ? grip.y * innerHeight : 0;
+    const u = grip ? Math.cos(grip.direction) : 1;
+    const v = grip ? Math.sin(grip.direction) : 0;
+    const edge = Math.max(1, Math.min(innerWidth, innerHeight));
+    const fold = { along: 0, across: 0, light: 1 };
     ctx.save();
     ctx.translate(x + shakeX, y + shakeY);
-    ctx.rotate(this.reducedMotion ? 0 : this.shaderAngle);
+    ctx.rotate(angle);
     for (let index = 0; index < 16; index++) {
       const orbit = index * .79 + Math.sin(index * 1.7) * .32;
       const distance = radius * (.3 + index / 15 * 1.25) * gather;
@@ -501,16 +535,27 @@ export class SpinUnlock {
       const driftX = this.reducedMotion ? 0 : Math.sin(this.shaderTime * (.43 + index % 3 * .08) + index * 1.9) * floatAmplitude;
       const driftY = this.reducedMotion ? 0 : Math.cos(this.shaderTime * (.51 + index % 4 * .06) + index * 2.1) * floatAmplitude * .84;
       const tumble = this.reducedMotion ? 0 : Math.sin(this.shaderTime * .46 + index * .9) * .18 + Math.cos(this.shaderTime * .71 + index * 1.2) * .09;
-      const px = Math.cos(orbit) * distance + Math.sin(index * 2.4) * radius * .14 + driftX;
-      const py = Math.sin(orbit) * distance * .81 + Math.cos(index * 1.3) * radius * .1 + driftY;
+      let px = Math.cos(orbit) * distance + Math.sin(index * 2.4) * radius * .14 + driftX;
+      let py = Math.sin(orbit) * distance * .81 + Math.cos(index * 1.3) * radius * .1 + driftY;
+      if (grip) {
+        const rx = (x + shakeX + px * c - py * s - gripX) / edge;
+        const ry = (y + shakeY + px * s + py * c - gripY) / edge;
+        foldAt(rx * u + ry * v, ry * u - rx * v, grip, fold);
+        const dx = (fold.along * u - fold.across * v) * edge;
+        const dy = (fold.along * v + fold.across * u) * edge;
+        px += dx * c + dy * s;
+        py += dy * c - dx * s;
+      }
       const length = (15 + (index % 4) * 8 + Math.sin(index * 2) * 3) * scale;
       const width = (index % 3 === 2 ? 2.5 : 5 + index % 4 * 1.8) * scale;
       ctx.save();
       ctx.translate(px, py);
       ctx.rotate(orbit + .55 + Math.sin(index * 2.8) * .8 + tumble);
       ctx.globalAlpha = (focused ? .95 : .65 + progress * .23) * (1 - release);
-      const green = Math.round(96 + progress * 31 + index % 3 * 9);
-      ctx.fillStyle = `rgb(${44 + index % 3 * 6},${green},${25 + index % 4 * 4})`;
+      const red = Math.round((44 + index % 3 * 6) * fold.light);
+      const green = Math.round((96 + progress * 31 + index % 3 * 9) * fold.light);
+      const blue = Math.round((25 + index % 4 * 4) * fold.light);
+      ctx.fillStyle = `rgb(${red},${green},${blue})`;
       ctx.beginPath();
       if (index % 3 === 1) {
         // A tapered bristle fragment, with an imperfect split at the tip.

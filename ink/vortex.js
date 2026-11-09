@@ -18,7 +18,8 @@ uniform float u_angle;
 uniform float u_velocity;
 uniform float u_progress;
 uniform float u_energy;
-uniform vec4 u_trail[6];
+uniform vec4 u_grip;
+uniform vec2 u_pull;
 
 void main() {
   float edge = min(u_resolution.x, u_resolution.y);
@@ -26,29 +27,37 @@ void main() {
   vec2 cell = floor(gl_FragCoord.xy / pixel) * pixel;
   vec2 p = (cell - u_resolution * 0.5) / edge;
   p.y = -p.y;
-  // Drag the pigment locally in the actual hand direction. The falloff shears
-  // its edges into small eddies while the whole composition turns independently.
-  vec2 wakeWarp = vec2(0.0);
-  float wake = 0.0;
-  for (int i = 0; i < 6; i++) {
-    vec2 source = (u_trail[i].xy - 0.5) * u_resolution / edge;
-    vec2 offset = p - source;
-    vec2 drag = u_trail[i].zw;
-    float influence = exp(-dot(offset, offset) * 32.0);
-    float curl = offset.x * drag.y - offset.y * drag.x;
-    wakeWarp += (drag + vec2(-offset.y, offset.x) * curl * 8.0) * influence;
-    wake += length(drag) * 10.0 * influence;
+  float clothLight = 1.0;
+  if (u_grip.z > 0.006) {
+    // Gather the material at the contact. The ridges fan out along the pull,
+    // and both the sampling warp and its light follow the same folds.
+    vec2 contact = (u_grip.xy - 0.5) * u_resolution / edge;
+    vec2 offset = p - contact;
+    vec2 crossPull = vec2(-u_pull.y, u_pull.x);
+    float along = dot(offset, u_pull);
+    float across = dot(offset, crossPull);
+    float back = max(-along, 0.0);
+    float load = u_grip.w;
+    vec3 shape = vec3(back / (0.18 + 0.25 * load), max(along, 0.0) / 0.17,
+      across / (0.09 + 0.07 * load + back * 0.16));
+    float cloth = u_grip.z * exp(-2.0 * dot(shape, shape));
+    float tuck = u_grip.z * 0.34 * exp(-88.0 * dot(offset, offset));
+    float ridge = across * (65.0 + 22.0 * load) / (1.0 + 2.25 * back) + 0.58 * sin(along * 17.0) + 0.55;
+    float curl = sin(ridge) * (0.79 + 0.21 * sin(along * 19.0 + across * 13.0));
+    vec2 pull = u_pull * (cloth * (0.022 + 0.075 * load) - along * tuck)
+              + crossPull * (cloth * curl * (0.008 + 0.017 * load) - across * tuck);
+    p -= pull;
+    clothLight += cloth * (0.17 + 0.19 * load) * cos(ridge + 0.58) - tuck * 0.23;
   }
-  wakeWarp /= max(1.0, length(wakeWarp) / 0.12);
-  p -= wakeWarp + u_shift / edge;
+  p -= u_shift / edge;
   // Sample in the rotating paint space. All bands, grain and their wandering
-  // centers turn together while the drag samples stay in screen coordinates.
+  // centers turn together while the folds stay attached to the hand.
   float c = cos(u_angle);
   float s = sin(u_angle);
   p = mat2(c, -s, s, c) * p;
   vec2 material = p;
   float drift = u_time * 0.08;
-  float energy = clamp(u_energy + wake * 0.07, 0.0, 1.0);
+  float energy = u_energy;
   // Broad wandering motion remains visible even between gestures. It changes
   // the paint, while the accumulated drawing gently awakens its own rotation.
   p += 0.085 * vec2(sin(drift * 2.0), cos(drift * 3.0));
@@ -85,6 +94,7 @@ void main() {
   colour = mix(colour, vec3(1.0, 0.97, 0.47), clamp(glow, 0.0, 0.65));
   float grain = fract(sin(dot(floor(material * edge * 0.5) * 0.01, vec2(17.1, 61.7))) * 971.3);
   colour *= 0.989 + grain * (0.019 + u_progress * 0.003);
+  colour *= clothLight;
   gl_FragColor = vec4(colour, 1.0);
 }`;
 
@@ -101,6 +111,20 @@ function smoothstep(a, b, value) {
   return t * t * (3 - 2 * t);
 }
 
+// The same local fold field moves fragments and remaps the Canvas backdrop.
+// Coordinates and displacements are in units of the viewport's short edge.
+export function foldAt(along, across, { pressure, load }, result) {
+  const back = Math.max(-along, 0);
+  const cloth = pressure * Math.exp(-2 * ((back / (.18 + .25 * load)) ** 2 +
+    (Math.max(along, 0) / .17) ** 2 + (across / (.09 + .07 * load + back * .16)) ** 2));
+  const tuck = pressure * .34 * Math.exp(-88 * (along * along + across * across));
+  const ridge = across * (65 + 22 * load) / (1 + 2.25 * back) + .58 * Math.sin(along * 17) + .55;
+  const curl = Math.sin(ridge) * (.79 + .21 * Math.sin(along * 19 + across * 13));
+  result.along = cloth * (.022 + .075 * load) - along * tuck;
+  result.across = cloth * curl * (.008 + .017 * load) - across * tuck;
+  result.light = 1 + cloth * (.17 + .19 * load) * Math.cos(ridge + .58) - tuck * .23;
+}
+
 export class IntroVortex {
   constructor(host, { reducedMotion = false } = {}) {
     this.host = host;
@@ -112,8 +136,7 @@ export class IntroVortex {
     this.buffer = null;
     this.shaders = [];
     this.disposed = false;
-    this.lastFrame = { time: 0, angle: 0, velocity: 0, progress: 0, energy: 0, brushTrail: [] };
-    this.trailUniform = new Float32Array(24);
+    this.lastFrame = {};
     this.onContextLost = event => {
       event.preventDefault();
       if (this.disposed) return;
@@ -164,9 +187,8 @@ export class IntroVortex {
     const position = gl.getAttribLocation(this.program, 'a_position');
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
-    this.uniforms = Object.fromEntries(['resolution', 'shift', 'time', 'angle', 'velocity', 'progress', 'energy']
+    this.uniforms = Object.fromEntries(['resolution', 'shift', 'time', 'angle', 'velocity', 'progress', 'energy', 'grip', 'pull']
       .map(name => [name, gl.getUniformLocation(this.program, `u_${name}`)]));
-    this.uniforms.trail = gl.getUniformLocation(this.program, 'u_trail[0]');
     this.canvas.addEventListener('webglcontextlost', this.onContextLost);
     this.canvas.dataset.renderer = 'webgl';
   }
@@ -259,9 +281,9 @@ export class IntroVortex {
     this.render(this.lastFrame);
   }
 
-  render({ time = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0, brushTrail = [] } = {}) {
+  render({ time = 0, angle = 0, velocity = 0, progress = 0, energy = 0, shakeX = 0, shakeY = 0, grip = null } = {}) {
     if (this.disposed) return;
-    this.lastFrame = { time, angle, velocity, progress, energy, shakeX, shakeY, brushTrail };
+    this.lastFrame = { time, angle, velocity, progress, energy, shakeX, shakeY, grip };
     const { width, height } = this.canvas;
     const shiftX = this.reducedMotion ? 0 : finite(shakeX) * width / this.width;
     const shiftY = this.reducedMotion ? 0 : finite(shakeY) * height / this.height;
@@ -271,16 +293,7 @@ export class IntroVortex {
     const speed = this.reducedMotion ? 0 : clamp(finite(velocity), -12, 12);
     const filled = clamp(finite(progress), 0, 1);
     const motion = this.reducedMotion ? 0 : clamp(finite(energy), 0, 1);
-    const trail = this.reducedMotion || !Array.isArray(brushTrail) ? [] : brushTrail.slice(-6);
-    this.trailUniform.fill(0);
-    trail.forEach((point, index) => {
-      const contact = index === trail.length - 1 ? 1.45 : .12 + .28 * index / Math.max(1, trail.length - 1);
-      const strength = clamp(finite(point.weight), 0, 1) * contact;
-      this.trailUniform[index * 4] = clamp(finite(point.x, .5), 0, 1);
-      this.trailUniform[index * 4 + 1] = clamp(finite(point.y, .5), 0, 1);
-      this.trailUniform[index * 4 + 2] = clamp(finite(point.dx), -.065, .065) * strength;
-      this.trailUniform[index * 4 + 3] = clamp(finite(point.dy), -.065, .065) * strength;
-    });
+    const contact = !this.reducedMotion && grip?.pressure > .006 ? grip : null;
     if (this.gl) {
       const gl = this.gl;
       gl.useProgram(this.program);
@@ -291,7 +304,9 @@ export class IntroVortex {
       gl.uniform1f(this.uniforms.velocity, speed);
       gl.uniform1f(this.uniforms.progress, filled);
       gl.uniform1f(this.uniforms.energy, motion);
-      gl.uniform4fv(this.uniforms.trail, this.trailUniform);
+      gl.uniform4f(this.uniforms.grip, contact?.x ?? .5, contact?.y ?? .5, contact?.pressure ?? 0, contact?.load ?? 0);
+      const direction = contact?.direction ?? 0;
+      gl.uniform2f(this.uniforms.pull, Math.cos(direction), Math.sin(direction));
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       return;
     }
@@ -314,41 +329,63 @@ export class IntroVortex {
       ctx.drawImage(this.textures[1], -side / 2, -side / 2, side, side);
     }
     ctx.restore();
-    // Locally displace the rendered paint in the Canvas fallback as well.
-    // Feathered patches avoid a visible cursor, ring or rectangular cutout.
-    const shortEdge = Math.min(width, height);
-    if (trail.length) {
-      this.wakeBase ||= document.createElement('canvas');
-      this.wakePatch ||= document.createElement('canvas');
-      if (this.wakeBase.width !== width) this.wakeBase.width = width;
-      if (this.wakeBase.height !== height) this.wakeBase.height = height;
-      this.wakeBase.getContext('2d').drawImage(this.canvas, 0, 0);
-      if (this.wakePatch.width !== 192) this.wakePatch.width = this.wakePatch.height = 192;
+    if (contact) this.paintCloth(ctx, contact);
+  }
+
+  paintCloth(ctx, grip) {
+    // On devices without WebGL, remap a small patch of the real paint. Its
+    // edges feather out so the folded patch remains part of the same sheet.
+    const size = 96;
+    if (!this.clothBuffers) {
+      const source = document.createElement('canvas');
+      const target = document.createElement('canvas');
+      source.width = source.height = target.width = target.height = size;
+      const sample = source.getContext('2d', { willReadFrequently: true });
+      const paint = target.getContext('2d');
+      this.clothBuffers = { sample, paint, pixels: paint.createImageData(size, size) };
     }
+    const { sample, paint, pixels } = this.clothBuffers;
+    const { width, height } = this.canvas;
+    const shortEdge = Math.min(width, height);
+    const span = shortEdge * .90;
+    const x = grip.x * width;
+    const y = grip.y * height;
+    const anchor = size * .65;
+    const middle = size * .5;
+    sample.clearRect(0, 0, size, size);
+    sample.save();
+    sample.translate(anchor, middle);
+    sample.scale(size / span, size / span);
+    sample.rotate(-grip.direction);
+    sample.translate(-x, -y);
+    sample.drawImage(this.canvas, 0, 0);
+    sample.restore();
+
+    const original = sample.getImageData(0, 0, size, size).data;
+    const result = pixels.data;
+    const step = .90 / size;
+    const fold = { along: 0, across: 0, light: 1 };
+    for (let row = 0; row < size; row++) {
+      const across = (row + .5 - middle) * step;
+      for (let column = 0; column < size; column++) {
+        const along = (column + .5 - anchor) * step;
+        foldAt(along, across, grip, fold);
+        const fromX = clamp(Math.round(column - fold.along / step), 0, size - 1);
+        const fromY = clamp(Math.round(row - fold.across / step), 0, size - 1);
+        const from = (fromY * size + fromX) * 4;
+        const at = (row * size + column) * 4;
+        const edge = Math.max(Math.abs((column + .5) / size - .5), Math.abs((row + .5) / size - .5));
+        for (let channel = 0; channel < 3; channel++) result[at + channel] = original[from + channel] * fold.light;
+        result[at + 3] = original[from + 3] * (1 - smoothstep(.36, .5, edge));
+      }
+    }
+    paint.putImageData(pixels, 0, 0);
     ctx.save();
-    trail.forEach((point, index) => {
-      const contact = index === trail.length - 1 ? 1 : .12 + .28 * index / Math.max(1, trail.length - 1);
-      const strength = clamp(finite(point.weight), 0, 1) * contact;
-      const dx = clamp(finite(point.dx), -.065, .065) * shortEdge;
-      const dy = clamp(finite(point.dy), -.065, .065) * shortEdge;
-      if (!strength || Math.hypot(dx, dy) < .01) return;
-      const x = point.x * width;
-      const y = point.y * height;
-      const side = shortEdge * .38;
-      const patch = this.wakePatch.getContext('2d');
-      patch.globalCompositeOperation = 'source-over';
-      patch.clearRect(0, 0, 192, 192);
-      patch.drawImage(this.wakeBase, x - side / 2 - dx * strength, y - side / 2 - dy * strength, side, side, 0, 0, 192, 192);
-      const feather = patch.createRadialGradient(96, 96, 10, 96, 96, 96);
-      feather.addColorStop(0, '#000');
-      feather.addColorStop(.5, '#000b');
-      feather.addColorStop(1, '#0000');
-      patch.globalCompositeOperation = 'destination-in';
-      patch.fillStyle = feather;
-      patch.fillRect(0, 0, 192, 192);
-      ctx.globalAlpha = strength * .9;
-      ctx.drawImage(this.wakePatch, x - side / 2, y - side / 2, side, side);
-    });
+    ctx.translate(x, y);
+    ctx.rotate(grip.direction);
+    ctx.globalAlpha = Math.min(1, grip.pressure * 1.5);
+    ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(paint.canvas, -anchor / size * span, -span / 2, span, span);
     ctx.restore();
   }
 
@@ -357,8 +394,7 @@ export class IntroVortex {
     this.disposed = true;
     this.releaseGL();
     this.textures = null;
-    this.wakeBase = null;
-    this.wakePatch = null;
+    this.clothBuffers = null;
     this.canvas.remove();
   }
 }

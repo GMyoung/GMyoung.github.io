@@ -1,4 +1,4 @@
-Harvey introductory vortex, added 2026-11-06
+Harvey introductory vortex, added 2026-11-06, cloth interaction added 2026-11-09
 
 Implementation: dist/vortex.js, original project code.
 No original Balatro game shader, third-party shader source, or library is bundled.
@@ -14,28 +14,17 @@ Visual/technical references consulted:
 
 This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
-The parent gesture controller supplies a slowly integrated autonomous angle,
-signed velocity and drawing energy. The hand builds energy and progress rather
-than directly steering the angle. Six recent normalized gesture samples carry
-signed pointer displacement, independent of the circular-unlock scoring.
-The latest contact reacts immediately, with lighter fading history. A bounded
-Gaussian transport and curl field pulls paint in the hand's actual direction,
-including reversals and movement through the center, without rotating the page.
-The supplied angle drives rotation; velocity changes a small radial twist.
-A stronger slow spatial drift and breathing warp
-keep the painted ribbons visibly alive between gestures. Movement energy
-adds finer nested filaments and warm luminous highlights, plus a brighter
-yellow/green palette. Highlight intensity is smoothly bounded, with no flashes.
-No time-times-current-velocity expression is used, so speed changes do not jump
-the rotation phase. All periodic shader time phases wrap by complete periods.
-Reduced motion holds the texture still and removes energy-driven modulation.
-Canvas2D fallback blends two precomputed low/high-density paint textures using
-movement energy, rotates with the same angle, and applies bounded slow drift
-and breathing transforms, with softly masked displaced paint patches at recent
-gesture positions. The fallback moves existing paint instead of drawing rings.
-It reproduces the energy/brightness transition but
-not the full dynamic GLSL deformation; no full-resolution pixels are computed
-per animation frame. Rendering is capped at DPR 1.5 and 1.5M pixels.
+The gesture controller integrates a shared angle. A catch nudges the sheet,
+then the first 0.32 radians of signed relative hand travel build cloth strain.
+Beyond that slack the sheet turns, taking up strain as it catches the hand.
+A contact-local field gathers the paint, stretches it along the pull and lights
+the resulting ridges. The same fold field moves the foreground fragments.
+Release eases the folds flat and coasts the sheet back to a slow idle turn.
+Movement energy modulates the filaments and palette. The angle is integrated
+and reduced motion holds the texture still.
+Canvas2D fallback blends two precomputed paint textures and shares the global
+angle. It remaps a feathered 96-by-96 patch of the backdrop at the contact.
+Rendering is capped at DPR 1.5 and 1.5M pixels.
 
 Balatro and its branding belong to their respective owners; this is an original
 green/yellow website treatment inspired by its background, not official assets.

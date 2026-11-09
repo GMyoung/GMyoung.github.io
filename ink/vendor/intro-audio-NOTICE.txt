@@ -5,10 +5,9 @@ assets/midnight-paper.mp3 — "Midnight Paper", an original 20-second
 Composed and rendered for this site. Reference for atmosphere: Balatro's
 original soundtrack by LouisF, https://store.steampowered.com/app/2834460/.
 
-assets/harvey-yay.mp3 — original D6/9 title chord with a bright F-sharp 4
-and D4 vocal harmony. The higher voice leads by 85 milliseconds. Both use
-pitch, formant and timing edits of the human recording "Joyful - YAY" by
-Sadiquecat, Creative Commons Zero 1.0.
+assets/harvey-yay.mp3 — a single quiet title vocal with raised pitch and
+formants, softened upper frequencies and a short room tail. It is an edit
+of the human recording "Joyful - YAY" by Sadiquecat, Creative Commons Zero 1.0.
 https://freesound.org/people/Sadiquecat/sounds/801292/
 https://creativecommons.org/publicdomain/zero/1.0/
 
