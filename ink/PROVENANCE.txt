@@ -1,21 +1,25 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.17.3, 2026-11-09.
-Source commit: be37499c3835fa34e7dd0b949ed9f3a7af053a30
+Current snapshot: Harvey Ink v1.19.0, 2026-11-09.
+Source commit: ce26cb6d510f2f989a5a1cebff09b476ce302129
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
 The opening uses the earlier yellow-green paint and floating brush fragments.
-Unlock requires 7.35 seconds of motion and 1.08 turns in one direction.
-The cloth has more initial slack and accelerates faster once pulled taut.
+Unlock requires 7.2 seconds of motion and 1.1 turns. The progress bar shows
+the accumulated gesture, which can resume after a pause. The cloth catches
+lightly at first and gains traction as it is pulled taut.
 The yellow-green paint rotates with separate momentum. It turns more slowly
 on a light pull, speeds up on a hard pull, and coasts when the hand stops.
 Desktop wheel and touchpad scrolling can advance the same opening.
-While turning, the drawing pieces form each letter in order and send it away.
+The V, E and Y pieces follow the gaps in the source drawing. Turning
+assembles each letter, which then flies away before the next one starts.
 At unlock the full wordmark returns once with a green trail and the title cheer.
-The title uses a short recording of children cheering. The writing room plays
-a quiet 36-minute guzheng suite. The wash bowl clears writing only, and each
-stroke retains the water mode chosen when it began. Car Game is on the homepage.
+The title uses a short recording of children cheering. The writing room loops
+Charlie Huang's quiet silk-string guqin recording of Pei Lan. Foundation
+lessons reveal the licensed Hanzi Writer Data outlines along their medians.
+Foundation and name lessons retain dry ink. The free-writing water control
+sets the flow mode for new strokes. Car Game is on the homepage.
 Audio credits are in vendor/intro-audio-NOTICE.txt and the cloth license is in
 vendor/cloth-LICENSE.txt.
 All application modules and assets use relative paths and run in the browser.

@@ -1,7 +1,7 @@
-import { SpinUnlock } from './spin-unlock.js?v=1.18.0';
+import { SpinUnlock } from './spin-unlock.js?v=1.19.0';
 import { IntroAudio } from './intro-audio.js?v=1.16.0';
 import { WaterAudio } from './water-audio.js?v=1.16.0';
-import { WordmarkFragments } from './wordmark-fragments.js?v=1.17.1';
+import { WordmarkFragments } from './wordmark-fragments.js?v=1.19.0';
 
 const intro = document.querySelector('#intro');
 const world = document.querySelector('#ink-world');
@@ -35,14 +35,25 @@ let writerPromise;
 let writer;
 let paused = reducedMotion();
 let waterMode = 'heavy';
+let inLesson = false;
 let musicEnabled = true;
 const introAudio = new IntroAudio(document.querySelector('#intro-sound'));
 const waterAudio = new WaterAudio();
-inkMusic.volume = .8;
+inkMusic.volume = .76;
 
 function playInkMusic() {
   if (!musicEnabled || document.hidden || !inkMusic.paused) return;
   inkMusic.play().catch(() => {});
+}
+
+function setLessonWater(mode) {
+  const practice = mode !== 'free';
+  if (practice === inLesson) return;
+  inLesson = practice;
+  flowButton.hidden = practice;
+  scene?.setWaterMode(practice ? 'still' : waterMode);
+  if (practice) waterAudio.stop();
+  else if (inWorld && !document.hidden) waterAudio.start(waterMode);
 }
 
 const smoothstep = (min, max, value) => {
@@ -247,12 +258,13 @@ function playOpening() {
 
 function ensureWriter() {
   if (!writerPromise) {
-    writerPromise = import('./writer.js?v=1.16.0').then(({ InkWriter }) => {
+    writerPromise = import('./writer.js?v=1.19.0').then(({ InkWriter }) => {
       writer = new InkWriter({
         reducedMotion: reducedMotion(),
         paintBrush: (...args) => scene?.paintBrushStamps(...args),
         getWritingClock: () => scene?.getWritingClock() || 0,
         getWaterMode: () => waterMode,
+        onLessonMode: setLessonWater,
         clearPracticeInk: () => scene?.clearWriting(),
         clearInk: () => scene?.clearWriting(),
         captureBackground: () => scene?.capture(),
@@ -276,7 +288,7 @@ function ensureScene() {
       });
       scene.setPaused(paused);
       scene.setPalette('sumi');
-      scene.setWaterMode(waterMode);
+      scene.setWaterMode(inLesson ? 'still' : waterMode);
       return scene;
     }).catch((error) => {
       scenePromise = undefined;
@@ -314,7 +326,7 @@ async function irisTransition(x, y, changePage, keyboard) {
 async function enterWorld(event) {
   if (transitionRunning || inWorld || !unlocked || !intro.classList.contains('ready')) return;
   transitionRunning = true;
-  waterAudio.start(waterMode);
+  if (!inLesson) waterAudio.start(waterMode);
   playInkMusic();
   unlock.setActive(false);
   cancelAnimationFrame(flightFrame);
@@ -363,6 +375,7 @@ async function returnToIntro(event) {
 enter.addEventListener('click', enterWorld);
 enterHint.addEventListener('click', enterWorld);
 flowButton.addEventListener('click', () => {
+  if (inLesson) return;
   const modes = ['heavy', 'light', 'still'];
   waterMode = modes[(modes.indexOf(waterMode) + 1) % modes.length];
   const labels = {
@@ -387,7 +400,7 @@ musicButton.addEventListener('click', () => {
 
 function resumeWorldAudio(event) {
   if (!inWorld || document.hidden || musicButton.contains(event?.target ?? null)) return;
-  waterAudio.start(waterMode);
+  if (!inLesson) waterAudio.start(waterMode);
   playInkMusic();
 }
 

@@ -106,6 +106,7 @@ export class InkWriter {
     this.demoInput = 'mouse';
     this.committedWriting = [];
     this.lessonsReady = false;
+    this.foundationReady = false;
     this.namesReady = false;
     this.width = 1;
     this.height = 1;
@@ -141,7 +142,7 @@ export class InkWriter {
       this.curriculum.fallBackToFoundation();
       console.error('Character lessons unavailable; continuing basic strokes', error);
     }
-    await foundationLoading;
+    this.foundationReady = await foundationLoading;
     this.lessonsReady = true;
     this.renderNamePreviews();
     this.updateLessonControls();
@@ -174,8 +175,10 @@ export class InkWriter {
         };
       })]));
       if (!this.curriculum.setFoundationModels(models)) throw new Error('Invalid stroke model geometry');
+      return true;
     } catch (error) {
-      console.error('Stroke models unavailable; using basic path guide', error);
+      console.error('The source stroke models could not load', error);
+      return false;
     }
   }
 
@@ -243,13 +246,14 @@ export class InkWriter {
     const names = document.querySelector('#names-toggle');
     foundation.classList.toggle('selected', this.lessonMode === 'foundation');
     foundation.setAttribute('aria-pressed', String(this.lessonMode === 'foundation'));
-    foundation.disabled = this.busy || !this.lessonsReady;
+    foundation.disabled = this.busy || !this.foundationReady;
     names.classList.toggle('selected', this.lessonMode === 'names');
     names.setAttribute('aria-pressed', String(this.lessonMode === 'names'));
     names.setAttribute('aria-expanded', String(!this.namePicker.hidden));
     names.disabled = this.busy;
     document.querySelector('#practice-next').disabled = this.busy || !this.practice || !this.target;
     document.querySelectorAll('.name-choice').forEach(button => { button.disabled = this.busy || !this.namesReady; });
+    this.options.onLessonMode?.(this.lessonMode);
   }
 
   leaveLesson() {
@@ -264,6 +268,7 @@ export class InkWriter {
   }
 
   startFoundation() {
+    if (!this.foundationReady) return;
     this.resetLessonInk();
     this.curriculum.selectFoundation();
     this.practice = true;
@@ -456,7 +461,7 @@ export class InkWriter {
       const scale = box.size / batch.box.size;
       const map = mark => ({ ...mark, x: box.x + (mark.x - batch.box.x) * scale, y: box.y + (mark.y - batch.box.y) * scale, rx: mark.rx * scale, ry: mark.ry * scale });
       const stamps = batch.stamps.map(mark => ({ ...map(mark), from: mark.from ? map(mark.from) : null }));
-      this.options.paintBrush?.(stamps, { holdSeconds: 90 });
+      this.options.paintBrush?.(stamps);
     }
   }
 
@@ -477,7 +482,7 @@ export class InkWriter {
       x: point.x * this.width,
       y: point.y * this.height,
       brush: new BrushStroke({ size: this.brushSize(), input }),
-      inkMode: this.options.getWaterMode?.() ?? 'heavy',
+      inkMode: this.practice ? 'still' : (this.options.getWaterMode?.() ?? 'heavy'),
       profile: [],
       stamps: [],
       reference: this.practice ? this.currentDemo() : null,
@@ -504,9 +509,9 @@ export class InkWriter {
     const inkTime = this.options.getWritingClock?.() || 0;
     const stamps = pointer.brush.add({ x, y, time: event.timeStamp, pressure: event.pressure, pointerType: event.pointerType, ending: event.type === 'pointerup' })
       .map(stamp => ({ ...stamp, inkTime, inkMode: pointer.inkMode }));
-    const holdSeconds = this.practice && this.target?.kind === 'character' ? 90 : 18;
     pointer.stamps.push(...stamps);
-    this.options.paintBrush?.(stamps, { holdSeconds, motion: { x, y, dx, dy, speed: pointer.brush.lastSample?.speed || 0 } });
+    const effects = this.practice ? undefined : { motion: { x, y, dx, dy, speed: pointer.brush.lastSample?.speed || 0 } };
+    this.options.paintBrush?.(stamps, effects);
     pointer.points.push(point);
     if (pointer.brush.lastSample) pointer.profile.push({ ...pointer.brush.lastSample });
     pointer.x = x;
@@ -592,6 +597,57 @@ export class InkWriter {
     context.restore();
   }
 
+  sourceGuide(demo) {
+    if (demo.sourceGuide) return demo.sourceGuide;
+    const { x, y, size } = this.targetBox();
+    const pixels = Math.max(1, Math.round(size * Math.min(devicePixelRatio || 1, 2, 1024 / size)));
+    const ratio = pixels / size;
+    const bitmap = document.createElement('canvas');
+    const mask = document.createElement('canvas');
+    bitmap.width = bitmap.height = mask.width = mask.height = pixels;
+    const context = bitmap.getContext('2d');
+    const { scale, tx, ty } = this.target.outlineTransform;
+    context.setTransform(scale * pixels, 0, 0, -scale * pixels, tx * pixels, ty * pixels);
+    context.fillStyle = '#263123';
+    context.fill(new Path2D(this.target.outline));
+    demo.sourceGuide = { bitmap, mask, context: mask.getContext('2d'), x, y, size, ratio };
+    return demo.sourceGuide;
+  }
+
+  paintSourceGuide(context, demo, opacity, through = demo.duration) {
+    if (through <= 0) return;
+    const guide = this.sourceGuide(demo);
+    let bitmap = guide.bitmap;
+    if (through < demo.duration) {
+      const reveal = guide.context;
+      const { ratio, x, y, size, mask } = guide;
+      reveal.clearRect(0, 0, mask.width, mask.height);
+      reveal.drawImage(bitmap, 0, 0);
+      reveal.save();
+      reveal.globalCompositeOperation = 'destination-in';
+      reveal.setTransform(ratio, 0, 0, ratio, -x * ratio, -y * ratio);
+      reveal.lineWidth = size * .20;
+      reveal.lineCap = reveal.lineJoin = 'round';
+      reveal.beginPath();
+      const samples = demo.samples;
+      reveal.moveTo(samples[0].x, samples[0].y);
+      for (let i = 1; i < samples.length; i++) {
+        const previous = samples[i - 1];
+        const current = samples[i];
+        const t = clamp((through - previous.time) / Math.max(1, current.time - previous.time), 0, 1);
+        reveal.lineTo(previous.x + (current.x - previous.x) * t, previous.y + (current.y - previous.y) * t);
+        if (current.time > through) break;
+      }
+      reveal.stroke();
+      reveal.restore();
+      bitmap = mask;
+    }
+    context.save();
+    context.globalAlpha *= opacity;
+    context.drawImage(bitmap, guide.x, guide.y, guide.size, guide.size);
+    context.restore();
+  }
+
   drawGuide(context) {
     if (this.feedback?.courseCompleted || this.feedback?.wordLessonCompleted) {
       const { x, y, size } = this.practiceArea;
@@ -617,13 +673,18 @@ export class InkWriter {
     const phase = (this.clock - this.target.start) % 6;
     const observing = phase < .65;
     const demonstrating = !this.pointer && !this.feedback && (this.target.mode !== 'copy' || this.showCopyHint);
-    this.paintDemo(context, demo, this.pointer ? .10 : observing && demonstrating ? .38 : .16);
+    const opacity = this.pointer ? .10 : observing && demonstrating ? .38 : .16;
+    if (this.target.outline) this.paintSourceGuide(context, demo, opacity);
+    else this.paintDemo(context, demo, opacity);
     const through = clamp((phase - .65) * 1000, 0, demo.duration);
     if (demonstrating && !observing && phase < 4.5) {
-      context.save();
-      context.globalAlpha = .76;
-      paintBrushStamps(context, demo.stamps.filter(stamp => stamp.at <= through), '#263123');
-      context.restore();
+      if (this.target.outline) this.paintSourceGuide(context, demo, .76, through);
+      else {
+        context.save();
+        context.globalAlpha = .76;
+        paintBrushStamps(context, demo.stamps.filter(stamp => stamp.at <= through), '#263123');
+        context.restore();
+      }
     }
     const start = demo.samples[0];
     const pulse = this.reducedMotion ? 0 : Math.sin(this.clock * 3) * 1.3;

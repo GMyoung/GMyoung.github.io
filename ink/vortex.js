@@ -1,4 +1,4 @@
-import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.2';
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.19.0';
 
 const TAU = Math.PI * 2;
 const TEXTURE = 256;
@@ -352,13 +352,13 @@ export class IntroVortex {
     this.render({ ...this.lastFrame, dt: 0 });
   }
 
-  refreshMarks(time, progress, focused) {
+  refreshMarks(time, progress, letterStep, focused) {
     // The pieces can move across the viewport, so update their decal at 30 Hz.
     const step = Math.floor(time * 24);
     const gather = Math.round(progress * 50);
     const still = this.reducedMotion;
     const frame = this.fragments ? (still ? 0 : Math.floor(performance.now() * .030)) : step * 51 + gather;
-    const stage = this.fragments?.stage(progress);
+    const stage = Math.ceil(letterStep);
     if (this.markFocus === focused && this.markFrame === frame && this.markStill === still && this.markStage === stage) return;
     this.markFocus = focused;
     this.markFrame = frame;
@@ -366,7 +366,7 @@ export class IntroVortex {
     this.markStage = stage;
     if (this.fragments) {
       const span = this.fragments.drawOrbit(this.markContext, {
-        radius: this.markRadius, edge: Math.min(this.width, this.height), time, progress, focused, still,
+        radius: this.markRadius, edge: Math.min(this.width, this.height), time, progress, letterStep, focused, still,
       });
       this.markSpan = span / Math.min(this.width, this.height);
     } else {
@@ -386,13 +386,13 @@ export class IntroVortex {
     this.lastFrame = frame;
     if (!this.mesh) return;
     let { time = 0, dt = 0, angle = 0, velocity = 0, paintAngle = angle, paintVelocity = velocity,
-      progress = 0, fragmentProgress = progress, energy = 0, shakeX = 0, shakeY = 0,
+      progress = 0, letterStep = 0, energy = 0, shakeX = 0, shakeY = 0,
       grip = null, focused = false, marks = .65 } = frame;
     if (this.reducedMotion) {
-      time = dt = angle = velocity = paintAngle = paintVelocity = progress = fragmentProgress = energy = shakeX = shakeY = 0;
+      time = dt = angle = velocity = paintAngle = paintVelocity = progress = letterStep = energy = shakeX = shakeY = 0;
       grip = null;
     }
-    this.refreshMarks(time, fragmentProgress, focused);
+    this.refreshMarks(time, progress, letterStep, focused);
     const edge = Math.min(this.width, this.height);
     if (grip) {
       const x = ((grip.x - .5) * this.width - shakeX) / edge;

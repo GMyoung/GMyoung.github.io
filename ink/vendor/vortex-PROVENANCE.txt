@@ -25,20 +25,21 @@ The gesture controller integrates separate angles for the cloth and paint.
 A catch nudges the sheet, while the paint picks up speed from the turning
 cloth. A gentle turn carries only part of the sheet's speed into the color.
 A hard pull can speed up the paint, which coasts through pauses and reversals.
-The difference between hand and cloth angles builds spring tension. About a
-quarter radian of slack delays the turn. Once taut, the nonlinear spring
-accelerates more strongly and loses less energy on a hard pull. Drag unlock
-requires 7.35 seconds and 1.08 turns in one direction. Desktop wheel and
-touchpad input credit scroll distance into the same sequence. The sequence
-can pause between scrolls and takes at least 3.7 seconds to play through.
+The grab responds lightly while the first 0.20 radians take up the slack.
+The difference between hand and cloth angles builds spring tension. Traction
+increases with that tension. A hard pull builds a stronger spring release.
+Drag unlock requires 7.2 seconds of movement and 1.1 turns. A new grip can
+resume the accumulated progress. Desktop wheel and touchpad input credit
+1,000 normalized pixels of scroll travel over at least 4.8 seconds.
 A flat resting mesh keeps the original paint colors and fine pixel grain.
 Soft lighting appears on the temporary folds.
 
-The 36 orbiting pieces come from the user's original painted letters. While
-the user turns, elapsed moving time brings each letter together and sends it
-off screen before the next letter assembles. At unlock the intact name returns
-once from below with its green trail. The local cheer starts on its first
-visible frame. The reference videos supply timing inspiration only.
+The 36 orbiting pieces come from the user's original painted letters. The
+seams between V, E and Y follow the gaps in the source photo. Turning earns
+the assembly. After a letter fits, it holds briefly and flies off screen even
+if the user lets go. Its departure and a short gap precede the next letter.
+At unlock the intact name returns once from below with its green trail and
+the local cheer. The reference videos supply timing inspiration only.
 Movement energy modulates the filaments and palette. Reduced motion holds the
 flat paint still. The Canvas2D renderer uses the same cloth and depth at a
 bounded resolution with precomputed paint textures. WebGL is capped at DPR 1.5

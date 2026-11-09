@@ -147,7 +147,7 @@ export class ClothMesh {
 
   applyGrab(grab) {
     const gapX = grab.targetX - grab.x, gapY = grab.targetY - grab.y;
-    const response = .031 + grab.follow * .119;
+    const response = .039 + grab.follow * .121;
     grab.x += gapX * response;
     grab.y += gapY * response;
     grab.lift += (.074 + .15 * grab.load - grab.lift) * .15;

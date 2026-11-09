@@ -13,7 +13,15 @@ https://www.freesoundslibrary.com/children-screaming-yay-sound-effect/
 https://www.youtube.com/watch?v=DWqwmIz9vRU
 https://creativecommons.org/licenses/by/4.0/
 
-assets/jasmine-ink-suite.mp3 — "Jasmine Ink Suite", 36 minutes of quiet sampled
+assets/pei-lan-guqin.mp3 — 《佩蘭》 (Pei Lan), performed and recorded by
+Charlie Huang on silk-string guqin on 28 May 2006. The performance follows
+the 1876 Tianwen Ge Qinpu. The 8:11 recording loops in the writing room.
+The original recording is licensed CC BY 2.5. This MP3 lowers the level
+by 8 dB and adds short fades at the ends.
+https://commons.wikimedia.org/wiki/File:Pei_Lan.ogg
+https://creativecommons.org/licenses/by/2.5/
+
+assets/jasmine-ink-suite.mp3 — archived "Jasmine Ink Suite", 36 minutes of quiet sampled
 guzheng. Original instrumental arrangement and variations on the traditional
 Jiangsu folk melody "Jasmine Flower". Melody reference: Harmony and Keyboard
 Improvisation, Tsinghua University Press, p. 10 (unaccompanied melody).

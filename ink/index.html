@@ -11,7 +11,7 @@
     <link rel="license" href="./vendor/intro-audio-NOTICE.txt">
     <link rel="stylesheet" href="./style.css?v=1.18.0">
     <link rel="stylesheet" href="./writer.css?v=1.16.0">
-    <script type="module" src="./app.js?v=1.18.0"></script>
+    <script type="module" src="./app.js?v=1.19.0"></script>
   </head>
   <body>
     <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -41,14 +41,14 @@
           <canvas id="practice-feedback" aria-hidden="true"></canvas>
         </div>
         <button id="back" class="quiet-button back-button" aria-label="回到手绘开场"><svg aria-hidden="true"><use href="#back-icon"/></svg></button>
-        <button id="music-toggle" class="quiet-button music-button" aria-label="古筝背景音乐" aria-pressed="true">
+        <button id="music-toggle" class="quiet-button music-button" aria-label="古琴背景音乐《佩兰》" aria-pressed="true">
           <svg viewBox="0 0 36 36" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
             <path d="M7 21 27 9c1.3-.7 2.4.4 2.4 1.8v4.1a3 3 0 0 1-1.5 2.6L8.5 27C7.3 27.6 6 27 6 25.7v-2.8c0-.8.4-1.5 1-1.9Z"/>
             <path d="m9 22.8 18-10m-18 13 18-9.9m-14 5.2 1.4-3m4.5-.2 1.3-3m3.7-.1 1.2-2.7"/>
             <path class="music-slash" d="m8 8 20 20"/>
           </svg>
         </button>
-        <audio id="ink-music" src="./assets/jasmine-ink-suite.mp3?v=1.16.0" preload="none" loop></audio>
+        <audio id="ink-music" src="./assets/pei-lan-guqin.mp3" preload="none" loop></audio>
         <button id="writing-flow" class="quiet-button flow-button selected" data-water-mode="heavy" aria-label="小水流：有轻微流水声，新笔迹较快淡去。点击切换细水。"><svg aria-hidden="true"><use href="#water-flow-icon"/></svg></button>
         <div class="lesson-controls" role="group" aria-label="选择学习内容">
           <button id="practice-toggle" class="quiet-button" aria-label="开启或关闭基础笔画跟练" aria-pressed="false"><svg aria-hidden="true"><use href="#practice-icon"/></svg></button>
@@ -94,7 +94,7 @@
               <path class="sound-slash" d="m16 10 5 5m0-5-5 5"/>
             </svg>
           </button>
-          <span id="spin-hint" class="sr-only">按住画面轻轻画圈，累计约五秒半和大半圈。可以松手后继续。</span>
+          <span id="spin-hint" class="sr-only">按住画面轻轻画圈，累计约七秒和一圈多一点。可以松手后继续。</span>
           <span id="spin-keyboard-hint" class="sr-only">电脑可用滚轮或触控板双指滚动，也可聚焦后按住空格或回车。鼠标或手指可顺时针或逆时针画圈。</span>
           <span id="spin-status" class="sr-only" role="status" aria-live="polite"></span>
         </div>

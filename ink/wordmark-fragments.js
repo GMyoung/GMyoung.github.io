@@ -1,14 +1,31 @@
 const CUTS = [8, 6, 5, 5, 6, 6];
-const FIRST_LETTER = .075;
-const LETTER_SPAN = .15;
-const ASSEMBLED = .54;
-const DEPART_AT = .71;
+export const LETTER_COUNT = CUTS.length;
+const FIRST_LETTER = .055;
+const ASSEMBLED = .58;
+const DEPART_AT = .69;
+const EXITED = .92;
+const MIN_GATHER_MS = 260;
+const DEPARTURE_MS = 430;
 
 const clamp = value => Math.max(0, Math.min(1, value));
 const smooth = value => {
   const t = clamp(value);
   return t * t * (3 - 2 * t);
 };
+
+export function advanceLetterStep(step, progress, dt, advancing) {
+  if (step >= LETTER_COUNT) return LETTER_COUNT;
+  const letter = Math.floor(step);
+  const assembled = letter + ASSEMBLED;
+  // Turning earns the assembly. Once it fits, the letter holds and exits
+  // on its own clock, leaving a beat before any earned next letter starts.
+  if (step >= assembled) {
+    return Math.min(letter + 1, step + dt / DEPARTURE_MS * (1 - ASSEMBLED));
+  }
+  if (step === letter && !advancing) return step;
+  const earned = LETTER_COUNT * clamp((progress - FIRST_LETTER) / (1 - FIRST_LETTER));
+  return Math.max(step, Math.min(assembled, earned, step + dt / MIN_GATHER_MS * ASSEMBLED));
+}
 
 function boundsOf(pixels, width) {
   let left = width, top = Infinity, right = 0, bottom = 0;
@@ -57,12 +74,12 @@ function splitLetter(pixels, count, width) {
 }
 
 function pixelsByLetter(context, source, contours) {
-  const letters = contours.map(points => {
+  const letters = contours.map((points, letter) => {
     const path = new Path2D();
     points.forEach(([x, y], i) => path[i === 0 ? 'moveTo' : 'lineTo'](x, y));
     path.closePath();
     const xs = points.map(([x]) => x);
-    return { path, center: (Math.min(...xs) + Math.max(...xs)) / 2, pixels: [] };
+    return { letter, path, center: (Math.min(...xs) + Math.max(...xs)) / 2, pixels: [] };
   });
   for (let index = 0; index < source.width * source.height; index++) {
     if (source.data[index * 4 + 3] === 0) continue;
@@ -78,7 +95,15 @@ function pixelsByLetter(context, source, contours) {
         insideDistance = gap;
       }
     }
-    (contained ?? nearest).pixels.push(index);
+    let owner = (contained ?? nearest).letter;
+    if (owner >= 3) {
+      // The original V and E contours overlap. Separate them through the
+      // gap at source x=556. Below the E, give the Y its full descender.
+      const veSeam = 556 - 200;
+      const eySeam = (y < 442 - 260 ? 631 : 616) - 200;
+      owner = x < veSeam ? 3 : x < eySeam ? 4 : 5;
+    }
+    letters[owner].pixels.push(index);
   }
   return letters.map(letter => letter.pixels);
 }
@@ -119,12 +144,8 @@ export class WordmarkFragments {
     });
   }
 
-  stage(progress) {
-    return Math.floor((progress - FIRST_LETTER) / LETTER_SPAN);
-  }
-
-  drawOrbit(context, { radius, edge, time, progress, focused, still }) {
-    const waiting = this.letters.slice(this.stage(progress) + 1).flatMap(letter => letter.pieces);
+  drawOrbit(context, { radius, edge, time, progress, letterStep, focused, still }) {
+    const waiting = this.letters.slice(Math.ceil(letterStep)).flatMap(letter => letter.pieces);
     const poses = waiting.map(piece => orbit(piece, radius, edge, time, progress, still));
     const extent = poses.reduce((maximum, pose, i) => {
       const piece = waiting[i];
@@ -146,19 +167,19 @@ export class WordmarkFragments {
     return span;
   }
 
-  drawAssembly(context, { width, height, angle, time, shakeX, shakeY, fragmentProgress, marks }) {
-    const letter = this.stage(fragmentProgress);
-    const visible = letter >= 0 && letter < this.letters.length;
+  drawAssembly(context, { width, height, angle, time, shakeX, shakeY, progress, letterStep, marks }) {
+    const letter = Math.floor(letterStep);
+    const phase = letterStep - letter;
+    const visible = letter < this.letters.length && phase > 0 && phase < EXITED;
     if (this.assemblyVisible || visible) context.clearRect(0, 0, width, height);
     this.assemblyVisible = visible;
     if (!visible) return;
-    const phase = (fragmentProgress - FIRST_LETTER - letter * LETTER_SPAN) / LETTER_SPAN;
     const { sprite, pieces } = this.letters[letter];
     const scale = Math.min(1.45, width * .28 / sprite.width, height * .23 / sprite.height);
     const glyphWidth = sprite.width * scale, glyphHeight = sprite.height * scale;
     const left = (width - glyphWidth) / 2, top = height * .47 - glyphHeight / 2;
     if (phase >= ASSEMBLED) {
-      const exit = clamp((phase - DEPART_AT) / (1 - DEPART_AT)) ** 2;
+      const exit = clamp((phase - DEPART_AT) / (EXITED - DEPART_AT)) ** 2;
       const side = letter % 2 ? -1 : 1;
       const travel = side * (width / 2 + glyphWidth + 24);
       context.drawImage(sprite.canvas, left + travel * exit, top - Math.min(95, height * .16) * exit,
@@ -172,7 +193,7 @@ export class WordmarkFragments {
     pieces.forEach((piece, index) => {
       const delay = index * .018;
       const travel = smooth((phase - delay) / (ASSEMBLED - delay));
-      const start = orbit(piece, radius, edge, time, fragmentProgress, false);
+      const start = orbit(piece, radius, edge, time, progress, false);
       const fromX = width / 2 + shakeX + start.x * c - start.y * s;
       const fromY = height / 2 + shakeY + start.x * s + start.y * c;
       const toX = left + (piece.left - sprite.left + piece.width / 2) * scale;
