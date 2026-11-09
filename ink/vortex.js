@@ -34,11 +34,12 @@ void main() {
   v_surface = vec4(spin * a_surface.xy, a_surface.zw);
 }`;
 
-// The original paint is evaluated in material coordinates. It follows the
-// vertices through every fold, along with the brush fragments printed on it.
+// Folded material carries both the paint and the fragments. The paint is
+// sampled at a separate angle so the swirl can slip beneath the fragments.
 const fragmentBody = `
 uniform float u_time;
-uniform float u_velocity;
+uniform vec2 u_paintTurn;
+uniform float u_paintVelocity;
 uniform float u_progress;
 uniform float u_energy;
 uniform float u_markSpan;
@@ -52,14 +53,14 @@ void main() {
   float c = cos(u_angle);
   float s = sin(u_angle);
   vec2 material = v_material + mat2(c, -s, s, c) * pixelOffset;
-  vec2 p = material;
+  vec2 p = mat2(u_paintTurn.x, -u_paintTurn.y, u_paintTurn.y, u_paintTurn.x) * material;
   float drift = u_time * 0.08;
   float energy = u_energy;
   p += 0.085 * vec2(sin(drift * 2.0), cos(drift * 3.0));
   p *= 1.0 + 0.045 * sin(drift);
   float radius = length(p);
   float polar = radius < 0.00001 ? 0.0 : atan(p.y, p.x);
-  polar -= radius * (5.2 + energy * 0.8 + abs(u_velocity) * 0.032);
+  polar -= radius * (5.2 + energy * 0.8 + abs(u_paintVelocity) * 0.032);
   polar -= 0.25 * sin(radius * 5.0 - drift * 4.0);
   vec2 q = radius * vec2(cos(polar), sin(polar)) * 2.8;
   for (int i = 0; i < 3; i++) {
@@ -250,7 +251,7 @@ export class IntroVortex {
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program));
     this.program = program;
     gl.useProgram(program);
-    this.uniforms = Object.fromEntries(['resolution', 'shift', 'angle', 'time', 'velocity', 'progress', 'energy', 'markSpan', 'markOpacity', 'marks']
+    this.uniforms = Object.fromEntries(['resolution', 'shift', 'angle', 'time', 'paintTurn', 'paintVelocity', 'progress', 'energy', 'markSpan', 'markOpacity', 'marks']
       .map(name => [name, gl.getUniformLocation(program, `u_${name}`)]));
     this.attributes = ['position','surface','material'].map((name, i) => {
       const buffer = gl.createBuffer();
@@ -384,10 +385,11 @@ export class IntroVortex {
   render(frame = {}) {
     this.lastFrame = frame;
     if (!this.mesh) return;
-    let { time = 0, dt = 0, angle = 0, velocity = 0, progress = 0, fragmentProgress = progress, energy = 0, shakeX = 0, shakeY = 0,
+    let { time = 0, dt = 0, angle = 0, velocity = 0, paintAngle = angle, paintVelocity = velocity,
+      progress = 0, fragmentProgress = progress, energy = 0, shakeX = 0, shakeY = 0,
       grip = null, focused = false, marks = .65 } = frame;
     if (this.reducedMotion) {
-      time = dt = angle = velocity = progress = fragmentProgress = energy = shakeX = shakeY = 0;
+      time = dt = angle = velocity = paintAngle = paintVelocity = progress = fragmentProgress = energy = shakeX = shakeY = 0;
       grip = null;
     }
     this.refreshMarks(time, fragmentProgress, focused);
@@ -406,11 +408,12 @@ export class IntroVortex {
     this.mesh.step(dt);
     const shiftX = shakeX * this.canvas.width / this.width;
     const shiftY = shakeY * this.canvas.height / this.height;
-    if (this.gl) this.drawGL(time, angle, velocity, progress, energy, marks, shiftX, shiftY);
-    else if (this.context) this.drawSoftware(time, angle, energy, marks, shiftX, shiftY);
+    const paintTurn = paintAngle - angle;
+    if (this.gl) this.drawGL(time, angle, paintTurn, paintVelocity, progress, energy, marks, shiftX, shiftY);
+    else if (this.context) this.drawSoftware(time, angle, paintTurn, energy, marks, shiftX, shiftY);
   }
 
-  drawGL(time, angle, velocity, progress, energy, marks, x, y) {
+  drawGL(time, angle, paintTurn, paintVelocity, progress, energy, marks, x, y) {
     const gl = this.gl, u = this.uniforms;
     gl.useProgram(this.program);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -418,7 +421,8 @@ export class IntroVortex {
     gl.uniform2f(u.shift, x, y);
     gl.uniform1f(u.time, time % (TAU / .08));
     gl.uniform1f(u.angle, angle);
-    gl.uniform1f(u.velocity, velocity);
+    gl.uniform2f(u.paintTurn, Math.cos(paintTurn), Math.sin(paintTurn));
+    gl.uniform1f(u.paintVelocity, paintVelocity);
     gl.uniform1f(u.progress, progress);
     gl.uniform1f(u.energy, energy);
     gl.uniform1f(u.markSpan, this.markSpan);
@@ -432,7 +436,7 @@ export class IntroVortex {
     gl.drawElements(gl.TRIANGLES, this.mesh.indices.length, gl.UNSIGNED_SHORT, 0);
   }
 
-  drawSoftware(time, angle, energy, marks, shiftX, shiftY) {
+  drawSoftware(time, angle, paintTurn, energy, marks, shiftX, shiftY) {
     // Same geometry, UVs and occlusion at a bounded resolution for Canvas-only
     // browsers. A depth buffer keeps the front of a folded triangle visible.
     const { width, height } = this.canvas;
@@ -464,6 +468,8 @@ export class IntroVortex {
     const paintCenter = (TEXTURE - 1) / 2;
     const drift = time * .08;
     const zoom = 1 + .045 * Math.sin(drift);
+    const paintCos = Math.cos(paintTurn) * zoom;
+    const paintSin = Math.sin(paintTurn) * zoom;
     const paintX = .085 * Math.sin(drift * 2) * zoom;
     const paintY = .085 * (Math.cos(drift * 3) * zoom - 1);
     const markScale = MARK_TEXTURE / this.markSpan;
@@ -490,8 +496,8 @@ export class IntroVortex {
           depth[pixel] = z;
           const u = wa * material[ia * 2] + wb * material[ib * 2] + wc * material[ic * 2];
           const v = wa * material[ia * 2 + 1] + wb * material[ib * 2 + 1] + wc * material[ic * 2 + 1];
-          const tx = clamp(Math.round((u * zoom + paintX) * paintScale + paintCenter), 0, TEXTURE - 1);
-          const ty = clamp(Math.round((v * zoom + paintY) * paintScale + paintCenter), 0, TEXTURE - 1);
+          const tx = clamp(Math.round((u * paintCos + v * paintSin + paintX) * paintScale + paintCenter), 0, TEXTURE - 1);
+          const ty = clamp(Math.round((v * paintCos - u * paintSin + paintY) * paintScale + paintCenter), 0, TEXTURE - 1);
           const color = (ty * TEXTURE + tx) * 3;
           const mx = Math.floor(u * markScale + markCenter), my = Math.floor(v * markScale + markCenter);
           const mi = (my * MARK_TEXTURE + mx) * 4;

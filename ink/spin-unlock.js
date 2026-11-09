@@ -1,4 +1,4 @@
-import { IntroVortex } from './vortex.js?v=1.17.2';
+import { IntroVortex } from './vortex.js?v=1.17.3';
 
 const TAU = Math.PI * 2;
 const DURATION = 7350;
@@ -97,10 +97,12 @@ export class SpinUnlock {
     this.elapsed = 0;
     this.angle = 0;
     this.fragmentProgress = 0;
-    this.shaderAngle = 0;
+    this.clothAngle = 0;
+    this.paintAngle = 0;
     this.shaderTime = 0;
     this.inputVelocity = 0;
     this.velocity = this.reducedMotion ? 0 : IDLE_SPEED;
+    this.paintVelocity = this.velocity;
     this.coastDirection = 1;
     this.energy = 0;
     this.motion = 0;
@@ -132,8 +134,10 @@ export class SpinUnlock {
     this.vortex.setReducedMotion(value);
     if (value) {
       this.shakeAmplitude = 0;
-      this.shaderAngle = 0;
+      this.clothAngle = 0;
+      this.paintAngle = 0;
       this.velocity = 0;
+      this.paintVelocity = 0;
       this.grip = null;
     }
     this.renderVortex();
@@ -149,6 +153,7 @@ export class SpinUnlock {
       this.frame = 0;
       this.inputVelocity = 0;
       this.velocity = 0;
+      this.paintVelocity = 0;
       this.energy = 0;
       this.motion = 0;
       this.grip = null;
@@ -175,7 +180,8 @@ export class SpinUnlock {
     // cannot jump past a letter. A full restart returns the pieces to orbit.
     this.fragmentProgress = progress === 0 ? 0 : Math.max(this.fragmentProgress, clamp(this.elapsed / DURATION));
     const frame = {
-      time: this.shaderTime, dt: dt / 1000, angle: this.shaderAngle, velocity: this.velocity,
+      time: this.shaderTime, dt: dt / 1000, angle: this.clothAngle, velocity: this.velocity,
+      paintAngle: this.paintAngle, paintVelocity: this.paintVelocity,
       progress, fragmentProgress: this.reducedMotion ? 0 : this.fragmentProgress,
       energy: this.energy, shakeX, shakeY, focused,
       grip: this.pointer !== null ? this.grip : null,
@@ -401,6 +407,7 @@ export class SpinUnlock {
     this.shakeAmplitude = 0;
     this.inputVelocity = 0;
     this.velocity = 0;
+    this.paintVelocity = 0;
     this.energy = 0;
     this.motion = 0;
     this.grip = null;
@@ -457,18 +464,19 @@ export class SpinUnlock {
   turnCloth(dt, now, wheelDirection) {
     if (this.reducedMotion) {
       this.velocity = 0;
+      this.paintVelocity = 0;
       this.energy = 0;
       return;
     }
     const grip = this.grip;
     const gripped = this.pointer !== null && Boolean(grip);
     const seconds = dt / 1000;
+    const idle = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
     let turn;
     if (gripped) {
       const hand = this.inputVelocity * (1 - smooth((now - this.lastMovement - 34) / 105));
       turn = this.pullCloth(grip, seconds, hand);
     } else {
-      const idle = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
       const speed = wheelDirection ? wheelDirection * (2.3 + this.progress() * 1.05) : this.key ? 2.35 : idle;
       const responseTime = wheelDirection ? 95 : this.key ? 74 : 355;
       this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / responseTime));
@@ -489,7 +497,17 @@ export class SpinUnlock {
       grip.stretch *= Math.exp(-dt / 145);
       if (!gripped && Math.abs(grip.kick) < .003) this.grip = null;
     }
-    this.shaderAngle = (this.shaderAngle + turn) % TAU;
+    this.clothAngle = (this.clothAngle + turn) % TAU;
+
+    // The cloth carries the paint through its folds. The broad swirl picks up
+    // speed from that motion and keeps its own momentum through a pause.
+    const hardPull = smooth((Math.abs(this.velocity) - 2) / 4.6);
+    let paintTarget = wheelDirection || this.key ? this.velocity : idle;
+    if (gripped) paintTarget = this.velocity * (.58 + .56 * hardPull);
+    const gainingSpeed = paintTarget * this.paintVelocity >= 0 && Math.abs(paintTarget) > Math.abs(this.paintVelocity);
+    const response = gainingSpeed ? 270 - 110 * hardPull : 510;
+    this.paintVelocity += (paintTarget - this.paintVelocity) * (1 - Math.exp(-dt / response));
+    this.paintAngle = (this.paintAngle + this.paintVelocity * seconds) % TAU;
   }
 
   tick(now) {

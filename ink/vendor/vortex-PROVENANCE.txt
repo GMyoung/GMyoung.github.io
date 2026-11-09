@@ -21,7 +21,10 @@ Visual/technical references consulted:
 
 This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
-The gesture controller integrates a shared angle. A catch nudges the sheet.
+The gesture controller integrates separate angles for the cloth and paint.
+A catch nudges the sheet, while the paint picks up speed from the turning
+cloth. A gentle turn carries only part of the sheet's speed into the color.
+A hard pull can speed up the paint, which coasts through pauses and reversals.
 The difference between hand and cloth angles builds spring tension. About a
 quarter radian of slack delays the turn. Once taut, the nonlinear spring
 accelerates more strongly and loses less energy on a hard pull. Drag unlock
