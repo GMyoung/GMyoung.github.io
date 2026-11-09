@@ -1,7 +1,7 @@
 Harvey — 墨间: GitHub Pages distribution
 
 Current snapshot: Harvey Ink v1.19.0, 2026-11-09.
-Source commit: ce26cb6d510f2f989a5a1cebff09b476ce302129
+Source commit: eaa777801f9ba202989b29419349806c8f9452b1
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.

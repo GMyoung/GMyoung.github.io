@@ -21,8 +21,9 @@ by 8 dB and adds short fades at the ends.
 https://commons.wikimedia.org/wiki/File:Pei_Lan.ogg
 https://creativecommons.org/licenses/by/2.5/
 
-assets/jasmine-ink-suite.mp3 — archived "Jasmine Ink Suite", 36 minutes of quiet sampled
-guzheng. Original instrumental arrangement and variations on the traditional
+Previous releases included "Jasmine Ink Suite", 36 minutes of quiet sampled
+guzheng, archived in Git at commit 6bee16d4f48f3ecf7016786afe767e6245bff2b6.
+Original instrumental arrangement and variations on the traditional
 Jiangsu folk melody "Jasmine Flower". Melody reference: Harmony and Keyboard
 Improvisation, Tsinghua University Press, p. 10 (unaccompanied melody).
 https://www.tup.com.cn/upload/books/yz/085260-01.pdf#page=10
