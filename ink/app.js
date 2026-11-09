@@ -1,6 +1,7 @@
-import { SpinUnlock } from './spin-unlock.js?v=1.16.2';
+import { SpinUnlock } from './spin-unlock.js?v=1.17.0';
 import { IntroAudio } from './intro-audio.js?v=1.16.0';
 import { WaterAudio } from './water-audio.js?v=1.16.0';
+import { ASSEMBLY_END, WordmarkFragments } from './wordmark-fragments.js?v=1.17.0';
 
 const intro = document.querySelector('#intro');
 const world = document.querySelector('#ink-world');
@@ -26,6 +27,8 @@ let unlocked = false;
 let openingKeyboard = false;
 let flightFrame = 0;
 let openingAnimation;
+let openingFrameTime = 0;
+let fragments;
 const greenSilhouette = document.createElement('canvas');
 const greenImprint = document.createElement('canvas');
 let writerPromise;
@@ -61,7 +64,7 @@ async function prepareWordmark() {
     [[509, 344], [538, 344], [548, 368], [556, 352], [580, 350], [575, 390], [556, 419], [535, 421]],
     [[569, 357], [601, 349], [626, 358], [637, 386], [629, 402], [636, 425], [604, 442], [569, 438], [550, 416], [550, 389]],
     [[621, 366], [644, 360], [672, 393], [691, 373], [714, 371], [719, 399], [679, 453], [649, 488], [619, 480], [642, 447], [657, 427]],
-  ];
+  ].map(contour => contour.map(([x, y]) => [x - 200, y - 260]));
   const crop = document.createElement('canvas');
   crop.width = 520;
   crop.height = 240;
@@ -70,7 +73,7 @@ async function prepareWordmark() {
   context.beginPath();
   for (const contour of contours) {
     contour.forEach(([x, y], index) => {
-      context[index === 0 ? 'moveTo' : 'lineTo'](x - 200, y - 260);
+      context[index === 0 ? 'moveTo' : 'lineTo'](x, y);
     });
     context.closePath();
   }
@@ -88,6 +91,11 @@ async function prepareWordmark() {
   context.putImageData(pixels, 0, 0);
   wordmark.getContext('2d').drawImage(crop, 0, 0, wordmark.width, wordmark.height);
   prepareGreenImprint();
+  try {
+    fragments = new WordmarkFragments(context, pixels, contours);
+  } catch (error) {
+    console.info('The intro will use the intact drawing.', error);
+  }
 }
 
 function prepareGreenImprint() {
@@ -139,13 +147,13 @@ function resizeTrail() {
 }
 
 function openingPose(bounds, seconds) {
-  const progress = Math.max(0, Math.min(1, seconds / 1.28));
+  const progress = Math.max(0, Math.min(1, seconds / .94));
   const settle = Math.max(0, (progress - .73) / .27);
-  const distance = progress < .73 ? .94 * progress / .73 : .94 + .06 * (1 - (1 - settle) ** 3);
+  const distance = progress < .73 ? 1.025 * (1 - (1 - progress / .73) ** 2.25) : 1 + .025 * (1 - settle) ** 2;
   return {
-    x: (-bounds.left - bounds.width * 1.1) * (1 - distance),
-    y: (innerHeight - bounds.top + bounds.height * .2) * (1 - distance),
-    scale: .86 + distance * .14,
+    x: -Math.min(245, innerWidth * .26) * (1 - distance),
+    y: (innerHeight - bounds.top + bounds.height * .30) * (1 - distance),
+    scale: .82 + Math.min(1, distance) * .18,
     progress,
   };
 }
@@ -178,12 +186,12 @@ function drawGreenTail(bounds, pose, seconds) {
   context.restore();
 
   // Delayed copies echo analog television title trails during the entrance.
-  if (seconds < 1.68 && !reducedMotion()) {
+  if (seconds < 1.34 && !reducedMotion()) {
     for (let layer = 7; layer >= 1; layer--) {
-      const echo = openingPose(bounds, seconds - layer * .055);
+      const echo = openingPose(bounds, seconds - layer * .042);
       const echoWidth = bounds.width * echo.scale;
       const echoHeight = bounds.height * echo.scale;
-      context.globalAlpha = (.38 - layer * .035) * (1 - smoothstep(1.28, 1.68, seconds));
+      context.globalAlpha = (.38 - layer * .035) * (1 - smoothstep(.94, 1.34, seconds));
       context.drawImage(greenSilhouette,
         bounds.left + bounds.width / 2 + echo.x - echoWidth / 2,
         bounds.top + bounds.height / 2 + echo.y - echoHeight / 2,
@@ -193,24 +201,36 @@ function drawGreenTail(bounds, pose, seconds) {
   }
 }
 
-function playOpening() {
+function playOpening(assembledFrom) {
   cancelAnimationFrame(flightFrame);
   intro.classList.remove('ready');
   enter.hidden = false;
   enterHint.hidden = false;
   enter.disabled = true;
   enterHint.disabled = true;
+  flight.style.opacity = '0';
   resizeTrail();
-  const start = performance.now();
+  const assembly = assembledFrom && fragments && !reducedMotion() ? ASSEMBLY_END : 0;
+  let elapsed = 0;
+  openingFrameTime = 0;
   let titleCue = false;
   openingAnimation = now => {
     if (inWorld || document.hidden) return;
-    const seconds = reducedMotion() ? 2 : (now - start) / 1000;
+    if (openingFrameTime) elapsed += Math.min(64, Math.max(0, now - openingFrameTime)) / 1000;
+    openingFrameTime = now;
     const bounds = enter.getBoundingClientRect();
+    if (elapsed < assembly && !reducedMotion()) {
+      fragments.drawAssembly(trail.getContext('2d'), wordmark, bounds, elapsed, {
+        ...assembledFrom, width: innerWidth, height: innerHeight,
+      });
+      flightFrame = requestAnimationFrame(openingAnimation);
+      return;
+    }
+    const seconds = reducedMotion() ? 2 : elapsed - assembly;
     const pose = openingPose(bounds, seconds);
     flight.style.opacity = '1';
     flight.style.transform = `translate3d(${pose.x}px, ${pose.y}px, 0) scale(${pose.scale})`;
-    // Cue the duet when the visible part of the drawing crosses the corner.
+    // Cue the cheer on the first visible frame of the return from below.
     const visibleRight = bounds.left + bounds.width * (.5 + pose.scale * .46) + pose.x;
     const visibleTop = bounds.top + bounds.height * (.5 - pose.scale * .40) + pose.y;
     if (!titleCue && visibleRight > 0 && visibleTop < innerHeight) {
@@ -398,6 +418,7 @@ document.addEventListener('visibilitychange', () => {
   scene?.setActive(inWorld && !document.hidden);
   writer?.setActive(inWorld && !document.hidden);
   cancelAnimationFrame(flightFrame);
+  openingFrameTime = 0;
   if (unlocked && !inWorld && !document.hidden && openingAnimation) flightFrame = requestAnimationFrame(openingAnimation);
 });
 document.addEventListener('keydown', event => {
@@ -411,7 +432,9 @@ motionPreference.addEventListener('change', () => {
   unlock.setReducedMotion(reducedMotion());
   if (unlocked && !inWorld) playOpening();
 });
-const wordmarkReady = prepareWordmark().catch(error => {
+const wordmarkReady = prepareWordmark().then(() => {
+  if (fragments) unlock.vortex.setFragments(fragments);
+}).catch(error => {
   wordmark.hidden = true;
   document.querySelector('#wordmark-fallback').classList.add('visible');
   console.error('Original drawing could not load', error);
@@ -420,18 +443,19 @@ const wordmarkReady = prepareWordmark().catch(error => {
 const unlock = new SpinUnlock({
   audio: introAudio,
   reducedMotion: reducedMotion(),
-  onUnlock: async ({ keyboard = false } = {}) => {
+  onUnlock: async ({ keyboard, angle, time, direction }) => {
     await wordmarkReady;
     unlocked = true;
     openingKeyboard = keyboard;
     spinPanel.hidden = true;
-    playOpening();
+    playOpening({ angle, time, direction });
   },
 });
 
 function resetOpening() {
   cancelAnimationFrame(flightFrame);
   openingAnimation = undefined;
+  openingFrameTime = 0;
   unlocked = false;
   openingKeyboard = false;
   intro.classList.remove('ready');

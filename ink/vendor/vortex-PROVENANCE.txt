@@ -1,6 +1,7 @@
 Harvey introductory vortex and cloth, updated 2026-11-09
 
-Implementation: dist/vortex.js and dist/vendor/cloth-sim.js.
+Implementation: dist/spin-unlock.js, dist/vortex.js, dist/vendor/cloth-sim.js,
+dist/wordmark-fragments.js and the return sequence in dist/app.js.
 Cloth constraints and damped Verlet integration adapted from
 Dmitry Kurash's Holocloth (MIT), src/cloth.ts at commit
 a6078ba698a53cbf18be870cea555c1971f84103. License in cloth-LICENSE.txt.
@@ -14,19 +15,24 @@ Visual/technical references consulted:
 - React Bits Balatro component overview:
   https://reactbits.dev/backgrounds/balatro
   Demonstrates the swirling paint and crisp pixel treatment.
+- EMA Multimedia's HBO DVD opening, from creator Michael Pace's archive:
+  https://michaelpace.com/legacy-portfolio/
+  The scattered pieces and quick, clean arrival inspired the reveal timing.
 
 This project uses independently written polar coordinates, three bounded
 sinusoidal domain-warp passes, green/yellow palette bands and subtle pixel grain.
-The gesture controller integrates a shared angle. A catch nudges the sheet,
-then the first 0.32 radians of signed relative hand travel build cloth strain.
-Beyond that slack the sheet accelerates gradually. Part of the tension slips
-away, letting the sheet trail even a steady turn. The moving grip patch follows
-with damping and transfers the pull to other vertices. Unlock is measured from
-the input and requires 7.35 seconds of motion and 1.08 turns in one direction.
-Paint and floating brush fragments follow the material
-coordinates. A flat resting mesh restores the earlier paint colors and fine
-pixel grain. Soft lighting appears on the temporary folds. Release lets the
-mesh settle flat while the sheet coasts to a slow idle turn.
+The gesture controller integrates a shared angle. A catch nudges the sheet.
+Angular travel eases the sheet and grip from initial slack to matching the
+hand's speed. A hard turn adds a single 560 ms bell-shaped speed boost. Unlock
+is measured from the input and requires 7.35 seconds and 1.08 turns in one
+direction. A flat resting mesh keeps the original paint colors and fine pixel
+grain. Soft lighting appears on the temporary folds.
+
+The 36 orbiting pieces come from the user's original painted letters. They
+follow the cloth's material coordinates and spread out as unlock progresses.
+The same pieces reassemble the six letters in order. The intact name slides
+out, then returns from below with its green trail. The local cheer starts on
+its first visible frame. The reference videos supply timing inspiration only.
 Movement energy modulates the filaments and palette. Reduced motion holds the
 flat paint still. The Canvas2D renderer uses the same cloth and depth at a
 bounded resolution with precomputed paint textures. WebGL is capped at DPR 1.5

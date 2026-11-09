@@ -1,13 +1,15 @@
 Harvey — 墨间: GitHub Pages distribution
 
-Current snapshot: Harvey Ink v1.16.2, 2026-11-09.
-Source commit: 1bf81b709f34a96b040fb4c3ede08fdd52e08420
+Current snapshot: Harvey Ink v1.17.0, 2026-11-09.
+Source commit: b89182c49b6982d6f3aadcfe503032d5ce54e9ff
 Public path: https://gmyoung.github.io/ink/
 
 Originally migrated from the published v1.12.0 distribution on 2026-11-07.
 The opening uses the earlier yellow-green paint and floating brush fragments.
 Unlock requires 7.35 seconds of motion and 1.08 turns in one direction.
-The broad grip slips under the pointer while the sheet accelerates gradually.
+The grip begins loose, then follows the hand and briefly leads on a hard turn.
+The 36 pieces of the drawing scatter and then assemble the six letters in order.
+The wordmark slides out and returns with a green trail and the title cheer.
 The title uses a short recording of children cheering. The writing room plays
 a quiet 36-minute guzheng suite. The wash bowl clears writing only, and each
 stroke retains the water mode chosen when it began. Car Game is on the homepage.

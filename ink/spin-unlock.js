@@ -1,4 +1,4 @@
-import { IntroVortex } from './vortex.js?v=1.16.2';
+import { IntroVortex } from './vortex.js?v=1.17.0';
 
 const TAU = Math.PI * 2;
 const DURATION = 7350;
@@ -8,7 +8,15 @@ const HOLD_HINT = '继续按住，约七秒半解锁';
 const IDLE_SPEED = .16;
 const GRIP_SLACK = .32;
 const MAX_STRAIN = 1.1;
+const FOLLOW_START = .20;
+const FOLLOW_END = .86;
+const WHIP_SPEED = 3.45;
+const WHIP_TIME = 560;
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
+const smooth = value => {
+  const t = clamp(value);
+  return t * t * (3 - 2 * t);
+};
 
 // The title requires both a minimum sweep and sustained moving input.
 // The idle turn is decorative. Progress comes from gesture samples or a key hold.
@@ -198,7 +206,7 @@ export class SpinUnlock {
     if (!this.reducedMotion) {
       this.grip = {
         x: clamp(event.clientX / innerWidth), y: clamp(event.clientY / innerHeight),
-        stretch: 0, load: 0,
+        stretch: 0, load: 0, sweep: 0, follow: 0, whip: null, whipReady: true,
         strain: 0, kick: this.coastDirection * .78, last: null,
       };
       this.velocity = 0;
@@ -245,6 +253,7 @@ export class SpinUnlock {
         Math.abs(radius - previous.radius) > Math.max(this.center.radius * .8, previous.radius * .75)) return;
     if (this.grip) this.grip.strain = clamp(this.grip.strain + delta, -MAX_STRAIN, MAX_STRAIN);
     if (speed < .28 || Math.abs(delta) < .0004) return;
+    if (this.grip) this.grip.sweep = Math.min(FOLLOW_END, this.grip.sweep + Math.abs(delta));
     if (!this.direction) this.direction = Math.sign(delta);
     const forward = delta * this.direction;
     if (forward > 0) {
@@ -385,7 +394,31 @@ export class SpinUnlock {
     this.schedule();
   }
 
-  turnCloth(dt) {
+  gripSpeed(grip, now) {
+    grip.follow = smooth((grip.sweep - FOLLOW_START) / (FOLLOW_END - FOLLOW_START));
+    // Let stale samples die away when a held hand stops moving.
+    const input = this.inputVelocity * (1 - smooth((now - this.lastMovement - 42) / 126));
+    const pace = Math.abs(input);
+    if (pace < 2.5) grip.whipReady = true;
+    if (grip.whip && (now - grip.whip.start >= WHIP_TIME || grip.whip.speed * input < 0)) grip.whip = null;
+    if (!grip.whip && grip.whipReady && grip.follow > .78 && pace >= WHIP_SPEED) {
+      grip.whip = { start: now, speed: input };
+      grip.whipReady = false;
+    }
+    const following = input * grip.follow;
+    if (!grip.whip) return following;
+
+    // The burst starts and ends at zero, with one soft peak after the pull.
+    const phase = (now - grip.whip.start) / WHIP_TIME;
+    if (phase < .5 && pace > Math.abs(grip.whip.speed)) grip.whip.speed = input;
+    const peak = Math.sin(Math.PI * phase) ** 2;
+    const storedPace = Math.abs(grip.whip.speed);
+    const carry = clamp(storedPace - pace, 0, 2.5);
+    const lift = Math.min(storedPace * .18, 1.45);
+    return following + Math.sign(grip.whip.speed) * (carry + lift) * peak;
+  }
+
+  turnCloth(dt, now) {
     if (this.reducedMotion) {
       this.velocity = 0;
       this.energy = 0;
@@ -393,11 +426,10 @@ export class SpinUnlock {
     }
     const grip = this.grip;
     const gripped = this.pointer !== null && Boolean(grip);
-    const taut = gripped ? grip.strain - clamp(grip.strain, -GRIP_SLACK, GRIP_SLACK) : 0;
     let speed = this.state === 'locked' ? this.coastDirection * IDLE_SPEED : 0;
     if (this.key) speed = 2.35;
-    else if (gripped) speed = clamp(taut * 11, -5.8, 5.8);
-    const responseTime = gripped ? 110 : this.key ? 74 : 355;
+    else if (gripped) speed = this.gripSpeed(grip, now);
+    const responseTime = gripped ? 130 - grip.follow * 76 : this.key ? 74 : 355;
     this.velocity += (speed - this.velocity) * (1 - Math.exp(-dt / responseTime));
     if (Math.abs(this.velocity) < .001) this.velocity = 0;
     if ((gripped || this.key) && Math.abs(this.velocity) > IDLE_SPEED) this.coastDirection = Math.sign(this.velocity);
@@ -406,12 +438,7 @@ export class SpinUnlock {
     this.shaderTime += seconds * (gripped ? .27 : .8);
 
     if (grip) {
-      // Part of the tension slips away under the hand, so even a steady turn
-      // leaves the cloth moving a little slower than the pointer.
-      if (gripped) {
-        const slip = taut * (1 - Math.exp(-seconds * 1.5));
-        grip.strain = clamp(grip.strain - turn - slip, -MAX_STRAIN, MAX_STRAIN);
-      }
+      if (gripped) grip.strain = clamp(grip.strain - turn, -MAX_STRAIN, MAX_STRAIN);
       // A short initial nudge acknowledges the catch.
       const kick = grip.kick * (1 - Math.exp(-dt / 84));
       grip.kick -= kick;
@@ -471,7 +498,7 @@ export class SpinUnlock {
     const energyTarget = moving ? clamp(.16 + progress * .57 + this.motion * .28) : 0;
     this.energy += (energyTarget - this.energy) * (1 - Math.exp(-dt / (energyTarget > this.energy ? 120 : 590)));
     if (this.energy < .001) this.energy = 0;
-    this.turnCloth(dt);
+    this.turnCloth(dt, now);
     const release = this.state === 'releasing' ? clamp((now - this.releaseStart) / 220) : 0;
     const held = this.pointer !== null || this.key !== null;
     this.audioCall('update', { progress, motion: this.motion, held });
@@ -492,7 +519,8 @@ export class SpinUnlock {
     this.renderVortex(shakeX, shakeY, dt, release);
     if (this.state === 'releasing' && release >= 1) {
       this.state = 'unlocked';
-      this.onUnlock({ keyboard: this.lastInputKeyboard });
+      this.onUnlock({ keyboard: this.lastInputKeyboard, angle: this.shaderAngle, time: this.shaderTime,
+        direction: this.coastDirection });
     }
     if (!this.reducedMotion || held || (this.state === 'locked' && progress > 0) || this.state === 'releasing' || this.shakeAmplitude > 0) this.schedule();
   }

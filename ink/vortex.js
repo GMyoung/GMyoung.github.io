@@ -1,4 +1,4 @@
-import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.16.2';
+import { ClothMesh, CLOTH_PERSPECTIVE } from './vendor/cloth-sim.js?v=1.17.0';
 
 const TAU = Math.PI * 2;
 const TEXTURE = 256;
@@ -345,17 +345,30 @@ export class IntroVortex {
     this.contact = null;
   }
 
+  setFragments(fragments) {
+    this.fragments = fragments;
+    this.markFrame = undefined;
+    this.render({ ...this.lastFrame, dt: 0 });
+  }
+
   refreshMarks(time, progress, focused) {
-    // Slow drifting fragments only need a new decal at these small intervals.
+    // The pieces can move across the viewport, so update their decal at 30 Hz.
     const step = Math.floor(time * 24);
     const gather = Math.round(progress * 50);
     const still = this.reducedMotion;
-    if (this.markFocus === focused && this.markStep === step && this.markGather === gather && this.markStill === still) return;
+    const frame = this.fragments ? (still ? 0 : Math.floor(performance.now() * .030)) : step * 51 + gather;
+    if (this.markFocus === focused && this.markFrame === frame && this.markStill === still) return;
     this.markFocus = focused;
-    this.markStep = step;
-    this.markGather = gather;
+    this.markFrame = frame;
     this.markStill = still;
-    drawMarks(this.markContext, this.markRadius, this.markWidth, step / 24, gather / 50, focused, still);
+    if (this.fragments) {
+      const span = this.fragments.drawOrbit(this.markContext, {
+        radius: this.markRadius, diagonal: Math.hypot(this.width, this.height), time, progress, focused, still,
+      });
+      this.markSpan = span / Math.min(this.width, this.height);
+    } else {
+      drawMarks(this.markContext, this.markRadius, this.markWidth, step / 24, gather / 50, focused, still);
+    }
     if (this.gl) {
       const gl = this.gl;
       gl.activeTexture(gl.TEXTURE0);
@@ -383,7 +396,7 @@ export class IntroVortex {
       const c = Math.cos(angle), s = Math.sin(angle);
       const u = x * c + y * s, v = y * c - x * s;
       if (this.contact !== grip) this.mesh.startGrab(u, v);
-      this.mesh.moveGrab(u, v, grip.load, velocity);
+      this.mesh.moveGrab(u, v, grip.load, velocity, grip.follow);
     } else if (this.contact) {
       this.mesh.endGrab();
     }
