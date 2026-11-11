@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from bisect import bisect_right
+from difflib import SequenceMatcher
 import html
 import json
 import math
@@ -34,6 +35,16 @@ def read_srt(path: Path) -> list[dict]:
 
 def read_json(path: Path) -> list[dict] | dict:
     return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def read_data_picard(path: Path) -> list[dict]:
+    cues = read_json(path)
+    for cue in cues:
+        lines = cue["text"].splitlines()
+        if len(lines) > 1 and all(line.startswith("(") and line.endswith(")") for line in lines[1:]):
+            cue["text"] = lines[0]
+            cue["backing"] = "\n".join(lines[1:])
+    return cues
 
 
 def read_odoriko(path: Path) -> list[dict]:
@@ -72,6 +83,84 @@ def checked(cues: list[dict]) -> list[dict]:
     return result
 
 
+def estimated_words(cue: dict, primary: str) -> list[dict]:
+    tokens = primary.split()
+    weights = [max(1, len(re.sub(r"[^\w]", "", token))) for token in tokens]
+    total = sum(weights)
+    cursor = 0
+    words = []
+    for token, weight in zip(tokens, weights):
+        start = cue["start"] + (cue["end"] - cue["start"]) * cursor / total
+        cursor += weight
+        end = cue["start"] + (cue["end"] - cue["start"]) * cursor / total
+        words.append({"text": token, "start": round(start, 3), "end": round(end, 3), "estimated": True})
+    return words
+
+
+def add_word_timing(name: str, cues: list[dict], root: Path, odoriko_source: Path | None) -> None:
+    groups = {}
+    source_cues = None
+    method, source = "weighted-estimate", "reviewed cue bounds; no word alignment"
+    if name == "die-for-you":
+        folder = root / "die-for-you-karaoke-20261029/lyrics-v1"
+        edited = read_json(folder / "edited-word-timestamps.json")
+        raw = read_json(folder / "word-timestamps.json")["words"]
+        normalize = lambda word: re.sub(r"[^a-z0-9]", "", word.lower())
+        matcher = SequenceMatcher(None, [normalize(word["word"]) for word in raw],
+                                  [normalize(word["word"]) for word in edited], autojunk=False)
+        matched = {index for block in matcher.get_matching_blocks() for index in range(block.b, block.b + block.size)}
+        for index, word in enumerate(edited):
+            groups.setdefault(word["line"], []).append((word, index not in matched))
+        method, source = "asr-aligned-edited", "edited-word-timestamps.json"
+    elif name == "shes-a-big-boy":
+        for word in read_json(root / "shes-a-big-boy-karaoke-20261029/forced-word-timestamps.json"):
+            groups.setdefault(word["line"], []).append((word, False))
+        method, source = "forced-alignment", "forced-word-timestamps.json"
+    elif name == "odoriko":
+        source_cues = read_json(odoriko_source or root / "odoriko-bilingual-karaoke-20261029/bilingual-cues.json")
+        for word in read_json(root / "odoriko-bilingual-karaoke-20261029/forced-word-timestamps.json"):
+            groups.setdefault(word["line"], []).append((word, False))
+        method, source = "romanized-forced-alignment", "forced-word-timestamps.json"
+    elif name != "data-and-picard":
+        return
+
+    for index, cue in enumerate(cues):
+        primary = cue["text"].splitlines()[0] if name == "odoriko" else cue["text"]
+        tokens = primary.split()
+        if name == "data-and-picard" and cue["text"].strip() == "(Klingon singing)":
+            cue["kind"] = "stage-direction"
+            cue["words"] = []
+            cue["wordTiming"] = {"method": "stage-direction", "source": "cue text", "matchedWords": 0, "estimatedWords": 0}
+            continue
+        line = source_cues[index].get("alignment_line") if source_cues is not None else index
+        candidates = groups.get(line, [])
+        matches = len(candidates) == len(tokens) and bool(candidates)
+        if matches and name != "odoriko":
+            matches = [word["word"] for word, _ in candidates] == tokens
+        words = []
+        if matches:
+            # Preserve known vocal ends, including pauses. Clip only to the
+            # accepted cue and next word so adjacent highlights never overlap.
+            starts = [max(cue["start"], min(cue["end"], word["start"])) for word, _ in candidates]
+            for position, (token, (word, inferred)) in enumerate(zip(tokens, candidates)):
+                start = starts[position]
+                limit = starts[position + 1] if position + 1 < len(starts) else cue["end"]
+                end = min(cue["end"], limit, word["end"])
+                if not math.isfinite(start) or not math.isfinite(end) or end <= start:
+                    words = []
+                    break
+                words.append({"text": token, "start": round(start, 3), "end": round(end, 3), "estimated": inferred})
+        if not words:
+            words = estimated_words(cue, primary)
+            cue_method, cue_source = "weighted-estimate", "reviewed cue bounds; no word alignment"
+        else:
+            cue_method, cue_source = method, source
+        cue["words"] = words
+        inferred_count = sum(word["estimated"] for word in words)
+        cue["wordTiming"] = {"method": cue_method, "source": cue_source,
+                             "matchedWords": len(words) - inferred_count, "estimatedWords": inferred_count}
+
+
 def preview_index(cues: list[dict], starts: list[float], time: float) -> int | None:
     index = bisect_right(starts, time)
     if index == len(cues):
@@ -101,8 +190,8 @@ def cue_text(cue: dict) -> str:
 def native_vtt(cues: list[dict], show_current: bool = False) -> str:
     """The same preview windows as the DOM, for iPhone's native fullscreen.
 
-    The native cue label stays 'Next' rather than updating a countdown every
-    second. Line placement is at the top to avoid the baked current lyric.
+    Current+next exports keep the page's two alternating bottom rows. These
+    are static native captions; word color is animated only by the web player.
     """
     starts = [cue["start"] for cue in cues]
     boundaries = sorted({0.0, *(cue[key] for cue in cues for key in ("start", "end")),
@@ -114,8 +203,6 @@ def native_vtt(cues: list[dict], show_current: bool = False) -> str:
         current = bisect_right(starts, time) - 1
         if not show_current or current < 0 or time >= cues[current]["end"]:
             current = None
-        if current is not None and index is not None and cue_text(cues[current]) == cue_text(cues[index]):
-            index = None
         state = (current, index)
         if (index is None and current is None) or end <= start:
             continue
@@ -125,13 +212,18 @@ def native_vtt(cues: list[dict], show_current: bool = False) -> str:
             spans.append((start, end, state))
     lines = ["WEBVTT", ""]
     for number, (start, end, (current, index)) in enumerate(spans, 1):
-        placement = "-1" if show_current else "10%"
-        lines.extend([str(number), f"{vtt_time(start)} --> {vtt_time(end)} line:{placement} position:50% size:88% align:center"])
-        if current is not None:
-            lines.append(html.escape(cue_text(cues[current]), quote=False))
+        if show_current:
+            rows = ["\u00a0", "\u00a0"]
+            if index is not None:
+                rows[index % 2] = cues[index]["text"].splitlines()[0]
+            if current is not None:
+                rows[current % 2] = cue_text(cues[current])
+            lines.extend([str(number), f"{vtt_time(start)} --> {vtt_time(end)} line:-1 position:50% size:88% align:center",
+                          html.escape("\n".join(rows), quote=False), ""])
+            continue
         if index is not None:
-            lines.extend(["Next", html.escape(cue_text(cues[index]), quote=False)])
-        lines.append("")
+            lines.extend([f"{number}-next", f"{vtt_time(start)} --> {vtt_time(end)} line:10% position:50% size:88% align:center",
+                          "Next: " + html.escape(cue_text(cues[index]), quote=False), ""])
     return "\n".join(lines)
 
 
@@ -144,13 +236,14 @@ def main() -> None:
     parser.add_argument("--only", action="append", help="Export only this lyric source name; repeat to select multiple sources")
     parser.add_argument("--odoriko-source", type=Path, help="Versioned, reviewed Odoriko bilingual cue JSON; defaults to the original production cues")
     parser.add_argument("--show-current", action="append", default=[], help="Catalog ID whose clean video needs current and next lyrics; repeat as needed")
+    parser.add_argument("--word-timing", action="store_true", help="Attach existing word anchors or explicitly estimated spans; never retime cues")
     args = parser.parse_args()
     root = args.source_root
     sources = [
         ("die-for-you", ["die-for-you", "die-for-you-karaoke"], "en",
          lambda: read_srt(root / "die-for-you-karaoke-20261029/lyrics-v1/karaoke.srt")),
         ("data-and-picard", ["data-and-picard-lyrics"], "en",
-         lambda: read_json(root / "data-picard-lyrics-20261029/lyrics-cues.json")),
+         lambda: read_data_picard(root / "data-picard-lyrics-20261029/lyrics-cues.json")),
         ("shes-a-big-boy", ["shes-a-big-boy-karaoke"], "en",
          lambda: read_srt(root / "shes-a-big-boy-karaoke-20261029/karaoke.srt")),
         ("odoriko", ["odoriko-bilingual-karaoke"], "ja-Latn",
@@ -169,8 +262,13 @@ def main() -> None:
     manifest_path = args.output / "manifest.json"
     manifest = read_json(manifest_path) if args.only and manifest_path.is_file() else {"version": 1, "entries": {}}
     counts = {}
+    timing_counts = {}
     for name, ids, language, load in sources:
         cues = checked(load())
+        if args.word_timing:
+            add_word_timing(name, cues, root, args.odoriko_source)
+            timing_counts[name] = {"matchedWords": sum(cue.get("wordTiming", {}).get("matchedWords", 0) for cue in cues),
+                                   "estimatedWords": sum(cue.get("wordTiming", {}).get("estimatedWords", 0) for cue in cues)}
         (args.output / f"{name}.json").write_text(
             json.dumps({"version": 1, "language": language, "cues": cues}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         (args.output / f"{name}.vtt").write_text(native_vtt(cues), encoding="utf-8")
@@ -184,7 +282,8 @@ def main() -> None:
                     "vtt": f"{args.url_prefix.rstrip('/')}/{name}-current.vtt"})
         counts[name] = len(cues)
     manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"output": str(args.output.resolve()), "cue_counts": counts, "catalog_entries": len(manifest["entries"])}, ensure_ascii=False))
+    print(json.dumps({"output": str(args.output.resolve()), "cue_counts": counts, "word_timing": timing_counts,
+                      "catalog_entries": len(manifest["entries"])}, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -99,8 +99,8 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v2/die-for-you.json",
-        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+        "url": "assets/lyrics-v3/die-for-you.json",
+        "vtt": "assets/lyrics-v3/die-for-you-current.vtt",
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
@@ -203,8 +203,8 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v2/die-for-you.json",
-        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+        "url": "assets/lyrics-v3/die-for-you.json",
+        "vtt": "assets/lyrics-v3/die-for-you-current.vtt",
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
@@ -303,8 +303,8 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v2/data-and-picard.json",
-        "vtt": "assets/lyrics-v2/data-and-picard-current.vtt",
+        "url": "assets/lyrics-v3/data-and-picard.json",
+        "vtt": "assets/lyrics-v3/data-and-picard-current.vtt",
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
@@ -356,8 +356,8 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v2/shes-a-big-boy.json",
-        "vtt": "assets/lyrics-v2/shes-a-big-boy-current.vtt",
+        "url": "assets/lyrics-v3/shes-a-big-boy.json",
+        "vtt": "assets/lyrics-v3/shes-a-big-boy-current.vtt",
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
@@ -409,11 +409,58 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v2/odoriko.json",
-        "vtt": "assets/lyrics-v2/odoriko-current.vtt",
+        "url": "assets/lyrics-v3/odoriko.json",
+        "vtt": "assets/lyrics-v3/odoriko-current.vtt",
         "language": "ja-Latn",
         "showCurrent": true,
         "placement": "bottom"
+      }
+    },
+    {
+      "id": "so-handsome-hello-karaoke",
+      "title": "So Handsome Hello",
+      "artist": "Woodkid",
+      "type": "karaoke",
+      "duration": "3:48",
+      "label": "Karaoke version · on-screen lyrics",
+      "poster": "assets/so-handsome-hello-v1.jpg",
+      "url": "media/so-handsome-hello-karaoke-v1.mp4",
+      "karaoke": true,
+      "audio": {
+        "original": "audio/so-handsome-hello-original-v1.m4a",
+        "karaoke": "audio/so-handsome-hello-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "media/streams-v2/so-handsome-hello-karaoke/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 674000,
+            "url": "media/streams-v2/so-handsome-hello-karaoke/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1459000,
+            "url": "media/streams-v2/so-handsome-hello-karaoke/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v2/so-handsome-hello-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 518000,
+              "url": "media/streams-v2/so-handsome-hello-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1302000,
+              "url": "media/streams-v2/so-handsome-hello-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
       }
     }
   ],

@@ -1,0 +1,2224 @@
+{
+  "version": 1,
+  "language": "ja-Latn",
+  "cues": [
+    {
+      "start": 18.517,
+      "end": 24.13,
+      "text": "Nee, dokka ni oitekita you na\nHey, we left those things behind",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Nee,",
+          "start": 18.517,
+          "end": 19.137,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 19.137,
+          "end": 20.337,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 20.337,
+          "end": 20.757,
+          "estimated": false
+        },
+        {
+          "text": "oitekita",
+          "start": 20.757,
+          "end": 22.937,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 23.277,
+          "end": 23.377,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 23.377,
+          "end": 24.117,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 24.13,
+      "end": 30.747,
+      "text": "Koto wa hitotsu tatsu uiteiru kedo\nBut now they're coming back one by one",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Koto",
+          "start": 24.13,
+          "end": 24.917,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 24.917,
+          "end": 25.477,
+          "estimated": false
+        },
+        {
+          "text": "hitotsu",
+          "start": 25.477,
+          "end": 26.517,
+          "estimated": false
+        },
+        {
+          "text": "tatsu",
+          "start": 26.517,
+          "end": 27.197,
+          "estimated": false
+        },
+        {
+          "text": "uiteiru",
+          "start": 27.197,
+          "end": 28.437,
+          "estimated": false
+        },
+        {
+          "text": "kedo",
+          "start": 28.437,
+          "end": 30.117,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 30.747,
+      "end": 36.556,
+      "text": "Nee, chanto hirotteokou\nHey, let's put them back together",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Nee,",
+          "start": 30.747,
+          "end": 31.317,
+          "estimated": false
+        },
+        {
+          "text": "chanto",
+          "start": 31.317,
+          "end": 33.177,
+          "estimated": false
+        },
+        {
+          "text": "hirotteokou",
+          "start": 33.177,
+          "end": 36.397,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 36.556,
+      "end": 42.46,
+      "text": "Hajikete wasureteshimau mae ni\nBefore they burst and we forget them all",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Hajikete",
+          "start": 36.556,
+          "end": 37.777,
+          "estimated": false
+        },
+        {
+          "text": "wasureteshimau",
+          "start": 38.277,
+          "end": 40.257,
+          "estimated": false
+        },
+        {
+          "text": "mae",
+          "start": 40.257,
+          "end": 41.737,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 41.737,
+          "end": 41.977,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 42.48,
+      "end": 43.4,
+      "text": "(Nee)\n(Hey)",
+      "kind": "adlib",
+      "words": [
+        {
+          "text": "(Nee)",
+          "start": 42.48,
+          "end": 43.4,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 43.457,
+      "end": 49.483,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 43.457,
+          "end": 44.537,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 44.537,
+          "end": 45.557,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 45.557,
+          "end": 45.937,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 45.937,
+          "end": 46.317,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 46.317,
+          "end": 47.157,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 47.157,
+          "end": 47.537,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 47.537,
+          "end": 48.437,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 48.437,
+          "end": 49.057,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 49.483,
+      "end": 55.334,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Tomari",
+          "start": 49.483,
+          "end": 50.097,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 50.097,
+          "end": 50.957,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 50.957,
+          "end": 51.397,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 51.397,
+          "end": 52.297,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 52.297,
+          "end": 55.217,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 55.334,
+      "end": 61.469,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 55.334,
+          "end": 56.777,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 56.777,
+          "end": 57.817,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 57.817,
+          "end": 58.177,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 58.177,
+          "end": 58.557,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 58.557,
+          "end": 59.437,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 59.437,
+          "end": 59.797,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 59.797,
+          "end": 61.277,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 61.469,
+      "end": 68.118,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Zura",
+          "start": 61.469,
+          "end": 62.177,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 62.177,
+          "end": 62.417,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 62.417,
+          "end": 63.217,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 63.217,
+          "end": 63.697,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 63.697,
+          "end": 64.537,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 64.537,
+          "end": 67.377,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 67.377,
+          "end": 67.757,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 68.118,
+      "end": 71.065,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 68.118,
+          "end": 69.19,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 69.19,
+          "end": 70.261,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 70.261,
+          "end": 71.065,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 71.065,
+      "end": 74.011,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 71.065,
+          "end": 72.136,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 72.136,
+          "end": 73.208,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 73.208,
+          "end": 74.011,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 74.011,
+      "end": 76.958,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 74.011,
+          "end": 75.083,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 75.083,
+          "end": 76.154,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 76.154,
+          "end": 76.958,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 76.958,
+      "end": 79.905,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 76.958,
+          "end": 78.03,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 78.03,
+          "end": 79.101,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 79.101,
+          "end": 79.905,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 79.905,
+      "end": 85.214,
+      "text": "Ano ne, watashi anata ni atta no\nYou know, when I met you",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Ano",
+          "start": 79.905,
+          "end": 80.085,
+          "estimated": false
+        },
+        {
+          "text": "ne,",
+          "start": 80.085,
+          "end": 80.405,
+          "estimated": false
+        },
+        {
+          "text": "watashi",
+          "start": 81.145,
+          "end": 82.025,
+          "estimated": false
+        },
+        {
+          "text": "anata",
+          "start": 82.025,
+          "end": 83.285,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 83.285,
+          "end": 83.865,
+          "estimated": false
+        },
+        {
+          "text": "atta",
+          "start": 83.865,
+          "end": 84.485,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 84.485,
+          "end": 84.885,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 85.214,
+      "end": 91.686,
+      "text": "Yume no naka ni oitekita kedo ne\nThat encounter was left behind in my dreams",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Yume",
+          "start": 85.565,
+          "end": 86.105,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 86.105,
+          "end": 86.485,
+          "estimated": false
+        },
+        {
+          "text": "naka",
+          "start": 86.485,
+          "end": 87.165,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 87.165,
+          "end": 87.705,
+          "estimated": false
+        },
+        {
+          "text": "oitekita",
+          "start": 87.705,
+          "end": 89.425,
+          "estimated": false
+        },
+        {
+          "text": "kedo",
+          "start": 89.425,
+          "end": 90.645,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 90.645,
+          "end": 90.985,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 91.686,
+      "end": 97.423,
+      "text": "Nee, doushite watashi ga suki nano\nHey, how come you like me",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Nee,",
+          "start": 91.686,
+          "end": 92.485,
+          "estimated": false
+        },
+        {
+          "text": "doushite",
+          "start": 92.485,
+          "end": 93.705,
+          "estimated": false
+        },
+        {
+          "text": "watashi",
+          "start": 94.945,
+          "end": 95.705,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 95.705,
+          "end": 96.045,
+          "estimated": false
+        },
+        {
+          "text": "suki",
+          "start": 96.045,
+          "end": 96.425,
+          "estimated": false
+        },
+        {
+          "text": "nano",
+          "start": 96.425,
+          "end": 97.045,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 97.423,
+      "end": 103.67,
+      "text": "Ichido shika atta koto ga nai no ni ne\nWhen you've only seen me once?",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Ichido",
+          "start": 97.423,
+          "end": 98.685,
+          "estimated": false
+        },
+        {
+          "text": "shika",
+          "start": 98.685,
+          "end": 99.545,
+          "estimated": false
+        },
+        {
+          "text": "atta",
+          "start": 99.545,
+          "end": 100.225,
+          "estimated": false
+        },
+        {
+          "text": "koto",
+          "start": 100.225,
+          "end": 101.005,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 101.005,
+          "end": 101.425,
+          "estimated": false
+        },
+        {
+          "text": "nai",
+          "start": 101.425,
+          "end": 102.125,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 102.125,
+          "end": 102.705,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 102.705,
+          "end": 102.885,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 102.885,
+          "end": 103.205,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 103.7,
+      "end": 104.16,
+      "text": "(Ah)",
+      "kind": "adlib",
+      "words": [
+        {
+          "text": "(Ah)",
+          "start": 103.7,
+          "end": 104.16,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 104.196,
+      "end": 105.971,
+      "text": "Omoi wo kette\nStamping down my emotions",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Omoi",
+          "start": 104.196,
+          "end": 104.985,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 104.985,
+          "end": 105.125,
+          "estimated": false
+        },
+        {
+          "text": "kette",
+          "start": 105.125,
+          "end": 105.745,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 105.971,
+      "end": 107.334,
+      "text": "Futaride shitenda\nWhen the two of us were alone together",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Futaride",
+          "start": 105.971,
+          "end": 106.645,
+          "estimated": false
+        },
+        {
+          "text": "shitenda",
+          "start": 106.645,
+          "end": 107.145,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 107.334,
+      "end": 109.713,
+      "text": "Wasurenai ai wo utau\n\"Let's sing out this unforgettable love\"",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Wasurenai",
+          "start": 107.554,
+          "end": 108.194,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 108.194,
+          "end": 108.834,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 108.834,
+          "end": 109.034,
+          "estimated": false
+        },
+        {
+          "text": "utau",
+          "start": 109.034,
+          "end": 109.713,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 109.713,
+      "end": 111.96,
+      "text": "Kotoba wo futari ni kashite\nWe wrote these words",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Kotoba",
+          "start": 109.834,
+          "end": 110.574,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 110.574,
+          "end": 110.694,
+          "estimated": false
+        },
+        {
+          "text": "futari",
+          "start": 110.694,
+          "end": 111.114,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 111.114,
+          "end": 111.234,
+          "estimated": false
+        },
+        {
+          "text": "kashite",
+          "start": 111.234,
+          "end": 111.774,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 111.96,
+      "end": 113.474,
+      "text": "Chikai wo tatenda\nAs vows for each other,\nisn't it like saying",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Chikai",
+          "start": 111.96,
+          "end": 112.534,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 112.534,
+          "end": 112.654,
+          "estimated": false
+        },
+        {
+          "text": "tatenda",
+          "start": 112.654,
+          "end": 113.334,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 113.474,
+      "end": 116.744,
+      "text": "Wasurenai ai wo utau you ni ne\nTo praise this unforgettable love",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Wasurenai",
+          "start": 113.594,
+          "end": 114.334,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 114.334,
+          "end": 114.954,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 114.954,
+          "end": 115.154,
+          "estimated": false
+        },
+        {
+          "text": "utau",
+          "start": 115.154,
+          "end": 115.734,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 115.894,
+          "end": 115.934,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 115.934,
+          "end": 116.274,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 116.274,
+          "end": 116.654,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 116.744,
+      "end": 122.593,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 116.744,
+          "end": 117.894,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 117.894,
+          "end": 118.934,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 118.934,
+          "end": 119.294,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 119.294,
+          "end": 119.694,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 119.694,
+          "end": 120.574,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 120.574,
+          "end": 120.894,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 120.894,
+          "end": 121.774,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 121.774,
+          "end": 122.454,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 122.593,
+      "end": 128.767,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Tomari",
+          "start": 122.593,
+          "end": 123.474,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 123.474,
+          "end": 124.354,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 124.354,
+          "end": 124.754,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 124.754,
+          "end": 125.714,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 125.714,
+          "end": 128.674,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 128.767,
+      "end": 134.779,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 128.767,
+          "end": 130.154,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 130.154,
+          "end": 131.194,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 131.194,
+          "end": 131.554,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 131.554,
+          "end": 131.954,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 131.954,
+          "end": 132.794,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 132.794,
+          "end": 133.174,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 133.174,
+          "end": 134.634,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 134.779,
+      "end": 141.412,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Zura",
+          "start": 134.779,
+          "end": 135.559,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 135.559,
+          "end": 135.799,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 135.799,
+          "end": 136.559,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 136.559,
+          "end": 136.959,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 136.959,
+          "end": 137.859,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 137.859,
+          "end": 140.679,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 140.679,
+          "end": 141.079,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 141.412,
+      "end": 144.455,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 141.412,
+          "end": 142.519,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 142.519,
+          "end": 143.625,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 143.625,
+          "end": 144.455,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 144.455,
+      "end": 147.498,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 144.455,
+          "end": 145.562,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 145.562,
+          "end": 146.668,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 146.668,
+          "end": 147.498,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 147.498,
+      "end": 150.541,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 147.498,
+          "end": 148.605,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 148.605,
+          "end": 149.711,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 149.711,
+          "end": 150.541,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 150.541,
+      "end": 153.584,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 150.541,
+          "end": 151.648,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 151.648,
+          "end": 152.754,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 152.754,
+          "end": 153.584,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 153.584,
+      "end": 156.628,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 153.584,
+          "end": 154.691,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 154.691,
+          "end": 155.798,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 155.798,
+          "end": 156.628,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 156.628,
+      "end": 159.671,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 156.628,
+          "end": 157.735,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 157.735,
+          "end": 158.841,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 158.841,
+          "end": 159.671,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 159.671,
+      "end": 162.714,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 159.671,
+          "end": 160.778,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 160.778,
+          "end": 161.884,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 161.884,
+          "end": 162.714,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 162.714,
+      "end": 165.757,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 162.714,
+          "end": 163.821,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 163.821,
+          "end": 164.927,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 164.927,
+          "end": 165.757,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 168.864,
+      "end": 174.688,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 168.864,
+          "end": 169.924,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 169.924,
+          "end": 170.864,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 170.864,
+          "end": 171.304,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 171.304,
+          "end": 171.724,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 171.724,
+          "end": 172.544,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 172.544,
+          "end": 172.864,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 172.864,
+          "end": 173.704,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 173.704,
+          "end": 174.504,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 174.688,
+      "end": 180.7,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Tomari",
+          "start": 174.688,
+          "end": 175.464,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 175.464,
+          "end": 176.304,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 176.304,
+          "end": 176.724,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 176.724,
+          "end": 177.664,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 177.664,
+          "end": 180.624,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 180.7,
+      "end": 186.873,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 180.7,
+          "end": 182.124,
+          "estimated": false
+        },
+        {
+          "text": "ano",
+          "start": 182.124,
+          "end": 183.164,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 183.164,
+          "end": 183.504,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 183.504,
+          "end": 183.904,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 183.904,
+          "end": 184.764,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 184.764,
+          "end": 185.124,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 185.124,
+          "end": 186.644,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 186.873,
+      "end": 193.155,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off",
+      "kind": "lyrics",
+      "words": [
+        {
+          "text": "Zura",
+          "start": 186.873,
+          "end": 187.544,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 187.544,
+          "end": 187.784,
+          "estimated": false
+        },
+        {
+          "text": "dokka",
+          "start": 187.784,
+          "end": 188.564,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 188.564,
+          "end": 188.964,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 188.964,
+          "end": 189.884,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 189.884,
+          "end": 192.764,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 192.764,
+          "end": 193.124,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 193.155,
+      "end": 196.236,
+      "text": "Jidai ni notte bokutachi wa\nAs we go with the times",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Jidai",
+          "start": 193.155,
+          "end": 193.844,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 193.844,
+          "end": 194.024,
+          "estimated": false
+        },
+        {
+          "text": "notte",
+          "start": 194.024,
+          "end": 194.604,
+          "estimated": false
+        },
+        {
+          "text": "bokutachi",
+          "start": 194.604,
+          "end": 195.544,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 195.544,
+          "end": 195.804,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 196.236,
+      "end": 198.992,
+      "text": "Kawarazu ai ni ikiru darou\nI guess we will continue to rely on love to live",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Kawarazu",
+          "start": 196.236,
+          "end": 197.096,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 197.096,
+          "end": 197.476,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 197.476,
+          "end": 197.676,
+          "estimated": false
+        },
+        {
+          "text": "ikiru",
+          "start": 197.676,
+          "end": 198.256,
+          "estimated": false
+        },
+        {
+          "text": "darou",
+          "start": 198.256,
+          "end": 198.796,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 198.992,
+      "end": 202.168,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we separate, I wonder if what's left",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Bokura",
+          "start": 198.992,
+          "end": 199.936,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 199.936,
+          "end": 200.076,
+          "estimated": false
+        },
+        {
+          "text": "chitte",
+          "start": 200.076,
+          "end": 200.656,
+          "estimated": false
+        },
+        {
+          "text": "nokoru",
+          "start": 200.656,
+          "end": 201.276,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 201.276,
+          "end": 201.456,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 201.456,
+          "end": 201.896,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 202.168,
+      "end": 205.384,
+      "text": "Kawaranu ai no uta nandarou na\nIs the song of never-changing love",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Kawaranu",
+          "start": 202.168,
+          "end": 203.196,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 203.196,
+          "end": 203.596,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 203.596,
+          "end": 203.796,
+          "estimated": false
+        },
+        {
+          "text": "uta",
+          "start": 203.796,
+          "end": 204.176,
+          "estimated": false
+        },
+        {
+          "text": "nandarou",
+          "start": 204.176,
+          "end": 205.056,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 205.056,
+          "end": 205.356,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 205.384,
+      "end": 208.376,
+      "text": "Jidai ni notte bokutachi wa\nAs we go with the times",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Jidai",
+          "start": 205.384,
+          "end": 206.076,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 206.076,
+          "end": 206.236,
+          "estimated": false
+        },
+        {
+          "text": "notte",
+          "start": 206.236,
+          "end": 206.816,
+          "estimated": false
+        },
+        {
+          "text": "bokutachi",
+          "start": 206.816,
+          "end": 207.776,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 207.776,
+          "end": 208.056,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 208.376,
+      "end": 211.126,
+      "text": "Kawarazu ai ni ikiru darou\nI guess we will continue to rely on love to live",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Kawarazu",
+          "start": 208.376,
+          "end": 209.336,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 209.336,
+          "end": 209.716,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 209.716,
+          "end": 209.916,
+          "estimated": false
+        },
+        {
+          "text": "ikiru",
+          "start": 209.916,
+          "end": 210.516,
+          "estimated": false
+        },
+        {
+          "text": "darou",
+          "start": 210.516,
+          "end": 211.076,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 211.126,
+      "end": 214.409,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we separate, I wonder if what's left",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Bokura",
+          "start": 211.126,
+          "end": 212.156,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 212.156,
+          "end": 212.296,
+          "estimated": false
+        },
+        {
+          "text": "chitte",
+          "start": 212.296,
+          "end": 212.876,
+          "estimated": false
+        },
+        {
+          "text": "nokoru",
+          "start": 212.876,
+          "end": 213.536,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 213.536,
+          "end": 213.696,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 213.696,
+          "end": 214.056,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 214.409,
+      "end": 220.056,
+      "text": "Kawaranu ai no uta nandarou na\nIs the song of never-changing love",
+      "kind": "lyrics",
+      "backing": "(Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru)",
+      "words": [
+        {
+          "text": "Kawaranu",
+          "start": 214.409,
+          "end": 215.416,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 215.416,
+          "end": 215.836,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 215.836,
+          "end": 216.016,
+          "estimated": false
+        },
+        {
+          "text": "uta",
+          "start": 216.016,
+          "end": 216.436,
+          "estimated": false
+        },
+        {
+          "text": "nandarou",
+          "start": 216.436,
+          "end": 217.476,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 217.476,
+          "end": 217.956,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "romanized-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 220.459,
+      "end": 222.863,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 220.459,
+          "end": 221.333,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 221.333,
+          "end": 222.207,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 222.207,
+          "end": 222.863,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 222.863,
+      "end": 225.268,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 222.863,
+          "end": 223.738,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 223.738,
+          "end": 224.612,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 224.612,
+          "end": 225.268,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 225.268,
+      "end": 227.673,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 225.268,
+          "end": 226.143,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 226.143,
+          "end": 227.017,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 227.017,
+          "end": 227.673,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 227.673,
+      "end": 230.077,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "kind": "refrain",
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru,",
+          "start": 227.673,
+          "end": 228.547,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru-ru,",
+          "start": 228.547,
+          "end": 229.421,
+          "estimated": true
+        },
+        {
+          "text": "tu-ru-ru",
+          "start": 229.421,
+          "end": 230.077,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "weighted-estimate",
+        "source": "reviewed cue bounds; no word alignment",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    }
+  ]
+}
