@@ -1,6 +1,6 @@
 'use strict';
 
-// Keep browser fullscreen separate from the page's theater layout.
+// Full-page fullscreen keeps the picture and vocal mix controls together.
 window.initCinemaFullscreen = function initCinemaFullscreen(player) {
   const root = player.root;
   const video = player.video;
@@ -59,10 +59,8 @@ window.initCinemaFullscreen = function initCinemaFullscreen(player) {
         if (!keyboardInput) video.focus({ preventScroll: true });
       }
     } else if (!active && wasActive) {
-      if (!player.theater) {
-        root.removeAttribute('role');
-        root.removeAttribute('aria-modal');
-      }
+      root.removeAttribute('role');
+      root.removeAttribute('aria-modal');
       if (!root.hidden && returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
     }
     wasActive = active;
@@ -85,14 +83,11 @@ window.initCinemaFullscreen = function initCinemaFullscreen(player) {
     try {
       if (root.requestFullscreen) await root.requestFullscreen({ navigationUI: 'hide' });
       else if (root.webkitRequestFullscreen) root.webkitRequestFullscreen();
-      else if (video.webkitEnterFullscreen && !player.usingAudio) video.webkitEnterFullscreen();
       else {
-        player.message(player.usingAudio ?
-          'This browser cannot show separate soundtracks in full screen. Choose Auto quality to use the streaming player, or use Theater mode.' :
-          'Full screen is not available in this browser. Use Theater mode.');
+        player.message('This browser cannot keep vocal mixing available in full screen. Use a browser that supports full-page fullscreen.');
       }
     } catch {
-      player.message('The browser could not enter full screen. Try the Full screen button again or use Theater mode.');
+      player.message('The browser could not enter full screen. Try the Full screen button again, or use a browser that supports full-page fullscreen.');
     }
   }
 
@@ -132,8 +127,7 @@ window.initCinemaFullscreen = function initCinemaFullscreen(player) {
     keyboardInput = true;
     if (!isRootFullscreen()) return;
     showControls();
-    // The theater handler already provides its own Tab loop.
-    if (event.key !== 'Tab' || player.theater) return;
+    if (event.key !== 'Tab') return;
     const focusable = [...root.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),a[href],[tabindex="0"]')]
       .filter(element => element.getClientRects().length);
     const first = focusable[0], last = focusable.at(-1);

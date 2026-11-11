@@ -1,6 +1,7 @@
 'use strict';
 
-// One MediaSource clock owns both picture and the selected HLS soundtrack.
+// Video-only HLS leaves soundtrack mixing to the player's aligned audio elements.
+// Older catalogs can still use the original HLS audio-group manifests.
 // Throughput is observed from normal fragment downloads; no speed test runs on open.
 class AdaptiveStream {
   constructor(player) {
@@ -11,6 +12,7 @@ class AdaptiveStream {
     this.check = player.root.querySelector('#connection-check');
     this.serial = 0;
     this.mode = 'mp4';
+    this.videoOnly = false;
     this.selected = 'original';
     this.quality?.addEventListener('change', () => player.changeQuality(this.quality.value));
     this.check?.addEventListener('click', () => this.checkConnection());
@@ -32,18 +34,23 @@ class AdaptiveStream {
     this.originalUrl = this.safeUrl(originalUrl);
     this.defaultAudio = entry.defaultAudio || 'karaoke';
     this.sourceHeight = Number(entry.sourceHeight) || null;
-    const url = this.safeUrl(entry.streaming?.url);
-    const variants = (entry.streaming?.variants || []).map(item => ({
-      height: Number(item.height), url: this.safeUrl(item.url)
-    })).filter(item => item.url && Number.isFinite(item.height) && item.height > 0);
-    this.descriptor = url && variants.length ? { url, variants } : null;
+    const readDescriptor = value => {
+      const url = this.safeUrl(value?.url);
+      const variants = (Array.isArray(value?.variants) ? value.variants : []).map(item => ({
+        height: Number(item.height), url: this.safeUrl(item.url)
+      })).filter(item => item.url && Number.isFinite(item.height) && item.height > 0);
+      return url && variants.length ? { url, variants } : null;
+    };
+    const videoOnly = readDescriptor(entry.streaming?.videoOnly);
+    this.videoOnly = Boolean(videoOnly);
+    this.descriptor = videoOnly || readDescriptor(entry.streaming);
     this.supported = Boolean(this.descriptor &&
       (window.Hls?.isSupported() || this.video.canPlayType('application/vnd.apple.mpegurl')));
     if (this.quality) {
       this.quality.replaceChildren();
       if (this.supported) {
         this.addOption('auto', 'Auto');
-        variants.forEach(item => this.addOption(String(item.height), `${item.height}p`));
+        this.descriptor.variants.forEach(item => this.addOption(String(item.height), `${item.height}p`));
       }
       this.addOption('original', `Original${this.sourceHeight ? ` · ${this.sourceHeight}p` : ''}`);
       this.quality.disabled = !this.supported;
@@ -95,7 +102,7 @@ class AdaptiveStream {
         abrEwmaDefaultEstimate: 650000,
         abrBandWidthFactor: .7,
         abrBandWidthUpFactor: .55,
-        audioPreference: { name: this.trackLabel(track) }
+        ...(this.videoOnly ? {} : { audioPreference: { name: this.trackLabel(track) } })
       });
       hls.on(Hls.Events.MEDIA_ATTACHED, () => { if (current()) hls.loadSource(this.descriptor.url); });
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
@@ -107,7 +114,7 @@ class AdaptiveStream {
       });
       hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, () => { if (current()) this.selectInitialAudio(); });
       hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (_, data) => {
-        if (!current()) return;
+        if (!current() || this.videoOnly) return;
         const name = this.trackName(hls.audioTracks[data.id]?.name);
         if (name) this.track = name;
         if (this.pendingTrack && name === this.pendingTrack.name) this.settleTrack();
@@ -146,12 +153,12 @@ class AdaptiveStream {
     } else {
       this.mode = 'native';
       // Native HLS has no portable level API. A manual choice uses a single-level
-      // master and restores the time; its audio group is retained in every master.
+      // master and restores the time. Video-only masters have no audio group.
       const variant = this.descriptor.variants.find(item => String(item.height) === this.selected);
       this.nativeReady = () => {
         if (!current()) return;
         if (position > 0 && Number.isFinite(this.video.duration)) this.video.currentTime = Math.min(position, this.video.duration);
-        if (!this.selectNativeAudio(track) && track !== this.defaultAudio) { fail(); return; }
+        if (!this.videoOnly && !this.selectNativeAudio(track) && track !== this.defaultAudio) { fail(); return; }
         deliver();
       };
       this.nativeError = fail;
@@ -187,12 +194,13 @@ class AdaptiveStream {
   }
 
   selectInitialAudio() {
-    if (!this.hls || this.pendingTrack) return;
+    if (this.videoOnly || !this.hls || this.pendingTrack) return;
     const index = this.hls.audioTracks.findIndex(item => this.trackName(item.name) === this.track);
     if (index >= 0 && this.hls.audioTrack !== index) this.hls.audioTrack = index;
   }
 
   selectNativeAudio(name) {
+    if (this.videoOnly) return false;
     const tracks = this.video.audioTracks;
     if (!tracks?.length) return false;
     const target = [...Array(tracks.length)].map((_, i) => tracks[i]).find(item => this.trackName(item.label) === name);
@@ -203,6 +211,7 @@ class AdaptiveStream {
   }
 
   switchTrack(name) {
+    if (this.videoOnly) return Promise.resolve();
     if (this.mode === 'native') return this.selectNativeAudio(name) ? Promise.resolve() : Promise.reject(new Error('Native track control unavailable'));
     if (!this.hls) return Promise.reject(new Error('Stream is closed'));
     const index = this.hls.audioTracks.findIndex(item => this.trackName(item.name) === name);

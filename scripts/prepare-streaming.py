@@ -3,6 +3,8 @@
 Only generated files under --output and streaming metadata in --catalog change.
 Original MP4s and aligned M4A soundtracks are never modified. Requires FFmpeg
 with libx264 and AAC plus FFprobe; no credentials or environment variables.
+Use --manifests-only to add video-only masters from saved rendition metadata
+without invoking FFmpeg or changing the existing media and legacy masters.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -159,6 +161,48 @@ def hls_options(folder):
             "-hls_segment_filename", str(folder / "segment-%04d.m4s"), str(folder / "index.m3u8")]
 
 
+def write_video_only_manifests(root, target, metadata):
+    header = ["#EXTM3U", "#EXT-X-VERSION:7", "#EXT-X-INDEPENDENT-SEGMENTS"]
+    configured = metadata.get("encodingLevels")
+    if configured:
+        maximums = {str(level["height"]): level["maxrate"] for level in configured}
+    else:
+        levels = metadata.get("signature", {}).get("lowBitrateLevels", LEVELS)
+        maximums = {str(height): maximum for height, _, maximum in levels}
+    lines = []
+    variants = []
+    for key, info in sorted(metadata["video"].items(), key=lambda item: int(item[0])):
+        height = int(key)
+        if not (target / key / "index.m3u8").is_file():
+            raise ValueError(f"Missing saved video rendition: {target / key}")
+        bandwidth = math.ceil(max(maximums.get(key, 0), info["peakBandwidth"]) * 1.15 / 1000) * 1000
+        line = (f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={info["averageBandwidth"]},'
+                f'RESOLUTION={info["width"]}x{height},FRAME-RATE=30.000,CODECS="avc1.64001f"')
+        rendition = f"{height}/index.m3u8"
+        path = target / f"{height}p-video-only.m3u8"
+        path.write_text("\n".join(header + [line, rendition]) + "\n", encoding="utf-8")
+        lines += [line, rendition]
+        variants.append({"height": height, "bandwidth": bandwidth, "url": path.relative_to(root).as_posix()})
+    master = target / "video-only.m3u8"
+    master.write_text("\n".join(header + lines) + "\n", encoding="utf-8")
+    return {"url": master.relative_to(root).as_posix(), "variants": variants}
+
+
+def update_video_only_catalog(args, root):
+    catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
+    selected = [entry for entry in catalog["videos"] if not args.only or entry["id"] in args.only]
+    if args.only and set(args.only) - {entry["id"] for entry in selected}:
+        raise ValueError("--only contains a song ID not found in the catalog")
+    for entry in selected:
+        if not re.fullmatch(r"[a-zA-Z0-9_-]+", entry["id"]):
+            raise ValueError(f"Unsafe catalog ID: {entry['id']}")
+        target = args.output / entry["id"]
+        metadata = json.loads((target / "renditions.json").read_text(encoding="utf-8"))
+        entry.setdefault("streaming", {})["videoOnly"] = write_video_only_manifests(root, target, metadata)
+    write_json(args.catalog, catalog)
+    print(f"Saved video-only masters for {len(selected)} songs; existing media and legacy masters retained.", flush=True)
+
+
 def prepare(args, root, entry):
     song_id = entry["id"]
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", song_id):
@@ -186,6 +230,7 @@ def prepare(args, root, entry):
             expected = saved.get("outputFiles", {})
             if expected and all((target / name).is_file() and (target / name).stat().st_size == size
                                 for name, size in expected.items()):
+                saved["streaming"]["videoOnly"] = write_video_only_manifests(root, target, saved)
                 print(f"Skipped complete {song_id}", flush=True)
                 return song_id, saved
     preparation = target / "preparation.json"
@@ -255,6 +300,7 @@ def prepare(args, root, entry):
                          "url": (target / f"{height}p.m3u8").relative_to(root).as_posix()})
     (target / "master.m3u8").write_text("\n".join(header + variant_lines) + "\n", encoding="utf-8")
     metadata["streaming"] = {"url": (target / "master.m3u8").relative_to(root).as_posix(), "variants": variants}
+    metadata["streaming"]["videoOnly"] = write_video_only_manifests(root, target, metadata)
     metadata["outputFiles"] = {path.relative_to(target).as_posix(): path.stat().st_size
                                 for path in target.rglob("*") if path.is_file() and path != marker}
     metadata["totalBytes"] = sum(metadata["outputFiles"].values())
@@ -317,6 +363,7 @@ def main():
     parser.add_argument("--jobs", type=int, default=2)
     parser.add_argument("--threads", type=int, default=4)
     parser.add_argument("--skip-existing", action="store_true")
+    parser.add_argument("--manifests-only", action="store_true", help="Add video-only masters using saved metadata; never encode media")
     parser.add_argument("--only", action="append", help="Prepare only this catalog ID; repeat to select multiple songs")
     args = parser.parse_args()
     args.output = args.output.resolve()
@@ -327,7 +374,10 @@ def main():
         parser.error("Use 1–4 jobs and 1–16 threads")
     args.logs.mkdir(parents=True, exist_ok=True)
     with production_lock(root, args.output):
-        prepare_catalog(args, root)
+        if args.manifests_only:
+            update_video_only_catalog(args, root)
+        else:
+            prepare_catalog(args, root)
 
 
 if __name__ == "__main__":

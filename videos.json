@@ -30,7 +30,22 @@
             "bandwidth": 1743000,
             "url": "media/streams-v1/hamantha/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/hamantha/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 646000,
+              "url": "media/streams-v1/hamantha/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1585000,
+              "url": "media/streams-v1/hamantha/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/hamantha.json",
@@ -66,7 +81,22 @@
             "bandwidth": 1580000,
             "url": "media/streams-v1/die-for-you/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/die-for-you/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 621000,
+              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1428000,
+              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/die-for-you.json",
@@ -103,7 +133,22 @@
             "bandwidth": 1508000,
             "url": "media/streams-v1/nice-boys/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/nice-boys/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 560000,
+              "url": "media/streams-v1/nice-boys/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1352000,
+              "url": "media/streams-v1/nice-boys/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/nice-boys.json",
@@ -139,7 +184,22 @@
             "bandwidth": 1589000,
             "url": "media/streams-v1/die-for-you-karaoke/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/die-for-you-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 622000,
+              "url": "media/streams-v1/die-for-you-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1437000,
+              "url": "media/streams-v1/die-for-you-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/die-for-you.json",
@@ -176,7 +236,22 @@
             "bandwidth": 468000,
             "url": "media/streams-v1/bad-bad-water-english/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/bad-bad-water-english/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 230000,
+              "url": "media/streams-v1/bad-bad-water-english/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 309000,
+              "url": "media/streams-v1/bad-bad-water-english/720p-video-only.m3u8"
+            }
+          ]
+        }
       }
     },
     {
@@ -207,7 +282,22 @@
             "bandwidth": 1685000,
             "url": "media/streams-v1/data-and-picard-lyrics/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/data-and-picard-lyrics/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 667000,
+              "url": "media/streams-v1/data-and-picard-lyrics/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1530000,
+              "url": "media/streams-v1/data-and-picard-lyrics/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/data-and-picard.json",
@@ -243,7 +333,22 @@
             "bandwidth": 1507000,
             "url": "media/streams-v1/shes-a-big-boy-karaoke/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/shes-a-big-boy-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 520000,
+              "url": "media/streams-v1/shes-a-big-boy-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1350000,
+              "url": "media/streams-v1/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/shes-a-big-boy.json",
@@ -279,7 +384,22 @@
             "bandwidth": 1700000,
             "url": "media/streams-v1/odoriko-bilingual-karaoke/720p.m3u8"
           }
-        ]
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/odoriko-bilingual-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 615000,
+              "url": "media/streams-v1/odoriko-bilingual-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1544000,
+              "url": "media/streams-v1/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
       },
       "lyrics": {
         "url": "assets/lyrics-v1/odoriko.json",
