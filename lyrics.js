@@ -57,6 +57,9 @@ class LyricPreview {
   async open(entry) {
     this.close();
     this.showCurrent = entry.lyrics?.showCurrent === true;
+    this.externalCaptions = entry.lyrics?.placement === 'bottom';
+    this.overlay?.classList.toggle('external-captions', this.externalCaptions);
+    this.root.classList.toggle('external-lyrics', this.externalCaptions);
     const generation = this.generation;
     const url = this.assetUrl(entry.lyrics?.url);
     if (!url || !this.overlay) return;
@@ -71,13 +74,14 @@ class LyricPreview {
       if (!Array.isArray(data.cues)) throw new Error('Invalid lyrics');
       this.cues = data.cues.filter(cue => Number.isFinite(cue.start) && Number.isFinite(cue.end) &&
         cue.start >= 0 && cue.end > cue.start && typeof cue.text === 'string' && cue.text.trim())
-        .map(cue => ({ start: cue.start, end: cue.end, text: cue.text }))
+        .map(cue => ({ start: cue.start, end: cue.end, text: cue.text,
+          backing: typeof cue.backing === 'string' ? cue.backing.trim() : '' }))
         .sort((a, b) => a.start - b.start);
       const vtt = this.assetUrl(entry.lyrics.vtt);
       if (vtt && this.cues.length) {
         this.track = document.createElement('track');
         this.track.kind = 'subtitles';
-        this.track.label = 'Next lyric';
+        this.track.label = this.externalCaptions ? 'Lyrics' : 'Next lyric';
         this.track.srclang = entry.lyrics.language || 'en';
         this.track.src = vtt;
         this.track.addEventListener('load', () => this.updateNativeTrack());
@@ -99,8 +103,10 @@ class LyricPreview {
     if (!this.button) return;
     this.button.hidden = !this.cues.length;
     this.button.setAttribute('aria-pressed', String(this.enabled));
-    this.button.textContent = this.enabled ? 'Next lyric: on' : 'Next lyric: off';
-    this.button.setAttribute('aria-label', this.enabled ? 'Hide the next lyric preview' : 'Show the next lyric preview');
+    const singleOverlay = this.externalCaptions;
+    this.button.textContent = `${singleOverlay ? 'Lyrics' : 'Next lyric'}: ${this.enabled ? 'on' : 'off'}`;
+    this.button.setAttribute('aria-label', singleOverlay ? (this.enabled ? 'Hide lyrics' : 'Show lyrics') :
+      (this.enabled ? 'Hide the next lyric preview' : 'Show the next lyric preview'));
   }
 
   updateNativeTrack() {
@@ -134,30 +140,46 @@ class LyricPreview {
     if (!this.overlay) return;
     const time = this.video.currentTime || 0;
     const visible = this.enabled && !this.nativeFullscreen && !this.video.ended;
-    const preview = visible ? this.upcoming(time) : null;
+    let preview = visible ? this.upcoming(time) : null;
     const candidate = this.cues[this.indexAt(time) - 1];
     const current = visible && this.showCurrent && candidate && time < candidate.end ? candidate : null;
+    if (this.externalCaptions && current && preview && current.text === preview.cue.text && current.backing === preview.cue.backing) preview = null;
     this.overlay.hidden = !preview && !current;
     this.overlay.classList.toggle('has-current', Boolean(current));
     this.currentText.hidden = !current;
-    if (current && this.currentText.textContent !== current.text) this.currentText.textContent = current.text;
+    if (current && this.bilingual && this.renderedCurrent !== current) {
+      this.renderCue(this.currentText, current);
+      this.renderedCurrent = current;
+    } else if (current && !this.bilingual && this.currentText.textContent !== current.text) this.currentText.textContent = current.text;
     this.label.hidden = !preview;
     this.text.hidden = !preview;
     if (!preview) return;
     const label = preview.countdown ? `Next · starts in ${Math.max(1, Math.ceil(preview.cue.start - this.video.currentTime))}s` : 'Next';
     if (this.label.textContent !== label) this.label.textContent = label;
-    if (this.text.textContent !== preview.cue.text) {
-      const primary = document.createElement('span');
-      primary.className = 'lyric-primary';
-      const parts = preview.cue.text.split('\n');
-      primary.textContent = this.bilingual ? parts.shift() : preview.cue.text;
-      this.text.replaceChildren(primary);
-      if (this.bilingual && parts.length) {
-        const translation = document.createElement('span');
-        translation.className = 'lyric-translation';
-        translation.textContent = parts.join('\n');
-        this.text.append(document.createTextNode('\n'), translation);
-      }
+    if (this.renderedPreview !== preview.cue) {
+      this.renderCue(this.text, preview.cue);
+      this.renderedPreview = preview.cue;
+    }
+  }
+
+  renderCue(container, cue) {
+    const primary = document.createElement('span');
+    primary.className = 'lyric-primary';
+    const parts = cue.text.split('\n');
+    primary.textContent = this.bilingual ? parts.shift() : cue.text;
+    container.replaceChildren(primary);
+    // Keep a simultaneous backing response attached to its own lead line.
+    if (cue.backing) {
+      const backing = document.createElement('span');
+      backing.className = 'lyric-backing';
+      backing.textContent = cue.backing;
+      container.append(backing);
+    }
+    if (this.bilingual && parts.length) {
+      const translation = document.createElement('span');
+      translation.className = 'lyric-translation';
+      translation.textContent = parts.join('\n');
+      container.append(translation);
     }
   }
 
@@ -171,9 +193,13 @@ class LyricPreview {
       this.track = null;
     }
     this.cues = [];
+    this.renderedPreview = null;
+    this.renderedCurrent = null;
     this.showCurrent = false;
+    this.externalCaptions = false;
     this.bilingual = false;
-    this.overlay?.classList.remove('bilingual', 'has-current');
+    this.overlay?.classList.remove('bilingual', 'has-current', 'external-captions');
+    this.root.classList.remove('external-lyrics');
     if (this.overlay) this.overlay.hidden = true;
     if (this.text) this.text.textContent = '';
     if (this.currentText) { this.currentText.textContent = ''; this.currentText.hidden = true; }

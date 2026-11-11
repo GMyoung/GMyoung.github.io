@@ -1,0 +1,426 @@
+{
+  "playlistUrl": "https://www.youtube.com/playlist?list=PLAfZ1a3GR-R8",
+  "videos": [
+    {
+      "id": "hamantha",
+      "title": "The Ballad of Hamantha",
+      "artist": "Jack Stauber",
+      "type": "instrumental",
+      "duration": "6:04",
+      "label": "Animated edit · on-screen lyrics",
+      "poster": "assets/hamantha.jpg",
+      "url": "media/hamantha-instrumental.mp4",
+      "karaoke": true,
+      "audio": {
+        "original": "audio/hamantha-original-v1.m4a",
+        "karaoke": "audio/hamantha-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "media/streams-v1/hamantha/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 804000,
+            "url": "media/streams-v1/hamantha/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1743000,
+            "url": "media/streams-v1/hamantha/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/hamantha/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 646000,
+              "url": "media/streams-v1/hamantha/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1585000,
+              "url": "media/streams-v1/hamantha/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v1/hamantha.json",
+        "vtt": "assets/lyrics-v1/hamantha.vtt",
+        "language": "en"
+      }
+    },
+    {
+      "id": "die-for-you",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "instrumental",
+      "duration": "3:32",
+      "label": "Original music video",
+      "poster": "assets/die-for-you.jpg",
+      "url": "media/die-for-you-instrumental.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "media/streams-v1/die-for-you/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 773000,
+            "url": "media/streams-v1/die-for-you/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1580000,
+            "url": "media/streams-v1/die-for-you/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/die-for-you/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 621000,
+              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1428000,
+              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v2/die-for-you.json",
+        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "nice-boys",
+      "title": "Nice Boys",
+      "artist": "TEMPOREX",
+      "type": "instrumental",
+      "duration": "2:59",
+      "label": "Manga edit · on-screen lyrics",
+      "karaoke": true,
+      "url": "media/nice-boys-instrumental.mp4",
+      "audio": {
+        "original": "audio/nice-boys-original-v1.m4a",
+        "karaoke": "audio/nice-boys-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "media/streams-v1/nice-boys/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 716000,
+            "url": "media/streams-v1/nice-boys/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1508000,
+            "url": "media/streams-v1/nice-boys/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/nice-boys/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 560000,
+              "url": "media/streams-v1/nice-boys/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1352000,
+              "url": "media/streams-v1/nice-boys/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v1/nice-boys.json",
+        "vtt": "assets/lyrics-v1/nice-boys.vtt",
+        "language": "en"
+      }
+    },
+    {
+      "id": "die-for-you-karaoke",
+      "title": "Die For You",
+      "artist": "Joji",
+      "type": "karaoke",
+      "duration": "3:32",
+      "label": "Original music video · synced lyrics",
+      "karaoke": true,
+      "url": "media/die-for-you-instrumental.mp4",
+      "audio": {
+        "original": "audio/die-for-you-original-v1.m4a",
+        "karaoke": "audio/die-for-you-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "media/streams-v1/die-for-you/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 773000,
+            "url": "media/streams-v1/die-for-you/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1580000,
+            "url": "media/streams-v1/die-for-you/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/die-for-you/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 621000,
+              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1428000,
+              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v2/die-for-you.json",
+        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "bad-bad-water-english",
+      "title": "Bad Bad Water",
+      "artist": "ChiliChill · Luo Tianyi",
+      "type": "karaoke",
+      "duration": "3:46",
+      "label": "Chinese + English · larger frame-synced lyrics",
+      "karaoke": true,
+      "url": "media/bad-bad-water-english-v2.mp4",
+      "source": "https://www.bilibili.com/video/BV1RY411T75u/",
+      "audio": {
+        "original": "audio/bad-bad-water-original-v1.m4a",
+        "karaoke": "audio/bad-bad-water-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "media/streams-v1/bad-bad-water-english/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 388000,
+            "url": "media/streams-v1/bad-bad-water-english/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 468000,
+            "url": "media/streams-v1/bad-bad-water-english/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v1/bad-bad-water-english/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 230000,
+              "url": "media/streams-v1/bad-bad-water-english/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 309000,
+              "url": "media/streams-v1/bad-bad-water-english/720p-video-only.m3u8"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "data-and-picard-lyrics",
+      "title": "Data & Picard",
+      "artist": "Pogo",
+      "type": "karaoke",
+      "duration": "3:17",
+      "label": "Original vocals · English lyrics",
+      "karaoke": true,
+      "url": "media/data-and-picard-original-v2.mp4",
+      "audio": {
+        "original": "audio/data-and-picard-original-v1.m4a",
+        "karaoke": "audio/data-and-picard-karaoke-v1.m4a"
+      },
+      "defaultAudio": "original",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "media/streams-v2/data-and-picard-lyrics/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 801000,
+            "url": "media/streams-v2/data-and-picard-lyrics/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1689000,
+            "url": "media/streams-v2/data-and-picard-lyrics/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v2/data-and-picard-lyrics/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 645000,
+              "url": "media/streams-v2/data-and-picard-lyrics/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1533000,
+              "url": "media/streams-v2/data-and-picard-lyrics/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v2/data-and-picard.json",
+        "vtt": "assets/lyrics-v2/data-and-picard-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "shes-a-big-boy-karaoke",
+      "title": "She's a Big Boy",
+      "artist": "Mcbaise",
+      "type": "karaoke",
+      "duration": "4:40",
+      "label": "Original music video · synced lyrics",
+      "karaoke": true,
+      "url": "media/shes-a-big-boy-original-v2.mp4",
+      "audio": {
+        "original": "audio/shes-a-big-boy-original-v1.m4a",
+        "karaoke": "audio/shes-a-big-boy-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "media/streams-v2/shes-a-big-boy-karaoke/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 696000,
+            "url": "media/streams-v2/shes-a-big-boy-karaoke/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1639000,
+            "url": "media/streams-v2/shes-a-big-boy-karaoke/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v2/shes-a-big-boy-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 539000,
+              "url": "media/streams-v2/shes-a-big-boy-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1482000,
+              "url": "media/streams-v2/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v2/shes-a-big-boy.json",
+        "vtt": "assets/lyrics-v2/shes-a-big-boy-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "odoriko-bilingual-karaoke",
+      "title": "Odoriko",
+      "artist": "Vaundy",
+      "type": "karaoke",
+      "duration": "4:05",
+      "label": "Romaji + English · guide vocal at 70%",
+      "karaoke": true,
+      "url": "media/odoriko-original-v2.mp4",
+      "audio": {
+        "original": "audio/odoriko-original-v1.m4a",
+        "karaoke": "audio/odoriko-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "media/streams-v2/odoriko-bilingual-karaoke/master.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 795000,
+            "url": "media/streams-v2/odoriko-bilingual-karaoke/360p.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1696000,
+            "url": "media/streams-v2/odoriko-bilingual-karaoke/720p.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v2/odoriko-bilingual-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 639000,
+              "url": "media/streams-v2/odoriko-bilingual-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1540000,
+              "url": "media/streams-v2/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v2/odoriko.json",
+        "vtt": "assets/lyrics-v2/odoriko-current.vtt",
+        "language": "ja-Latn",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    }
+  ],
+  "showPlaylist": false,
+  "hostingPolicy": {
+    "preferred": "YouTube Unlisted",
+    "fallback": "GitHub Pages adaptive HLS with original MP4 fallback",
+    "note": "Use YouTube when upload succeeds; keep adaptive streaming and original MP4 available."
+  }
+}

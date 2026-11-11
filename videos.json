@@ -99,10 +99,11 @@
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v1/die-for-you.json",
-        "vtt": "assets/lyrics-v1/die-for-you-current.vtt",
+        "url": "assets/lyrics-v2/die-for-you.json",
+        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
         "language": "en",
-        "showCurrent": true
+        "showCurrent": true,
+        "placement": "bottom"
       }
     },
     {
@@ -162,9 +163,9 @@
       "artist": "Joji",
       "type": "karaoke",
       "duration": "3:32",
-      "label": "Word-highlighted lyrics",
+      "label": "Original music video · synced lyrics",
       "karaoke": true,
-      "url": "media/die-for-you-karaoke.mp4",
+      "url": "media/die-for-you-instrumental.mp4",
       "audio": {
         "original": "audio/die-for-you-original-v1.m4a",
         "karaoke": "audio/die-for-you-karaoke-v1.m4a"
@@ -172,39 +173,41 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/die-for-you-karaoke/master.m3u8",
+        "url": "media/streams-v1/die-for-you/master.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 774000,
-            "url": "media/streams-v1/die-for-you-karaoke/360p.m3u8"
+            "bandwidth": 773000,
+            "url": "media/streams-v1/die-for-you/360p.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1589000,
-            "url": "media/streams-v1/die-for-you-karaoke/720p.m3u8"
+            "bandwidth": 1580000,
+            "url": "media/streams-v1/die-for-you/720p.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/die-for-you-karaoke/video-only.m3u8",
+          "url": "media/streams-v1/die-for-you/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 622000,
-              "url": "media/streams-v1/die-for-you-karaoke/360p-video-only.m3u8"
+              "bandwidth": 621000,
+              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 1437000,
-              "url": "media/streams-v1/die-for-you-karaoke/720p-video-only.m3u8"
+              "bandwidth": 1428000,
+              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
             }
           ]
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v1/die-for-you.json",
-        "vtt": "assets/lyrics-v1/die-for-you.vtt",
-        "language": "en"
+        "url": "assets/lyrics-v2/die-for-you.json",
+        "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
       }
     },
     {
@@ -262,7 +265,7 @@
       "duration": "3:17",
       "label": "Original vocals · English lyrics",
       "karaoke": true,
-      "url": "media/data-and-picard-lyrics-v1.mp4",
+      "url": "media/data-and-picard-original-v2.mp4",
       "audio": {
         "original": "audio/data-and-picard-original-v1.m4a",
         "karaoke": "audio/data-and-picard-karaoke-v1.m4a"
@@ -270,39 +273,41 @@
       "defaultAudio": "original",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v1/data-and-picard-lyrics/master.m3u8",
+        "url": "media/streams-v2/data-and-picard-lyrics/master.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 823000,
-            "url": "media/streams-v1/data-and-picard-lyrics/360p.m3u8"
+            "bandwidth": 801000,
+            "url": "media/streams-v2/data-and-picard-lyrics/360p.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1685000,
-            "url": "media/streams-v1/data-and-picard-lyrics/720p.m3u8"
+            "bandwidth": 1689000,
+            "url": "media/streams-v2/data-and-picard-lyrics/720p.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/data-and-picard-lyrics/video-only.m3u8",
+          "url": "media/streams-v2/data-and-picard-lyrics/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 667000,
-              "url": "media/streams-v1/data-and-picard-lyrics/360p-video-only.m3u8"
+              "bandwidth": 645000,
+              "url": "media/streams-v2/data-and-picard-lyrics/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 1530000,
-              "url": "media/streams-v1/data-and-picard-lyrics/720p-video-only.m3u8"
+              "bandwidth": 1533000,
+              "url": "media/streams-v2/data-and-picard-lyrics/720p-video-only.m3u8"
             }
           ]
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v1/data-and-picard.json",
-        "vtt": "assets/lyrics-v1/data-and-picard.vtt",
-        "language": "en"
+        "url": "assets/lyrics-v2/data-and-picard.json",
+        "vtt": "assets/lyrics-v2/data-and-picard-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
       }
     },
     {
@@ -311,49 +316,51 @@
       "artist": "Mcbaise",
       "type": "karaoke",
       "duration": "4:40",
-      "label": "Original MV · word-highlighted lyrics",
+      "label": "Original music video · synced lyrics",
       "karaoke": true,
-      "url": "media/shes-a-big-boy-karaoke-v1.mp4",
+      "url": "media/shes-a-big-boy-original-v2.mp4",
       "audio": {
         "original": "audio/shes-a-big-boy-original-v1.m4a",
         "karaoke": "audio/shes-a-big-boy-karaoke-v1.m4a"
       },
       "defaultAudio": "karaoke",
-      "sourceHeight": 720,
+      "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v1/shes-a-big-boy-karaoke/master.m3u8",
+        "url": "media/streams-v2/shes-a-big-boy-karaoke/master.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 677000,
-            "url": "media/streams-v1/shes-a-big-boy-karaoke/360p.m3u8"
+            "bandwidth": 696000,
+            "url": "media/streams-v2/shes-a-big-boy-karaoke/360p.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1507000,
-            "url": "media/streams-v1/shes-a-big-boy-karaoke/720p.m3u8"
+            "bandwidth": 1639000,
+            "url": "media/streams-v2/shes-a-big-boy-karaoke/720p.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/shes-a-big-boy-karaoke/video-only.m3u8",
+          "url": "media/streams-v2/shes-a-big-boy-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 520000,
-              "url": "media/streams-v1/shes-a-big-boy-karaoke/360p-video-only.m3u8"
+              "bandwidth": 539000,
+              "url": "media/streams-v2/shes-a-big-boy-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 1350000,
-              "url": "media/streams-v1/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+              "bandwidth": 1482000,
+              "url": "media/streams-v2/shes-a-big-boy-karaoke/720p-video-only.m3u8"
             }
           ]
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v1/shes-a-big-boy.json",
-        "vtt": "assets/lyrics-v1/shes-a-big-boy.vtt",
-        "language": "en"
+        "url": "assets/lyrics-v2/shes-a-big-boy.json",
+        "vtt": "assets/lyrics-v2/shes-a-big-boy-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
       }
     },
     {
@@ -364,7 +371,7 @@
       "duration": "4:05",
       "label": "Romaji + English · guide vocal at 70%",
       "karaoke": true,
-      "url": "media/odoriko-romaji-english-guide-v1.mp4",
+      "url": "media/odoriko-original-v2.mp4",
       "audio": {
         "original": "audio/odoriko-original-v1.m4a",
         "karaoke": "audio/odoriko-karaoke-v1.m4a"
@@ -372,39 +379,41 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v1/odoriko-bilingual-karaoke/master.m3u8",
+        "url": "media/streams-v2/odoriko-bilingual-karaoke/master.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 771000,
-            "url": "media/streams-v1/odoriko-bilingual-karaoke/360p.m3u8"
+            "bandwidth": 795000,
+            "url": "media/streams-v2/odoriko-bilingual-karaoke/360p.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1700000,
-            "url": "media/streams-v1/odoriko-bilingual-karaoke/720p.m3u8"
+            "bandwidth": 1696000,
+            "url": "media/streams-v2/odoriko-bilingual-karaoke/720p.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/odoriko-bilingual-karaoke/video-only.m3u8",
+          "url": "media/streams-v2/odoriko-bilingual-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 615000,
-              "url": "media/streams-v1/odoriko-bilingual-karaoke/360p-video-only.m3u8"
+              "bandwidth": 639000,
+              "url": "media/streams-v2/odoriko-bilingual-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 1544000,
-              "url": "media/streams-v1/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+              "bandwidth": 1540000,
+              "url": "media/streams-v2/odoriko-bilingual-karaoke/720p-video-only.m3u8"
             }
           ]
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v1/odoriko.json",
-        "vtt": "assets/lyrics-v1/odoriko.vtt",
-        "language": "ja-Latn"
+        "url": "assets/lyrics-v2/odoriko.json",
+        "vtt": "assets/lyrics-v2/odoriko-current.vtt",
+        "language": "ja-Latn",
+        "showCurrent": true,
+        "placement": "bottom"
       }
     }
   ],

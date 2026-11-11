@@ -31,6 +31,11 @@ window.initCinemaFullscreen = function initCinemaFullscreen(player) {
   const isActive = () => isRootFullscreen() || fullscreenElement() === video || nativeVideoFullscreen;
   const controlHasFocus = () => keyboardInput && root.contains(document.activeElement) &&
     document.activeElement.matches('button,input,select,a,[role="button"]');
+  // External captions sit above the visible transport, then return to the
+  // bottom of the picture when the fullscreen controls fade out.
+  const measureControls = () => root.style.setProperty('--player-controls-height', `${Math.ceil(bottom.getBoundingClientRect().height)}px`);
+  if (window.ResizeObserver) new ResizeObserver(measureControls).observe(bottom);
+  window.addEventListener('resize', measureControls);
 
   function showControls(event) {
     if (event?.pointerType) mouseInput = event.pointerType === 'mouse';
@@ -48,6 +53,7 @@ window.initCinemaFullscreen = function initCinemaFullscreen(player) {
   function updateFullscreen() {
     const active = isActive();
     root.classList.toggle('fullscreen-active', isRootFullscreen());
+    measureControls();
     document.body.classList.toggle('fullscreen-open', active);
     button.textContent = active ? 'Exit full screen' : 'Full screen';
     button.setAttribute('aria-pressed', String(active));

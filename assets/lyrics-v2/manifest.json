@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "entries": {
+    "odoriko-bilingual-karaoke": {
+      "url": "assets/lyrics-v2/odoriko.json",
+      "vtt": "assets/lyrics-v2/odoriko-current.vtt",
+      "language": "ja-Latn",
+      "showCurrent": true
+    },
+    "die-for-you": {
+      "url": "assets/lyrics-v2/die-for-you.json",
+      "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+      "language": "en",
+      "showCurrent": true
+    },
+    "die-for-you-karaoke": {
+      "url": "assets/lyrics-v2/die-for-you.json",
+      "vtt": "assets/lyrics-v2/die-for-you-current.vtt",
+      "language": "en",
+      "showCurrent": true
+    },
+    "data-and-picard-lyrics": {
+      "url": "assets/lyrics-v2/data-and-picard.json",
+      "vtt": "assets/lyrics-v2/data-and-picard-current.vtt",
+      "language": "en",
+      "showCurrent": true
+    },
+    "shes-a-big-boy-karaoke": {
+      "url": "assets/lyrics-v2/shes-a-big-boy.json",
+      "vtt": "assets/lyrics-v2/shes-a-big-boy-current.vtt",
+      "language": "en",
+      "showCurrent": true
+    }
+  }
+}
