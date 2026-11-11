@@ -1,0 +1,4 @@
+# Generated media packages retain exact bytes for resumable preparation metadata.
+media/streams-*/** -text whitespace=cr-at-eol
+# Retain the upstream checksum of the locally vendored player and license.
+assets/vendor/* -text

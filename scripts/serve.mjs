@@ -5,7 +5,7 @@ import path from 'node:path';
 
 const root = path.resolve(process.cwd());
 const port = Number(process.env.PORT || 8780);
-const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.m4a':'audio/mp4', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg' };
+const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.mp4':'video/mp4', '.m4a':'audio/mp4', '.m3u8':'application/vnd.apple.mpegurl', '.m4s':'video/iso.segment', '.vtt':'text/vtt; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.jpg':'image/jpeg' };
 const server = http.createServer(async (request, response) => {
   try {
     let name = decodeURIComponent(new URL(request.url, 'http://127.0.0.1').pathname);

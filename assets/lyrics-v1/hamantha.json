@@ -1,0 +1,346 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 24.25,
+      "end": 28.75,
+      "text": "Life's extension lottery"
+    },
+    {
+      "start": 28.75,
+      "end": 33.25,
+      "text": "Kind to some, but not to thee"
+    },
+    {
+      "start": 33.25,
+      "end": 37.25,
+      "text": "Born with a rare and sad disease"
+    },
+    {
+      "start": 37.25,
+      "end": 42.25,
+      "text": "She grew a ham where her head should be"
+    },
+    {
+      "start": 42.25,
+      "end": 46.25,
+      "text": "Flowing hair, she was a cutie pie"
+    },
+    {
+      "start": 46.25,
+      "end": 50.25,
+      "text": "Meaty face and a lovely eye"
+    },
+    {
+      "start": 50.25,
+      "end": 54.25,
+      "text": "Her dream was to be a famous star"
+    },
+    {
+      "start": 54.25,
+      "end": 59.25,
+      "text": "But at the rate she was goin', she wasn't going far"
+    },
+    {
+      "start": 59.25,
+      "end": 63.25,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 63.25,
+      "end": 68.25,
+      "text": "You were impossible to ignore"
+    },
+    {
+      "start": 68.25,
+      "end": 72.25,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 72.25,
+      "end": 76.25,
+      "text": "So greedy we wanted more"
+    },
+    {
+      "start": 94.75,
+      "end": 98.75,
+      "text": "Her father was a simple man"
+    },
+    {
+      "start": 98.75,
+      "end": 103.25,
+      "text": "He wanted to help, \"in any way that I can!\""
+    },
+    {
+      "start": 103.25,
+      "end": 107.25,
+      "text": "Home from school, he watched his daughter cry"
+    },
+    {
+      "start": 107.25,
+      "end": 111.75,
+      "text": "In the yard, he cursed God and fired at the sky"
+    },
+    {
+      "start": 112.75,
+      "end": 116.75,
+      "text": "Flowing hair, she was a cutie pie"
+    },
+    {
+      "start": 116.75,
+      "end": 120.75,
+      "text": "Meaty face and a lovely eye"
+    },
+    {
+      "start": 120.75,
+      "end": 124.75,
+      "text": "Her dreams in the sky, her father felt her pain"
+    },
+    {
+      "start": 124.75,
+      "end": 129.75,
+      "text": "And as he shot at the clouds, it began to rain"
+    },
+    {
+      "start": 129.75,
+      "end": 133.75,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 133.75,
+      "end": 138.75,
+      "text": "You were impossible to ignore"
+    },
+    {
+      "start": 138.75,
+      "end": 142.75,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 142.75,
+      "end": 147.25,
+      "text": "So greedy we wanted more"
+    },
+    {
+      "start": 147.75,
+      "end": 152.25,
+      "text": "Got a call from the doctor"
+    },
+    {
+      "start": 152.25,
+      "end": 157.25,
+      "text": "He had some amazing news for her"
+    },
+    {
+      "start": 157.25,
+      "end": 162.25,
+      "text": "He just developed a cure"
+    },
+    {
+      "start": 162.25,
+      "end": 167.75,
+      "text": "If she hurried over now, he'd try it out on her"
+    },
+    {
+      "start": 167.75,
+      "end": 172.25,
+      "text": "Burst out the door, she was beaming"
+    },
+    {
+      "start": 172.25,
+      "end": 177.25,
+      "text": "Among the raindrops her happy tears were streaming"
+    },
+    {
+      "start": 177.25,
+      "end": 181.75,
+      "text": "Finally freed from her pain"
+    },
+    {
+      "start": 181.75,
+      "end": 186.75,
+      "text": "But something else fell with the rain"
+    },
+    {
+      "start": 186.75,
+      "end": 192.25,
+      "text": "A stray bullet shot by her father"
+    },
+    {
+      "start": 192.25,
+      "end": 196.75,
+      "text": "Aimlessly nested inside her"
+    },
+    {
+      "start": 196.75,
+      "end": 201.75,
+      "text": "She fell to the sidewalk, now empty"
+    },
+    {
+      "start": 201.75,
+      "end": 208.75,
+      "text": "Of the life which once christened her body"
+    },
+    {
+      "start": 232.25,
+      "end": 235.75,
+      "text": "- Nurse, s-she's... she's gone"
+    },
+    {
+      "start": 235.75,
+      "end": 238.25,
+      "text": "- O-oh... oh dear"
+    },
+    {
+      "start": 238.25,
+      "end": 242.25,
+      "text": "- I left a lunch on the table in the operating room"
+    },
+    {
+      "start": 242.25,
+      "end": 244.25,
+      "text": "- for the bereaved..."
+    },
+    {
+      "start": 244.25,
+      "end": 247.75,
+      "text": "- a cooked ham, as is customary"
+    },
+    {
+      "start": 247.75,
+      "end": 251.25,
+      "text": "- for these... dark situations"
+    },
+    {
+      "start": 251.25,
+      "end": 252.75,
+      "text": "- U-uh, Doctor, what... which one is the..."
+    },
+    {
+      "start": 252.75,
+      "end": 254.75,
+      "text": "- I, I must... I must go...\n- U-uh, Doctor, what... which one is the..."
+    },
+    {
+      "start": 254.75,
+      "end": 255.25,
+      "text": "- I, I must... I must go...\n- which... which one is the ham that—?"
+    },
+    {
+      "start": 255.25,
+      "end": 257.75,
+      "text": "- I must... I must go, I'm on break\n- which... which one is the ham that—?"
+    },
+    {
+      "start": 257.75,
+      "end": 260.25,
+      "text": "- Oh dear"
+    },
+    {
+      "start": 262.25,
+      "end": 266.25,
+      "text": "Flowing hair, she was a cutie pie"
+    },
+    {
+      "start": 266.25,
+      "end": 270.25,
+      "text": "Meaty face and a lovely eye"
+    },
+    {
+      "start": 270.25,
+      "end": 272.75,
+      "text": "At her time of death"
+    },
+    {
+      "start": 272.75,
+      "end": 274.25,
+      "text": "The doc said \"time to eat!\""
+    },
+    {
+      "start": 274.25,
+      "end": 279.75,
+      "text": "So we took a bite out of her face meat"
+    },
+    {
+      "start": 279.75,
+      "end": 283.25,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 283.25,
+      "end": 288.25,
+      "text": "You were impossible to ignore"
+    },
+    {
+      "start": 288.25,
+      "end": 292.75,
+      "text": "Hamantha, Hamantha"
+    },
+    {
+      "start": 292.75,
+      "end": 297.25,
+      "text": "So greedy we wanted more"
+    },
+    {
+      "start": 297.25,
+      "end": 301.75,
+      "text": "Soaring infinitely through space"
+    },
+    {
+      "start": 301.75,
+      "end": 306.25,
+      "text": "Hamantha's soul was graced"
+    },
+    {
+      "start": 306.25,
+      "end": 310.75,
+      "text": "With a glance of our humble planet"
+    },
+    {
+      "start": 310.75,
+      "end": 314.75,
+      "text": "At which she was amazed"
+    },
+    {
+      "start": 314.75,
+      "end": 318.75,
+      "text": "The news of her untimely death"
+    },
+    {
+      "start": 318.75,
+      "end": 323.75,
+      "text": "Had spread out near and far"
+    },
+    {
+      "start": 323.75,
+      "end": 328.25,
+      "text": "And through her soul, the truth was whole"
+    },
+    {
+      "start": 328.25,
+      "end": 332.25,
+      "text": "The dream had crossed the bar"
+    },
+    {
+      "start": 332.25,
+      "end": 336.75,
+      "text": "Hamantha had become a star"
+    },
+    {
+      "start": 336.75,
+      "end": 341.25,
+      "text": "Hamantha was finally a star"
+    },
+    {
+      "start": 341.25,
+      "end": 345.25,
+      "text": "Hamantha had become a star"
+    },
+    {
+      "start": 345.25,
+      "end": 349.75,
+      "text": "Hamantha was finally a star"
+    }
+  ]
+}

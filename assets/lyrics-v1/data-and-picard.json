@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 0.84,
+      "end": 3.8,
+      "text": "You know, back when I was in the academy,"
+    },
+    {
+      "start": 4.0,
+      "end": 6.95,
+      "text": "we would follow every toast with a song!"
+    },
+    {
+      "start": 7.3,
+      "end": 54.7,
+      "text": "(Klingon singing)"
+    },
+    {
+      "start": 54.74,
+      "end": 58.3,
+      "text": "'Tis better to have loved and lost"
+    },
+    {
+      "start": 58.7,
+      "end": 62.2,
+      "text": "Than never to have loved at all!"
+    },
+    {
+      "start": 62.9,
+      "end": 64.78,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 64.88,
+      "end": 66.76,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 66.9,
+      "end": 70.26,
+      "text": "'Tis better to have loved and lost"
+    },
+    {
+      "start": 70.72,
+      "end": 73.72,
+      "text": "'Tis better to have loved and lost"
+    },
+    {
+      "start": 73.78,
+      "end": 74.92,
+      "text": "Captain Jean-Luc Picard"
+    },
+    {
+      "start": 74.94,
+      "end": 77.28,
+      "text": "Than never to have loved at all"
+    },
+    {
+      "start": 77.3,
+      "end": 78.74,
+      "text": "Of the Federation starship"
+    },
+    {
+      "start": 78.98,
+      "end": 80.78,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 80.92,
+      "end": 82.74,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 82.78,
+      "end": 85.58,
+      "text": "'Tis better to have loved and lost"
+    },
+    {
+      "start": 85.6,
+      "end": 87.3,
+      "text": "Captain Jean-Luc Picard"
+    },
+    {
+      "start": 87.32,
+      "end": 89.3,
+      "text": "One seven three four six seven three two"
+    },
+    {
+      "start": 89.32,
+      "end": 91.3,
+      "text": "One four seven six Charlie three two seven"
+    },
+    {
+      "start": 91.32,
+      "end": 93.3,
+      "text": "Eight nine seven seven seven six four three"
+    },
+    {
+      "start": 93.32,
+      "end": 95.08,
+      "text": "Tango seven three two Victor seven three"
+    },
+    {
+      "start": 95.1,
+      "end": 97.04,
+      "text": "One one seven eight eight eight seven three"
+    },
+    {
+      "start": 97.06,
+      "end": 99.08,
+      "text": "Two four seven six seven eight nine seven"
+    },
+    {
+      "start": 99.1,
+      "end": 101.62,
+      "text": "Six four three seven six lock"
+    },
+    {
+      "start": 102.14,
+      "end": 104.64,
+      "text": "When I have plucked the rose"
+    },
+    {
+      "start": 104.88,
+      "end": 106.52,
+      "text": "Tea, Earl Grey, hot"
+    },
+    {
+      "start": 107.08,
+      "end": 110.6,
+      "text": "Longing still, for that which longer nurses the disease"
+    },
+    {
+      "start": 110.62,
+      "end": 114.08,
+      "text": "In faith, I do not love thee"
+    },
+    {
+      "start": 114.12,
+      "end": 117.72,
+      "text": "Shall I compare thee to a summer's day?"
+    },
+    {
+      "start": 118.06,
+      "end": 120.48,
+      "text": "When I have plucked the rose"
+    },
+    {
+      "start": 120.56,
+      "end": 122.5,
+      "text": "Plucked the rose"
+    },
+    {
+      "start": 122.54,
+      "end": 126.14,
+      "text": "Longing still, for that which longer nurses the disease"
+    },
+    {
+      "start": 126.2,
+      "end": 130.02,
+      "text": "In faith, I do not love thee"
+    },
+    {
+      "start": 130.06,
+      "end": 134.56,
+      "text": "Shall I compare thee to a summer's day?"
+    },
+    {
+      "start": 134.82,
+      "end": 138.2,
+      "text": "'Tis better to have loved and lost\n(ba-ba-ba ba-ba-ba-ba)"
+    },
+    {
+      "start": 138.26,
+      "end": 142.72,
+      "text": "Than never to have loved at all\n(ba-ba-ba ba-ba-ba-ba)"
+    },
+    {
+      "start": 142.82,
+      "end": 144.76,
+      "text": "Come cheer up, my lads (ba-ba)"
+    },
+    {
+      "start": 144.88,
+      "end": 146.7,
+      "text": "Come cheer up, my lads (ba-ba)"
+    },
+    {
+      "start": 146.74,
+      "end": 150.68,
+      "text": "'Tis better to have loved and lost\n(ba-ba-ba ba-ba-ba-ba-ba-ba)"
+    },
+    {
+      "start": 151.06,
+      "end": 153.02,
+      "text": "Incredibly unbroken sentence"
+    },
+    {
+      "start": 153.04,
+      "end": 155.02,
+      "text": "Moving from topic to topic"
+    },
+    {
+      "start": 155.04,
+      "end": 157.28,
+      "text": "No one had a chance to interrupt"
+    },
+    {
+      "start": 157.3,
+      "end": 158.94,
+      "text": "It was quite hypnotic"
+    },
+    {
+      "start": 159.08,
+      "end": 161.04,
+      "text": "Incredibly unbroken sentence"
+    },
+    {
+      "start": 161.08,
+      "end": 163.04,
+      "text": "Moving from topic to topic"
+    },
+    {
+      "start": 163.06,
+      "end": 165.34,
+      "text": "No one had a chance to interrupt"
+    },
+    {
+      "start": 165.36,
+      "end": 166.98,
+      "text": "It was quite hypnotic"
+    },
+    {
+      "start": 167.08,
+      "end": 182.72,
+      "text": "(Klingon singing)"
+    },
+    {
+      "start": 182.94,
+      "end": 184.84,
+      "text": "That's an interesting twist"
+    },
+    {
+      "start": 185.08,
+      "end": 185.92,
+      "text": "Hmm"
+    },
+    {
+      "start": 186.48,
+      "end": 188.42,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 188.62,
+      "end": 190.48,
+      "text": "Come cheer up, my lads"
+    },
+    {
+      "start": 190.62,
+      "end": 193.56,
+      "text": "'Tis better to have loved and lost"
+    },
+    {
+      "start": 193.98,
+      "end": 197.2,
+      "text": "'Tis better to have loved and lost"
+    }
+  ]
+}

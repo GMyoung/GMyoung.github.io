@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "language": "ja-Latn",
+  "cues": [
+    {
+      "start": 18.517,
+      "end": 24.13,
+      "text": "Nee, dokka ni oitekita you na\nHey, we left those things behind"
+    },
+    {
+      "start": 24.13,
+      "end": 30.747,
+      "text": "Koto wa hitotsu futatsu uiteiru kedo\nBut now they're coming back one by one"
+    },
+    {
+      "start": 30.747,
+      "end": 36.556,
+      "text": "Nee, chanto hirotteokou\nHey, let's put them back together"
+    },
+    {
+      "start": 36.556,
+      "end": 42.46,
+      "text": "Hajikete wasureteshimau mae ni\nBefore they burst and we forget them all"
+    },
+    {
+      "start": 42.48,
+      "end": 43.4,
+      "text": "(Nee)\n(Hey)"
+    },
+    {
+      "start": 43.457,
+      "end": 49.483,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round"
+    },
+    {
+      "start": 49.483,
+      "end": 55.334,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again"
+    },
+    {
+      "start": 55.334,
+      "end": 61.469,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round"
+    },
+    {
+      "start": 61.469,
+      "end": 68.118,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off"
+    },
+    {
+      "start": 68.118,
+      "end": 71.065,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 71.065,
+      "end": 74.011,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 74.011,
+      "end": 76.958,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 76.958,
+      "end": 79.905,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 79.905,
+      "end": 85.214,
+      "text": "Ano ne, watashi anata ni atta no\nYou know, when I met you"
+    },
+    {
+      "start": 85.214,
+      "end": 91.686,
+      "text": "Yume no naka ni oitekita kedo ne\nThat encounter was left behind in my dreams"
+    },
+    {
+      "start": 91.686,
+      "end": 97.423,
+      "text": "Nee, doushite watashi ga suki nano\nHey, how come you like me"
+    },
+    {
+      "start": 97.423,
+      "end": 103.67,
+      "text": "Ichido shika atta koto ga nai no ni ne\nWhen you've only seen me once?"
+    },
+    {
+      "start": 103.7,
+      "end": 104.16,
+      "text": "(Ah)\n(Ah)"
+    },
+    {
+      "start": 104.196,
+      "end": 105.971,
+      "text": "Omoi wo kette\nStamping down my emotions"
+    },
+    {
+      "start": 105.971,
+      "end": 107.334,
+      "text": "Futaride shitenda\nWhen the two of us were alone together"
+    },
+    {
+      "start": 107.334,
+      "end": 109.713,
+      "text": "Wasurenai ai wo utau\n\"Let's sing out this unforgettable love\""
+    },
+    {
+      "start": 109.713,
+      "end": 111.96,
+      "text": "Kotoba wo futari ni kashite\nWe wrote these words"
+    },
+    {
+      "start": 111.96,
+      "end": 113.474,
+      "text": "Chikai wo tatenda\nAs vows for each other,\nisn't it like saying"
+    },
+    {
+      "start": 113.474,
+      "end": 116.744,
+      "text": "Wasurenai ai wo utau you ni ne\nTo praise this unforgettable love"
+    },
+    {
+      "start": 116.744,
+      "end": 122.593,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round"
+    },
+    {
+      "start": 122.593,
+      "end": 128.767,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again"
+    },
+    {
+      "start": 128.767,
+      "end": 134.779,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round"
+    },
+    {
+      "start": 134.779,
+      "end": 141.412,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off"
+    },
+    {
+      "start": 141.412,
+      "end": 144.455,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 144.455,
+      "end": 147.498,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 147.498,
+      "end": 150.541,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 150.541,
+      "end": 153.584,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 153.584,
+      "end": 156.628,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 156.628,
+      "end": 159.671,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 159.671,
+      "end": 162.714,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 162.714,
+      "end": 165.757,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 168.864,
+      "end": 174.688,
+      "text": "Mawaridashita ano ko to boku no mirai ga\nThat girl's future and mine spin 'round and 'round"
+    },
+    {
+      "start": 174.688,
+      "end": 180.7,
+      "text": "Tomari dokka de mata yarinaosetara\nIf they ever come to a stop,\nI hope to start it again"
+    },
+    {
+      "start": 180.7,
+      "end": 186.873,
+      "text": "Mawaridashita ano ko to boku ga higaisha\nIf you and me can pretend to be victims,\nspinning 'round and 'round"
+    },
+    {
+      "start": 186.873,
+      "end": 193.155,
+      "text": "Zura de dokka wo mata neriaruketara na\nWe can march on together\nfrom where we left off"
+    },
+    {
+      "start": 193.155,
+      "end": 196.236,
+      "text": "Jidai ni notte bokutachi wa\nAs we go with the times"
+    },
+    {
+      "start": 196.236,
+      "end": 198.992,
+      "text": "Kawarazu ai ni ikiru darou\nI guess we will continue to rely on love to live"
+    },
+    {
+      "start": 198.992,
+      "end": 202.168,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we separate, I wonder if what's left"
+    },
+    {
+      "start": 202.168,
+      "end": 205.384,
+      "text": "Kawaranu ai no uta nandarou na\nIs the song of never-changing love"
+    },
+    {
+      "start": 205.384,
+      "end": 208.376,
+      "text": "Jidai ni notte bokutachi wa\nAs we go with the times"
+    },
+    {
+      "start": 208.376,
+      "end": 211.126,
+      "text": "Kawarazu ai ni ikiru darou\nI guess we will continue to rely on love to live"
+    },
+    {
+      "start": 211.126,
+      "end": 214.409,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we separate, I wonder if what's left"
+    },
+    {
+      "start": 214.409,
+      "end": 220.056,
+      "text": "Kawaranu ai no uta nandarou na\nIs the song of never-changing love"
+    },
+    {
+      "start": 220.459,
+      "end": 222.863,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 222.863,
+      "end": 225.268,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 225.268,
+      "end": 227.673,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    },
+    {
+      "start": 227.673,
+      "end": 230.077,
+      "text": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru"
+    }
+  ]
+}

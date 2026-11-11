@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "entries": {
+    "die-for-you": {
+      "url": "assets/lyrics-v1/die-for-you.json",
+      "vtt": "assets/lyrics-v1/die-for-you-current.vtt",
+      "language": "en",
+      "showCurrent": true
+    },
+    "die-for-you-karaoke": {
+      "url": "assets/lyrics-v1/die-for-you.json",
+      "vtt": "assets/lyrics-v1/die-for-you.vtt",
+      "language": "en"
+    },
+    "data-and-picard-lyrics": {
+      "url": "assets/lyrics-v1/data-and-picard.json",
+      "vtt": "assets/lyrics-v1/data-and-picard.vtt",
+      "language": "en"
+    },
+    "shes-a-big-boy-karaoke": {
+      "url": "assets/lyrics-v1/shes-a-big-boy.json",
+      "vtt": "assets/lyrics-v1/shes-a-big-boy.vtt",
+      "language": "en"
+    },
+    "odoriko-bilingual-karaoke": {
+      "url": "assets/lyrics-v1/odoriko.json",
+      "vtt": "assets/lyrics-v1/odoriko.vtt",
+      "language": "ja-Latn"
+    },
+    "hamantha": {
+      "url": "assets/lyrics-v1/hamantha.json",
+      "vtt": "assets/lyrics-v1/hamantha.vtt",
+      "language": "en"
+    },
+    "nice-boys": {
+      "url": "assets/lyrics-v1/nice-boys.json",
+      "vtt": "assets/lyrics-v1/nice-boys.vtt",
+      "language": "en"
+    }
+  }
+}

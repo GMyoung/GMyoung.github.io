@@ -1,0 +1,9 @@
+{
+  "recipe": "hls-fmp4-v1-30fps-4sec-aac128",
+  "source": "38bad5696db17dbeddc015222b3959121e12f18a8f27cd0cf2d21347be36e19b",
+  "audio": {
+    "original": "df59bc31e08115d6d392042a9d4177774cf74cfa20096536526dbae26310c10a",
+    "karaoke": "5430527ed1dffc870ed9f7854f82d367f5abf103fc4c3f3b695ddcc86f832442"
+  },
+  "defaultAudio": "karaoke"
+}
