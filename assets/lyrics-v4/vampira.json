@@ -1,0 +1,1246 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 19.5,
+      "end": 22.5,
+      "text": "she’s dressed head to toe in black fabric",
+      "words": [
+        {
+          "text": "she’s",
+          "start": 19.5,
+          "end": 20.72,
+          "estimated": false
+        },
+        {
+          "text": "dressed",
+          "start": 20.72,
+          "end": 21.02,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 21.02,
+          "end": 21.36,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 21.36,
+          "end": 21.52,
+          "estimated": false
+        },
+        {
+          "text": "toe",
+          "start": 21.52,
+          "end": 21.72,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 21.72,
+          "end": 21.84,
+          "estimated": false
+        },
+        {
+          "text": "black",
+          "start": 21.84,
+          "end": 22.0,
+          "estimated": false
+        },
+        {
+          "text": "fabric",
+          "start": 22.0,
+          "end": 22.5,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 22.5,
+      "end": 24.32,
+      "text": "got her hands around my throat,",
+      "words": [
+        {
+          "text": "got",
+          "start": 22.5,
+          "end": 22.78,
+          "estimated": false
+        },
+        {
+          "text": "her",
+          "start": 22.78,
+          "end": 22.96,
+          "estimated": false
+        },
+        {
+          "text": "hands",
+          "start": 22.96,
+          "end": 23.26,
+          "estimated": false
+        },
+        {
+          "text": "around",
+          "start": 23.26,
+          "end": 23.58,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 23.58,
+          "end": 23.9,
+          "estimated": false
+        },
+        {
+          "text": "throat,",
+          "start": 23.9,
+          "end": 24.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 24.32,
+      "end": 26.26,
+      "text": "like she’s trying to be my necklace",
+      "words": [
+        {
+          "text": "like",
+          "start": 24.32,
+          "end": 24.62,
+          "estimated": false
+        },
+        {
+          "text": "she’s",
+          "start": 24.62,
+          "end": 24.92,
+          "estimated": false
+        },
+        {
+          "text": "trying",
+          "start": 24.92,
+          "end": 25.16,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 25.16,
+          "end": 25.34,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 25.34,
+          "end": 25.5,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 25.5,
+          "end": 25.8,
+          "estimated": false
+        },
+        {
+          "text": "necklace",
+          "start": 25.8,
+          "end": 26.26,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 26.26,
+      "end": 28.48,
+      "text": "bittin down like im her food, ya",
+      "words": [
+        {
+          "text": "bittin",
+          "start": 26.26,
+          "end": 26.8,
+          "estimated": false
+        },
+        {
+          "text": "down",
+          "start": 26.8,
+          "end": 27.1,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 27.1,
+          "end": 27.42,
+          "estimated": false
+        },
+        {
+          "text": "im",
+          "start": 27.42,
+          "end": 27.62,
+          "estimated": false
+        },
+        {
+          "text": "her",
+          "start": 27.62,
+          "end": 27.74,
+          "estimated": false
+        },
+        {
+          "text": "food,",
+          "start": 27.74,
+          "end": 28.28,
+          "estimated": false
+        },
+        {
+          "text": "ya",
+          "start": 28.28,
+          "end": 28.48,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 28.48,
+      "end": 30.08,
+      "text": "im her dinner and her breakfast",
+      "words": [
+        {
+          "text": "im",
+          "start": 28.48,
+          "end": 28.6,
+          "estimated": false
+        },
+        {
+          "text": "her",
+          "start": 28.6,
+          "end": 28.72,
+          "estimated": false
+        },
+        {
+          "text": "dinner",
+          "start": 28.72,
+          "end": 29.04,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 29.04,
+          "end": 29.4,
+          "estimated": false
+        },
+        {
+          "text": "her",
+          "start": 29.4,
+          "end": 29.66,
+          "estimated": false
+        },
+        {
+          "text": "breakfast",
+          "start": 29.66,
+          "end": 30.08,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 30.08,
+      "end": 33.54,
+      "text": "when she dance around in that cloak you know she cast a",
+      "words": [
+        {
+          "text": "when",
+          "start": 30.08,
+          "end": 30.4,
+          "estimated": false
+        },
+        {
+          "text": "she",
+          "start": 30.4,
+          "end": 30.62,
+          "estimated": false
+        },
+        {
+          "text": "dance",
+          "start": 30.62,
+          "end": 30.94,
+          "estimated": false
+        },
+        {
+          "text": "around",
+          "start": 30.94,
+          "end": 31.32,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 31.32,
+          "end": 31.48,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 31.48,
+          "end": 31.6,
+          "estimated": false
+        },
+        {
+          "text": "cloak",
+          "start": 31.6,
+          "end": 31.98,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 31.98,
+          "end": 32.44,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 32.44,
+          "end": 32.74,
+          "estimated": false
+        },
+        {
+          "text": "she",
+          "start": 32.74,
+          "end": 33.02,
+          "estimated": false
+        },
+        {
+          "text": "cast",
+          "start": 33.02,
+          "end": 33.32,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 33.32,
+          "end": 33.54,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 33.54,
+      "end": 35.07,
+      "text": "spell on me",
+      "words": [
+        {
+          "text": "spell",
+          "start": 33.54,
+          "end": 33.88,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 33.88,
+          "end": 34.32,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 34.32,
+          "end": 34.82,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 35.3,
+      "end": 38.1,
+      "text": "i dont want to go home",
+      "words": [
+        {
+          "text": "i",
+          "start": 35.3,
+          "end": 36.24,
+          "estimated": false
+        },
+        {
+          "text": "dont",
+          "start": 36.24,
+          "end": 36.42,
+          "estimated": false
+        },
+        {
+          "text": "want",
+          "start": 36.42,
+          "end": 36.7,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 36.7,
+          "end": 36.84,
+          "estimated": false
+        },
+        {
+          "text": "go",
+          "start": 36.84,
+          "end": 37.18,
+          "estimated": false
+        },
+        {
+          "text": "home",
+          "start": 37.18,
+          "end": 38.1,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 38.1,
+      "end": 41.62,
+      "text": "wrapped up in your arms, while you sing a pretty song",
+      "words": [
+        {
+          "text": "wrapped",
+          "start": 38.1,
+          "end": 38.62,
+          "estimated": false
+        },
+        {
+          "text": "up",
+          "start": 38.62,
+          "end": 38.86,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 38.86,
+          "end": 39.08,
+          "estimated": false
+        },
+        {
+          "text": "your",
+          "start": 39.08,
+          "end": 39.28,
+          "estimated": false
+        },
+        {
+          "text": "arms,",
+          "start": 39.28,
+          "end": 39.74,
+          "estimated": false
+        },
+        {
+          "text": "while",
+          "start": 39.74,
+          "end": 40.1,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 40.1,
+          "end": 40.22,
+          "estimated": false
+        },
+        {
+          "text": "sing",
+          "start": 40.22,
+          "end": 40.52,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 40.52,
+          "end": 40.74,
+          "estimated": false
+        },
+        {
+          "text": "pretty",
+          "start": 40.74,
+          "end": 41.04,
+          "estimated": false
+        },
+        {
+          "text": "song",
+          "start": 41.04,
+          "end": 41.62,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 41.62,
+      "end": 45.96,
+      "text": "as you nibble on my neck like a tasty little snack going",
+      "words": [
+        {
+          "text": "as",
+          "start": 41.62,
+          "end": 42.04,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 42.04,
+          "end": 42.18,
+          "estimated": false
+        },
+        {
+          "text": "nibble",
+          "start": 42.18,
+          "end": 42.7,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 42.7,
+          "end": 42.92,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 42.92,
+          "end": 43.12,
+          "estimated": false
+        },
+        {
+          "text": "neck",
+          "start": 43.12,
+          "end": 43.58,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 43.58,
+          "end": 43.92,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 43.92,
+          "end": 44.08,
+          "estimated": false
+        },
+        {
+          "text": "tasty",
+          "start": 44.08,
+          "end": 44.46,
+          "estimated": false
+        },
+        {
+          "text": "little",
+          "start": 44.46,
+          "end": 44.9,
+          "estimated": false
+        },
+        {
+          "text": "snack",
+          "start": 44.9,
+          "end": 45.44,
+          "estimated": false
+        },
+        {
+          "text": "going",
+          "start": 45.44,
+          "end": 45.96,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 45.96,
+      "end": 49.75,
+      "text": "la la la la la la, la la la la la la",
+      "words": [
+        {
+          "text": "la",
+          "start": 45.96,
+          "end": 46.3,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 46.3,
+          "end": 46.56,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 46.56,
+          "end": 47.06,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 47.06,
+          "end": 47.54,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 47.54,
+          "end": 47.88,
+          "estimated": false
+        },
+        {
+          "text": "la,",
+          "start": 47.88,
+          "end": 48.04,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 48.04,
+          "end": 48.26,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 48.26,
+          "end": 48.48,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 48.48,
+          "end": 48.8,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 48.8,
+          "end": 48.94,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 48.94,
+          "end": 49.26,
+          "estimated": false
+        },
+        {
+          "text": "la",
+          "start": 49.26,
+          "end": 49.5,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 50.0,
+      "end": 53.5,
+      "text": "falling in love with dracula",
+      "words": [
+        {
+          "text": "falling",
+          "start": 50.0,
+          "end": 50.74,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 50.74,
+          "end": 51.36,
+          "estimated": false
+        },
+        {
+          "text": "love",
+          "start": 51.36,
+          "end": 52.06,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 52.06,
+          "end": 52.54,
+          "estimated": false
+        },
+        {
+          "text": "dracula",
+          "start": 52.54,
+          "end": 53.5,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 53.5,
+      "end": 57.32,
+      "text": "stake my heart tonight oh wo oh",
+      "words": [
+        {
+          "text": "stake",
+          "start": 53.5,
+          "end": 54.0,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 54.0,
+          "end": 54.54,
+          "estimated": false
+        },
+        {
+          "text": "heart",
+          "start": 54.54,
+          "end": 54.98,
+          "estimated": false
+        },
+        {
+          "text": "tonight",
+          "start": 54.98,
+          "end": 55.68,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 55.68,
+          "end": 56.26,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 56.26,
+          "end": 56.58,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 56.58,
+          "end": 57.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 57.32,
+      "end": 61.22,
+      "text": "falling in love with dracula",
+      "words": [
+        {
+          "text": "falling",
+          "start": 57.32,
+          "end": 58.28,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 58.28,
+          "end": 58.84,
+          "estimated": false
+        },
+        {
+          "text": "love",
+          "start": 58.84,
+          "end": 59.54,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 59.54,
+          "end": 60.16,
+          "estimated": false
+        },
+        {
+          "text": "dracula",
+          "start": 60.16,
+          "end": 61.22,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 61.22,
+      "end": 65.73,
+      "text": "drowning in your blood oh no oh",
+      "words": [
+        {
+          "text": "drowning",
+          "start": 61.22,
+          "end": 62.16,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 62.16,
+          "end": 62.88,
+          "estimated": false
+        },
+        {
+          "text": "your",
+          "start": 62.88,
+          "end": 63.02,
+          "estimated": false
+        },
+        {
+          "text": "blood",
+          "start": 63.02,
+          "end": 63.36,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 63.36,
+          "end": 63.82,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 63.82,
+          "end": 64.62,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 64.62,
+          "end": 65.48,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 68.0,
+      "end": 69.8,
+      "text": "fly so high till theres no stars",
+      "words": [
+        {
+          "text": "fly",
+          "start": 68.0,
+          "end": 69.1,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 69.1,
+          "end": 69.32,
+          "estimated": false
+        },
+        {
+          "text": "high",
+          "start": 69.32,
+          "end": 69.411,
+          "estimated": true
+        },
+        {
+          "text": "till",
+          "start": 69.411,
+          "end": 69.503,
+          "estimated": true
+        },
+        {
+          "text": "theres",
+          "start": 69.503,
+          "end": 69.64,
+          "estimated": true
+        },
+        {
+          "text": "no",
+          "start": 69.64,
+          "end": 69.686,
+          "estimated": true
+        },
+        {
+          "text": "stars",
+          "start": 69.686,
+          "end": 69.8,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 5
+      }
+    },
+    {
+      "start": 69.8,
+      "end": 71.5,
+      "text": "you can never fall in",
+      "words": [
+        {
+          "text": "you",
+          "start": 69.8,
+          "end": 70.149,
+          "estimated": true
+        },
+        {
+          "text": "can",
+          "start": 70.149,
+          "end": 70.498,
+          "estimated": true
+        },
+        {
+          "text": "never",
+          "start": 70.498,
+          "end": 70.821,
+          "estimated": true
+        },
+        {
+          "text": "fall",
+          "start": 70.821,
+          "end": 71.08,
+          "estimated": true
+        },
+        {
+          "text": "in",
+          "start": 71.08,
+          "end": 71.5,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 1,
+        "estimatedWords": 4
+      }
+    },
+    {
+      "start": 71.5,
+      "end": 76.58,
+      "text": "suck my blood till its all gone",
+      "words": [
+        {
+          "text": "suck",
+          "start": 71.5,
+          "end": 72.607,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 72.607,
+          "end": 73.16,
+          "estimated": true
+        },
+        {
+          "text": "blood",
+          "start": 73.16,
+          "end": 73.86,
+          "estimated": false
+        },
+        {
+          "text": "till",
+          "start": 73.86,
+          "end": 74.6,
+          "estimated": false
+        },
+        {
+          "text": "its",
+          "start": 74.6,
+          "end": 75.2,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 75.2,
+          "end": 75.42,
+          "estimated": false
+        },
+        {
+          "text": "gone",
+          "start": 75.42,
+          "end": 76.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 76.58,
+      "end": 85.2,
+      "text": "before thе sun comes back up",
+      "words": [
+        {
+          "text": "before",
+          "start": 76.58,
+          "end": 78.72,
+          "estimated": false
+        },
+        {
+          "text": "thе",
+          "start": 78.72,
+          "end": 83.6,
+          "estimated": false
+        },
+        {
+          "text": "sun",
+          "start": 83.6,
+          "end": 83.66,
+          "estimated": true
+        },
+        {
+          "text": "comes",
+          "start": 83.66,
+          "end": 83.76,
+          "estimated": true
+        },
+        {
+          "text": "back",
+          "start": 83.76,
+          "end": 84.0,
+          "estimated": false
+        },
+        {
+          "text": "up",
+          "start": 84.0,
+          "end": 85.16,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 85.2,
+      "end": 89.5,
+      "text": "just bite my blood all out till its gone",
+      "words": [
+        {
+          "text": "just",
+          "start": 85.2,
+          "end": 85.737,
+          "estimated": true
+        },
+        {
+          "text": "bite",
+          "start": 85.737,
+          "end": 86.275,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 86.275,
+          "end": 86.544,
+          "estimated": true
+        },
+        {
+          "text": "blood",
+          "start": 86.544,
+          "end": 87.216,
+          "estimated": true
+        },
+        {
+          "text": "all",
+          "start": 87.216,
+          "end": 87.619,
+          "estimated": true
+        },
+        {
+          "text": "out",
+          "start": 87.619,
+          "end": 88.022,
+          "estimated": true
+        },
+        {
+          "text": "till",
+          "start": 88.022,
+          "end": 88.559,
+          "estimated": true
+        },
+        {
+          "text": "its",
+          "start": 88.559,
+          "end": 88.963,
+          "estimated": true
+        },
+        {
+          "text": "gone",
+          "start": 88.963,
+          "end": 89.5,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-outro-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 9
+      }
+    },
+    {
+      "start": 89.5,
+      "end": 94.4,
+      "text": "just bitе my neck until its red",
+      "words": [
+        {
+          "text": "just",
+          "start": 89.5,
+          "end": 90.317,
+          "estimated": true
+        },
+        {
+          "text": "bitе",
+          "start": 90.317,
+          "end": 90.929,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 90.929,
+          "end": 91.338,
+          "estimated": true
+        },
+        {
+          "text": "neck",
+          "start": 91.338,
+          "end": 92.154,
+          "estimated": true
+        },
+        {
+          "text": "until",
+          "start": 92.154,
+          "end": 93.175,
+          "estimated": true
+        },
+        {
+          "text": "its",
+          "start": 93.175,
+          "end": 93.788,
+          "estimated": true
+        },
+        {
+          "text": "red",
+          "start": 93.788,
+          "end": 94.4,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-outro-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 7
+      }
+    },
+    {
+      "start": 94.4,
+      "end": 97.75,
+      "text": "then ill be dead",
+      "words": [
+        {
+          "text": "then",
+          "start": 94.4,
+          "end": 95.354,
+          "estimated": true
+        },
+        {
+          "text": "ill",
+          "start": 95.354,
+          "end": 96.069,
+          "estimated": true
+        },
+        {
+          "text": "be",
+          "start": 96.069,
+          "end": 96.546,
+          "estimated": true
+        },
+        {
+          "text": "dead",
+          "start": 96.546,
+          "end": 97.5,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-outro-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 4
+      }
+    }
+  ]
+}

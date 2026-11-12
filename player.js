@@ -195,7 +195,8 @@ class CinemaPlayer {
     if (!this.usingAudio) { quality = 'original'; this.usingStream = false; }
     this.video.controls = false;
     this.controls.hidden = false;
-    this.root.querySelector('.soundtracks').hidden = !this.usingAudio;
+    this.root.querySelector('.soundtracks').hidden = !this.usingAudio ||
+      !['original', 'karaoke'].every(name => this.descriptors[name]);
     this.message('');
     this.applyVolumes();
     this.updateButtons();
@@ -207,7 +208,9 @@ class CinemaPlayer {
     }, () => {
       if (generation !== this.generation) return;
       this.setSource('original', this.video.currentTime || position, this.intentPlaying);
-      this.message('Adaptive video could not load. Using the original video.');
+      this.message(this.entry.fallbackHeight ?
+        'Adaptive video could not load. Using the compatibility video.' :
+        'Adaptive video could not load. Using the original video.');
     });
     if (started) return;
     this.usingStream = false;
@@ -507,6 +510,7 @@ class CinemaPlayer {
 
   updateButtons() {
     const percent = Math.round(this.requestedMix * 100);
+    this.root.querySelector('.vocal-mix').hidden = !['original', 'karaoke'].every(name => this.descriptors[name]);
     const canMix = this.usingAudio && ['original', 'karaoke'].every(name => this.descriptors[name] && !this.failed.has(name) && (this.gains[name] || this.audio[name].volumeCanFade));
     if (this.mixControl) {
       this.mixControl.disabled = !canMix;

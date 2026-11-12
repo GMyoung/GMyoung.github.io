@@ -5,6 +5,11 @@ Original MP4s and aligned M4A soundtracks are never modified. Requires FFmpeg
 with libx264 and AAC plus FFprobe; no credentials or environment variables.
 Use --manifests-only to add video-only masters from saved rendition metadata
 without invoking FFmpeg or changing the existing media and legacy masters.
+Use --video-only --reuse-existing with a new --output version to retain matching
+lower renditions, add native-resolution 1080p, and omit duplicate HLS audio.
+--estimate reports expected additional bytes without writing media or catalog.
+--compact-fallbacks also remuxes the lowest rendition plus default audio into a
+small compatibility MP4. Use --output-catalog to preserve an input source snapshot.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -19,8 +24,8 @@ import subprocess
 import threading
 
 
-RECIPE = "hls-fmp4-v1-30fps-4sec-aac128"
-LEVELS = ((360, 300000, 450000), (720, 850000, 1100000))
+RECIPE = "hls-fmp4-v2-30fps-4sec-1080"
+LEVELS = ((360, 300000, 450000), (720, 850000, 1100000), (1080, 1350000, 1750000))
 AUDIO_NAMES = {"original": "Original vocals", "karaoke": "Karaoke"}
 ACTIVE_ENCODERS = set()
 ENCODER_LOCK = threading.Lock()
@@ -68,20 +73,71 @@ def fingerprint(path):
     return digest.hexdigest()
 
 
-def levels_for(video):
-    """Do not inflate already efficient, low-motion source videos."""
+def levels_for(video, high_bitrate=1350000):
+    """Do not upscale source pixels or inflate already efficient source video."""
     source_bitrate = int(video.get("bit_rate") or 0)
-    if 0 < source_bitrate < 220000:
-        low = max(120000, round(source_bitrate * 0.8 / 1000) * 1000)
-        high = max(160000, round(source_bitrate / 1000) * 1000)
-        return ((360, low, round(low * 1.5)), (720, high, round(high * 1.5)))
-    return LEVELS
+    source_height = int(video["height"])
+    result = []
+    for height, bitrate, maximum in LEVELS:
+        if height > source_height:
+            continue
+        if height == 1080:
+            bitrate = min(bitrate, high_bitrate)
+            maximum = round(bitrate * 1.3)
+        if source_bitrate > 0:
+            ratio = {360: .65, 720: .85, 1080: 1.05}[height]
+            bitrate = min(bitrate, max(80000, round(source_bitrate * ratio / 1000) * 1000))
+            maximum = min(maximum, round(bitrate * 1.5))
+        result.append((height, bitrate, maximum))
+    if not result:
+        raise ValueError("Source must have at least 360 native vertical pixels")
+    return tuple(result)
+
+
+def video_codec(info):
+    # All generated renditions use High profile. 1080p requires AVC level 4.0.
+    return f"avc1.6400{int(info.get('level', 40 if info['height'] > 720 else 31)):02x}"
+
+
+def reusable_video(root, target, entry, signature):
+    """Read a previous version's matching video renditions without mutating them."""
+    value = entry.get("streaming", {}).get("videoOnly", {}).get("url", "")
+    if not value or ":" in value:
+        return {}
+    previous = (root / value).resolve().parent
+    if previous == target or not previous.is_relative_to(root / "media"):
+        return {}
+    marker = previous / "renditions.json"
+    if not marker.is_file():
+        return {}
+    saved = json.loads(marker.read_text(encoding="utf-8"))
+    if saved.get("signature", {}).get("source") != signature["source"]:
+        return {}
+    result = {}
+    for height, info in saved.get("video", {}).items():
+        playlist = (previous / info.get("playlist", f"{height}/index.m3u8")).resolve()
+        if not playlist.is_relative_to(root / "media") or not complete_playlist(playlist):
+            continue
+        # Persist the relative source link in the new manifest metadata. No copy.
+        result[int(height)] = {**info, "playlist": Path(os.path.relpath(playlist, target)).as_posix()}
+    return result
 
 
 def write_json(path, value):
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     temporary.replace(path)
+
+
+def publish_catalog(args, catalog, changed_ids):
+    # A source snapshot may feed several --only batches. Preserve already
+    # published entries outside this batch instead of restoring their inputs.
+    if args.output_catalog != args.catalog and args.output_catalog.is_file():
+        previous = json.loads(args.output_catalog.read_text(encoding="utf-8-sig"))
+        entries = {entry["id"]: entry for entry in previous.get("videos", [])}
+        catalog["videos"] = [entry if entry["id"] in changed_ids else entries.get(entry["id"], entry)
+                             for entry in catalog["videos"]]
+    write_json(args.output_catalog, catalog)
 
 
 def playlist_metadata(path):
@@ -173,12 +229,12 @@ def write_video_only_manifests(root, target, metadata):
     variants = []
     for key, info in sorted(metadata["video"].items(), key=lambda item: int(item[0])):
         height = int(key)
-        if not (target / key / "index.m3u8").is_file():
+        rendition = info.get("playlist", f"{height}/index.m3u8")
+        if not (target / rendition).is_file():
             raise ValueError(f"Missing saved video rendition: {target / key}")
         bandwidth = math.ceil(max(maximums.get(key, 0), info["peakBandwidth"]) * 1.15 / 1000) * 1000
         line = (f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={info["averageBandwidth"]},'
-                f'RESOLUTION={info["width"]}x{height},FRAME-RATE=30.000,CODECS="avc1.64001f"')
-        rendition = f"{height}/index.m3u8"
+                f'RESOLUTION={info["width"]}x{height},FRAME-RATE=30.000,CODECS="{video_codec(info)}"')
         path = target / f"{height}p-video-only.m3u8"
         path.write_text("\n".join(header + [line, rendition]) + "\n", encoding="utf-8")
         lines += [line, rendition]
@@ -189,7 +245,7 @@ def write_video_only_manifests(root, target, metadata):
 
 
 def update_video_only_catalog(args, root):
-    catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
+    catalog = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
     selected = [entry for entry in catalog["videos"] if not args.only or entry["id"] in args.only]
     if args.only and set(args.only) - {entry["id"] for entry in selected}:
         raise ValueError("--only contains a song ID not found in the catalog")
@@ -199,29 +255,70 @@ def update_video_only_catalog(args, root):
         target = args.output / entry["id"]
         metadata = json.loads((target / "renditions.json").read_text(encoding="utf-8"))
         entry.setdefault("streaming", {})["videoOnly"] = write_video_only_manifests(root, target, metadata)
-    write_json(args.catalog, catalog)
+    publish_catalog(args, catalog, {entry["id"] for entry in selected})
     print(f"Saved video-only masters for {len(selected)} songs; existing media and legacy masters retained.", flush=True)
+
+
+def compact_fallback(args, root, target, metadata, entry, source, audio_sources, duration):
+    """Copy existing low-resolution H.264 and default AAC into a faststart MP4."""
+    height = min(int(value) for value in metadata["video"])
+    info = metadata["video"][str(height)]
+    playlist = (target / info.get("playlist", f"{height}/index.m3u8")).resolve()
+    if not playlist.is_relative_to(root / "media"):
+        raise ValueError("Compatibility source playlist must remain inside local media")
+    name = entry.get("defaultAudio", "karaoke")
+    if name not in audio_sources and audio_sources:
+        name = next(iter(audio_sources))
+    audio_source = audio_sources.get(name, source)
+    audio = next((stream for stream in probe(args.ffprobe, audio_source)["streams"]
+                  if stream["codec_type"] == "audio"), None)
+    if audio is None:
+        raise ValueError(f"No default audio available for compatibility MP4: {entry['id']}")
+    output = target / f"compatibility-{height}p.mp4"
+    command = ["-i", str(playlist), "-i", str(audio_source), "-map", "0:v:0", "-map", "1:a:0",
+               "-c", "copy", "-t", f"{duration:.6f}", "-movflags", "+faststart", "-map_metadata", "-1"]
+    if audio["codec_name"] != "aac":
+        command += ["-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2"]
+    encode(args, command + [str(output)], args.logs / f"{entry['id']}-compatibility.log", target)
+    saved = probe(args.ffprobe, output)
+    streams = saved["streams"]
+    saved_video = next((stream for stream in streams if stream["codec_type"] == "video"), {})
+    saved_audio = next((stream for stream in streams if stream["codec_type"] == "audio"), {})
+    if saved_video.get("codec_name") != "h264" or saved_video.get("height") != height or saved_audio.get("codec_name") != "aac":
+        raise ValueError(f"Unexpected compatibility MP4 streams: {entry['id']}")
+    saved_duration = float(saved["format"]["duration"])
+    if not math.isfinite(saved_duration) or abs(saved_duration - duration) > 1:
+        raise ValueError(f"Compatibility MP4 duration differs from source: {entry['id']}")
+    metadata["fallback"] = {"url": output.relative_to(root).as_posix(), "height": height,
+                            "bytes": output.stat().st_size, "duration": saved_duration,
+                            "audio": name if name in audio_sources else "embedded"}
 
 
 def prepare(args, root, entry):
     song_id = entry["id"]
     if not re.fullmatch(r"[a-zA-Z0-9_-]+", song_id):
         raise ValueError(f"Unsafe catalog ID: {song_id}")
+    if entry.get("fallbackHeight"):
+        raise ValueError(f"{song_id} uses a compatibility MP4; prepare from the retained source catalog instead")
     source = (root / entry["url"]).resolve()
-    audio_sources = {name: (root / entry["audio"][name]).resolve() for name in AUDIO_NAMES}
+    audio_sources = {name: (root / value).resolve() for name, value in entry.get("audio", {}).items()
+                     if name in AUDIO_NAMES}
+    if not args.video_only and not audio_sources:
+        raise ValueError(f"No separate audio for {song_id}; use --video-only")
     for path in [source, *audio_sources.values()]:
         if not path.is_relative_to(root) or not path.is_file():
             raise ValueError(f"Source must be a local file within the repository: {path}")
     source_info = probe(args.ffprobe, source)
     video = next(stream for stream in source_info["streams"] if stream["codec_type"] == "video")
     duration = float(source_info["format"]["duration"])
-    levels = levels_for(video)
+    levels = levels_for(video, args.max_1080_bitrate)
     target = args.output / song_id
     target.mkdir(parents=True, exist_ok=True)
     marker = target / "renditions.json"
     signature = {"recipe": RECIPE, "source": fingerprint(source),
                  "audio": {name: fingerprint(path) for name, path in audio_sources.items()},
-                 "defaultAudio": entry.get("defaultAudio", "karaoke")}
+                 "defaultAudio": entry.get("defaultAudio", "karaoke"), "videoOnly": args.video_only,
+                 "compactFallbacks": args.compact_fallbacks}
     if levels != LEVELS:
         signature["lowBitrateLevels"] = [list(level) for level in levels]
     if args.skip_existing and marker.is_file():
@@ -229,7 +326,9 @@ def prepare(args, root, entry):
         if saved.get("signature") == signature:
             expected = saved.get("outputFiles", {})
             if expected and all((target / name).is_file() and (target / name).stat().st_size == size
-                                for name, size in expected.items()):
+                                for name, size in expected.items()) and all(
+                                    complete_playlist(target / info.get("playlist", f"{height}/index.m3u8"))
+                                    for height, info in saved["video"].items()):
                 saved["streaming"]["videoOnly"] = write_video_only_manifests(root, target, saved)
                 print(f"Skipped complete {song_id}", flush=True)
                 return song_id, saved
@@ -239,14 +338,19 @@ def prepare(args, root, entry):
     metadata = {"signature": signature, "sourceHeight": video["height"], "video": {}, "audio": {},
                 "sourceVideoBitrate": int(video.get("bit_rate") or 0),
                 "encodingLevels": [{"height": h, "target": b, "maxrate": m} for h, b, m in levels]}
+    reused = reusable_video(root, target, entry, signature) if args.reuse_existing else {}
     for height, bitrate, maximum in levels:
+        if height in reused:
+            metadata["video"][str(height)] = reused[height]
+            print(f"Reused {song_id} {height}p", flush=True)
+            continue
         folder = target / str(height)
         folder.mkdir(exist_ok=True)
         if not (args.skip_existing and same_input(folder, signature) and complete_playlist(folder / "index.m3u8")):
             encode(args, ["-i", str(source), "-map", "0:v:0", "-an",
                       "-vf", f"fps=30,scale=-2:{height}:flags=lanczos,setsar=1",
                       "-c:v", "libx264", "-preset", "veryfast", "-threads", str(args.threads),
-                      "-pix_fmt", "yuv420p", "-profile:v", "high", "-level:v", "3.1",
+                      "-pix_fmt", "yuv420p", "-profile:v", "high", "-level:v", "4.0" if height > 720 else "3.1",
                       "-b:v", str(bitrate), "-maxrate", str(maximum), "-bufsize", str(maximum * 2),
                       "-g", "120", "-keyint_min", "120", "-sc_threshold", "0",
                       "-force_key_frames", "expr:gte(t,n_forced*4)", "-map_metadata", "-1"]
@@ -255,11 +359,12 @@ def prepare(args, root, entry):
         if saved_video["codec_name"] != "h264" or saved_video["height"] != height:
             raise ValueError(f"Unexpected video stream for {song_id} / {height}")
         metadata["video"][str(height)] = {**playlist_metadata(folder / "index.m3u8"),
-                                           "width": saved_video["width"], "height": height}
+                                           "width": saved_video["width"], "height": height,
+                                           "level": saved_video["level"]}
         remove_stale_fragments(folder, metadata["video"][str(height)])
         write_json(folder / "source.json", signature)
         print(f"Saved {song_id} {height}p", flush=True)
-    for name, audio_source in audio_sources.items():
+    for name, audio_source in ([] if args.video_only else audio_sources.items()):
         folder = target / name
         folder.mkdir(exist_ok=True)
         if not (args.skip_existing and same_input(folder, signature) and complete_playlist(folder / "index.m3u8")):
@@ -275,10 +380,22 @@ def prepare(args, root, entry):
         remove_stale_fragments(folder, metadata["audio"][name])
         write_json(folder / "source.json", signature)
     # Both playlists use the same GOP cadence. Only the final segment may be short.
-    if metadata["video"]["360"]["segments"] != metadata["video"]["720"]["segments"]:
+    if len({info["segments"] for info in metadata["video"].values()}) != 1:
         raise ValueError(f"Video variants have different segment counts: {song_id}")
+    if args.compact_fallbacks:
+        compact_fallback(args, root, target, metadata, entry, source, audio_sources, duration)
+    if args.video_only:
+        descriptor = write_video_only_manifests(root, target, metadata)
+        metadata["streaming"] = {**descriptor, "videoOnly": descriptor}
+        metadata["outputFiles"] = {path.relative_to(target).as_posix(): path.stat().st_size
+                                  for path in target.rglob("*") if path.is_file() and path != marker}
+        metadata["totalBytes"] = sum(metadata["outputFiles"].values())
+        write_json(marker, metadata)
+        print(f"Completed {song_id}: {metadata['totalBytes'] / 1e6:.2f} MB newly saved", flush=True)
+        return song_id, metadata
     header = ["#EXTM3U", "#EXT-X-VERSION:7", "#EXT-X-INDEPENDENT-SEGMENTS"]
-    for name, label in AUDIO_NAMES.items():
+    for name in audio_sources:
+        label = AUDIO_NAMES[name]
         default = "YES" if name == entry.get("defaultAudio", "karaoke") else "NO"
         header.append(f'#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="{label}",'
                       f'DEFAULT={default},AUTOSELECT=YES,CHANNELS="2",URI="{name}/index.m3u8"')
@@ -293,7 +410,7 @@ def prepare(args, root, entry):
         average = info["averageBandwidth"] + audio_average
         line = (f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={average},'
                 f'RESOLUTION={info["width"]}x{height},FRAME-RATE=30.000,'
-                'CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"')
+                f'CODECS="{video_codec(info)},mp4a.40.2",AUDIO="audio"')
         variant_lines += [line, f"{height}/index.m3u8"]
         (target / f"{height}p.m3u8").write_text("\n".join(header + [line, f"{height}/index.m3u8"]) + "\n", encoding="utf-8")
         variants.append({"height": height, "bandwidth": bandwidth,
@@ -310,7 +427,7 @@ def prepare(args, root, entry):
 
 
 def prepare_catalog(args, root):
-    catalog = json.loads(args.catalog.read_text(encoding="utf-8"))
+    catalog = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
     selected = [entry for entry in catalog["videos"] if not args.only or entry["id"] in args.only]
     if args.only and set(args.only) - {entry["id"] for entry in selected}:
         raise ValueError("--only contains a song ID not found in the catalog")
@@ -344,18 +461,65 @@ def prepare_catalog(args, root):
             continue
         entry["sourceHeight"] = results[entry["id"]]["sourceHeight"]
         entry["streaming"] = results[entry["id"]]["streaming"]
-    write_json(args.catalog, catalog)
+        fallback = results[entry["id"]].get("fallback")
+        if fallback:
+            entry["url"] = fallback["url"]
+            entry["fallbackHeight"] = fallback["height"]
+        else:
+            entry.pop("fallbackHeight", None)
+    publish_catalog(args, catalog, set(results))
     total = sum(result["totalBytes"] for result in results.values())
     write_json(args.logs / "preparation-summary.json", {"recipe": RECIPE, "totalBytes": total,
-               "songs": {song_id: {"totalBytes": value["totalBytes"], "streaming": value["streaming"]}
+               "songs": {song_id: {"totalBytes": value["totalBytes"], "streaming": value["streaming"],
+                                    "fallback": value.get("fallback")}
                          for song_id, value in results.items()}})
     print(f"Catalog saved. {len(results)} songs, {total / 1e6:.2f} MB generated.", flush=True)
+
+
+def estimate_catalog(args, root):
+    """Report a production size estimate; do not encode or rewrite the catalog."""
+    catalog = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
+    selected = [entry for entry in catalog["videos"] if not args.only or entry["id"] in args.only]
+    if args.only and set(args.only) - {entry["id"] for entry in selected}:
+        raise ValueError("--only contains a song ID not found in the catalog")
+    result = []
+    retired_sources = {}
+    for entry in selected:
+        if entry.get("fallbackHeight"):
+            raise ValueError(f"{entry['id']} uses a compatibility MP4; estimate from the retained source catalog instead")
+        source = (root / entry["url"]).resolve()
+        if not source.is_relative_to(root / "media") or not source.is_file():
+            raise ValueError(f"Source must be a local media file: {source}")
+        info = probe(args.ffprobe, source)
+        video = next(stream for stream in info["streams"] if stream["codec_type"] == "video")
+        duration = float(info["format"]["duration"])
+        levels = levels_for(video, args.max_1080_bitrate)
+        reused = reusable_video(root, args.output / entry["id"], entry, {"source": fingerprint(source)}) if args.reuse_existing else {}
+        new_rate = sum(bitrate for height, bitrate, _ in levels if height not in reused)
+        if not args.video_only:
+            new_rate += 128000 * len([key for key in entry.get("audio", {}) if key in AUDIO_NAMES])
+        fallback_bytes = 0
+        if args.compact_fallbacks:
+            low_height, low_rate, _ = levels[0]
+            if low_height in reused:
+                low_rate = reused[low_height]["averageBandwidth"]
+            fallback_bytes = math.ceil(duration * (low_rate + 160000) / 8 * 1.03)
+            retired_sources[str(source)] = source.stat().st_size
+        result.append({"id": entry["id"], "duration": duration, "sourceHeight": video["height"],
+                       "levels": [{"height": height, "target": bitrate, "maxrate": maximum,
+                                   "reused": height in reused} for height, bitrate, maximum in levels],
+                       "estimatedFallbackBytes": fallback_bytes,
+                       "estimatedNewBytes": math.ceil(duration * new_rate / 8 * 1.03) + fallback_bytes})
+    print(json.dumps({"songs": result, "estimatedNewBytes": sum(song["estimatedNewBytes"] for song in result),
+                      "retiredSourceBytes": sum(retired_sources.values()),
+                      "note": "Target bitrate plus 3% container allowance; actual encoder output can differ."}, indent=2))
 
 
 def main():
     root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--catalog", type=Path, default=root / "videos.json")
+    parser.add_argument("--output-catalog", type=Path, help="Write published entries here while preserving the input source catalog")
     parser.add_argument("--output", type=Path, default=root / "media" / "streams-v1")
     parser.add_argument("--logs", type=Path, default=root / ".local" / "streaming-logs")
     parser.add_argument("--ffmpeg", default="ffmpeg")
@@ -363,15 +527,29 @@ def main():
     parser.add_argument("--jobs", type=int, default=2)
     parser.add_argument("--threads", type=int, default=4)
     parser.add_argument("--skip-existing", action="store_true")
+    parser.add_argument("--video-only", action="store_true", help="Generate only picture streams; aligned external audio remains in the catalog")
+    parser.add_argument("--reuse-existing", action="store_true", help="Reference matching existing video renditions from a new versioned master")
+    parser.add_argument("--compact-fallbacks", action="store_true", help="Use remuxed lowest-resolution MP4s as lightweight compatibility fallbacks")
+    parser.add_argument("--max-1080-bitrate", type=int, default=1350000, help="Maximum target bitrate in bits/s for 1080p (default: 1350000)")
+    parser.add_argument("--estimate", action="store_true", help="Print estimated new production size without encoding or changing the catalog")
     parser.add_argument("--manifests-only", action="store_true", help="Add video-only masters using saved metadata; never encode media")
     parser.add_argument("--only", action="append", help="Prepare only this catalog ID; repeat to select multiple songs")
     args = parser.parse_args()
+    args.catalog = args.catalog.resolve()
+    args.output_catalog = args.output_catalog.resolve() if args.output_catalog else args.catalog
     args.output = args.output.resolve()
     args.logs = args.logs.resolve()
     if not args.output.is_relative_to(root / "media") or args.output == root / "media":
         parser.error("--output must be a versioned subdirectory of the repository's media folder")
     if not 1 <= args.jobs <= 4 or not 1 <= args.threads <= 16:
         parser.error("Use 1–4 jobs and 1–16 threads")
+    if not 300000 <= args.max_1080_bitrate <= 5000000:
+        parser.error("--max-1080-bitrate must be between 300000 and 5000000 bits/s")
+    if args.compact_fallbacks and args.manifests_only:
+        parser.error("--compact-fallbacks requires media production, not --manifests-only")
+    if args.estimate:
+        estimate_catalog(args, root)
+        return
     args.logs.mkdir(parents=True, exist_ok=True)
     with production_lock(root, args.output):
         if args.manifests_only:

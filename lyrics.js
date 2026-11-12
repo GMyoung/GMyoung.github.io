@@ -84,7 +84,9 @@ class LyricPreview {
     this.close();
     this.showCurrent = entry.lyrics?.showCurrent === true;
     this.externalCaptions = entry.lyrics?.placement === 'bottom';
+    this.japaneseLayout = entry.lyrics?.display === 'ja-en-romaji';
     this.overlay?.classList.toggle('external-captions', this.externalCaptions);
+    this.overlay?.classList.toggle('ja-en-romaji', this.japaneseLayout);
     this.root.classList.toggle('external-lyrics', this.externalCaptions);
     const generation = this.generation;
     const url = this.assetUrl(entry.lyrics?.url);
@@ -95,14 +97,17 @@ class LyricPreview {
       if (!response.ok) throw new Error('Lyrics unavailable');
       const data = await response.json();
       if (generation !== this.generation) return;
-      this.bilingual = entry.lyrics.language === 'ja-Latn';
+      this.bilingual = this.japaneseLayout || entry.lyrics.language === 'ja-Latn';
       this.overlay.classList.toggle('bilingual', this.bilingual);
       if (!Array.isArray(data.cues)) throw new Error('Invalid lyrics');
-      this.cues = data.cues.filter(cue => Number.isFinite(cue.start) && Number.isFinite(cue.end) &&
+      this.cues = data.cues.filter(cue => cue && Number.isFinite(cue.start) && Number.isFinite(cue.end) &&
         cue.start >= 0 && cue.end > cue.start && typeof cue.text === 'string' && cue.text.trim())
         .map(cue => ({ start: cue.start, end: cue.end, text: cue.text,
           backing: typeof cue.backing === 'string' ? cue.backing.trim() : '',
-          words: this.readWords(cue) }))
+          japanese: typeof cue.japanese === 'string' ? cue.japanese.trim() : '',
+          translation: typeof cue.translation === 'string' ? cue.translation.trim() : '',
+          romaji: typeof cue.romaji === 'string' ? cue.romaji.trim() : '',
+          words: this.readWords(cue), japaneseWords: this.readJapaneseWords(cue) }))
         .sort((a, b) => a.start - b.start);
       const vtt = this.assetUrl(entry.lyrics.vtt);
       if (vtt && this.cues.length) {
@@ -142,7 +147,8 @@ class LyricPreview {
   }
 
   readWords(cue) {
-    const primary = this.bilingual ? cue.text.split('\n')[0] : cue.text;
+    const primary = this.japaneseLayout && typeof cue.romaji === 'string' ? cue.romaji.trim() :
+      this.bilingual ? cue.text.split('\n')[0] : cue.text;
     const tokens = primary.match(/\S+/g) || [];
     if (!Array.isArray(cue.words) || cue.words.length !== tokens.length) return [];
     let previous = cue.start;
@@ -155,6 +161,21 @@ class LyricPreview {
       previous = word.start;
     }
     return words;
+  }
+
+  readJapaneseWords(cue) {
+    if (!this.japaneseLayout || typeof cue.japanese !== 'string' || !Array.isArray(cue.japaneseWords)) return [];
+    const compact = text => text.replace(/\s+/g, '');
+    let previous = cue.start;
+    const words = [];
+    for (const word of cue.japaneseWords) {
+      if (!word || typeof word.text !== 'string' || !compact(word.text) || !Number.isFinite(word.start) ||
+          !Number.isFinite(word.end) || word.start < previous - .001 || word.start < cue.start - .001 ||
+          word.end > cue.end + .001 || word.end <= word.start) return [];
+      words.push({ text: word.text, start: word.start, end: word.end });
+      previous = word.start;
+    }
+    return compact(words.map(word => word.text).join('')) === compact(cue.japanese) ? words : [];
   }
 
   startClock() {
@@ -256,6 +277,7 @@ class LyricPreview {
   }
 
   renderCue(container, cue, karaoke = false) {
+    if (this.japaneseLayout && cue.japanese) return this.renderJapaneseCue(container, cue, karaoke);
     const primary = document.createElement('span');
     primary.className = 'lyric-primary';
     const parts = cue.text.split('\n');
@@ -295,6 +317,75 @@ class LyricPreview {
     return words;
   }
 
+  renderTimedText(container, text, timings, karaoke) {
+    if (!karaoke || !timings.length) { container.textContent = text; return []; }
+    // Preserve the supplied text and its spacing, including Japanese tokens
+    // without spaces. Invalid token segmentation falls back to plain text.
+    let cursor = 0;
+    const ranges = [];
+    for (const timing of timings) {
+      const start = text.indexOf(timing.text, cursor);
+      if (start < 0) { container.textContent = text; return []; }
+      ranges.push({ timing, start });
+      cursor = start + timing.text.length;
+    }
+    cursor = 0;
+    const words = [];
+    for (const { timing, start } of ranges) {
+      if (start > cursor) container.append(document.createTextNode(text.slice(cursor, start)));
+      const word = document.createElement('span');
+      word.className = 'karaoke-word';
+      word.append(document.createTextNode(timing.text));
+      const fill = document.createElement('span');
+      fill.className = 'karaoke-fill';
+      fill.textContent = timing.text;
+      fill.setAttribute('aria-hidden', 'true');
+      word.append(fill);
+      container.append(word);
+      words.push({ element: word, start: timing.start, end: timing.end, value: null });
+      cursor = start + timing.text.length;
+    }
+    if (cursor < text.length) container.append(document.createTextNode(text.slice(cursor)));
+    return words;
+  }
+
+  renderJapaneseCue(container, cue, karaoke) {
+    const pair = document.createElement('div');
+    pair.className = 'lyric-language-pair';
+    const japaneseColumn = document.createElement('div');
+    japaneseColumn.className = 'lyric-japanese-column';
+    const japanese = document.createElement('span');
+    japanese.className = 'lyric-japanese';
+    japanese.lang = 'ja';
+    const words = this.renderTimedText(japanese, cue.japanese, cue.japaneseWords, karaoke);
+    japaneseColumn.append(japanese);
+    const romajiText = cue.romaji || cue.text.split('\n')[0];
+    if (karaoke && romajiText && romajiText !== cue.japanese) {
+      const romaji = document.createElement('span');
+      romaji.className = 'lyric-romaji';
+      romaji.lang = 'ja-Latn';
+      words.push(...this.renderTimedText(romaji, romajiText, cue.words, true));
+      japaneseColumn.append(romaji);
+    }
+    pair.append(japaneseColumn);
+    const translation = cue.translation || cue.text.split('\n').slice(1).join('\n');
+    if (translation) {
+      const english = document.createElement('span');
+      english.className = 'lyric-english';
+      english.lang = 'en';
+      english.textContent = translation;
+      pair.append(english);
+    } else pair.classList.add('single-language');
+    container.replaceChildren(pair);
+    if (cue.backing) {
+      const backing = document.createElement('span');
+      backing.className = 'lyric-backing';
+      backing.textContent = cue.backing;
+      container.append(backing);
+    }
+    return words;
+  }
+
   close() {
     this.stopClock();
     this.generation += 1;
@@ -320,7 +411,8 @@ class LyricPreview {
     this.showCurrent = false;
     this.externalCaptions = false;
     this.bilingual = false;
-    this.overlay?.classList.remove('bilingual', 'has-current', 'external-captions');
+    this.japaneseLayout = false;
+    this.overlay?.classList.remove('bilingual', 'has-current', 'external-captions', 'ja-en-romaji');
     this.root.classList.remove('external-lyrics');
     if (this.overlay) this.overlay.hidden = true;
     if (this.text) this.text.textContent = '';

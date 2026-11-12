@@ -9,7 +9,7 @@
       "duration": "6:04",
       "label": "Animated edit · on-screen lyrics",
       "poster": "assets/hamantha.jpg",
-      "url": "media/hamantha-instrumental.mp4",
+      "url": "media/streams-v3/hamantha/compatibility-360p.mp4",
       "karaoke": true,
       "audio": {
         "original": "audio/hamantha-original-v1.m4a",
@@ -18,31 +18,31 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/hamantha/master.m3u8",
+        "url": "media/streams-v3/hamantha/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 804000,
-            "url": "media/streams-v1/hamantha/360p.m3u8"
+            "bandwidth": 646000,
+            "url": "media/streams-v3/hamantha/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1743000,
-            "url": "media/streams-v1/hamantha/720p.m3u8"
+            "bandwidth": 1585000,
+            "url": "media/streams-v3/hamantha/720p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/hamantha/video-only.m3u8",
+          "url": "media/streams-v3/hamantha/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 646000,
-              "url": "media/streams-v1/hamantha/360p-video-only.m3u8"
+              "url": "media/streams-v3/hamantha/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1585000,
-              "url": "media/streams-v1/hamantha/720p-video-only.m3u8"
+              "url": "media/streams-v3/hamantha/720p-video-only.m3u8"
             }
           ]
         }
@@ -51,7 +51,8 @@
         "url": "assets/lyrics-v1/hamantha.json",
         "vtt": "assets/lyrics-v1/hamantha.vtt",
         "language": "en"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "die-for-you",
@@ -61,7 +62,7 @@
       "duration": "3:32",
       "label": "Original music video",
       "poster": "assets/die-for-you.jpg",
-      "url": "media/die-for-you-instrumental.mp4",
+      "url": "media/streams-v3/die-for-you/compatibility-360p.mp4",
       "audio": {
         "original": "audio/die-for-you-original-v1.m4a",
         "karaoke": "audio/die-for-you-karaoke-v1.m4a"
@@ -69,31 +70,31 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/die-for-you/master.m3u8",
+        "url": "media/streams-v3/die-for-you/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 773000,
-            "url": "media/streams-v1/die-for-you/360p.m3u8"
+            "bandwidth": 621000,
+            "url": "media/streams-v3/die-for-you/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1580000,
-            "url": "media/streams-v1/die-for-you/720p.m3u8"
+            "bandwidth": 1428000,
+            "url": "media/streams-v3/die-for-you/720p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/die-for-you/video-only.m3u8",
+          "url": "media/streams-v3/die-for-you/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 621000,
-              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
+              "url": "media/streams-v3/die-for-you/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1428000,
-              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
+              "url": "media/streams-v3/die-for-you/720p-video-only.m3u8"
             }
           ]
         }
@@ -104,7 +105,8 @@
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "nice-boys",
@@ -114,7 +116,7 @@
       "duration": "2:59",
       "label": "Manga edit · on-screen lyrics",
       "karaoke": true,
-      "url": "media/nice-boys-instrumental.mp4",
+      "url": "media/streams-v3/nice-boys/compatibility-360p.mp4",
       "audio": {
         "original": "audio/nice-boys-original-v1.m4a",
         "karaoke": "audio/nice-boys-karaoke-v1.m4a"
@@ -122,31 +124,31 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/nice-boys/master.m3u8",
+        "url": "media/streams-v3/nice-boys/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 716000,
-            "url": "media/streams-v1/nice-boys/360p.m3u8"
+            "bandwidth": 560000,
+            "url": "media/streams-v3/nice-boys/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1508000,
-            "url": "media/streams-v1/nice-boys/720p.m3u8"
+            "bandwidth": 1352000,
+            "url": "media/streams-v3/nice-boys/720p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/nice-boys/video-only.m3u8",
+          "url": "media/streams-v3/nice-boys/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 560000,
-              "url": "media/streams-v1/nice-boys/360p-video-only.m3u8"
+              "url": "media/streams-v3/nice-boys/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1352000,
-              "url": "media/streams-v1/nice-boys/720p-video-only.m3u8"
+              "url": "media/streams-v3/nice-boys/720p-video-only.m3u8"
             }
           ]
         }
@@ -155,7 +157,8 @@
         "url": "assets/lyrics-v1/nice-boys.json",
         "vtt": "assets/lyrics-v1/nice-boys.vtt",
         "language": "en"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "die-for-you-karaoke",
@@ -165,7 +168,7 @@
       "duration": "3:32",
       "label": "Original music video · synced lyrics",
       "karaoke": true,
-      "url": "media/die-for-you-instrumental.mp4",
+      "url": "media/streams-v3/die-for-you-karaoke/compatibility-360p.mp4",
       "audio": {
         "original": "audio/die-for-you-original-v1.m4a",
         "karaoke": "audio/die-for-you-karaoke-v1.m4a"
@@ -173,31 +176,31 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/die-for-you/master.m3u8",
+        "url": "media/streams-v3/die-for-you-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 773000,
-            "url": "media/streams-v1/die-for-you/360p.m3u8"
+            "bandwidth": 621000,
+            "url": "media/streams-v3/die-for-you-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1580000,
-            "url": "media/streams-v1/die-for-you/720p.m3u8"
+            "bandwidth": 1428000,
+            "url": "media/streams-v3/die-for-you-karaoke/720p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/die-for-you/video-only.m3u8",
+          "url": "media/streams-v3/die-for-you-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 621000,
-              "url": "media/streams-v1/die-for-you/360p-video-only.m3u8"
+              "url": "media/streams-v3/die-for-you-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1428000,
-              "url": "media/streams-v1/die-for-you/720p-video-only.m3u8"
+              "url": "media/streams-v3/die-for-you-karaoke/720p-video-only.m3u8"
             }
           ]
         }
@@ -208,7 +211,8 @@
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "bad-bad-water-english",
@@ -218,7 +222,7 @@
       "duration": "3:46",
       "label": "Chinese + English · larger frame-synced lyrics",
       "karaoke": true,
-      "url": "media/bad-bad-water-english-v2.mp4",
+      "url": "media/streams-v3/bad-bad-water-english/compatibility-360p.mp4",
       "source": "https://www.bilibili.com/video/BV1RY411T75u/",
       "audio": {
         "original": "audio/bad-bad-water-original-v1.m4a",
@@ -227,35 +231,36 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "media/streams-v1/bad-bad-water-english/master.m3u8",
+        "url": "media/streams-v3/bad-bad-water-english/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 388000,
-            "url": "media/streams-v1/bad-bad-water-english/360p.m3u8"
+            "bandwidth": 230000,
+            "url": "media/streams-v3/bad-bad-water-english/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 468000,
-            "url": "media/streams-v1/bad-bad-water-english/720p.m3u8"
+            "bandwidth": 309000,
+            "url": "media/streams-v3/bad-bad-water-english/720p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v1/bad-bad-water-english/video-only.m3u8",
+          "url": "media/streams-v3/bad-bad-water-english/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 230000,
-              "url": "media/streams-v1/bad-bad-water-english/360p-video-only.m3u8"
+              "url": "media/streams-v3/bad-bad-water-english/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 309000,
-              "url": "media/streams-v1/bad-bad-water-english/720p-video-only.m3u8"
+              "url": "media/streams-v3/bad-bad-water-english/720p-video-only.m3u8"
             }
           ]
         }
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "data-and-picard-lyrics",
@@ -265,7 +270,7 @@
       "duration": "3:17",
       "label": "Original vocals · English lyrics",
       "karaoke": true,
-      "url": "media/data-and-picard-original-v2.mp4",
+      "url": "media/streams-v3/data-and-picard-lyrics/compatibility-360p.mp4",
       "audio": {
         "original": "audio/data-and-picard-original-v1.m4a",
         "karaoke": "audio/data-and-picard-karaoke-v1.m4a"
@@ -273,31 +278,41 @@
       "defaultAudio": "original",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v2/data-and-picard-lyrics/master.m3u8",
+        "url": "media/streams-v3/data-and-picard-lyrics/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 801000,
-            "url": "media/streams-v2/data-and-picard-lyrics/360p.m3u8"
+            "bandwidth": 645000,
+            "url": "media/streams-v3/data-and-picard-lyrics/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1689000,
-            "url": "media/streams-v2/data-and-picard-lyrics/720p.m3u8"
+            "bandwidth": 1533000,
+            "url": "media/streams-v3/data-and-picard-lyrics/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 2188000,
+            "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v2/data-and-picard-lyrics/video-only.m3u8",
+          "url": "media/streams-v3/data-and-picard-lyrics/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 645000,
-              "url": "media/streams-v2/data-and-picard-lyrics/360p-video-only.m3u8"
+              "url": "media/streams-v3/data-and-picard-lyrics/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1533000,
-              "url": "media/streams-v2/data-and-picard-lyrics/720p-video-only.m3u8"
+              "url": "media/streams-v3/data-and-picard-lyrics/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 2188000,
+              "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only.m3u8"
             }
           ]
         }
@@ -308,7 +323,8 @@
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "shes-a-big-boy-karaoke",
@@ -318,7 +334,7 @@
       "duration": "4:40",
       "label": "Original music video · synced lyrics",
       "karaoke": true,
-      "url": "media/shes-a-big-boy-original-v2.mp4",
+      "url": "media/streams-v3/shes-a-big-boy-karaoke/compatibility-360p.mp4",
       "audio": {
         "original": "audio/shes-a-big-boy-original-v1.m4a",
         "karaoke": "audio/shes-a-big-boy-karaoke-v1.m4a"
@@ -326,31 +342,41 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v2/shes-a-big-boy-karaoke/master.m3u8",
+        "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 696000,
-            "url": "media/streams-v2/shes-a-big-boy-karaoke/360p.m3u8"
+            "bandwidth": 539000,
+            "url": "media/streams-v3/shes-a-big-boy-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1639000,
-            "url": "media/streams-v2/shes-a-big-boy-karaoke/720p.m3u8"
+            "bandwidth": 1482000,
+            "url": "media/streams-v3/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 1869000,
+            "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v2/shes-a-big-boy-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 539000,
-              "url": "media/streams-v2/shes-a-big-boy-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v3/shes-a-big-boy-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1482000,
-              "url": "media/streams-v2/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v3/shes-a-big-boy-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 1869000,
+              "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only.m3u8"
             }
           ]
         }
@@ -361,7 +387,8 @@
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"
-      }
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "odoriko-bilingual-karaoke",
@@ -371,7 +398,7 @@
       "duration": "4:05",
       "label": "Romaji + English · guide vocal at 70%",
       "karaoke": true,
-      "url": "media/odoriko-original-v2.mp4",
+      "url": "media/streams-v3/odoriko-bilingual-karaoke/compatibility-360p.mp4",
       "audio": {
         "original": "audio/odoriko-original-v1.m4a",
         "karaoke": "audio/odoriko-karaoke-v1.m4a"
@@ -379,42 +406,54 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v2/odoriko-bilingual-karaoke/master.m3u8",
+        "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 795000,
-            "url": "media/streams-v2/odoriko-bilingual-karaoke/360p.m3u8"
+            "bandwidth": 639000,
+            "url": "media/streams-v3/odoriko-bilingual-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1696000,
-            "url": "media/streams-v2/odoriko-bilingual-karaoke/720p.m3u8"
+            "bandwidth": 1540000,
+            "url": "media/streams-v3/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 2256000,
+            "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v2/odoriko-bilingual-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 639000,
-              "url": "media/streams-v2/odoriko-bilingual-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v3/odoriko-bilingual-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1540000,
-              "url": "media/streams-v2/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v3/odoriko-bilingual-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 2256000,
+              "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only.m3u8"
             }
           ]
         }
       },
       "lyrics": {
-        "url": "assets/lyrics-v3/odoriko.json",
-        "vtt": "assets/lyrics-v3/odoriko-current.vtt",
-        "language": "ja-Latn",
+        "url": "assets/lyrics-v4/odoriko.json",
+        "vtt": "assets/lyrics-v4/odoriko-current.vtt",
+        "language": "ja",
         "showCurrent": true,
-        "placement": "bottom"
-      }
+        "placement": "bottom",
+        "display": "ja-en-romaji"
+      },
+      "fallbackHeight": 360
     },
     {
       "id": "so-handsome-hello-karaoke",
@@ -424,7 +463,7 @@
       "duration": "3:48",
       "label": "Karaoke version · on-screen lyrics",
       "poster": "assets/so-handsome-hello-v1.jpg",
-      "url": "media/so-handsome-hello-karaoke-v1.mp4",
+      "url": "media/streams-v3/so-handsome-hello-karaoke/compatibility-360p.mp4",
       "karaoke": true,
       "audio": {
         "original": "audio/so-handsome-hello-original-v1.m4a",
@@ -433,35 +472,349 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v2/so-handsome-hello-karaoke/master.m3u8",
+        "url": "media/streams-v3/so-handsome-hello-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 674000,
-            "url": "media/streams-v2/so-handsome-hello-karaoke/360p.m3u8"
+            "bandwidth": 518000,
+            "url": "media/streams-v3/so-handsome-hello-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1459000,
-            "url": "media/streams-v2/so-handsome-hello-karaoke/720p.m3u8"
+            "bandwidth": 1302000,
+            "url": "media/streams-v3/so-handsome-hello-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 1951000,
+            "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v2/so-handsome-hello-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/so-handsome-hello-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 518000,
-              "url": "media/streams-v2/so-handsome-hello-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v3/so-handsome-hello-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1302000,
-              "url": "media/streams-v2/so-handsome-hello-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v3/so-handsome-hello-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 1951000,
+              "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only.m3u8"
             }
           ]
         }
-      }
+      },
+      "fallbackHeight": 360
+    },
+    {
+      "id": "30-karaoke",
+      "title": "30",
+      "artist": "Bo Burnham",
+      "label": "Golden Notes karaoke · on-screen lyrics",
+      "type": "karaoke",
+      "duration": "2:35",
+      "karaoke": true,
+      "url": "media/streams-v3/30-karaoke/compatibility-360p.mp4",
+      "poster": "assets/30-karaoke-v1.jpg",
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "audio": {
+        "karaoke": "audio/30-karaoke-karaoke-v1.m4a"
+      },
+      "streaming": {
+        "url": "media/streams-v3/30-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 329000,
+            "url": "media/streams-v3/30-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 411000,
+            "url": "media/streams-v3/30-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 486000,
+            "url": "media/streams-v3/30-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v3/30-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 329000,
+              "url": "media/streams-v3/30-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 411000,
+              "url": "media/streams-v3/30-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 486000,
+              "url": "media/streams-v3/30-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360
+    },
+    {
+      "id": "the-girl-from-ipanema-karaoke",
+      "title": "The Girl From Ipanema",
+      "artist": "Frank Sinatra & Antônio Carlos Jobim",
+      "type": "karaoke",
+      "duration": "3:16",
+      "label": "Original duet karaoke · on-screen lyrics",
+      "karaoke": true,
+      "url": "media/streams-v4/the-girl-from-ipanema-karaoke/compatibility-360p.mp4",
+      "poster": "assets/the-girl-from-ipanema-v2.jpg",
+      "audio": {
+        "original": "audio/the-girl-from-ipanema-original-v2.m4a",
+        "karaoke": "audio/the-girl-from-ipanema-karaoke-v2.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 2167000,
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 4961000,
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 7562000,
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 2167000,
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 4961000,
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 7562000,
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360
+    },
+    {
+      "id": "slow-dancing-in-the-dark-karaoke",
+      "title": "SLOW DANCING IN THE DARK",
+      "artist": "Joji",
+      "label": "Original music video · karaoke",
+      "type": "karaoke",
+      "duration": "3:37",
+      "karaoke": true,
+      "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/compatibility-360p.mp4",
+      "poster": "assets/slow-dancing-in-the-dark-karaoke-v1.jpg",
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "audio": {
+        "original": "audio/slow-dancing-in-the-dark-karaoke-original-v1.m4a",
+        "karaoke": "audio/slow-dancing-in-the-dark-karaoke-karaoke-v1.m4a"
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v4/slow-dancing-in-the-dark.json",
+        "vtt": "assets/lyrics-v4/slow-dancing-in-the-dark-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      },
+      "streaming": {
+        "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 602000,
+            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1507000,
+            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 2003000,
+            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 602000,
+              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1507000,
+              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 2003000,
+              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360
+    },
+    {
+      "id": "breathe-karaoke",
+      "title": "Breathe",
+      "artist": "Malcolm Todd",
+      "label": "Sing King karaoke · on-screen lyrics",
+      "type": "karaoke",
+      "duration": "3:01",
+      "karaoke": true,
+      "url": "media/streams-v3/breathe-karaoke/compatibility-360p.mp4",
+      "poster": "assets/breathe-karaoke-v1.jpg",
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "audio": {
+        "original": "audio/breathe-karaoke-original-v1.m4a",
+        "karaoke": "audio/breathe-karaoke-karaoke-v1.m4a"
+      },
+      "streaming": {
+        "url": "media/streams-v3/breathe-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 185000,
+            "url": "media/streams-v3/breathe-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 238000,
+            "url": "media/streams-v3/breathe-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 288000,
+            "url": "media/streams-v3/breathe-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v3/breathe-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 185000,
+              "url": "media/streams-v3/breathe-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 238000,
+              "url": "media/streams-v3/breathe-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 288000,
+              "url": "media/streams-v3/breathe-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360
+    },
+    {
+      "id": "vampira-karaoke",
+      "title": "Vampira",
+      "artist": "Willyrodriguezwastaken",
+      "label": "Original artwork · karaoke",
+      "type": "karaoke",
+      "duration": "1:53",
+      "karaoke": true,
+      "url": "media/streams-v3/vampira-karaoke/compatibility-360p.mp4",
+      "poster": "assets/vampira-karaoke-v1.jpg",
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "audio": {
+        "original": "audio/vampira-karaoke-original-v1.m4a",
+        "karaoke": "audio/vampira-karaoke-karaoke-v1.m4a"
+      },
+      "lyrics": {
+        "url": "assets/lyrics-v4/vampira.json",
+        "vtt": "assets/lyrics-v4/vampira-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      },
+      "streaming": {
+        "url": "media/streams-v3/vampira-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 158000,
+            "url": "media/streams-v3/vampira-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 168000,
+            "url": "media/streams-v3/vampira-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 199000,
+            "url": "media/streams-v3/vampira-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "media/streams-v3/vampira-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 158000,
+              "url": "media/streams-v3/vampira-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 168000,
+              "url": "media/streams-v3/vampira-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 199000,
+              "url": "media/streams-v3/vampira-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360
     }
   ],
   "showPlaylist": false,

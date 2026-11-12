@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "entries": {
+    "odoriko-bilingual-karaoke": {
+      "url": "assets/lyrics-v4/odoriko.json",
+      "vtt": "assets/lyrics-v4/odoriko-current.vtt",
+      "language": "ja",
+      "showCurrent": true,
+      "placement": "bottom",
+      "display": "ja-en-romaji"
+    },
+    "slow-dancing-in-the-dark-karaoke": {
+      "url": "assets/lyrics-v4/slow-dancing-in-the-dark.json",
+      "vtt": "assets/lyrics-v4/slow-dancing-in-the-dark-current.vtt",
+      "language": "en",
+      "showCurrent": true,
+      "placement": "bottom"
+    },
+    "vampira-karaoke": {
+      "url": "assets/lyrics-v4/vampira.json",
+      "vtt": "assets/lyrics-v4/vampira-current.vtt",
+      "language": "en",
+      "showCurrent": true,
+      "placement": "bottom"
+    }
+  }
+}

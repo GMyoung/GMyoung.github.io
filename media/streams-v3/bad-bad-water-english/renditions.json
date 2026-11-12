@@ -1,0 +1,227 @@
+{
+  "signature": {
+    "recipe": "hls-fmp4-v2-30fps-4sec-1080",
+    "source": "4e2724dbb32f4ac79514f5dae9922b5d8612a34847a682faafa552943238932c",
+    "audio": {
+      "original": "db082c3f401c6466c5082233106e068528e834c84895ff889b6dcbe34142af50",
+      "karaoke": "c7f5050af60309c2902ae30de0019615c56491f01c1352780ea2b9dd29be581a"
+    },
+    "defaultAudio": "karaoke",
+    "videoOnly": true,
+    "compactFallbacks": true,
+    "lowBitrateLevels": [
+      [
+        360,
+        95000,
+        142500
+      ],
+      [
+        720,
+        124000,
+        186000
+      ]
+    ]
+  },
+  "sourceHeight": 720,
+  "video": {
+    "360": {
+      "duration": 225.933333,
+      "segments": 57,
+      "bytes": 3262783,
+      "averageBandwidth": 115501,
+      "peakBandwidth": 199152,
+      "files": [
+        "init.mp4",
+        "segment-0000.m4s",
+        "segment-0001.m4s",
+        "segment-0002.m4s",
+        "segment-0003.m4s",
+        "segment-0004.m4s",
+        "segment-0005.m4s",
+        "segment-0006.m4s",
+        "segment-0007.m4s",
+        "segment-0008.m4s",
+        "segment-0009.m4s",
+        "segment-0010.m4s",
+        "segment-0011.m4s",
+        "segment-0012.m4s",
+        "segment-0013.m4s",
+        "segment-0014.m4s",
+        "segment-0015.m4s",
+        "segment-0016.m4s",
+        "segment-0017.m4s",
+        "segment-0018.m4s",
+        "segment-0019.m4s",
+        "segment-0020.m4s",
+        "segment-0021.m4s",
+        "segment-0022.m4s",
+        "segment-0023.m4s",
+        "segment-0024.m4s",
+        "segment-0025.m4s",
+        "segment-0026.m4s",
+        "segment-0027.m4s",
+        "segment-0028.m4s",
+        "segment-0029.m4s",
+        "segment-0030.m4s",
+        "segment-0031.m4s",
+        "segment-0032.m4s",
+        "segment-0033.m4s",
+        "segment-0034.m4s",
+        "segment-0035.m4s",
+        "segment-0036.m4s",
+        "segment-0037.m4s",
+        "segment-0038.m4s",
+        "segment-0039.m4s",
+        "segment-0040.m4s",
+        "segment-0041.m4s",
+        "segment-0042.m4s",
+        "segment-0043.m4s",
+        "segment-0044.m4s",
+        "segment-0045.m4s",
+        "segment-0046.m4s",
+        "segment-0047.m4s",
+        "segment-0048.m4s",
+        "segment-0049.m4s",
+        "segment-0050.m4s",
+        "segment-0051.m4s",
+        "segment-0052.m4s",
+        "segment-0053.m4s",
+        "segment-0054.m4s",
+        "segment-0055.m4s",
+        "segment-0056.m4s"
+      ],
+      "width": 640,
+      "height": 360,
+      "playlist": "../../streams-v1/bad-bad-water-english/360/index.m3u8"
+    },
+    "720": {
+      "duration": 225.933333,
+      "segments": 57,
+      "bytes": 4354684,
+      "averageBandwidth": 154163,
+      "peakBandwidth": 268492,
+      "files": [
+        "init.mp4",
+        "segment-0000.m4s",
+        "segment-0001.m4s",
+        "segment-0002.m4s",
+        "segment-0003.m4s",
+        "segment-0004.m4s",
+        "segment-0005.m4s",
+        "segment-0006.m4s",
+        "segment-0007.m4s",
+        "segment-0008.m4s",
+        "segment-0009.m4s",
+        "segment-0010.m4s",
+        "segment-0011.m4s",
+        "segment-0012.m4s",
+        "segment-0013.m4s",
+        "segment-0014.m4s",
+        "segment-0015.m4s",
+        "segment-0016.m4s",
+        "segment-0017.m4s",
+        "segment-0018.m4s",
+        "segment-0019.m4s",
+        "segment-0020.m4s",
+        "segment-0021.m4s",
+        "segment-0022.m4s",
+        "segment-0023.m4s",
+        "segment-0024.m4s",
+        "segment-0025.m4s",
+        "segment-0026.m4s",
+        "segment-0027.m4s",
+        "segment-0028.m4s",
+        "segment-0029.m4s",
+        "segment-0030.m4s",
+        "segment-0031.m4s",
+        "segment-0032.m4s",
+        "segment-0033.m4s",
+        "segment-0034.m4s",
+        "segment-0035.m4s",
+        "segment-0036.m4s",
+        "segment-0037.m4s",
+        "segment-0038.m4s",
+        "segment-0039.m4s",
+        "segment-0040.m4s",
+        "segment-0041.m4s",
+        "segment-0042.m4s",
+        "segment-0043.m4s",
+        "segment-0044.m4s",
+        "segment-0045.m4s",
+        "segment-0046.m4s",
+        "segment-0047.m4s",
+        "segment-0048.m4s",
+        "segment-0049.m4s",
+        "segment-0050.m4s",
+        "segment-0051.m4s",
+        "segment-0052.m4s",
+        "segment-0053.m4s",
+        "segment-0054.m4s",
+        "segment-0055.m4s",
+        "segment-0056.m4s"
+      ],
+      "width": 1280,
+      "height": 720,
+      "playlist": "../../streams-v1/bad-bad-water-english/720/index.m3u8"
+    }
+  },
+  "audio": {},
+  "sourceVideoBitrate": 145673,
+  "encodingLevels": [
+    {
+      "height": 360,
+      "target": 95000,
+      "maxrate": 142500
+    },
+    {
+      "height": 720,
+      "target": 124000,
+      "maxrate": 186000
+    }
+  ],
+  "fallback": {
+    "url": "media/streams-v3/bad-bad-water-english/compatibility-360p.mp4",
+    "height": 360,
+    "bytes": 8104673,
+    "duration": 226.0,
+    "audio": "karaoke"
+  },
+  "streaming": {
+    "url": "media/streams-v3/bad-bad-water-english/video-only.m3u8",
+    "variants": [
+      {
+        "height": 360,
+        "bandwidth": 230000,
+        "url": "media/streams-v3/bad-bad-water-english/360p-video-only.m3u8"
+      },
+      {
+        "height": 720,
+        "bandwidth": 309000,
+        "url": "media/streams-v3/bad-bad-water-english/720p-video-only.m3u8"
+      }
+    ],
+    "videoOnly": {
+      "url": "media/streams-v3/bad-bad-water-english/video-only.m3u8",
+      "variants": [
+        {
+          "height": 360,
+          "bandwidth": 230000,
+          "url": "media/streams-v3/bad-bad-water-english/360p-video-only.m3u8"
+        },
+        {
+          "height": 720,
+          "bandwidth": 309000,
+          "url": "media/streams-v3/bad-bad-water-english/720p-video-only.m3u8"
+        }
+      ]
+    }
+  },
+  "outputFiles": {
+    "360p-video-only.m3u8": 230,
+    "720p-video-only.m3u8": 231,
+    "compatibility-360p.mp4": 8104673,
+    "preparation.json": 540,
+    "video-only.m3u8": 405
+  },
+  "totalBytes": 8106079
+}

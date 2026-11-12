@@ -34,6 +34,7 @@ class AdaptiveStream {
     this.originalUrl = this.safeUrl(originalUrl);
     this.defaultAudio = entry.defaultAudio || 'karaoke';
     this.sourceHeight = Number(entry.sourceHeight) || null;
+    this.fallbackHeight = Number(entry.fallbackHeight) || null;
     const readDescriptor = value => {
       const url = this.safeUrl(value?.url);
       const variants = (Array.isArray(value?.variants) ? value.variants : []).map(item => ({
@@ -52,7 +53,9 @@ class AdaptiveStream {
         this.addOption('auto', 'Auto');
         this.descriptor.variants.forEach(item => this.addOption(String(item.height), `${item.height}p`));
       }
-      this.addOption('original', `Original${this.sourceHeight ? ` · ${this.sourceHeight}p` : ''}`);
+      this.fallbackLabel = this.fallbackHeight ? `Compatibility · ${this.fallbackHeight}p` :
+        `Original${this.sourceHeight ? ` · ${this.sourceHeight}p` : ''}`;
+      this.addOption('original', this.fallbackLabel);
       this.quality.disabled = !this.supported;
     }
     this.probeMbps = null;
@@ -99,9 +102,21 @@ class AdaptiveStream {
         maxBufferLength: 40,
         maxMaxBufferLength: 60,
         backBufferLength: 15,
+        // A fast sample alone must not force HD: EWMA throughput and the
+        // playable buffer govern ABR. Upgrades keep more headroom than holds.
         abrEwmaDefaultEstimate: 650000,
-        abrBandWidthFactor: .7,
-        abrBandWidthUpFactor: .55,
+        abrEwmaFastVoD: 3,
+        abrEwmaSlowVoD: 9,
+        abrBandWidthFactor: .8,
+        abrBandWidthUpFactor: .6,
+        abrMaxWithRealBitrate: true,
+        maxStarvationDelay: 1.5,
+        maxLoadingDelay: 4,
+        // Network capacity is not decoder capacity. Cap automatic quality
+        // after sustained dropped frames on devices exposing frame counters.
+        capLevelOnFPSDrop: true,
+        fpsDroppedMonitoringPeriod: 5000,
+        fpsDroppedMonitoringThreshold: .1,
         ...(this.videoOnly ? {} : { audioPreference: { name: this.trackLabel(track) } })
       });
       hls.on(Hls.Events.MEDIA_ATTACHED, () => { if (current()) hls.loadSource(this.descriptor.url); });
@@ -248,7 +263,7 @@ class AdaptiveStream {
   updateStats() {
     if (!this.stats) return;
     const height = this.height || (this.mode === 'native' ? this.video.videoHeight : null);
-    const label = this.selected === 'original' ? 'Original' : this.selected === 'auto' ? `Auto${height ? ` · ${height}p` : ''}` : `${this.selected}p`;
+    const label = this.selected === 'original' ? (this.fallbackLabel || 'Original') : this.selected === 'auto' ? `Auto${height ? ` · ${height}p` : ''}` : `${this.selected}p`;
     const speed = this.mbps !== null && this.mbps !== undefined ? `${this.mbps.toFixed(1)} Mbps media` : this.probeMbps ? `${this.probeMbps.toFixed(1)} Mbps sample` : this.mode === 'hls' ? 'Measuring while playing' : 'Use Check connection for speed';
     const text = `${label} · ${this.probeMessage || speed} · ${Math.floor(this.bufferAhead())}s buffered`;
     if (this.stats.textContent !== text) this.stats.textContent = text;

@@ -1,0 +1,3865 @@
+{
+  "version": 1,
+  "language": "ja",
+  "display": "ja-en-romaji",
+  "provenance": {
+    "japanese": "user-supplied 48-line text",
+    "english": "new translation of supplied Japanese",
+    "timing": "Retained local forced-alignment anchors, remapped to supplied line boundaries. Refrains, changed spoken tokens and clipped anchor edges are explicitly estimated.",
+    "review": "Not newly acoustically or playback verified."
+  },
+  "cues": [
+    {
+      "start": 18.517,
+      "end": 25.477,
+      "text": "Nee dokka ni oitekita you na koto ga\nHey, things I seem to have left somewhere",
+      "japanese": "ねぇ どっかに置いてきたような事が",
+      "translation": "Hey, things I seem to have left somewhere",
+      "romaji": "Nee dokka ni oitekita you na koto ga",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "ねぇ",
+          "start": 18.517,
+          "end": 19.137,
+          "estimated": true
+        },
+        {
+          "text": "どっか",
+          "start": 19.137,
+          "end": 20.337,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 20.337,
+          "end": 20.757,
+          "estimated": false
+        },
+        {
+          "text": "置いてきた",
+          "start": 20.757,
+          "end": 22.937,
+          "estimated": false
+        },
+        {
+          "text": "よう",
+          "start": 23.277,
+          "end": 23.377,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 23.377,
+          "end": 24.117,
+          "estimated": false
+        },
+        {
+          "text": "事",
+          "start": 24.117,
+          "end": 24.917,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 24.917,
+          "end": 25.477,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Nee",
+          "start": 18.517,
+          "end": 19.137,
+          "estimated": true
+        },
+        {
+          "text": "dokka",
+          "start": 19.137,
+          "end": 20.337,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 20.337,
+          "end": 20.757,
+          "estimated": false
+        },
+        {
+          "text": "oitekita",
+          "start": 20.757,
+          "end": 22.937,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 23.277,
+          "end": 23.377,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 23.377,
+          "end": 24.117,
+          "estimated": false
+        },
+        {
+          "text": "koto",
+          "start": 24.117,
+          "end": 24.917,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 24.917,
+          "end": 25.477,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 25.477,
+      "end": 30.747,
+      "text": "Hitotsu futatsu uiteiru kedo\nOne or two are floating up, but...",
+      "japanese": "一つ二つ浮いているけど",
+      "translation": "One or two are floating up, but...",
+      "romaji": "Hitotsu futatsu uiteiru kedo",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "一つ",
+          "start": 25.477,
+          "end": 26.517,
+          "estimated": false
+        },
+        {
+          "text": "二つ",
+          "start": 26.517,
+          "end": 27.197,
+          "estimated": false
+        },
+        {
+          "text": "浮いている",
+          "start": 27.197,
+          "end": 28.437,
+          "estimated": false
+        },
+        {
+          "text": "けど",
+          "start": 28.437,
+          "end": 30.117,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Hitotsu",
+          "start": 25.477,
+          "end": 26.517,
+          "estimated": false
+        },
+        {
+          "text": "futatsu",
+          "start": 26.517,
+          "end": 27.197,
+          "estimated": false
+        },
+        {
+          "text": "uiteiru",
+          "start": 27.197,
+          "end": 28.437,
+          "estimated": false
+        },
+        {
+          "text": "kedo",
+          "start": 28.437,
+          "end": 30.117,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 30.747,
+      "end": 36.556,
+      "text": "Nee chanto hirotteokou\nHey, let's make sure we pick them up",
+      "japanese": "ねぇ ちゃんと拾っておこう",
+      "translation": "Hey, let's make sure we pick them up",
+      "romaji": "Nee chanto hirotteokou",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "ねぇ",
+          "start": 30.747,
+          "end": 31.317,
+          "estimated": true
+        },
+        {
+          "text": "ちゃんと",
+          "start": 31.317,
+          "end": 33.177,
+          "estimated": false
+        },
+        {
+          "text": "拾っておこう",
+          "start": 33.177,
+          "end": 36.397,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Nee",
+          "start": 30.747,
+          "end": 31.317,
+          "estimated": true
+        },
+        {
+          "text": "chanto",
+          "start": 31.317,
+          "end": 33.177,
+          "estimated": false
+        },
+        {
+          "text": "hirotteokou",
+          "start": 33.177,
+          "end": 36.397,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 36.556,
+      "end": 42.46,
+      "text": "Hajikete wasureteshimau mae ni\nBefore they burst and we forget",
+      "japanese": "はじけて忘れてしまう前に",
+      "translation": "Before they burst and we forget",
+      "romaji": "Hajikete wasureteshimau mae ni",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "はじけて",
+          "start": 36.556,
+          "end": 37.777,
+          "estimated": true
+        },
+        {
+          "text": "忘れてしまう",
+          "start": 38.277,
+          "end": 40.257,
+          "estimated": false
+        },
+        {
+          "text": "前",
+          "start": 40.257,
+          "end": 41.737,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 41.737,
+          "end": 41.977,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Hajikete",
+          "start": 36.556,
+          "end": 37.777,
+          "estimated": true
+        },
+        {
+          "text": "wasureteshimau",
+          "start": 38.277,
+          "end": 40.257,
+          "estimated": false
+        },
+        {
+          "text": "mae",
+          "start": 40.257,
+          "end": 41.737,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 41.737,
+          "end": 41.977,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 43.457,
+      "end": 50.097,
+      "text": "Mawaridashita ano ko to boku no mirai ga tomari\nThe future set in motion for that girl and me comes to a stop",
+      "japanese": "回り出した あの子と僕の未来が止まり",
+      "translation": "The future set in motion for that girl and me comes to a stop",
+      "romaji": "Mawaridashita ano ko to boku no mirai ga tomari",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 43.457,
+          "end": 44.537,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 44.537,
+          "end": 45.557,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 45.557,
+          "end": 45.937,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 45.937,
+          "end": 46.317,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 46.317,
+          "end": 47.157,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 47.157,
+          "end": 47.537,
+          "estimated": false
+        },
+        {
+          "text": "未来",
+          "start": 47.537,
+          "end": 48.437,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 48.437,
+          "end": 49.057,
+          "estimated": false
+        },
+        {
+          "text": "止まり",
+          "start": 49.057,
+          "end": 50.097,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 43.457,
+          "end": 44.537,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 44.537,
+          "end": 45.557,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 45.557,
+          "end": 45.937,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 45.937,
+          "end": 46.317,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 46.317,
+          "end": 47.157,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 47.157,
+          "end": 47.537,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 47.537,
+          "end": 48.437,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 48.437,
+          "end": 49.057,
+          "estimated": false
+        },
+        {
+          "text": "tomari",
+          "start": 49.057,
+          "end": 50.097,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 50.097,
+      "end": 55.334,
+      "text": "Dokka de mata yarinaosetara\nIf only we could start over somewhere",
+      "japanese": "どっかで またやり直せたら",
+      "translation": "If only we could start over somewhere",
+      "romaji": "Dokka de mata yarinaosetara",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 50.097,
+          "end": 50.957,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 50.957,
+          "end": 51.397,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 51.397,
+          "end": 52.297,
+          "estimated": false
+        },
+        {
+          "text": "やり直せたら",
+          "start": 52.297,
+          "end": 55.217,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 50.097,
+          "end": 50.957,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 50.957,
+          "end": 51.397,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 51.397,
+          "end": 52.297,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 52.297,
+          "end": 55.217,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 55.334,
+      "end": 62.417,
+      "text": "Mawaridashita ano ko to boku ga higaisha zura de\nThat girl and I, set in motion, playing the victims",
+      "japanese": "回り出した あの子と僕が被害者面で",
+      "translation": "That girl and I, set in motion, playing the victims",
+      "romaji": "Mawaridashita ano ko to boku ga higaisha zura de",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 55.334,
+          "end": 56.777,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 56.777,
+          "end": 57.817,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 57.817,
+          "end": 58.177,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 58.177,
+          "end": 58.557,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 58.557,
+          "end": 59.437,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 59.437,
+          "end": 59.797,
+          "estimated": false
+        },
+        {
+          "text": "被害者",
+          "start": 59.797,
+          "end": 61.277,
+          "estimated": false
+        },
+        {
+          "text": "面",
+          "start": 61.277,
+          "end": 62.177,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 62.177,
+          "end": 62.417,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 55.334,
+          "end": 56.777,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 56.777,
+          "end": 57.817,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 57.817,
+          "end": 58.177,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 58.177,
+          "end": 58.557,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 58.557,
+          "end": 59.437,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 59.437,
+          "end": 59.797,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 59.797,
+          "end": 61.277,
+          "estimated": false
+        },
+        {
+          "text": "zura",
+          "start": 61.277,
+          "end": 62.177,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 62.177,
+          "end": 62.417,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 62.417,
+      "end": 68.118,
+      "text": "Dokka wo mata neriaruketara na\nIf only we could wander somewhere again",
+      "japanese": "どっかを また練り歩けたらな",
+      "translation": "If only we could wander somewhere again",
+      "romaji": "Dokka wo mata neriaruketara na",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 62.417,
+          "end": 63.217,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 63.217,
+          "end": 63.697,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 63.697,
+          "end": 64.537,
+          "estimated": false
+        },
+        {
+          "text": "練り歩けたら",
+          "start": 64.537,
+          "end": 67.377,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 67.377,
+          "end": 67.757,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 62.417,
+          "end": 63.217,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 63.217,
+          "end": 63.697,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 63.697,
+          "end": 64.537,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 64.537,
+          "end": 67.377,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 67.377,
+          "end": 67.757,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 68.118,
+      "end": 71.065,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 68.118,
+          "end": 69.17,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 69.17,
+          "end": 70.223,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 70.223,
+          "end": 71.065,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 68.118,
+          "end": 69.17,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 69.17,
+          "end": 70.223,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 70.223,
+          "end": 71.065,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 71.065,
+      "end": 74.011,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 71.065,
+          "end": 72.117,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 72.117,
+          "end": 73.169,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 73.169,
+          "end": 74.011,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 71.065,
+          "end": 72.117,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 72.117,
+          "end": 73.169,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 73.169,
+          "end": 74.011,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 74.011,
+      "end": 76.958,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 74.011,
+          "end": 75.063,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 75.063,
+          "end": 76.116,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 76.116,
+          "end": 76.958,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 74.011,
+          "end": 75.063,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 75.063,
+          "end": 76.116,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 76.116,
+          "end": 76.958,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 76.958,
+      "end": 79.905,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 76.958,
+          "end": 78.01,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 78.01,
+          "end": 79.063,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 79.063,
+          "end": 79.905,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 76.958,
+          "end": 78.01,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 78.01,
+          "end": 79.063,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 79.063,
+          "end": 79.905,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 79.905,
+      "end": 85.214,
+      "text": "Ano ne watashi anata ni atta no\nYou know, I met you",
+      "japanese": "あのね 私あなたに会ったの",
+      "translation": "You know, I met you",
+      "romaji": "Ano ne watashi anata ni atta no",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "あの",
+          "start": 79.905,
+          "end": 80.085,
+          "estimated": true
+        },
+        {
+          "text": "ね",
+          "start": 80.085,
+          "end": 80.405,
+          "estimated": false
+        },
+        {
+          "text": "私",
+          "start": 81.145,
+          "end": 82.025,
+          "estimated": false
+        },
+        {
+          "text": "あなた",
+          "start": 82.025,
+          "end": 83.285,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 83.285,
+          "end": 83.865,
+          "estimated": false
+        },
+        {
+          "text": "会った",
+          "start": 83.865,
+          "end": 84.485,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 84.485,
+          "end": 84.885,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Ano",
+          "start": 79.905,
+          "end": 80.085,
+          "estimated": true
+        },
+        {
+          "text": "ne",
+          "start": 80.085,
+          "end": 80.405,
+          "estimated": false
+        },
+        {
+          "text": "watashi",
+          "start": 81.145,
+          "end": 82.025,
+          "estimated": false
+        },
+        {
+          "text": "anata",
+          "start": 82.025,
+          "end": 83.285,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 83.285,
+          "end": 83.865,
+          "estimated": false
+        },
+        {
+          "text": "atta",
+          "start": 83.865,
+          "end": 84.485,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 84.485,
+          "end": 84.885,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 85.214,
+      "end": 91.686,
+      "text": "Yume no naka ni oitekita kedo ne\nThough I left it behind inside a dream",
+      "japanese": "夢の中に置いてきたけどね",
+      "translation": "Though I left it behind inside a dream",
+      "romaji": "Yume no naka ni oitekita kedo ne",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "夢",
+          "start": 85.565,
+          "end": 86.105,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 86.105,
+          "end": 86.485,
+          "estimated": false
+        },
+        {
+          "text": "中",
+          "start": 86.485,
+          "end": 87.165,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 87.165,
+          "end": 87.705,
+          "estimated": false
+        },
+        {
+          "text": "置いてきた",
+          "start": 87.705,
+          "end": 89.425,
+          "estimated": false
+        },
+        {
+          "text": "けど",
+          "start": 89.425,
+          "end": 90.645,
+          "estimated": false
+        },
+        {
+          "text": "ね",
+          "start": 90.645,
+          "end": 90.985,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Yume",
+          "start": 85.565,
+          "end": 86.105,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 86.105,
+          "end": 86.485,
+          "estimated": false
+        },
+        {
+          "text": "naka",
+          "start": 86.485,
+          "end": 87.165,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 87.165,
+          "end": 87.705,
+          "estimated": false
+        },
+        {
+          "text": "oitekita",
+          "start": 87.705,
+          "end": 89.425,
+          "estimated": false
+        },
+        {
+          "text": "kedo",
+          "start": 89.425,
+          "end": 90.645,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 90.645,
+          "end": 90.985,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 91.686,
+      "end": 97.423,
+      "text": "Nee doushite watashi ga suki nano\nHey, why do you like me?",
+      "japanese": "ねぇ どうして私が好きなの",
+      "translation": "Hey, why do you like me?",
+      "romaji": "Nee doushite watashi ga suki nano",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "ねぇ",
+          "start": 91.686,
+          "end": 92.485,
+          "estimated": true
+        },
+        {
+          "text": "どうして",
+          "start": 92.485,
+          "end": 93.705,
+          "estimated": false
+        },
+        {
+          "text": "私",
+          "start": 94.945,
+          "end": 95.705,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 95.705,
+          "end": 96.045,
+          "estimated": false
+        },
+        {
+          "text": "好き",
+          "start": 96.045,
+          "end": 96.425,
+          "estimated": false
+        },
+        {
+          "text": "なの",
+          "start": 96.425,
+          "end": 97.045,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Nee",
+          "start": 91.686,
+          "end": 92.485,
+          "estimated": true
+        },
+        {
+          "text": "doushite",
+          "start": 92.485,
+          "end": 93.705,
+          "estimated": false
+        },
+        {
+          "text": "watashi",
+          "start": 94.945,
+          "end": 95.705,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 95.705,
+          "end": 96.045,
+          "estimated": false
+        },
+        {
+          "text": "suki",
+          "start": 96.045,
+          "end": 96.425,
+          "estimated": false
+        },
+        {
+          "text": "nano",
+          "start": 96.425,
+          "end": 97.045,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 97.423,
+      "end": 103.67,
+      "text": "Ichido shika atta koto ga nai no ni ne\nEven though we've only met once",
+      "japanese": "一度しか会ったことがないのにね",
+      "translation": "Even though we've only met once",
+      "romaji": "Ichido shika atta koto ga nai no ni ne",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "一度",
+          "start": 97.423,
+          "end": 98.685,
+          "estimated": true
+        },
+        {
+          "text": "しか",
+          "start": 98.685,
+          "end": 99.545,
+          "estimated": false
+        },
+        {
+          "text": "会った",
+          "start": 99.545,
+          "end": 100.225,
+          "estimated": false
+        },
+        {
+          "text": "こと",
+          "start": 100.225,
+          "end": 101.005,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 101.005,
+          "end": 101.425,
+          "estimated": false
+        },
+        {
+          "text": "ない",
+          "start": 101.425,
+          "end": 102.125,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 102.125,
+          "end": 102.705,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 102.705,
+          "end": 102.885,
+          "estimated": false
+        },
+        {
+          "text": "ね",
+          "start": 102.885,
+          "end": 103.205,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Ichido",
+          "start": 97.423,
+          "end": 98.685,
+          "estimated": true
+        },
+        {
+          "text": "shika",
+          "start": 98.685,
+          "end": 99.545,
+          "estimated": false
+        },
+        {
+          "text": "atta",
+          "start": 99.545,
+          "end": 100.225,
+          "estimated": false
+        },
+        {
+          "text": "koto",
+          "start": 100.225,
+          "end": 101.005,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 101.005,
+          "end": 101.425,
+          "estimated": false
+        },
+        {
+          "text": "nai",
+          "start": 101.425,
+          "end": 102.125,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 102.125,
+          "end": 102.705,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 102.705,
+          "end": 102.885,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 102.885,
+          "end": 103.205,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 104.196,
+      "end": 107.334,
+      "text": "Omoi wo kette futaride shitenda\nWe kick our feelings aside, the two of us",
+      "japanese": "思いを蹴って 二人でしてんだ",
+      "translation": "We kick our feelings aside, the two of us",
+      "romaji": "Omoi wo kette futaride shitenda",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "思い",
+          "start": 104.196,
+          "end": 104.985,
+          "estimated": true
+        },
+        {
+          "text": "を",
+          "start": 104.985,
+          "end": 105.125,
+          "estimated": false
+        },
+        {
+          "text": "蹴って",
+          "start": 105.125,
+          "end": 105.745,
+          "estimated": false
+        },
+        {
+          "text": "二人で",
+          "start": 105.745,
+          "end": 106.645,
+          "estimated": false
+        },
+        {
+          "text": "してんだ",
+          "start": 106.645,
+          "end": 107.145,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Omoi",
+          "start": 104.196,
+          "end": 104.985,
+          "estimated": true
+        },
+        {
+          "text": "wo",
+          "start": 104.985,
+          "end": 105.125,
+          "estimated": false
+        },
+        {
+          "text": "kette",
+          "start": 105.125,
+          "end": 105.745,
+          "estimated": false
+        },
+        {
+          "text": "futaride",
+          "start": 105.745,
+          "end": 106.645,
+          "estimated": false
+        },
+        {
+          "text": "shitenda",
+          "start": 106.645,
+          "end": 107.145,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 107.334,
+      "end": 109.713,
+      "text": "Kowarenai ai wo utau\nWe sing of a love that won't break",
+      "japanese": "壊れない愛を歌う",
+      "translation": "We sing of a love that won't break",
+      "romaji": "Kowarenai ai wo utau",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "壊れない",
+          "start": 107.554,
+          "end": 108.194,
+          "estimated": true
+        },
+        {
+          "text": "愛",
+          "start": 108.194,
+          "end": 108.834,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 108.834,
+          "end": 109.034,
+          "estimated": false
+        },
+        {
+          "text": "歌う",
+          "start": 109.034,
+          "end": 109.713,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Kowarenai",
+          "start": 107.554,
+          "end": 108.194,
+          "estimated": true
+        },
+        {
+          "text": "ai",
+          "start": 108.194,
+          "end": 108.834,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 108.834,
+          "end": 109.034,
+          "estimated": false
+        },
+        {
+          "text": "utau",
+          "start": 109.034,
+          "end": 109.713,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 109.713,
+      "end": 113.474,
+      "text": "Kotoba wo futari ni kashite chikai wo tatenda\nWe bind ourselves with words and make a vow",
+      "japanese": "言葉を二人に課して 誓いをたてんだ",
+      "translation": "We bind ourselves with words and make a vow",
+      "romaji": "Kotoba wo futari ni kashite chikai wo tatenda",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "言葉",
+          "start": 109.834,
+          "end": 110.574,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 110.574,
+          "end": 110.694,
+          "estimated": false
+        },
+        {
+          "text": "二人",
+          "start": 110.694,
+          "end": 111.114,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 111.114,
+          "end": 111.234,
+          "estimated": false
+        },
+        {
+          "text": "課して",
+          "start": 111.234,
+          "end": 111.774,
+          "estimated": false
+        },
+        {
+          "text": "誓い",
+          "start": 111.774,
+          "end": 112.534,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 112.534,
+          "end": 112.654,
+          "estimated": false
+        },
+        {
+          "text": "たてんだ",
+          "start": 112.654,
+          "end": 113.334,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Kotoba",
+          "start": 109.834,
+          "end": 110.574,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 110.574,
+          "end": 110.694,
+          "estimated": false
+        },
+        {
+          "text": "futari",
+          "start": 110.694,
+          "end": 111.114,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 111.114,
+          "end": 111.234,
+          "estimated": false
+        },
+        {
+          "text": "kashite",
+          "start": 111.234,
+          "end": 111.774,
+          "estimated": false
+        },
+        {
+          "text": "chikai",
+          "start": 111.774,
+          "end": 112.534,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 112.534,
+          "end": 112.654,
+          "estimated": false
+        },
+        {
+          "text": "tatenda",
+          "start": 112.654,
+          "end": 113.334,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 113.474,
+      "end": 116.744,
+      "text": "Wasurenai ai wo utau you ni ne\nSo we can sing of a love we won't forget",
+      "japanese": "忘れない愛を歌うようにね",
+      "translation": "So we can sing of a love we won't forget",
+      "romaji": "Wasurenai ai wo utau you ni ne",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "忘れない",
+          "start": 113.594,
+          "end": 114.334,
+          "estimated": false
+        },
+        {
+          "text": "愛",
+          "start": 114.334,
+          "end": 114.954,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 114.954,
+          "end": 115.154,
+          "estimated": false
+        },
+        {
+          "text": "歌う",
+          "start": 115.154,
+          "end": 115.734,
+          "estimated": false
+        },
+        {
+          "text": "よう",
+          "start": 115.894,
+          "end": 115.934,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 115.934,
+          "end": 116.274,
+          "estimated": false
+        },
+        {
+          "text": "ね",
+          "start": 116.274,
+          "end": 116.654,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Wasurenai",
+          "start": 113.594,
+          "end": 114.334,
+          "estimated": false
+        },
+        {
+          "text": "ai",
+          "start": 114.334,
+          "end": 114.954,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 114.954,
+          "end": 115.154,
+          "estimated": false
+        },
+        {
+          "text": "utau",
+          "start": 115.154,
+          "end": 115.734,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 115.894,
+          "end": 115.934,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 115.934,
+          "end": 116.274,
+          "estimated": false
+        },
+        {
+          "text": "ne",
+          "start": 116.274,
+          "end": 116.654,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 116.744,
+      "end": 123.474,
+      "text": "Mawaridashita ano ko to boku no mirai ga tomari\nThe future set in motion for that girl and me comes to a stop",
+      "japanese": "回り出した あの子と僕の未来が止まり",
+      "translation": "The future set in motion for that girl and me comes to a stop",
+      "romaji": "Mawaridashita ano ko to boku no mirai ga tomari",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 116.744,
+          "end": 117.894,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 117.894,
+          "end": 118.934,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 118.934,
+          "end": 119.294,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 119.294,
+          "end": 119.694,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 119.694,
+          "end": 120.574,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 120.574,
+          "end": 120.894,
+          "estimated": false
+        },
+        {
+          "text": "未来",
+          "start": 120.894,
+          "end": 121.774,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 121.774,
+          "end": 122.454,
+          "estimated": false
+        },
+        {
+          "text": "止まり",
+          "start": 122.454,
+          "end": 123.474,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 116.744,
+          "end": 117.894,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 117.894,
+          "end": 118.934,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 118.934,
+          "end": 119.294,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 119.294,
+          "end": 119.694,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 119.694,
+          "end": 120.574,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 120.574,
+          "end": 120.894,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 120.894,
+          "end": 121.774,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 121.774,
+          "end": 122.454,
+          "estimated": false
+        },
+        {
+          "text": "tomari",
+          "start": 122.454,
+          "end": 123.474,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 123.474,
+      "end": 128.767,
+      "text": "Dokka de mata yarinaosetara\nIf only we could start over somewhere",
+      "japanese": "どっかで またやり直せたら",
+      "translation": "If only we could start over somewhere",
+      "romaji": "Dokka de mata yarinaosetara",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 123.474,
+          "end": 124.354,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 124.354,
+          "end": 124.754,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 124.754,
+          "end": 125.714,
+          "estimated": false
+        },
+        {
+          "text": "やり直せたら",
+          "start": 125.714,
+          "end": 128.674,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 123.474,
+          "end": 124.354,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 124.354,
+          "end": 124.754,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 124.754,
+          "end": 125.714,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 125.714,
+          "end": 128.674,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 128.767,
+      "end": 135.799,
+      "text": "Mawaridashita ano ko to boku ga higaisha zura de\nThat girl and I, set in motion, playing the victims",
+      "japanese": "回り出した あの子と僕が被害者面で",
+      "translation": "That girl and I, set in motion, playing the victims",
+      "romaji": "Mawaridashita ano ko to boku ga higaisha zura de",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 128.767,
+          "end": 130.154,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 130.154,
+          "end": 131.194,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 131.194,
+          "end": 131.554,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 131.554,
+          "end": 131.954,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 131.954,
+          "end": 132.794,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 132.794,
+          "end": 133.174,
+          "estimated": false
+        },
+        {
+          "text": "被害者",
+          "start": 133.174,
+          "end": 134.634,
+          "estimated": false
+        },
+        {
+          "text": "面",
+          "start": 134.659,
+          "end": 135.559,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 135.559,
+          "end": 135.799,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 128.767,
+          "end": 130.154,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 130.154,
+          "end": 131.194,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 131.194,
+          "end": 131.554,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 131.554,
+          "end": 131.954,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 131.954,
+          "end": 132.794,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 132.794,
+          "end": 133.174,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 133.174,
+          "end": 134.634,
+          "estimated": false
+        },
+        {
+          "text": "zura",
+          "start": 134.659,
+          "end": 135.559,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 135.559,
+          "end": 135.799,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 135.799,
+      "end": 141.412,
+      "text": "Dokka wo mata neriaruketara na\nIf only we could wander somewhere again",
+      "japanese": "どっかを また練り歩けたらな",
+      "translation": "If only we could wander somewhere again",
+      "romaji": "Dokka wo mata neriaruketara na",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 135.799,
+          "end": 136.559,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 136.559,
+          "end": 136.959,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 136.959,
+          "end": 137.859,
+          "estimated": false
+        },
+        {
+          "text": "練り歩けたら",
+          "start": 137.859,
+          "end": 140.679,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 140.679,
+          "end": 141.079,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 135.799,
+          "end": 136.559,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 136.559,
+          "end": 136.959,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 136.959,
+          "end": 137.859,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 137.859,
+          "end": 140.679,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 140.679,
+          "end": 141.079,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 141.412,
+      "end": 144.455,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 141.412,
+          "end": 142.499,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 142.499,
+          "end": 143.586,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 143.586,
+          "end": 144.455,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 141.412,
+          "end": 142.499,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 142.499,
+          "end": 143.586,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 143.586,
+          "end": 144.455,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 144.455,
+      "end": 147.498,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 144.455,
+          "end": 145.542,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 145.542,
+          "end": 146.629,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 146.629,
+          "end": 147.498,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 144.455,
+          "end": 145.542,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 145.542,
+          "end": 146.629,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 146.629,
+          "end": 147.498,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 147.498,
+      "end": 150.541,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 147.498,
+          "end": 148.585,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 148.585,
+          "end": 149.672,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 149.672,
+          "end": 150.541,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 147.498,
+          "end": 148.585,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 148.585,
+          "end": 149.672,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 149.672,
+          "end": 150.541,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 150.541,
+      "end": 153.584,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 150.541,
+          "end": 151.628,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 151.628,
+          "end": 152.715,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 152.715,
+          "end": 153.584,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 150.541,
+          "end": 151.628,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 151.628,
+          "end": 152.715,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 152.715,
+          "end": 153.584,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 153.584,
+      "end": 156.628,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 153.584,
+          "end": 154.671,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 154.671,
+          "end": 155.758,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 155.758,
+          "end": 156.628,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 153.584,
+          "end": 154.671,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 154.671,
+          "end": 155.758,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 155.758,
+          "end": 156.628,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 156.628,
+      "end": 159.671,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 156.628,
+          "end": 157.715,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 157.715,
+          "end": 158.802,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 158.802,
+          "end": 159.671,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 156.628,
+          "end": 157.715,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 157.715,
+          "end": 158.802,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 158.802,
+          "end": 159.671,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 159.671,
+      "end": 162.714,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 159.671,
+          "end": 160.758,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 160.758,
+          "end": 161.845,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 161.845,
+          "end": 162.714,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 159.671,
+          "end": 160.758,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 160.758,
+          "end": 161.845,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 161.845,
+          "end": 162.714,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 162.714,
+      "end": 165.757,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 162.714,
+          "end": 163.801,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 163.801,
+          "end": 164.888,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 164.888,
+          "end": 165.757,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 162.714,
+          "end": 163.801,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 163.801,
+          "end": 164.888,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 164.888,
+          "end": 165.757,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 168.864,
+      "end": 175.464,
+      "text": "Mawaridashita ano ko to boku no mirai ga tomari\nThe future set in motion for that girl and me comes to a stop",
+      "japanese": "回り出した あの子と僕の未来が止まり",
+      "translation": "The future set in motion for that girl and me comes to a stop",
+      "romaji": "Mawaridashita ano ko to boku no mirai ga tomari",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 168.864,
+          "end": 169.924,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 169.924,
+          "end": 170.864,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 170.864,
+          "end": 171.304,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 171.304,
+          "end": 171.724,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 171.724,
+          "end": 172.544,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 172.544,
+          "end": 172.864,
+          "estimated": false
+        },
+        {
+          "text": "未来",
+          "start": 172.864,
+          "end": 173.704,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 173.704,
+          "end": 174.504,
+          "estimated": false
+        },
+        {
+          "text": "止まり",
+          "start": 174.504,
+          "end": 175.464,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 168.864,
+          "end": 169.924,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 169.924,
+          "end": 170.864,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 170.864,
+          "end": 171.304,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 171.304,
+          "end": 171.724,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 171.724,
+          "end": 172.544,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 172.544,
+          "end": 172.864,
+          "estimated": false
+        },
+        {
+          "text": "mirai",
+          "start": 172.864,
+          "end": 173.704,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 173.704,
+          "end": 174.504,
+          "estimated": false
+        },
+        {
+          "text": "tomari",
+          "start": 174.504,
+          "end": 175.464,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 175.464,
+      "end": 180.7,
+      "text": "Dokka de mata yarinaosetara\nIf only we could start over somewhere",
+      "japanese": "どっかで またやり直せたら",
+      "translation": "If only we could start over somewhere",
+      "romaji": "Dokka de mata yarinaosetara",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 175.464,
+          "end": 176.304,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 176.304,
+          "end": 176.724,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 176.724,
+          "end": 177.664,
+          "estimated": false
+        },
+        {
+          "text": "やり直せたら",
+          "start": 177.664,
+          "end": 180.624,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 175.464,
+          "end": 176.304,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 176.304,
+          "end": 176.724,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 176.724,
+          "end": 177.664,
+          "estimated": false
+        },
+        {
+          "text": "yarinaosetara",
+          "start": 177.664,
+          "end": 180.624,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 180.7,
+      "end": 187.784,
+      "text": "Mawaridashita ano ko to boku ga higaisha zura de\nThat girl and I, set in motion, playing the victims",
+      "japanese": "回り出した あの子と僕が被害者面で",
+      "translation": "That girl and I, set in motion, playing the victims",
+      "romaji": "Mawaridashita ano ko to boku ga higaisha zura de",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "回り出した",
+          "start": 180.7,
+          "end": 182.124,
+          "estimated": true
+        },
+        {
+          "text": "あの",
+          "start": 182.124,
+          "end": 183.164,
+          "estimated": false
+        },
+        {
+          "text": "子",
+          "start": 183.164,
+          "end": 183.504,
+          "estimated": false
+        },
+        {
+          "text": "と",
+          "start": 183.504,
+          "end": 183.904,
+          "estimated": false
+        },
+        {
+          "text": "僕",
+          "start": 183.904,
+          "end": 184.764,
+          "estimated": false
+        },
+        {
+          "text": "が",
+          "start": 184.764,
+          "end": 185.124,
+          "estimated": false
+        },
+        {
+          "text": "被害者",
+          "start": 185.124,
+          "end": 186.644,
+          "estimated": false
+        },
+        {
+          "text": "面",
+          "start": 186.644,
+          "end": 187.544,
+          "estimated": false
+        },
+        {
+          "text": "で",
+          "start": 187.544,
+          "end": 187.784,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Mawaridashita",
+          "start": 180.7,
+          "end": 182.124,
+          "estimated": true
+        },
+        {
+          "text": "ano",
+          "start": 182.124,
+          "end": 183.164,
+          "estimated": false
+        },
+        {
+          "text": "ko",
+          "start": 183.164,
+          "end": 183.504,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 183.504,
+          "end": 183.904,
+          "estimated": false
+        },
+        {
+          "text": "boku",
+          "start": 183.904,
+          "end": 184.764,
+          "estimated": false
+        },
+        {
+          "text": "ga",
+          "start": 184.764,
+          "end": 185.124,
+          "estimated": false
+        },
+        {
+          "text": "higaisha",
+          "start": 185.124,
+          "end": 186.644,
+          "estimated": false
+        },
+        {
+          "text": "zura",
+          "start": 186.644,
+          "end": 187.544,
+          "estimated": false
+        },
+        {
+          "text": "de",
+          "start": 187.544,
+          "end": 187.784,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 187.784,
+      "end": 193.155,
+      "text": "Dokka wo mata neriaruketara na\nIf only we could wander somewhere again",
+      "japanese": "どっかを また練り歩けたらな",
+      "translation": "If only we could wander somewhere again",
+      "romaji": "Dokka wo mata neriaruketara na",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "どっか",
+          "start": 187.784,
+          "end": 188.564,
+          "estimated": false
+        },
+        {
+          "text": "を",
+          "start": 188.564,
+          "end": 188.964,
+          "estimated": false
+        },
+        {
+          "text": "また",
+          "start": 188.964,
+          "end": 189.884,
+          "estimated": false
+        },
+        {
+          "text": "練り歩けたら",
+          "start": 189.884,
+          "end": 192.764,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 192.764,
+          "end": 193.124,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Dokka",
+          "start": 187.784,
+          "end": 188.564,
+          "estimated": false
+        },
+        {
+          "text": "wo",
+          "start": 188.564,
+          "end": 188.964,
+          "estimated": false
+        },
+        {
+          "text": "mata",
+          "start": 188.964,
+          "end": 189.884,
+          "estimated": false
+        },
+        {
+          "text": "neriaruketara",
+          "start": 189.884,
+          "end": 192.764,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 192.764,
+          "end": 193.124,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 193.155,
+      "end": 196.236,
+      "text": "Jidai ni notte bokutachi wa\nRiding the times, we",
+      "japanese": "時代に乗って僕たちは",
+      "translation": "Riding the times, we",
+      "romaji": "Jidai ni notte bokutachi wa",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "時代",
+          "start": 193.155,
+          "end": 193.844,
+          "estimated": true
+        },
+        {
+          "text": "に",
+          "start": 193.844,
+          "end": 194.024,
+          "estimated": false
+        },
+        {
+          "text": "乗って",
+          "start": 194.024,
+          "end": 194.604,
+          "estimated": false
+        },
+        {
+          "text": "僕たち",
+          "start": 194.604,
+          "end": 195.544,
+          "estimated": false
+        },
+        {
+          "text": "は",
+          "start": 195.544,
+          "end": 195.804,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Jidai",
+          "start": 193.155,
+          "end": 193.844,
+          "estimated": true
+        },
+        {
+          "text": "ni",
+          "start": 193.844,
+          "end": 194.024,
+          "estimated": false
+        },
+        {
+          "text": "notte",
+          "start": 194.024,
+          "end": 194.604,
+          "estimated": false
+        },
+        {
+          "text": "bokutachi",
+          "start": 194.604,
+          "end": 195.544,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 195.544,
+          "end": 195.804,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 196.236,
+      "end": 198.992,
+      "text": "Kawarazu ai ni ikiru darou\nWill go on living for love, unchanged",
+      "japanese": "変わらず愛に生きるだろう",
+      "translation": "Will go on living for love, unchanged",
+      "romaji": "Kawarazu ai ni ikiru darou",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "変わらず",
+          "start": 196.236,
+          "end": 197.096,
+          "estimated": true
+        },
+        {
+          "text": "愛",
+          "start": 197.096,
+          "end": 197.476,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 197.476,
+          "end": 197.676,
+          "estimated": false
+        },
+        {
+          "text": "生きる",
+          "start": 197.676,
+          "end": 198.256,
+          "estimated": false
+        },
+        {
+          "text": "だろう",
+          "start": 198.256,
+          "end": 198.796,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Kawarazu",
+          "start": 196.236,
+          "end": 197.096,
+          "estimated": true
+        },
+        {
+          "text": "ai",
+          "start": 197.096,
+          "end": 197.476,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 197.476,
+          "end": 197.676,
+          "estimated": false
+        },
+        {
+          "text": "ikiru",
+          "start": 197.676,
+          "end": 198.256,
+          "estimated": false
+        },
+        {
+          "text": "darou",
+          "start": 198.256,
+          "end": 198.796,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 198.992,
+      "end": 202.168,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we're scattered, what remains",
+      "japanese": "僕らが散って残るのは",
+      "translation": "When we're scattered, what remains",
+      "romaji": "Bokura ga chitte nokoru no wa",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "僕ら",
+          "start": 198.992,
+          "end": 199.936,
+          "estimated": true
+        },
+        {
+          "text": "が",
+          "start": 199.936,
+          "end": 200.076,
+          "estimated": false
+        },
+        {
+          "text": "散って",
+          "start": 200.076,
+          "end": 200.656,
+          "estimated": false
+        },
+        {
+          "text": "残る",
+          "start": 200.656,
+          "end": 201.276,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 201.276,
+          "end": 201.456,
+          "estimated": false
+        },
+        {
+          "text": "は",
+          "start": 201.456,
+          "end": 201.896,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Bokura",
+          "start": 198.992,
+          "end": 199.936,
+          "estimated": true
+        },
+        {
+          "text": "ga",
+          "start": 199.936,
+          "end": 200.076,
+          "estimated": false
+        },
+        {
+          "text": "chitte",
+          "start": 200.076,
+          "end": 200.656,
+          "estimated": false
+        },
+        {
+          "text": "nokoru",
+          "start": 200.656,
+          "end": 201.276,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 201.276,
+          "end": 201.456,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 201.456,
+          "end": 201.896,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 202.168,
+      "end": 205.384,
+      "text": "Kawaranu ai no uta nandarou na\nWill be a song of unchanging love, I suppose",
+      "japanese": "変わらぬ愛の歌なんだろうな",
+      "translation": "Will be a song of unchanging love, I suppose",
+      "romaji": "Kawaranu ai no uta nandarou na",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "変わらぬ",
+          "start": 202.168,
+          "end": 203.196,
+          "estimated": true
+        },
+        {
+          "text": "愛",
+          "start": 203.196,
+          "end": 203.596,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 203.596,
+          "end": 203.796,
+          "estimated": false
+        },
+        {
+          "text": "歌",
+          "start": 203.796,
+          "end": 204.176,
+          "estimated": false
+        },
+        {
+          "text": "なんだろう",
+          "start": 204.176,
+          "end": 205.056,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 205.056,
+          "end": 205.356,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Kawaranu",
+          "start": 202.168,
+          "end": 203.196,
+          "estimated": true
+        },
+        {
+          "text": "ai",
+          "start": 203.196,
+          "end": 203.596,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 203.596,
+          "end": 203.796,
+          "estimated": false
+        },
+        {
+          "text": "uta",
+          "start": 203.796,
+          "end": 204.176,
+          "estimated": false
+        },
+        {
+          "text": "nandarou",
+          "start": 204.176,
+          "end": 205.056,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 205.056,
+          "end": 205.356,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 205.384,
+      "end": 208.376,
+      "text": "Jidai ni notte bokutachi wa\nRiding the times, we",
+      "japanese": "時代に乗って僕たちは",
+      "translation": "Riding the times, we",
+      "romaji": "Jidai ni notte bokutachi wa",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "時代",
+          "start": 205.384,
+          "end": 206.076,
+          "estimated": true
+        },
+        {
+          "text": "に",
+          "start": 206.076,
+          "end": 206.236,
+          "estimated": false
+        },
+        {
+          "text": "乗って",
+          "start": 206.236,
+          "end": 206.816,
+          "estimated": false
+        },
+        {
+          "text": "僕たち",
+          "start": 206.816,
+          "end": 207.776,
+          "estimated": false
+        },
+        {
+          "text": "は",
+          "start": 207.776,
+          "end": 208.056,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Jidai",
+          "start": 205.384,
+          "end": 206.076,
+          "estimated": true
+        },
+        {
+          "text": "ni",
+          "start": 206.076,
+          "end": 206.236,
+          "estimated": false
+        },
+        {
+          "text": "notte",
+          "start": 206.236,
+          "end": 206.816,
+          "estimated": false
+        },
+        {
+          "text": "bokutachi",
+          "start": 206.816,
+          "end": 207.776,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 207.776,
+          "end": 208.056,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 208.376,
+      "end": 211.126,
+      "text": "Kawarazu ai ni ikiru darou\nWill go on living for love, unchanged",
+      "japanese": "変わらず愛に生きるだろう",
+      "translation": "Will go on living for love, unchanged",
+      "romaji": "Kawarazu ai ni ikiru darou",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "変わらず",
+          "start": 208.376,
+          "end": 209.336,
+          "estimated": true
+        },
+        {
+          "text": "愛",
+          "start": 209.336,
+          "end": 209.716,
+          "estimated": false
+        },
+        {
+          "text": "に",
+          "start": 209.716,
+          "end": 209.916,
+          "estimated": false
+        },
+        {
+          "text": "生きる",
+          "start": 209.916,
+          "end": 210.516,
+          "estimated": false
+        },
+        {
+          "text": "だろう",
+          "start": 210.516,
+          "end": 211.076,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Kawarazu",
+          "start": 208.376,
+          "end": 209.336,
+          "estimated": true
+        },
+        {
+          "text": "ai",
+          "start": 209.336,
+          "end": 209.716,
+          "estimated": false
+        },
+        {
+          "text": "ni",
+          "start": 209.716,
+          "end": 209.916,
+          "estimated": false
+        },
+        {
+          "text": "ikiru",
+          "start": 209.916,
+          "end": 210.516,
+          "estimated": false
+        },
+        {
+          "text": "darou",
+          "start": 210.516,
+          "end": 211.076,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 211.126,
+      "end": 214.409,
+      "text": "Bokura ga chitte nokoru no wa\nWhen we're scattered, what remains",
+      "japanese": "僕らが散って残るのは",
+      "translation": "When we're scattered, what remains",
+      "romaji": "Bokura ga chitte nokoru no wa",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "僕ら",
+          "start": 211.126,
+          "end": 212.156,
+          "estimated": true
+        },
+        {
+          "text": "が",
+          "start": 212.156,
+          "end": 212.296,
+          "estimated": false
+        },
+        {
+          "text": "散って",
+          "start": 212.296,
+          "end": 212.876,
+          "estimated": false
+        },
+        {
+          "text": "残る",
+          "start": 212.876,
+          "end": 213.536,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 213.536,
+          "end": 213.696,
+          "estimated": false
+        },
+        {
+          "text": "は",
+          "start": 213.696,
+          "end": 214.056,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Bokura",
+          "start": 211.126,
+          "end": 212.156,
+          "estimated": true
+        },
+        {
+          "text": "ga",
+          "start": 212.156,
+          "end": 212.296,
+          "estimated": false
+        },
+        {
+          "text": "chitte",
+          "start": 212.296,
+          "end": 212.876,
+          "estimated": false
+        },
+        {
+          "text": "nokoru",
+          "start": 212.876,
+          "end": 213.536,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 213.536,
+          "end": 213.696,
+          "estimated": false
+        },
+        {
+          "text": "wa",
+          "start": 213.696,
+          "end": 214.056,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 214.409,
+      "end": 220.056,
+      "text": "Kawaranu ai no uta nandarou na\nWill be a song of unchanging love, I suppose",
+      "japanese": "変わらぬ愛の歌なんだろうな",
+      "translation": "Will be a song of unchanging love, I suppose",
+      "romaji": "Kawaranu ai no uta nandarou na",
+      "kind": "lyrics",
+      "japaneseWords": [
+        {
+          "text": "変わらぬ",
+          "start": 214.409,
+          "end": 215.416,
+          "estimated": true
+        },
+        {
+          "text": "愛",
+          "start": 215.416,
+          "end": 215.836,
+          "estimated": false
+        },
+        {
+          "text": "の",
+          "start": 215.836,
+          "end": 216.016,
+          "estimated": false
+        },
+        {
+          "text": "歌",
+          "start": 216.016,
+          "end": 216.436,
+          "estimated": false
+        },
+        {
+          "text": "なんだろう",
+          "start": 216.436,
+          "end": 217.476,
+          "estimated": false
+        },
+        {
+          "text": "な",
+          "start": 217.476,
+          "end": 217.956,
+          "estimated": false
+        }
+      ],
+      "words": [
+        {
+          "text": "Kawaranu",
+          "start": 214.409,
+          "end": 215.416,
+          "estimated": true
+        },
+        {
+          "text": "ai",
+          "start": 215.416,
+          "end": 215.836,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 215.836,
+          "end": 216.016,
+          "estimated": false
+        },
+        {
+          "text": "uta",
+          "start": 216.016,
+          "end": 216.436,
+          "estimated": false
+        },
+        {
+          "text": "nandarou",
+          "start": 216.436,
+          "end": 217.476,
+          "estimated": false
+        },
+        {
+          "text": "na",
+          "start": 217.476,
+          "end": 217.956,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 220.459,
+      "end": 222.863,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 220.459,
+          "end": 221.318,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 221.318,
+          "end": 222.176,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 222.176,
+          "end": 222.863,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 220.459,
+          "end": 221.318,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 221.318,
+          "end": 222.176,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 222.176,
+          "end": 222.863,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 222.863,
+      "end": 225.268,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 222.863,
+          "end": 223.722,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 223.722,
+          "end": 224.581,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 224.581,
+          "end": 225.268,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 222.863,
+          "end": 223.722,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 223.722,
+          "end": 224.581,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 224.581,
+          "end": 225.268,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 225.268,
+      "end": 227.673,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 225.268,
+          "end": 226.127,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 226.127,
+          "end": 226.986,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 226.986,
+          "end": 227.673,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 225.268,
+          "end": 226.127,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 226.127,
+          "end": 226.986,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 226.986,
+          "end": 227.673,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 227.673,
+      "end": 230.077,
+      "text": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru\nTu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "japanese": "とぅるるる とぅるるる とぅるる",
+      "translation": "Tu-ru-ru-ru, tu-ru-ru-ru, tu-ru-ru",
+      "romaji": "Tu-ru-ru-ru Tu-ru-ru-ru Tu-ru-ru",
+      "kind": "refrain",
+      "japaneseWords": [
+        {
+          "text": "とぅるるる",
+          "start": 227.673,
+          "end": 228.532,
+          "estimated": true
+        },
+        {
+          "text": "とぅるるる",
+          "start": 228.532,
+          "end": 229.39,
+          "estimated": true
+        },
+        {
+          "text": "とぅるる",
+          "start": 229.39,
+          "end": 230.077,
+          "estimated": true
+        }
+      ],
+      "words": [
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 227.673,
+          "end": 228.532,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru-ru",
+          "start": 228.532,
+          "end": 229.39,
+          "estimated": true
+        },
+        {
+          "text": "Tu-ru-ru",
+          "start": 229.39,
+          "end": 230.077,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "retained-japanese-anchors-with-explicit-estimates",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    }
+  ]
+}

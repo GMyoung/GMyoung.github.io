@@ -58,45 +58,59 @@ select:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 @media(max-width:650px){.lyric-preview{top:7%;left:5%;right:5%;gap:5px}.lyric-preview-text{font-size:15px;line-height:1.3}.lyric-current{font-size:19px;margin-bottom:3px}.lyric-preview-label{font-size:8px}.lyric-translation{font-size:13px;line-height:1.3;margin-top:4px}.lyric-preview::before{inset:-15px -8% -19px}}
 @media(max-height:500px){#player-panel.fullscreen-active .lyric-preview{top:58px;gap:5px}#player-panel.fullscreen-active .lyric-preview-text{font-size:20px}#player-panel.fullscreen-active .lyric-current{font-size:25px;margin-bottom:3px}#player-panel.fullscreen-active .lyric-translation{font-size:15px;margin-top:3px}}
 
-/* Two stable KTV rows alternate current and upcoming lyrics without scrolling. */
+/* Compact KTV rows keep the current and upcoming phrase near the picture's edge. */
 .lyric-backing{display:block;margin-top:.2em;color:#c7d2bc;font-size:max(12px,.6em);font-weight:400;line-height:1.3}
 .bilingual .lyric-current{white-space:normal}
-.lyric-preview.external-captions{inset:0;display:block;width:100%;max-width:none;--karaoke-size:clamp(32px,2.4vw,46px);--karaoke-row-height:2.6em}
-.lyric-preview.external-captions.bilingual{--karaoke-row-height:3.3em}
+.lyric-preview.external-captions{inset:0;display:block;width:100%;max-width:none;--karaoke-size:clamp(20px,2.1vw,28px);text-shadow:0 1px 2px #000,0 2px 6px #000d}
 .lyric-preview.external-captions::before{content:none}
 .external-captions>.lyric-upcoming,.external-captions>.lyric-current{display:none}
-.karaoke-lines{position:absolute;left:0;right:0;bottom:5%;width:88%;max-width:1200px;margin:0 auto;display:grid;grid-template-rows:repeat(2,minmax(var(--karaoke-row-height),max-content));gap:6px;font-size:var(--karaoke-size)}
-.karaoke-line{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;min-width:0;gap:.12em;color:#faf7ef;font-size:inherit;font-weight:600;line-height:1.2;letter-spacing:.005em;white-space:normal}
-.karaoke-line[data-slot="0"]{align-items:flex-start;text-align:left;padding-right:7%}
-.karaoke-line[data-slot="1"]{align-items:flex-end;text-align:right;padding-left:7%}
-.karaoke-line::before{content:"";position:absolute;inset:2px -5%;z-index:-1;background:radial-gradient(ellipse at center,#000b 0%,#0007 44%,#0002 68%,transparent 82%);pointer-events:none}
-.karaoke-line .lyric-primary{max-width:100%;font-size:1em;line-height:1.22;text-wrap:balance}
-.karaoke-line .lyric-translation{max-width:100%;margin:0;font-size:.52em;font-weight:400;line-height:1.25;letter-spacing:.01em;color:#d8ded4}
-.karaoke-line .lyric-backing{margin:0;font-size:.5em;line-height:1.2}
+.karaoke-lines{position:absolute;left:0;right:0;bottom:4%;width:88%;max-width:1120px;margin:0 auto;display:grid;grid-template-rows:repeat(2,minmax(1.18em,max-content));gap:4px;font-size:var(--karaoke-size)}
+.karaoke-line{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:center;min-width:0;gap:2px;color:#faf7ef;font-size:inherit;font-weight:600;line-height:1.18;letter-spacing:0;white-space:normal}
+.karaoke-line[data-slot="0"]{align-items:flex-start;text-align:left;padding-right:4%}
+.karaoke-line[data-slot="1"]{align-items:flex-end;text-align:right;padding-left:4%}
+.karaoke-line::before{content:"";position:absolute;inset:-3px -3%;z-index:-1;background:radial-gradient(ellipse at center,#0009 0%,#0006 44%,#0002 68%,transparent 82%);pointer-events:none}
+.karaoke-line .lyric-primary{max-width:100%;font-size:1em;line-height:1.18;text-wrap:balance}
+.karaoke-line .lyric-translation{max-width:100%;margin:0;font-size:max(10px,.55em);font-weight:400;line-height:1.18;letter-spacing:0;color:#d8ded4}
+.karaoke-line .lyric-backing{margin:0;font-size:max(10px,.52em);line-height:1.18}
 .karaoke-line[data-state="next"]{color:#d2d8cc}
 .karaoke-line[data-state="next"]::before{opacity:.65}
-.karaoke-line[data-state="next"] .lyric-primary{font-size:.72em;font-weight:500}
+.karaoke-line[data-state="next"] .lyric-primary{font-size:.8em;font-weight:500}
 .karaoke-line[data-state="next"] .lyric-translation,.karaoke-line[data-state="next"] .lyric-backing,.karaoke-line[data-state="next"] .karaoke-fill{display:none}
 .karaoke-line[data-state="empty"]{visibility:hidden}
 .karaoke-word{position:relative;display:inline-block;white-space:pre;color:inherit}
 .karaoke-fill{position:absolute;inset:0;color:#bdf0d4;white-space:inherit;pointer-events:none;clip-path:inset(0 calc(100% - var(--word-progress,0%)) 0 0)}
-#player-panel.fullscreen-active .lyric-preview.external-captions{inset:0;width:100%;max-width:none;gap:0;--karaoke-size:clamp(40px,2.5vw,60px)}
-#player-panel.fullscreen-active .external-captions .karaoke-lines{bottom:calc(var(--player-controls-height,180px) + 12px);width:86%}
+#player-panel.fullscreen-active .lyric-preview.external-captions{inset:0;width:100%;max-width:none;gap:0;--karaoke-size:clamp(22px,min(2.1vw,3.8vh),36px)}
+#player-panel.fullscreen-active .external-captions .karaoke-lines{bottom:calc(var(--player-controls-height,180px) + 8px);width:86%}
+#player-panel.fullscreen-active .external-captions .karaoke-line .lyric-translation{font-size:max(10px,.55em);margin:0}
 #player-panel.fullscreen-active.external-lyrics .player-bottom{max-height:45%}
-#player-panel.fullscreen-active.fullscreen-idle .external-captions .karaoke-lines{bottom:max(4%,18px)}
+#player-panel.fullscreen-active.fullscreen-idle .external-captions .karaoke-lines{bottom:max(3.5%,14px)}
 .lyric-preview:not(.external-captions) .lyric-preview-text{font-size:clamp(14px,1.15vw,22px)}
 #player-panel.fullscreen-active .lyric-preview:not(.external-captions) .lyric-preview-text{font-size:clamp(16px,1.25vw,24px)}
-@media(max-width:650px){.lyric-preview.external-captions{--karaoke-size:18px;--karaoke-row-height:2.6em}.karaoke-lines{width:92%;gap:3px}.karaoke-line[data-slot="0"]{padding-right:3%}.karaoke-line[data-slot="1"]{padding-left:3%}.karaoke-line .lyric-translation{font-size:.57em}.karaoke-line[data-state="next"] .lyric-primary{font-size:.72em}}
-@media(max-height:500px){#player-panel.fullscreen-active .lyric-preview.external-captions{--karaoke-size:30px;--karaoke-row-height:2.45em}#player-panel.fullscreen-active.external-lyrics .player-bottom{max-height:38%}#player-panel.fullscreen-active .external-captions .karaoke-lines{gap:2px}#player-panel.fullscreen-active .external-captions .lyric-translation{font-size:.52em;margin:0;line-height:1.2}}
-@media(max-height:500px){#player-panel.fullscreen-active .lyric-preview.external-captions.bilingual{--karaoke-size:26px;--karaoke-row-height:3.2em}}
+@media(max-width:650px){.lyric-preview.external-captions{--karaoke-size:16px}.karaoke-lines{width:94%;gap:3px}.karaoke-line[data-slot="0"]{padding-right:2%}.karaoke-line[data-slot="1"]{padding-left:2%}#player-panel.fullscreen-active .lyric-preview.external-captions{--karaoke-size:clamp(18px,4.5vw,26px)}}
+@media(max-height:500px){#player-panel.fullscreen-active .lyric-preview.external-captions{--karaoke-size:clamp(18px,4.4vh,22px)}#player-panel.fullscreen-active.external-lyrics .player-bottom{max-height:38%}#player-panel.fullscreen-active .external-captions .karaoke-lines{gap:3px}}
 @media(max-height:360px){
   #player-panel.fullscreen-active.external-lyrics .player-bottom{max-height:32dvh;padding-top:8px;padding-bottom:6px}
-  #player-panel.fullscreen-active .lyric-preview.external-captions,#player-panel.fullscreen-active .lyric-preview.external-captions.bilingual{--karaoke-size:clamp(16px,calc((100dvh - min(var(--player-controls-height,100px),32dvh) - 70px) / 6),20px);--karaoke-row-height:2.1em}
-  #player-panel.fullscreen-active .external-captions .karaoke-lines{bottom:calc(min(var(--player-controls-height,100px),32dvh) + 8px);width:92%;gap:2px}
-  #player-panel.fullscreen-active.fullscreen-idle .external-captions .karaoke-lines{bottom:max(4%,14px)}
+  #player-panel.fullscreen-active .lyric-preview.external-captions{--karaoke-size:16px}
+  #player-panel.fullscreen-active .external-captions .karaoke-lines{bottom:calc(min(var(--player-controls-height,100px),32dvh) + 6px);width:94%;gap:3px}
+  #player-panel.fullscreen-active.fullscreen-idle .external-captions .karaoke-lines{bottom:max(3.5%,10px)}
   #player-panel.fullscreen-active .external-captions .lyric-primary{line-height:1.15}
   #player-panel.fullscreen-active:not(.fullscreen-idle) .external-captions .karaoke-line .lyric-translation,#player-panel.fullscreen-active:not(.fullscreen-idle) .external-captions .karaoke-line .lyric-backing{display:none}
 }
+/* Odoriko gives Japanese and English equal emphasis; romaji is a small reading aid. */
+.lyric-preview.external-captions.ja-en-romaji{--karaoke-size:clamp(16px,1.7vw,22px)}
+.ja-en-romaji .karaoke-lines{width:92%;gap:5px}
+.ja-en-romaji .karaoke-line[data-slot]{align-items:stretch;text-align:left;padding:0}
+.ja-en-romaji .lyric-language-pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);column-gap:clamp(10px,2vw,24px);align-items:start;width:100%;font-size:1em;line-height:1.25}
+.ja-en-romaji .lyric-language-pair.single-language{grid-template-columns:minmax(0,1fr)}
+.ja-en-romaji .lyric-japanese-column{min-width:0}
+.ja-en-romaji .lyric-japanese,.ja-en-romaji .lyric-english{display:block;min-width:0;font:inherit;line-height:inherit;color:inherit;white-space:normal;text-wrap:balance}
+.ja-en-romaji .lyric-romaji{display:block;margin-top:2px;font-size:clamp(10px,.75vw,12px);font-weight:400;line-height:1.2;color:#cfd8c7;white-space:normal;text-wrap:balance}
+.ja-en-romaji .karaoke-line[data-state="next"] .lyric-language-pair{font-size:.8em;font-weight:500}
+#player-panel.fullscreen-active .lyric-preview.external-captions.ja-en-romaji{--karaoke-size:clamp(18px,min(1.7vw,3.2vh),24px)}
+#player-panel.fullscreen-active .ja-en-romaji .karaoke-lines{width:92%}
+@media(max-width:650px){.lyric-preview.external-captions.ja-en-romaji{--karaoke-size:14px}.ja-en-romaji .karaoke-lines{width:96%;gap:4px}#player-panel.fullscreen-active .lyric-preview.external-captions.ja-en-romaji{--karaoke-size:16px}#player-panel.fullscreen-active .ja-en-romaji .karaoke-lines{width:96%}}
+@media(max-height:500px){#player-panel.fullscreen-active .lyric-preview.external-captions.ja-en-romaji{--karaoke-size:clamp(16px,4vh,20px)}}
+@media(max-height:360px){#player-panel.fullscreen-active .lyric-preview.external-captions.ja-en-romaji{--karaoke-size:14px}}
 /* The mix stays with the transport in both inline and full-page playback. */
 .transport-actions{flex-wrap:wrap}
 .vocal-mix{display:flex;align-items:center;gap:8px;flex:1 1 220px;max-width:320px;min-width:0;min-height:40px;padding:0 10px;border:1px solid #353c2f;border-radius:5px;background:#1c2219}

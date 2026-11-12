@@ -1,0 +1,203 @@
+{
+  "signature": {
+    "recipe": "hls-fmp4-v2-30fps-4sec-1080",
+    "source": "2c4eb1fb86c6392e5b2e4ad1794eab3173cb2dede5c824217bce137a89f9b5d4",
+    "audio": {
+      "original": "4664dbf8db145fae9b35a9c611089672583a215596310809c774ef8382e936dc",
+      "karaoke": "55e9fd276de6e1428238c6d3dca453a2beadfa61ce3aea0571195a0e72f5eb80"
+    },
+    "defaultAudio": "karaoke",
+    "videoOnly": true,
+    "compactFallbacks": true,
+    "lowBitrateLevels": [
+      [
+        360,
+        300000,
+        450000
+      ],
+      [
+        720,
+        645000,
+        967500
+      ]
+    ]
+  },
+  "sourceHeight": 720,
+  "video": {
+    "360": {
+      "duration": 179.266667,
+      "segments": 45,
+      "bytes": 5992017,
+      "averageBandwidth": 267363,
+      "peakBandwidth": 486154,
+      "files": [
+        "init.mp4",
+        "segment-0000.m4s",
+        "segment-0001.m4s",
+        "segment-0002.m4s",
+        "segment-0003.m4s",
+        "segment-0004.m4s",
+        "segment-0005.m4s",
+        "segment-0006.m4s",
+        "segment-0007.m4s",
+        "segment-0008.m4s",
+        "segment-0009.m4s",
+        "segment-0010.m4s",
+        "segment-0011.m4s",
+        "segment-0012.m4s",
+        "segment-0013.m4s",
+        "segment-0014.m4s",
+        "segment-0015.m4s",
+        "segment-0016.m4s",
+        "segment-0017.m4s",
+        "segment-0018.m4s",
+        "segment-0019.m4s",
+        "segment-0020.m4s",
+        "segment-0021.m4s",
+        "segment-0022.m4s",
+        "segment-0023.m4s",
+        "segment-0024.m4s",
+        "segment-0025.m4s",
+        "segment-0026.m4s",
+        "segment-0027.m4s",
+        "segment-0028.m4s",
+        "segment-0029.m4s",
+        "segment-0030.m4s",
+        "segment-0031.m4s",
+        "segment-0032.m4s",
+        "segment-0033.m4s",
+        "segment-0034.m4s",
+        "segment-0035.m4s",
+        "segment-0036.m4s",
+        "segment-0037.m4s",
+        "segment-0038.m4s",
+        "segment-0039.m4s",
+        "segment-0040.m4s",
+        "segment-0041.m4s",
+        "segment-0042.m4s",
+        "segment-0043.m4s",
+        "segment-0044.m4s"
+      ],
+      "width": 640,
+      "height": 360,
+      "playlist": "../../streams-v1/nice-boys/360/index.m3u8"
+    },
+    "720": {
+      "duration": 179.266667,
+      "segments": 45,
+      "bytes": 17581381,
+      "averageBandwidth": 784553,
+      "peakBandwidth": 1174852,
+      "files": [
+        "init.mp4",
+        "segment-0000.m4s",
+        "segment-0001.m4s",
+        "segment-0002.m4s",
+        "segment-0003.m4s",
+        "segment-0004.m4s",
+        "segment-0005.m4s",
+        "segment-0006.m4s",
+        "segment-0007.m4s",
+        "segment-0008.m4s",
+        "segment-0009.m4s",
+        "segment-0010.m4s",
+        "segment-0011.m4s",
+        "segment-0012.m4s",
+        "segment-0013.m4s",
+        "segment-0014.m4s",
+        "segment-0015.m4s",
+        "segment-0016.m4s",
+        "segment-0017.m4s",
+        "segment-0018.m4s",
+        "segment-0019.m4s",
+        "segment-0020.m4s",
+        "segment-0021.m4s",
+        "segment-0022.m4s",
+        "segment-0023.m4s",
+        "segment-0024.m4s",
+        "segment-0025.m4s",
+        "segment-0026.m4s",
+        "segment-0027.m4s",
+        "segment-0028.m4s",
+        "segment-0029.m4s",
+        "segment-0030.m4s",
+        "segment-0031.m4s",
+        "segment-0032.m4s",
+        "segment-0033.m4s",
+        "segment-0034.m4s",
+        "segment-0035.m4s",
+        "segment-0036.m4s",
+        "segment-0037.m4s",
+        "segment-0038.m4s",
+        "segment-0039.m4s",
+        "segment-0040.m4s",
+        "segment-0041.m4s",
+        "segment-0042.m4s",
+        "segment-0043.m4s",
+        "segment-0044.m4s"
+      ],
+      "width": 1280,
+      "height": 720,
+      "playlist": "../../streams-v1/nice-boys/720/index.m3u8"
+    }
+  },
+  "audio": {},
+  "sourceVideoBitrate": 758625,
+  "encodingLevels": [
+    {
+      "height": 360,
+      "target": 300000,
+      "maxrate": 450000
+    },
+    {
+      "height": 720,
+      "target": 645000,
+      "maxrate": 967500
+    }
+  ],
+  "fallback": {
+    "url": "media/streams-v3/nice-boys/compatibility-360p.mp4",
+    "height": 360,
+    "bytes": 9776095,
+    "duration": 179.300998,
+    "audio": "karaoke"
+  },
+  "streaming": {
+    "url": "media/streams-v3/nice-boys/video-only.m3u8",
+    "variants": [
+      {
+        "height": 360,
+        "bandwidth": 560000,
+        "url": "media/streams-v3/nice-boys/360p-video-only.m3u8"
+      },
+      {
+        "height": 720,
+        "bandwidth": 1352000,
+        "url": "media/streams-v3/nice-boys/720p-video-only.m3u8"
+      }
+    ],
+    "videoOnly": {
+      "url": "media/streams-v3/nice-boys/video-only.m3u8",
+      "variants": [
+        {
+          "height": 360,
+          "bandwidth": 560000,
+          "url": "media/streams-v3/nice-boys/360p-video-only.m3u8"
+        },
+        {
+          "height": 720,
+          "bandwidth": 1352000,
+          "url": "media/streams-v3/nice-boys/720p-video-only.m3u8"
+        }
+      ]
+    }
+  },
+  "outputFiles": {
+    "360p-video-only.m3u8": 218,
+    "720p-video-only.m3u8": 220,
+    "compatibility-360p.mp4": 9776095,
+    "preparation.json": 541,
+    "video-only.m3u8": 382
+  },
+  "totalBytes": 9777456
+}

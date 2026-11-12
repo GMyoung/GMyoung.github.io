@@ -1,0 +1,28 @@
+{
+  "recipe": "hls-fmp4-v2-30fps-4sec-1080",
+  "source": "5df4d14b9cd812facc1174ba700f3534b0c7c3b22ae63764ed3c14383e90bf96",
+  "audio": {
+    "original": "bc9b7fcdb1b257e5454ae8a3ecdd52743dae81498d89a1e187f1a25397b0746f",
+    "karaoke": "57795e438c6a3fdb46b0535adf9487fbbba683a1e370f7459f9ca458a34b7b75"
+  },
+  "defaultAudio": "original",
+  "videoOnly": true,
+  "compactFallbacks": true,
+  "lowBitrateLevels": [
+    [
+      360,
+      300000,
+      450000
+    ],
+    [
+      720,
+      850000,
+      1100000
+    ],
+    [
+      1080,
+      1085000,
+      1627500
+    ]
+  ]
+}

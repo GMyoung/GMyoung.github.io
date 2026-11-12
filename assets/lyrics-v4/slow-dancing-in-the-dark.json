@@ -1,0 +1,1575 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 20.5,
+      "end": 23.94,
+      "text": "I don't want a friend",
+      "words": [
+        {
+          "text": "I",
+          "start": 20.5,
+          "end": 22.94,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 22.94,
+          "end": 23.14,
+          "estimated": false
+        },
+        {
+          "text": "want",
+          "start": 23.14,
+          "end": 23.3,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 23.3,
+          "end": 23.48,
+          "estimated": false
+        },
+        {
+          "text": "friend",
+          "start": 23.48,
+          "end": 23.94,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      },
+      "backing": "(Just me)"
+    },
+    {
+      "start": 23.94,
+      "end": 29.2,
+      "text": "I want my life in two",
+      "words": [
+        {
+          "text": "I",
+          "start": 23.94,
+          "end": 26.04,
+          "estimated": false
+        },
+        {
+          "text": "want",
+          "start": 26.04,
+          "end": 26.42,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 26.42,
+          "end": 27.06,
+          "estimated": false
+        },
+        {
+          "text": "life",
+          "start": 27.06,
+          "end": 28.06,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 28.06,
+          "end": 28.46,
+          "estimated": false
+        },
+        {
+          "text": "two",
+          "start": 28.46,
+          "end": 29.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      },
+      "backing": "(My life in two) (Please one more night)"
+    },
+    {
+      "start": 29.2,
+      "end": 34.38,
+      "text": "Waiting to get there",
+      "words": [
+        {
+          "text": "Waiting",
+          "start": 29.2,
+          "end": 31.86,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 31.86,
+          "end": 32.5,
+          "estimated": false
+        },
+        {
+          "text": "get",
+          "start": 32.5,
+          "end": 32.94,
+          "estimated": false
+        },
+        {
+          "text": "there",
+          "start": 32.94,
+          "end": 34.38,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 34.38,
+      "end": 41.8,
+      "text": "Waiting for you",
+      "words": [
+        {
+          "text": "Waiting",
+          "start": 34.38,
+          "end": 37.28,
+          "estimated": false
+        },
+        {
+          "text": "for",
+          "start": 37.28,
+          "end": 37.88,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 37.88,
+          "end": 38.24,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      },
+      "backing": "(Waiting for you) (Just one more night) (I done fight it all night)"
+    },
+    {
+      "start": 41.8,
+      "end": 50.08,
+      "text": "When I'm around slow dancing in the dark",
+      "words": [
+        {
+          "text": "When",
+          "start": 41.8,
+          "end": 46.2,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 46.2,
+          "end": 46.94,
+          "estimated": false
+        },
+        {
+          "text": "around",
+          "start": 46.94,
+          "end": 47.3,
+          "estimated": false
+        },
+        {
+          "text": "slow",
+          "start": 47.3,
+          "end": 47.68,
+          "estimated": false
+        },
+        {
+          "text": "dancing",
+          "start": 47.68,
+          "end": 48.2,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 48.2,
+          "end": 48.84,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 48.84,
+          "end": 49.04,
+          "estimated": false
+        },
+        {
+          "text": "dark",
+          "start": 49.04,
+          "end": 50.08,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 50.08,
+      "end": 55.58,
+      "text": "Don't follow me, you'll end up in my arms",
+      "words": [
+        {
+          "text": "Don't",
+          "start": 50.08,
+          "end": 51.72,
+          "estimated": false
+        },
+        {
+          "text": "follow",
+          "start": 51.72,
+          "end": 52.24,
+          "estimated": false
+        },
+        {
+          "text": "me,",
+          "start": 52.24,
+          "end": 53.1,
+          "estimated": false
+        },
+        {
+          "text": "you'll",
+          "start": 53.1,
+          "end": 53.26,
+          "estimated": false
+        },
+        {
+          "text": "end",
+          "start": 53.26,
+          "end": 53.4,
+          "estimated": false
+        },
+        {
+          "text": "up",
+          "start": 53.4,
+          "end": 53.8,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 53.8,
+          "end": 54.1,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 54.1,
+          "end": 54.5,
+          "estimated": false
+        },
+        {
+          "text": "arms",
+          "start": 54.5,
+          "end": 55.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 55.58,
+      "end": 57.4,
+      "text": "You done made up your mind",
+      "words": [
+        {
+          "text": "You",
+          "start": 55.58,
+          "end": 56.3,
+          "estimated": false
+        },
+        {
+          "text": "done",
+          "start": 56.3,
+          "end": 56.44,
+          "estimated": false
+        },
+        {
+          "text": "made",
+          "start": 56.44,
+          "end": 56.62,
+          "estimated": false
+        },
+        {
+          "text": "up",
+          "start": 56.62,
+          "end": 56.78,
+          "estimated": false
+        },
+        {
+          "text": "your",
+          "start": 56.78,
+          "end": 56.98,
+          "estimated": false
+        },
+        {
+          "text": "mind",
+          "start": 56.98,
+          "end": 57.4,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 57.4,
+      "end": 60.2,
+      "text": "I don't need no more signs",
+      "words": [
+        {
+          "text": "I",
+          "start": 57.4,
+          "end": 58.98,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 58.98,
+          "end": 59.14,
+          "estimated": false
+        },
+        {
+          "text": "need",
+          "start": 59.14,
+          "end": 59.3,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 59.3,
+          "end": 59.5,
+          "estimated": false
+        },
+        {
+          "text": "more",
+          "start": 59.5,
+          "end": 59.7,
+          "estimated": false
+        },
+        {
+          "text": "signs",
+          "start": 59.7,
+          "end": 60.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 60.2,
+      "end": 62.52,
+      "text": "Can you?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 60.2,
+          "end": 61.68,
+          "estimated": false
+        },
+        {
+          "text": "you?",
+          "start": 61.68,
+          "end": 62.52,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 62.52,
+      "end": 64.23,
+      "text": "Can you?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 62.52,
+          "end": 63.25,
+          "estimated": true
+        },
+        {
+          "text": "you?",
+          "start": 63.25,
+          "end": 63.98,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 66.2,
+      "end": 71.3,
+      "text": "Give me reasons we should be complete",
+      "words": [
+        {
+          "text": "Give",
+          "start": 66.2,
+          "end": 68.26,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 68.26,
+          "end": 68.6,
+          "estimated": false
+        },
+        {
+          "text": "reasons",
+          "start": 68.6,
+          "end": 69.22,
+          "estimated": false
+        },
+        {
+          "text": "we",
+          "start": 69.22,
+          "end": 69.58,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 69.58,
+          "end": 69.92,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 69.92,
+          "end": 70.28,
+          "estimated": false
+        },
+        {
+          "text": "complete",
+          "start": 70.28,
+          "end": 71.3,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 71.3,
+      "end": 76.76,
+      "text": "You should be with him, I can't compete",
+      "words": [
+        {
+          "text": "You",
+          "start": 71.3,
+          "end": 73.62,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 73.62,
+          "end": 73.94,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 73.94,
+          "end": 74.36,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 74.36,
+          "end": 74.64,
+          "estimated": false
+        },
+        {
+          "text": "him,",
+          "start": 74.64,
+          "end": 75.02,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 75.02,
+          "end": 75.3,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 75.3,
+          "end": 75.831,
+          "estimated": true
+        },
+        {
+          "text": "compete",
+          "start": 75.831,
+          "end": 76.76,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 76.76,
+      "end": 84.78,
+      "text": "You looked at me like I was someone else, oh well",
+      "words": [
+        {
+          "text": "You",
+          "start": 76.76,
+          "end": 78.64,
+          "estimated": false
+        },
+        {
+          "text": "looked",
+          "start": 78.64,
+          "end": 79.14,
+          "estimated": false
+        },
+        {
+          "text": "at",
+          "start": 79.14,
+          "end": 79.42,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 79.42,
+          "end": 79.84,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 79.84,
+          "end": 80.12,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 80.12,
+          "end": 80.42,
+          "estimated": false
+        },
+        {
+          "text": "was",
+          "start": 80.42,
+          "end": 80.66,
+          "estimated": false
+        },
+        {
+          "text": "someone",
+          "start": 80.66,
+          "end": 81.42,
+          "estimated": false
+        },
+        {
+          "text": "else,",
+          "start": 81.42,
+          "end": 82.74,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 82.74,
+          "end": 84.18,
+          "estimated": false
+        },
+        {
+          "text": "well",
+          "start": 84.18,
+          "end": 84.78,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 84.78,
+      "end": 88.45,
+      "text": "Can't you see?",
+      "words": [
+        {
+          "text": "Can't",
+          "start": 84.78,
+          "end": 86.22,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 86.22,
+          "end": 86.54,
+          "estimated": false
+        },
+        {
+          "text": "see?",
+          "start": 86.54,
+          "end": 88.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 89.0,
+      "end": 94.88,
+      "text": "I don't wanna slow dance",
+      "words": [
+        {
+          "text": "I",
+          "start": 89.0,
+          "end": 89.376,
+          "estimated": true
+        },
+        {
+          "text": "don't",
+          "start": 89.376,
+          "end": 90.88,
+          "estimated": true
+        },
+        {
+          "text": "wanna",
+          "start": 90.88,
+          "end": 91.96,
+          "estimated": false
+        },
+        {
+          "text": "slow",
+          "start": 91.96,
+          "end": 92.54,
+          "estimated": false
+        },
+        {
+          "text": "dance",
+          "start": 92.54,
+          "end": 94.88,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 94.88,
+      "end": 104.57,
+      "text": "In the dark, dark",
+      "words": [
+        {
+          "text": "In",
+          "start": 94.88,
+          "end": 96.68,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 96.68,
+          "end": 97.24,
+          "estimated": false
+        },
+        {
+          "text": "dark,",
+          "start": 97.24,
+          "end": 101.14,
+          "estimated": false
+        },
+        {
+          "text": "dark",
+          "start": 101.14,
+          "end": 104.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 107.0,
+      "end": 110.08,
+      "text": "When you gotta run",
+      "words": [
+        {
+          "text": "When",
+          "start": 107.0,
+          "end": 109.18,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 109.18,
+          "end": 109.38,
+          "estimated": false
+        },
+        {
+          "text": "gotta",
+          "start": 109.38,
+          "end": 109.62,
+          "estimated": false
+        },
+        {
+          "text": "run",
+          "start": 109.62,
+          "end": 110.08,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 110.08,
+      "end": 116.98,
+      "text": "Just hear my voice in you",
+      "words": [
+        {
+          "text": "Just",
+          "start": 110.08,
+          "end": 112.26,
+          "estimated": false
+        },
+        {
+          "text": "hear",
+          "start": 112.26,
+          "end": 112.68,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 112.68,
+          "end": 113.24,
+          "estimated": false
+        },
+        {
+          "text": "voice",
+          "start": 113.24,
+          "end": 114.14,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 114.14,
+          "end": 114.76,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 114.76,
+          "end": 116.98,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      },
+      "backing": "(My voice in you)"
+    },
+    {
+      "start": 116.98,
+      "end": 122.04,
+      "text": "Shutting me out of you",
+      "words": [
+        {
+          "text": "Shutting",
+          "start": 116.98,
+          "end": 118.4,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 118.4,
+          "end": 118.74,
+          "estimated": false
+        },
+        {
+          "text": "out",
+          "start": 118.74,
+          "end": 119.88,
+          "estimated": false
+        },
+        {
+          "text": "of",
+          "start": 119.88,
+          "end": 120.2,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 120.2,
+          "end": 122.04,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      },
+      "backing": "(shutting me out of you)"
+    },
+    {
+      "start": 122.04,
+      "end": 125.2,
+      "text": "Doing so great",
+      "words": [
+        {
+          "text": "Doing",
+          "start": 122.04,
+          "end": 123.68,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 123.68,
+          "end": 124.1,
+          "estimated": false
+        },
+        {
+          "text": "great",
+          "start": 124.1,
+          "end": 125.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      },
+      "backing": "(So great, so great)"
+    },
+    {
+      "start": 125.2,
+      "end": 127.55,
+      "text": "You",
+      "words": [
+        {
+          "text": "You",
+          "start": 125.2,
+          "end": 127.3,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 1,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 129.8,
+      "end": 136.76,
+      "text": "Used to be the one to hold you when you fall",
+      "words": [
+        {
+          "text": "Used",
+          "start": 129.8,
+          "end": 131.62,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 131.62,
+          "end": 131.94,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 131.94,
+          "end": 132.32,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 132.32,
+          "end": 132.62,
+          "estimated": false
+        },
+        {
+          "text": "one",
+          "start": 132.62,
+          "end": 133.16,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 133.16,
+          "end": 133.9,
+          "estimated": false
+        },
+        {
+          "text": "hold",
+          "start": 133.9,
+          "end": 134.32,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 134.32,
+          "end": 134.66,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 134.66,
+          "end": 135.02,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 135.02,
+          "end": 135.38,
+          "estimated": false
+        },
+        {
+          "text": "fall",
+          "start": 135.38,
+          "end": 136.76,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 136.76,
+      "end": 139.26,
+      "text": "Yeah, yeah, yeah",
+      "words": [
+        {
+          "text": "Yeah,",
+          "start": 136.76,
+          "end": 137.6,
+          "estimated": false
+        },
+        {
+          "text": "yeah,",
+          "start": 137.6,
+          "end": 137.92,
+          "estimated": false
+        },
+        {
+          "text": "yeah",
+          "start": 137.92,
+          "end": 139.26,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      },
+      "backing": "(When you fall, when you fall)"
+    },
+    {
+      "start": 139.26,
+      "end": 141.04,
+      "text": "I don't fuck with your tone",
+      "words": [
+        {
+          "text": "I",
+          "start": 139.26,
+          "end": 139.9,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 139.9,
+          "end": 140.1,
+          "estimated": false
+        },
+        {
+          "text": "fuck",
+          "start": 140.1,
+          "end": 140.2,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 140.2,
+          "end": 140.4,
+          "estimated": false
+        },
+        {
+          "text": "your",
+          "start": 140.4,
+          "end": 140.64,
+          "estimated": false
+        },
+        {
+          "text": "tone",
+          "start": 140.64,
+          "end": 141.04,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      },
+      "backing": "(I don't fuck with your tone)"
+    },
+    {
+      "start": 141.04,
+      "end": 143.74,
+      "text": "I don't wanna go home",
+      "words": [
+        {
+          "text": "I",
+          "start": 141.04,
+          "end": 142.58,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 142.58,
+          "end": 142.8,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 142.8,
+          "end": 142.92,
+          "estimated": false
+        },
+        {
+          "text": "go",
+          "start": 142.92,
+          "end": 143.26,
+          "estimated": false
+        },
+        {
+          "text": "home",
+          "start": 143.26,
+          "end": 143.74,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      },
+      "backing": "(I don't wanna go home)"
+    },
+    {
+      "start": 143.74,
+      "end": 147.88,
+      "text": "Can it be one night?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 143.74,
+          "end": 145.3,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 145.3,
+          "end": 145.46,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 145.46,
+          "end": 145.72,
+          "estimated": false
+        },
+        {
+          "text": "one",
+          "start": 145.72,
+          "end": 146.02,
+          "estimated": false
+        },
+        {
+          "text": "night?",
+          "start": 146.02,
+          "end": 147.88,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 147.88,
+      "end": 150.12,
+      "text": "Can you?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 147.88,
+          "end": 147.96,
+          "estimated": false
+        },
+        {
+          "text": "you?",
+          "start": 147.96,
+          "end": 150.12,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 150.12,
+      "end": 151.47,
+      "text": "Can you?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 150.12,
+          "end": 150.66,
+          "estimated": false
+        },
+        {
+          "text": "you?",
+          "start": 150.66,
+          "end": 151.22,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 153.0,
+      "end": 157.5,
+      "text": "Give me reasons we should be complete",
+      "words": [
+        {
+          "text": "Give",
+          "start": 153.0,
+          "end": 154.56,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 154.56,
+          "end": 154.88,
+          "estimated": false
+        },
+        {
+          "text": "reasons",
+          "start": 154.88,
+          "end": 155.5,
+          "estimated": false
+        },
+        {
+          "text": "we",
+          "start": 155.5,
+          "end": 155.84,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 155.84,
+          "end": 156.22,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 156.22,
+          "end": 156.56,
+          "estimated": false
+        },
+        {
+          "text": "complete",
+          "start": 156.56,
+          "end": 157.5,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 157.5,
+      "end": 163.0,
+      "text": "You should be with him, I can't compete",
+      "words": [
+        {
+          "text": "You",
+          "start": 157.5,
+          "end": 159.86,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 159.86,
+          "end": 160.22,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 160.22,
+          "end": 160.62,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 160.62,
+          "end": 160.94,
+          "estimated": false
+        },
+        {
+          "text": "him,",
+          "start": 160.94,
+          "end": 161.32,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 161.32,
+          "end": 161.6,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 161.6,
+          "end": 162.109,
+          "estimated": true
+        },
+        {
+          "text": "compete",
+          "start": 162.109,
+          "end": 163.0,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 163.0,
+      "end": 170.8,
+      "text": "You looked at me like I was someone else, oh well",
+      "words": [
+        {
+          "text": "You",
+          "start": 163.0,
+          "end": 164.94,
+          "estimated": false
+        },
+        {
+          "text": "looked",
+          "start": 164.94,
+          "end": 165.44,
+          "estimated": false
+        },
+        {
+          "text": "at",
+          "start": 165.44,
+          "end": 165.7,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 165.7,
+          "end": 166.08,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 166.08,
+          "end": 166.36,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 166.36,
+          "end": 166.76,
+          "estimated": false
+        },
+        {
+          "text": "was",
+          "start": 166.76,
+          "end": 167.0,
+          "estimated": false
+        },
+        {
+          "text": "someone",
+          "start": 167.0,
+          "end": 167.7,
+          "estimated": false
+        },
+        {
+          "text": "else,",
+          "start": 167.7,
+          "end": 169.12,
+          "estimated": false
+        },
+        {
+          "text": "oh",
+          "start": 169.12,
+          "end": 169.68,
+          "estimated": true
+        },
+        {
+          "text": "well",
+          "start": 169.68,
+          "end": 170.8,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 170.8,
+      "end": 175.0,
+      "text": "Can't you see?",
+      "words": [
+        {
+          "text": "Can't",
+          "start": 170.8,
+          "end": 172.52,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 172.52,
+          "end": 172.84,
+          "estimated": false
+        },
+        {
+          "text": "see?",
+          "start": 172.84,
+          "end": 174.98,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 175.0,
+      "end": 182.16,
+      "text": "I don't wanna slow dance",
+      "words": [
+        {
+          "text": "I",
+          "start": 175.0,
+          "end": 177.54,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 177.54,
+          "end": 178.4,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 178.4,
+          "end": 179.18,
+          "estimated": false
+        },
+        {
+          "text": "slow",
+          "start": 179.18,
+          "end": 181.44,
+          "estimated": false
+        },
+        {
+          "text": "dance",
+          "start": 181.44,
+          "end": 182.16,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      },
+      "backing": "(I don't wanna slow dance)"
+    },
+    {
+      "start": 182.16,
+      "end": 190.62,
+      "text": "In the dark, dark",
+      "words": [
+        {
+          "text": "In",
+          "start": 182.16,
+          "end": 182.98,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 182.98,
+          "end": 183.54,
+          "estimated": false
+        },
+        {
+          "text": "dark,",
+          "start": 183.54,
+          "end": 186.62,
+          "estimated": false
+        },
+        {
+          "text": "dark",
+          "start": 186.62,
+          "end": 190.62,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 190.62,
+      "end": 201.41,
+      "text": "In the dark, dark",
+      "words": [
+        {
+          "text": "In",
+          "start": 190.62,
+          "end": 193.76,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 193.76,
+          "end": 194.34,
+          "estimated": false
+        },
+        {
+          "text": "dark,",
+          "start": 194.34,
+          "end": 198.72,
+          "estimated": false
+        },
+        {
+          "text": "dark",
+          "start": 198.72,
+          "end": 201.16,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    }
+  ]
+}
