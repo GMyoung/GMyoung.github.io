@@ -5,3 +5,6 @@ Thumbs.db
 node_modules/
 test-results/
 __pycache__/
+
+# Generated picture streams are published/versioned in karaoke-media-1.
+/media/streams-v5/

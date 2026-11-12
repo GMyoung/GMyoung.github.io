@@ -73,7 +73,7 @@ def fingerprint(path):
     return digest.hexdigest()
 
 
-def levels_for(video, high_bitrate=1350000):
+def levels_for(video, high_bitrate=1350000, low_bitrate=300000, middle_bitrate=850000):
     """Do not upscale source pixels or inflate already efficient source video."""
     source_bitrate = int(video.get("bit_rate") or 0)
     source_height = int(video["height"])
@@ -81,6 +81,11 @@ def levels_for(video, high_bitrate=1350000):
     for height, bitrate, maximum in LEVELS:
         if height > source_height:
             continue
+        if height in (360, 720):
+            cap = low_bitrate if height == 360 else middle_bitrate
+            capped = min(bitrate, cap)
+            maximum = round(maximum * capped / bitrate)
+            bitrate = capped
         if height == 1080:
             bitrate = min(bitrate, high_bitrate)
             maximum = round(bitrate * 1.3)
@@ -311,14 +316,14 @@ def prepare(args, root, entry):
     source_info = probe(args.ffprobe, source)
     video = next(stream for stream in source_info["streams"] if stream["codec_type"] == "video")
     duration = float(source_info["format"]["duration"])
-    levels = levels_for(video, args.max_1080_bitrate)
+    levels = levels_for(video, args.max_1080_bitrate, args.max_360_bitrate, args.max_720_bitrate)
     target = args.output / song_id
     target.mkdir(parents=True, exist_ok=True)
     marker = target / "renditions.json"
     signature = {"recipe": RECIPE, "source": fingerprint(source),
                  "audio": {name: fingerprint(path) for name, path in audio_sources.items()},
                  "defaultAudio": entry.get("defaultAudio", "karaoke"), "videoOnly": args.video_only,
-                 "compactFallbacks": args.compact_fallbacks}
+                 "compactFallbacks": args.compact_fallbacks, "videoPreset": args.video_preset}
     if levels != LEVELS:
         signature["lowBitrateLevels"] = [list(level) for level in levels]
     if args.skip_existing and marker.is_file():
@@ -349,7 +354,7 @@ def prepare(args, root, entry):
         if not (args.skip_existing and same_input(folder, signature) and complete_playlist(folder / "index.m3u8")):
             encode(args, ["-i", str(source), "-map", "0:v:0", "-an",
                       "-vf", f"fps=30,scale=-2:{height}:flags=lanczos,setsar=1",
-                      "-c:v", "libx264", "-preset", "veryfast", "-threads", str(args.threads),
+                      "-c:v", "libx264", "-preset", args.video_preset, "-threads", str(args.threads),
                       "-pix_fmt", "yuv420p", "-profile:v", "high", "-level:v", "4.0" if height > 720 else "3.1",
                       "-b:v", str(bitrate), "-maxrate", str(maximum), "-bufsize", str(maximum * 2),
                       "-g", "120", "-keyint_min", "120", "-sc_threshold", "0",
@@ -493,7 +498,7 @@ def estimate_catalog(args, root):
         info = probe(args.ffprobe, source)
         video = next(stream for stream in info["streams"] if stream["codec_type"] == "video")
         duration = float(info["format"]["duration"])
-        levels = levels_for(video, args.max_1080_bitrate)
+        levels = levels_for(video, args.max_1080_bitrate, args.max_360_bitrate, args.max_720_bitrate)
         reused = reusable_video(root, args.output / entry["id"], entry, {"source": fingerprint(source)}) if args.reuse_existing else {}
         new_rate = sum(bitrate for height, bitrate, _ in levels if height not in reused)
         if not args.video_only:
@@ -526,11 +531,14 @@ def main():
     parser.add_argument("--ffprobe", default="ffprobe")
     parser.add_argument("--jobs", type=int, default=2)
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--video-preset", choices=["ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow", "slower", "veryslow"], default="veryfast", help="x264 speed/compression preset for new video encodes (default: veryfast)")
     parser.add_argument("--skip-existing", action="store_true")
     parser.add_argument("--video-only", action="store_true", help="Generate only picture streams; aligned external audio remains in the catalog")
     parser.add_argument("--reuse-existing", action="store_true", help="Reference matching existing video renditions from a new versioned master")
     parser.add_argument("--compact-fallbacks", action="store_true", help="Use remuxed lowest-resolution MP4s as lightweight compatibility fallbacks")
     parser.add_argument("--max-1080-bitrate", type=int, default=1350000, help="Maximum target bitrate in bits/s for 1080p (default: 1350000)")
+    parser.add_argument("--max-360-bitrate", type=int, default=300000, help="Maximum target bitrate in bits/s for new 360p encodes (default: 300000)")
+    parser.add_argument("--max-720-bitrate", type=int, default=850000, help="Maximum target bitrate in bits/s for new 720p encodes (default: 850000)")
     parser.add_argument("--estimate", action="store_true", help="Print estimated new production size without encoding or changing the catalog")
     parser.add_argument("--manifests-only", action="store_true", help="Add video-only masters using saved metadata; never encode media")
     parser.add_argument("--only", action="append", help="Prepare only this catalog ID; repeat to select multiple songs")
@@ -545,6 +553,9 @@ def main():
         parser.error("Use 1–4 jobs and 1–16 threads")
     if not 300000 <= args.max_1080_bitrate <= 5000000:
         parser.error("--max-1080-bitrate must be between 300000 and 5000000 bits/s")
+    for height, bitrate in ((360, args.max_360_bitrate), (720, args.max_720_bitrate)):
+        if not 40000 <= bitrate <= 5000000:
+            parser.error(f"--max-{height}-bitrate must be between 40000 and 5000000 bits/s")
     if args.compact_fallbacks and args.manifests_only:
         parser.error("--compact-fallbacks requires media production, not --manifests-only")
     if args.estimate:

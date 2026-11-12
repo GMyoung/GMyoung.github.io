@@ -1,0 +1,4005 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 0.4,
+      "end": 2.82,
+      "text": "So- fuck",
+      "words": [
+        {
+          "text": "So-",
+          "start": 0.4,
+          "end": 2.56,
+          "estimated": false
+        },
+        {
+          "text": "fuck",
+          "start": 2.56,
+          "end": 2.82,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 2.82,
+      "end": 8.02,
+      "text": "So unsure, before it's even heard",
+      "words": [
+        {
+          "text": "So",
+          "start": 2.82,
+          "end": 5.72,
+          "estimated": false
+        },
+        {
+          "text": "unsure,",
+          "start": 5.72,
+          "end": 6.64,
+          "estimated": false
+        },
+        {
+          "text": "before",
+          "start": 6.64,
+          "end": 7.04,
+          "estimated": false
+        },
+        {
+          "text": "it's",
+          "start": 7.04,
+          "end": 7.34,
+          "estimated": false
+        },
+        {
+          "text": "even",
+          "start": 7.34,
+          "end": 7.54,
+          "estimated": false
+        },
+        {
+          "text": "heard",
+          "start": 7.54,
+          "end": 8.02,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 8.02,
+      "end": 11.7,
+      "text": "Never confident in a single word",
+      "words": [
+        {
+          "text": "Never",
+          "start": 8.02,
+          "end": 9.02,
+          "estimated": false
+        },
+        {
+          "text": "confident",
+          "start": 9.02,
+          "end": 9.74,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 9.74,
+          "end": 10.42,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 10.42,
+          "end": 10.58,
+          "estimated": false
+        },
+        {
+          "text": "single",
+          "start": 10.58,
+          "end": 11.02,
+          "estimated": false
+        },
+        {
+          "text": "word",
+          "start": 11.02,
+          "end": 11.7,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 11.7,
+      "end": 14.02,
+      "text": "This bird, expert in the absurd",
+      "words": [
+        {
+          "text": "This",
+          "start": 11.7,
+          "end": 12.04,
+          "estimated": false
+        },
+        {
+          "text": "bird,",
+          "start": 12.04,
+          "end": 12.8,
+          "estimated": false
+        },
+        {
+          "text": "expert",
+          "start": 12.8,
+          "end": 12.98,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 12.98,
+          "end": 13.24,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 13.24,
+          "end": 13.46,
+          "estimated": false
+        },
+        {
+          "text": "absurd",
+          "start": 13.46,
+          "end": 14.02,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 14.02,
+      "end": 17.48,
+      "text": "Number one in life that has been deferred",
+      "words": [
+        {
+          "text": "Number",
+          "start": 14.02,
+          "end": 14.94,
+          "estimated": false
+        },
+        {
+          "text": "one",
+          "start": 14.94,
+          "end": 15.44,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 15.44,
+          "end": 15.8,
+          "estimated": false
+        },
+        {
+          "text": "life",
+          "start": 15.8,
+          "end": 16.16,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 16.16,
+          "end": 16.4,
+          "estimated": false
+        },
+        {
+          "text": "has",
+          "start": 16.4,
+          "end": 16.6,
+          "estimated": false
+        },
+        {
+          "text": "been",
+          "start": 16.6,
+          "end": 16.9,
+          "estimated": false
+        },
+        {
+          "text": "deferred",
+          "start": 16.9,
+          "end": 17.48,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 17.48,
+      "end": 19.94,
+      "text": "It hurts this relentless introvert",
+      "words": [
+        {
+          "text": "It",
+          "start": 17.48,
+          "end": 18.08,
+          "estimated": false
+        },
+        {
+          "text": "hurts",
+          "start": 18.08,
+          "end": 18.44,
+          "estimated": false
+        },
+        {
+          "text": "this",
+          "start": 18.44,
+          "end": 18.66,
+          "estimated": false
+        },
+        {
+          "text": "relentless",
+          "start": 18.66,
+          "end": 19.04,
+          "estimated": false
+        },
+        {
+          "text": "introvert",
+          "start": 19.04,
+          "end": 19.94,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 19.94,
+      "end": 22.88,
+      "text": "But inversion only serves to put deserving on the mind",
+      "words": [
+        {
+          "text": "But",
+          "start": 19.94,
+          "end": 20.2,
+          "estimated": false
+        },
+        {
+          "text": "inversion",
+          "start": 20.2,
+          "end": 20.66,
+          "estimated": false
+        },
+        {
+          "text": "only",
+          "start": 20.66,
+          "end": 21.08,
+          "estimated": false
+        },
+        {
+          "text": "serves",
+          "start": 21.08,
+          "end": 21.26,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 21.26,
+          "end": 21.48,
+          "estimated": false
+        },
+        {
+          "text": "put",
+          "start": 21.48,
+          "end": 21.66,
+          "estimated": false
+        },
+        {
+          "text": "deserving",
+          "start": 21.66,
+          "end": 22.1,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 22.1,
+          "end": 22.42,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 22.42,
+          "end": 22.6,
+          "estimated": false
+        },
+        {
+          "text": "mind",
+          "start": 22.6,
+          "end": 22.88,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 22.88,
+      "end": 26.01,
+      "text": "So I keep my time, so far out of line",
+      "words": [
+        {
+          "text": "So",
+          "start": 22.88,
+          "end": 23.112,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 23.112,
+          "end": 23.228,
+          "estimated": true
+        },
+        {
+          "text": "keep",
+          "start": 23.228,
+          "end": 23.691,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 23.691,
+          "end": 23.923,
+          "estimated": true
+        },
+        {
+          "text": "time,",
+          "start": 23.923,
+          "end": 24.387,
+          "estimated": true
+        },
+        {
+          "text": "so",
+          "start": 24.387,
+          "end": 24.619,
+          "estimated": true
+        },
+        {
+          "text": "far",
+          "start": 24.619,
+          "end": 24.967,
+          "estimated": true
+        },
+        {
+          "text": "out",
+          "start": 24.967,
+          "end": 25.314,
+          "estimated": true
+        },
+        {
+          "text": "of",
+          "start": 25.314,
+          "end": 25.546,
+          "estimated": true
+        },
+        {
+          "text": "line",
+          "start": 25.546,
+          "end": 26.01,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 10
+      }
+    },
+    {
+      "start": 26.01,
+      "end": 29.3,
+      "text": "And when the day turns night, I can't help but",
+      "words": [
+        {
+          "text": "And",
+          "start": 26.01,
+          "end": 26.292,
+          "estimated": true
+        },
+        {
+          "text": "when",
+          "start": 26.292,
+          "end": 26.668,
+          "estimated": true
+        },
+        {
+          "text": "the",
+          "start": 26.668,
+          "end": 26.95,
+          "estimated": true
+        },
+        {
+          "text": "day",
+          "start": 26.95,
+          "end": 27.232,
+          "estimated": true
+        },
+        {
+          "text": "turns",
+          "start": 27.232,
+          "end": 27.702,
+          "estimated": true
+        },
+        {
+          "text": "night,",
+          "start": 27.702,
+          "end": 28.172,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 28.172,
+          "end": 28.266,
+          "estimated": true
+        },
+        {
+          "text": "can't",
+          "start": 28.266,
+          "end": 28.642,
+          "estimated": true
+        },
+        {
+          "text": "help",
+          "start": 28.642,
+          "end": 29.018,
+          "estimated": true
+        },
+        {
+          "text": "but",
+          "start": 29.018,
+          "end": 29.3,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 10
+      }
+    },
+    {
+      "start": 29.3,
+      "end": 31.98,
+      "text": "Cry so loudly, I slant devoutly",
+      "words": [
+        {
+          "text": "Cry",
+          "start": 29.3,
+          "end": 29.56,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 29.56,
+          "end": 29.88,
+          "estimated": false
+        },
+        {
+          "text": "loudly,",
+          "start": 29.88,
+          "end": 30.74,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 30.74,
+          "end": 30.8,
+          "estimated": false
+        },
+        {
+          "text": "slant",
+          "start": 30.8,
+          "end": 31.24,
+          "estimated": false
+        },
+        {
+          "text": "devoutly",
+          "start": 31.24,
+          "end": 31.98,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 31.98,
+      "end": 35.26,
+      "text": "Tell me what about me is built so wrong?",
+      "words": [
+        {
+          "text": "Tell",
+          "start": 31.98,
+          "end": 32.14,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 32.14,
+          "end": 32.34,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 32.34,
+          "end": 32.74,
+          "estimated": false
+        },
+        {
+          "text": "about",
+          "start": 32.74,
+          "end": 33.1,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 33.1,
+          "end": 33.52,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 33.52,
+          "end": 33.84,
+          "estimated": false
+        },
+        {
+          "text": "built",
+          "start": 33.84,
+          "end": 34.1,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 34.1,
+          "end": 34.48,
+          "estimated": false
+        },
+        {
+          "text": "wrong?",
+          "start": 34.48,
+          "end": 35.26,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 35.26,
+      "end": 36.48,
+      "text": "There's so much passion",
+      "words": [
+        {
+          "text": "There's",
+          "start": 35.26,
+          "end": 35.38,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 35.38,
+          "end": 35.62,
+          "estimated": false
+        },
+        {
+          "text": "much",
+          "start": 35.62,
+          "end": 35.9,
+          "estimated": false
+        },
+        {
+          "text": "passion",
+          "start": 35.9,
+          "end": 36.48,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 36.48,
+      "end": 37.88,
+      "text": "But more I'm lacking",
+      "words": [
+        {
+          "text": "But",
+          "start": 36.48,
+          "end": 36.82,
+          "estimated": false
+        },
+        {
+          "text": "more",
+          "start": 36.82,
+          "end": 37.24,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 37.24,
+          "end": 37.48,
+          "estimated": false
+        },
+        {
+          "text": "lacking",
+          "start": 37.48,
+          "end": 37.88,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 37.88,
+      "end": 40.82,
+      "text": "I wish that I could c-c-c-c-c-c-c-caw-",
+      "words": [
+        {
+          "text": "I",
+          "start": 37.88,
+          "end": 37.998,
+          "estimated": true
+        },
+        {
+          "text": "wish",
+          "start": 37.998,
+          "end": 38.468,
+          "estimated": true
+        },
+        {
+          "text": "that",
+          "start": 38.468,
+          "end": 38.938,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 38.938,
+          "end": 39.056,
+          "estimated": true
+        },
+        {
+          "text": "could",
+          "start": 39.056,
+          "end": 39.644,
+          "estimated": true
+        },
+        {
+          "text": "c-c-c-c-c-c-c-caw-",
+          "start": 39.644,
+          "end": 40.82,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 40.82,
+      "end": 43.5,
+      "text": "But I falter on the forethought",
+      "words": [
+        {
+          "text": "But",
+          "start": 40.82,
+          "end": 41.129,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 41.129,
+          "end": 41.232,
+          "estimated": true
+        },
+        {
+          "text": "falter",
+          "start": 41.232,
+          "end": 41.851,
+          "estimated": true
+        },
+        {
+          "text": "on",
+          "start": 41.851,
+          "end": 42.057,
+          "estimated": true
+        },
+        {
+          "text": "the",
+          "start": 42.057,
+          "end": 42.366,
+          "estimated": true
+        },
+        {
+          "text": "forethought",
+          "start": 42.366,
+          "end": 43.5,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 43.5,
+      "end": 47.32,
+      "text": "I keep on running like a chicken with its head cut off",
+      "words": [
+        {
+          "text": "I",
+          "start": 43.5,
+          "end": 43.96,
+          "estimated": false
+        },
+        {
+          "text": "keep",
+          "start": 43.96,
+          "end": 44.18,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 44.18,
+          "end": 44.36,
+          "estimated": false
+        },
+        {
+          "text": "running",
+          "start": 44.36,
+          "end": 44.64,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 44.64,
+          "end": 44.94,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 44.94,
+          "end": 45.1,
+          "estimated": false
+        },
+        {
+          "text": "chicken",
+          "start": 45.1,
+          "end": 45.34,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 45.34,
+          "end": 45.68,
+          "estimated": false
+        },
+        {
+          "text": "its",
+          "start": 45.68,
+          "end": 45.9,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 45.9,
+          "end": 46.12,
+          "estimated": false
+        },
+        {
+          "text": "cut",
+          "start": 46.12,
+          "end": 46.5,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 46.5,
+          "end": 47.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 47.32,
+      "end": 49.56,
+      "text": "Achromatic twisted aeronaut",
+      "words": [
+        {
+          "text": "Achromatic",
+          "start": 47.32,
+          "end": 48.36,
+          "estimated": false
+        },
+        {
+          "text": "twisted",
+          "start": 48.36,
+          "end": 48.74,
+          "estimated": false
+        },
+        {
+          "text": "aeronaut",
+          "start": 48.74,
+          "end": 49.56,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 49.56,
+      "end": 53.0,
+      "text": "A birdbrain, baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "A",
+          "start": 49.56,
+          "end": 49.98,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 49.98,
+          "end": 50.78,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 50.78,
+          "end": 51.1,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 51.1,
+          "end": 51.32,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 51.32,
+          "end": 51.52,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 51.52,
+          "end": 51.68,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 51.68,
+          "end": 51.88,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 51.88,
+          "end": 52.1,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 52.1,
+          "end": 52.36,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 52.36,
+          "end": 52.58,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 52.58,
+          "end": 53.0,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 53.0,
+      "end": 56.4,
+      "text": "Hit me with the flap down, crash into the soft ground",
+      "words": [
+        {
+          "text": "Hit",
+          "start": 53.0,
+          "end": 53.52,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 53.52,
+          "end": 53.72,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 53.72,
+          "end": 53.94,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 53.94,
+          "end": 54.08,
+          "estimated": false
+        },
+        {
+          "text": "flap",
+          "start": 54.08,
+          "end": 54.36,
+          "estimated": false
+        },
+        {
+          "text": "down,",
+          "start": 54.36,
+          "end": 54.94,
+          "estimated": false
+        },
+        {
+          "text": "crash",
+          "start": 54.94,
+          "end": 55.02,
+          "estimated": false
+        },
+        {
+          "text": "into",
+          "start": 55.02,
+          "end": 55.38,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 55.38,
+          "end": 55.58,
+          "estimated": false
+        },
+        {
+          "text": "soft",
+          "start": 55.58,
+          "end": 55.9,
+          "estimated": false
+        },
+        {
+          "text": "ground",
+          "start": 55.9,
+          "end": 56.4,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      },
+      "backing": "(foul)"
+    },
+    {
+      "start": 56.4,
+      "end": 58.84,
+      "text": "Ain't no fellow feathers falling for a freak",
+      "words": [
+        {
+          "text": "Ain't",
+          "start": 56.4,
+          "end": 56.671,
+          "estimated": true
+        },
+        {
+          "text": "no",
+          "start": 56.671,
+          "end": 56.807,
+          "estimated": true
+        },
+        {
+          "text": "fellow",
+          "start": 56.807,
+          "end": 57.213,
+          "estimated": true
+        },
+        {
+          "text": "feathers",
+          "start": 57.213,
+          "end": 57.756,
+          "estimated": true
+        },
+        {
+          "text": "falling",
+          "start": 57.756,
+          "end": 58.23,
+          "estimated": true
+        },
+        {
+          "text": "for",
+          "start": 58.23,
+          "end": 58.433,
+          "estimated": true
+        },
+        {
+          "text": "a",
+          "start": 58.433,
+          "end": 58.501,
+          "estimated": true
+        },
+        {
+          "text": "freak",
+          "start": 58.501,
+          "end": 58.84,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 8
+      },
+      "backing": "(so weak)"
+    },
+    {
+      "start": 58.84,
+      "end": 61.58,
+      "text": "So put my neck up on the chopping block",
+      "words": [
+        {
+          "text": "So",
+          "start": 58.84,
+          "end": 59.017,
+          "estimated": true
+        },
+        {
+          "text": "put",
+          "start": 59.017,
+          "end": 59.282,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 59.282,
+          "end": 59.459,
+          "estimated": true
+        },
+        {
+          "text": "neck",
+          "start": 59.459,
+          "end": 59.812,
+          "estimated": true
+        },
+        {
+          "text": "up",
+          "start": 59.812,
+          "end": 59.989,
+          "estimated": true
+        },
+        {
+          "text": "on",
+          "start": 59.989,
+          "end": 60.166,
+          "estimated": true
+        },
+        {
+          "text": "the",
+          "start": 60.166,
+          "end": 60.431,
+          "estimated": true
+        },
+        {
+          "text": "chopping",
+          "start": 60.431,
+          "end": 61.138,
+          "estimated": true
+        },
+        {
+          "text": "block",
+          "start": 61.138,
+          "end": 61.58,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 9
+      }
+    },
+    {
+      "start": 61.58,
+      "end": 65.14,
+      "text": "A birdbrain, baby, I don't think my head is coming off",
+      "words": [
+        {
+          "text": "A",
+          "start": 61.58,
+          "end": 61.98,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 61.98,
+          "end": 62.96,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 62.96,
+          "end": 63.12,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 63.12,
+          "end": 63.32,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 63.32,
+          "end": 63.52,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 63.52,
+          "end": 63.62,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 63.62,
+          "end": 63.84,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 63.84,
+          "end": 64.08,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 64.08,
+          "end": 64.24,
+          "estimated": false
+        },
+        {
+          "text": "coming",
+          "start": 64.24,
+          "end": 64.5,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 64.5,
+          "end": 65.14,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 65.14,
+      "end": 68.04,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 65.14,
+          "end": 66.12,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 66.12,
+          "end": 66.32,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 66.32,
+          "end": 66.52,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 66.52,
+          "end": 66.68,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 66.68,
+          "end": 66.88,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 66.88,
+          "end": 67.28,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 67.28,
+          "end": 67.36,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 67.36,
+          "end": 67.58,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 67.58,
+          "end": 68.04,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 68.04,
+      "end": 71.12,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 68.04,
+          "end": 69.1,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 69.1,
+          "end": 69.32,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 69.32,
+          "end": 69.52,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 69.52,
+          "end": 69.68,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 69.68,
+          "end": 69.88,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 69.88,
+          "end": 70.36,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 70.36,
+          "end": 70.38,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 70.38,
+          "end": 70.58,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 70.58,
+          "end": 71.12,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 71.12,
+      "end": 72.06,
+      "text": "So, shit",
+      "words": [
+        {
+          "text": "So,",
+          "start": 71.12,
+          "end": 71.433,
+          "estimated": true
+        },
+        {
+          "text": "shit",
+          "start": 71.433,
+          "end": 72.06,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 72.06,
+      "end": 75.52,
+      "text": "So unsure, before it's even heard",
+      "words": [
+        {
+          "text": "So",
+          "start": 72.06,
+          "end": 72.326,
+          "estimated": true
+        },
+        {
+          "text": "unsure,",
+          "start": 72.326,
+          "end": 73.125,
+          "estimated": true
+        },
+        {
+          "text": "before",
+          "start": 73.125,
+          "end": 73.923,
+          "estimated": true
+        },
+        {
+          "text": "it's",
+          "start": 73.923,
+          "end": 74.322,
+          "estimated": true
+        },
+        {
+          "text": "even",
+          "start": 74.322,
+          "end": 74.855,
+          "estimated": true
+        },
+        {
+          "text": "heard",
+          "start": 74.855,
+          "end": 75.52,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 75.52,
+      "end": 79.12,
+      "text": "I can't toe the border with my eyes so blurred",
+      "words": [
+        {
+          "text": "I",
+          "start": 75.52,
+          "end": 76.3,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 76.3,
+          "end": 76.86,
+          "estimated": false
+        },
+        {
+          "text": "toe",
+          "start": 76.86,
+          "end": 77.04,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 77.04,
+          "end": 77.32,
+          "estimated": false
+        },
+        {
+          "text": "border",
+          "start": 77.32,
+          "end": 77.6,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 77.6,
+          "end": 77.92,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 77.92,
+          "end": 78.16,
+          "estimated": false
+        },
+        {
+          "text": "eyes",
+          "start": 78.16,
+          "end": 78.38,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 78.38,
+          "end": 78.78,
+          "estimated": false
+        },
+        {
+          "text": "blurred",
+          "start": 78.78,
+          "end": 79.12,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 79.12,
+      "end": 81.2,
+      "text": "This bird, constantly overturned",
+      "words": [
+        {
+          "text": "This",
+          "start": 79.12,
+          "end": 79.54,
+          "estimated": false
+        },
+        {
+          "text": "bird,",
+          "start": 79.54,
+          "end": 80.16,
+          "estimated": false
+        },
+        {
+          "text": "constantly",
+          "start": 80.16,
+          "end": 80.5,
+          "estimated": false
+        },
+        {
+          "text": "overturned",
+          "start": 80.5,
+          "end": 81.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 81.2,
+      "end": 84.78,
+      "text": "Ten-time unwitting champion of being spurned",
+      "words": [
+        {
+          "text": "Ten-time",
+          "start": 81.2,
+          "end": 81.859,
+          "estimated": true
+        },
+        {
+          "text": "unwitting",
+          "start": 81.859,
+          "end": 82.707,
+          "estimated": true
+        },
+        {
+          "text": "champion",
+          "start": 82.707,
+          "end": 83.461,
+          "estimated": true
+        },
+        {
+          "text": "of",
+          "start": 83.461,
+          "end": 83.649,
+          "estimated": true
+        },
+        {
+          "text": "being",
+          "start": 83.649,
+          "end": 84.121,
+          "estimated": true
+        },
+        {
+          "text": "spurned",
+          "start": 84.121,
+          "end": 84.78,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      },
+      "backing": "(So when you go, I won't cry)"
+    },
+    {
+      "start": 84.78,
+      "end": 91.18,
+      "text": "'Cause even though it hurts, it's the thousandth time",
+      "words": [
+        {
+          "text": "'Cause",
+          "start": 84.78,
+          "end": 85.542,
+          "estimated": true
+        },
+        {
+          "text": "even",
+          "start": 85.542,
+          "end": 86.151,
+          "estimated": true
+        },
+        {
+          "text": "though",
+          "start": 86.151,
+          "end": 87.066,
+          "estimated": true
+        },
+        {
+          "text": "it",
+          "start": 87.066,
+          "end": 87.37,
+          "estimated": true
+        },
+        {
+          "text": "hurts,",
+          "start": 87.37,
+          "end": 88.132,
+          "estimated": true
+        },
+        {
+          "text": "it's",
+          "start": 88.132,
+          "end": 88.59,
+          "estimated": true
+        },
+        {
+          "text": "the",
+          "start": 88.59,
+          "end": 89.047,
+          "estimated": true
+        },
+        {
+          "text": "thousandth",
+          "start": 89.047,
+          "end": 90.57,
+          "estimated": true
+        },
+        {
+          "text": "time",
+          "start": 90.57,
+          "end": 91.18,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 9
+      }
+    },
+    {
+      "start": 91.18,
+      "end": 95.08,
+      "text": "Don't stay, 'cause I don't even know what I'd do anyway",
+      "words": [
+        {
+          "text": "Don't",
+          "start": 91.18,
+          "end": 91.6,
+          "estimated": false
+        },
+        {
+          "text": "stay,",
+          "start": 91.6,
+          "end": 92.22,
+          "estimated": false
+        },
+        {
+          "text": "'cause",
+          "start": 92.22,
+          "end": 92.32,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 92.32,
+          "end": 92.58,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 92.58,
+          "end": 92.76,
+          "estimated": false
+        },
+        {
+          "text": "even",
+          "start": 92.76,
+          "end": 92.98,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 92.98,
+          "end": 93.42,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 93.42,
+          "end": 93.7,
+          "estimated": false
+        },
+        {
+          "text": "I'd",
+          "start": 93.7,
+          "end": 94.06,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 94.06,
+          "end": 94.24,
+          "estimated": false
+        },
+        {
+          "text": "anyway",
+          "start": 94.24,
+          "end": 95.08,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 95.08,
+      "end": 99.6,
+      "text": "I'm so damn selfish, I can't live like this",
+      "words": [
+        {
+          "text": "I'm",
+          "start": 95.08,
+          "end": 96.96,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 96.96,
+          "end": 97.12,
+          "estimated": false
+        },
+        {
+          "text": "damn",
+          "start": 97.12,
+          "end": 97.34,
+          "estimated": false
+        },
+        {
+          "text": "selfish,",
+          "start": 97.34,
+          "end": 98.14,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 98.14,
+          "end": 98.34,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 98.34,
+          "end": 98.74,
+          "estimated": false
+        },
+        {
+          "text": "live",
+          "start": 98.74,
+          "end": 98.86,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 98.86,
+          "end": 99.26,
+          "estimated": false
+        },
+        {
+          "text": "this",
+          "start": 99.26,
+          "end": 99.6,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 99.6,
+      "end": 102.52,
+      "text": "So be my witness, I won't back down",
+      "words": [
+        {
+          "text": "So",
+          "start": 99.6,
+          "end": 99.84,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 99.84,
+          "end": 100.08,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 100.08,
+          "end": 100.38,
+          "estimated": false
+        },
+        {
+          "text": "witness,",
+          "start": 100.38,
+          "end": 101.24,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 101.24,
+          "end": 101.36,
+          "estimated": false
+        },
+        {
+          "text": "won't",
+          "start": 101.36,
+          "end": 101.67,
+          "estimated": true
+        },
+        {
+          "text": "back",
+          "start": 101.67,
+          "end": 101.98,
+          "estimated": true
+        },
+        {
+          "text": "down",
+          "start": 101.98,
+          "end": 102.52,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 102.52,
+      "end": 105.32,
+      "text": "I'll play the hero, divide the zero",
+      "words": [
+        {
+          "text": "I'll",
+          "start": 102.52,
+          "end": 102.88,
+          "estimated": false
+        },
+        {
+          "text": "play",
+          "start": 102.88,
+          "end": 103.16,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 103.16,
+          "end": 103.42,
+          "estimated": false
+        },
+        {
+          "text": "hero,",
+          "start": 103.42,
+          "end": 104.24,
+          "estimated": false
+        },
+        {
+          "text": "divide",
+          "start": 104.24,
+          "end": 104.54,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 104.54,
+          "end": 104.92,
+          "estimated": false
+        },
+        {
+          "text": "zero",
+          "start": 104.92,
+          "end": 105.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 105.32,
+      "end": 108.57,
+      "text": "So I wanna hear you s-say- something?",
+      "words": [
+        {
+          "text": "So",
+          "start": 105.32,
+          "end": 105.552,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 105.552,
+          "end": 105.668,
+          "estimated": true
+        },
+        {
+          "text": "wanna",
+          "start": 105.668,
+          "end": 106.249,
+          "estimated": true
+        },
+        {
+          "text": "hear",
+          "start": 106.249,
+          "end": 106.713,
+          "estimated": true
+        },
+        {
+          "text": "you",
+          "start": 106.713,
+          "end": 107.061,
+          "estimated": true
+        },
+        {
+          "text": "s-say-",
+          "start": 107.061,
+          "end": 107.525,
+          "estimated": true
+        },
+        {
+          "text": "something?",
+          "start": 107.525,
+          "end": 108.57,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 7
+      }
+    },
+    {
+      "start": 108.57,
+      "end": 111.08,
+      "text": "And I falter as an afterthought",
+      "words": [
+        {
+          "text": "And",
+          "start": 108.57,
+          "end": 108.86,
+          "estimated": true
+        },
+        {
+          "text": "I",
+          "start": 108.86,
+          "end": 108.956,
+          "estimated": true
+        },
+        {
+          "text": "falter",
+          "start": 108.956,
+          "end": 109.535,
+          "estimated": true
+        },
+        {
+          "text": "as",
+          "start": 109.535,
+          "end": 109.728,
+          "estimated": true
+        },
+        {
+          "text": "an",
+          "start": 109.728,
+          "end": 109.922,
+          "estimated": true
+        },
+        {
+          "text": "afterthought",
+          "start": 109.922,
+          "end": 111.08,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 111.08,
+      "end": 114.92,
+      "text": "I keep on running like a chicken with its head cut off",
+      "words": [
+        {
+          "text": "I",
+          "start": 111.08,
+          "end": 111.46,
+          "estimated": false
+        },
+        {
+          "text": "keep",
+          "start": 111.46,
+          "end": 111.68,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 111.68,
+          "end": 111.86,
+          "estimated": false
+        },
+        {
+          "text": "running",
+          "start": 111.86,
+          "end": 112.14,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 112.14,
+          "end": 112.42,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 112.42,
+          "end": 112.64,
+          "estimated": false
+        },
+        {
+          "text": "chicken",
+          "start": 112.64,
+          "end": 112.82,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 112.82,
+          "end": 113.18,
+          "estimated": false
+        },
+        {
+          "text": "its",
+          "start": 113.18,
+          "end": 113.4,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 113.4,
+          "end": 113.66,
+          "estimated": false
+        },
+        {
+          "text": "cut",
+          "start": 113.66,
+          "end": 114.04,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 114.04,
+          "end": 114.92,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 114.92,
+      "end": 117.08,
+      "text": "Apathetic aching argonaut",
+      "words": [
+        {
+          "text": "Apathetic",
+          "start": 114.92,
+          "end": 115.8,
+          "estimated": false
+        },
+        {
+          "text": "aching",
+          "start": 115.8,
+          "end": 116.34,
+          "estimated": false
+        },
+        {
+          "text": "argonaut",
+          "start": 116.34,
+          "end": 117.08,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 117.08,
+      "end": 120.58,
+      "text": "A birdbrain, baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "A",
+          "start": 117.08,
+          "end": 117.46,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 117.46,
+          "end": 118.28,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 118.28,
+          "end": 118.64,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 118.64,
+          "end": 118.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 118.82,
+          "end": 119.0,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 119.0,
+          "end": 119.18,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 119.18,
+          "end": 119.38,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 119.38,
+          "end": 119.58,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 119.58,
+          "end": 119.86,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 119.86,
+          "end": 120.1,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 120.1,
+          "end": 120.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 120.58,
+      "end": 123.86,
+      "text": "Hit me with the flap down, crashing with a loud sound",
+      "words": [
+        {
+          "text": "Hit",
+          "start": 120.58,
+          "end": 121.06,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 121.06,
+          "end": 121.24,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 121.24,
+          "end": 121.42,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 121.42,
+          "end": 121.62,
+          "estimated": false
+        },
+        {
+          "text": "flap",
+          "start": 121.62,
+          "end": 121.84,
+          "estimated": false
+        },
+        {
+          "text": "down,",
+          "start": 121.84,
+          "end": 122.48,
+          "estimated": false
+        },
+        {
+          "text": "crashing",
+          "start": 122.48,
+          "end": 122.6,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 122.6,
+          "end": 122.94,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 122.94,
+          "end": 123.22,
+          "estimated": false
+        },
+        {
+          "text": "loud",
+          "start": 123.22,
+          "end": 123.4,
+          "estimated": false
+        },
+        {
+          "text": "sound",
+          "start": 123.4,
+          "end": 123.86,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      },
+      "backing": "(foul)"
+    },
+    {
+      "start": 123.86,
+      "end": 126.14,
+      "text": "Apoplectic and pathetic as can be",
+      "words": [
+        {
+          "text": "Apoplectic",
+          "start": 123.86,
+          "end": 124.674,
+          "estimated": true
+        },
+        {
+          "text": "and",
+          "start": 124.674,
+          "end": 124.919,
+          "estimated": true
+        },
+        {
+          "text": "pathetic",
+          "start": 124.919,
+          "end": 125.57,
+          "estimated": true
+        },
+        {
+          "text": "as",
+          "start": 125.57,
+          "end": 125.733,
+          "estimated": true
+        },
+        {
+          "text": "can",
+          "start": 125.733,
+          "end": 125.977,
+          "estimated": true
+        },
+        {
+          "text": "be",
+          "start": 125.977,
+          "end": 126.14,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      },
+      "backing": "(not me)"
+    },
+    {
+      "start": 126.14,
+      "end": 129.08,
+      "text": "I put my neck up on the chopping block",
+      "words": [
+        {
+          "text": "I",
+          "start": 126.14,
+          "end": 126.238,
+          "estimated": true
+        },
+        {
+          "text": "put",
+          "start": 126.238,
+          "end": 126.532,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 126.532,
+          "end": 126.728,
+          "estimated": true
+        },
+        {
+          "text": "neck",
+          "start": 126.728,
+          "end": 127.12,
+          "estimated": true
+        },
+        {
+          "text": "up",
+          "start": 127.12,
+          "end": 127.316,
+          "estimated": true
+        },
+        {
+          "text": "on",
+          "start": 127.316,
+          "end": 127.512,
+          "estimated": true
+        },
+        {
+          "text": "the",
+          "start": 127.512,
+          "end": 127.806,
+          "estimated": true
+        },
+        {
+          "text": "chopping",
+          "start": 127.806,
+          "end": 128.59,
+          "estimated": true
+        },
+        {
+          "text": "block",
+          "start": 128.59,
+          "end": 129.08,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 9
+      }
+    },
+    {
+      "start": 129.08,
+      "end": 132.66,
+      "text": "A birdbrain, baby, I don't think my head is coming off",
+      "words": [
+        {
+          "text": "A",
+          "start": 129.08,
+          "end": 129.48,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 129.48,
+          "end": 130.52,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 130.52,
+          "end": 130.6,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 130.6,
+          "end": 130.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 130.82,
+          "end": 131.04,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 131.04,
+          "end": 131.14,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 131.14,
+          "end": 131.36,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 131.36,
+          "end": 131.58,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 131.58,
+          "end": 131.74,
+          "estimated": false
+        },
+        {
+          "text": "coming",
+          "start": 131.74,
+          "end": 131.98,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 131.98,
+          "end": 132.66,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 132.66,
+      "end": 135.58,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 132.66,
+          "end": 133.62,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 133.62,
+          "end": 133.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 133.82,
+          "end": 134.02,
+          "estimated": true
+        },
+        {
+          "text": "know",
+          "start": 134.02,
+          "end": 134.22,
+          "estimated": true
+        },
+        {
+          "text": "when",
+          "start": 134.22,
+          "end": 134.38,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 134.38,
+          "end": 134.76,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 134.76,
+          "end": 134.86,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 134.86,
+          "end": 135.06,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 135.06,
+          "end": 135.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 135.58,
+      "end": 139.34,
+      "text": "Can you tell me if you think that I should stop?",
+      "words": [
+        {
+          "text": "Can",
+          "start": 135.58,
+          "end": 136.38,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 136.38,
+          "end": 136.58,
+          "estimated": false
+        },
+        {
+          "text": "tell",
+          "start": 136.58,
+          "end": 136.8,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 136.8,
+          "end": 136.98,
+          "estimated": false
+        },
+        {
+          "text": "if",
+          "start": 136.98,
+          "end": 137.18,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 137.18,
+          "end": 137.34,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 137.34,
+          "end": 137.54,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 137.54,
+          "end": 137.76,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 137.76,
+          "end": 137.9,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 137.9,
+          "end": 138.02,
+          "estimated": false
+        },
+        {
+          "text": "stop?",
+          "start": 138.02,
+          "end": 139.34,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 139.34,
+      "end": 144.5,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 139.34,
+          "end": 139.64,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 139.64,
+          "end": 139.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 139.82,
+          "end": 140.02,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 140.02,
+          "end": 140.2,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 140.2,
+          "end": 140.4,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 140.4,
+          "end": 140.8,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 140.8,
+          "end": 140.88,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 140.88,
+          "end": 141.08,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 141.08,
+          "end": 141.6,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      },
+      "backing": "(Why did it sound like tha-?)"
+    },
+    {
+      "start": 144.5,
+      "end": 147.6,
+      "text": "Is it all for a show?",
+      "words": [
+        {
+          "text": "Is",
+          "start": 144.5,
+          "end": 145.08,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 145.08,
+          "end": 145.34,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 145.34,
+          "end": 145.56,
+          "estimated": false
+        },
+        {
+          "text": "for",
+          "start": 145.56,
+          "end": 145.78,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 145.78,
+          "end": 145.94,
+          "estimated": false
+        },
+        {
+          "text": "show?",
+          "start": 145.94,
+          "end": 147.6,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 147.6,
+      "end": 152.36,
+      "text": "In the golden hour you seem to know no fear",
+      "words": [
+        {
+          "text": "In",
+          "start": 147.6,
+          "end": 147.88,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 147.88,
+          "end": 148.1,
+          "estimated": false
+        },
+        {
+          "text": "golden",
+          "start": 148.1,
+          "end": 148.82,
+          "estimated": false
+        },
+        {
+          "text": "hour",
+          "start": 148.82,
+          "end": 149.36,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 149.36,
+          "end": 149.8,
+          "estimated": false
+        },
+        {
+          "text": "seem",
+          "start": 149.8,
+          "end": 150.28,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 150.28,
+          "end": 150.74,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 150.74,
+          "end": 151.3,
+          "estimated": false
+        },
+        {
+          "text": "no",
+          "start": 151.3,
+          "end": 151.74,
+          "estimated": false
+        },
+        {
+          "text": "fear",
+          "start": 151.74,
+          "end": 152.36,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 152.36,
+      "end": 154.9,
+      "text": "Is it really true?",
+      "words": [
+        {
+          "text": "Is",
+          "start": 152.36,
+          "end": 152.82,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 152.82,
+          "end": 153.08,
+          "estimated": false
+        },
+        {
+          "text": "really",
+          "start": 153.08,
+          "end": 153.42,
+          "estimated": false
+        },
+        {
+          "text": "true?",
+          "start": 153.42,
+          "end": 154.9,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 154.9,
+      "end": 160.12,
+      "text": "That a bird like me could never think like you?",
+      "words": [
+        {
+          "text": "That",
+          "start": 154.9,
+          "end": 155.36,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 155.36,
+          "end": 155.6,
+          "estimated": false
+        },
+        {
+          "text": "bird",
+          "start": 155.6,
+          "end": 155.96,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 155.96,
+          "end": 156.46,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 156.46,
+          "end": 156.94,
+          "estimated": false
+        },
+        {
+          "text": "could",
+          "start": 156.94,
+          "end": 157.36,
+          "estimated": false
+        },
+        {
+          "text": "never",
+          "start": 157.36,
+          "end": 158.04,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 158.04,
+          "end": 158.76,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 158.76,
+          "end": 159.3,
+          "estimated": false
+        },
+        {
+          "text": "you?",
+          "start": 159.3,
+          "end": 160.12,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 160.12,
+      "end": 162.8,
+      "text": "Is it all in my head?",
+      "words": [
+        {
+          "text": "Is",
+          "start": 160.12,
+          "end": 160.16,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 160.16,
+          "end": 160.32,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 160.32,
+          "end": 160.68,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 160.68,
+          "end": 160.82,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 160.82,
+          "end": 161.22,
+          "estimated": false
+        },
+        {
+          "text": "head?",
+          "start": 161.22,
+          "end": 162.8,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 162.8,
+      "end": 166.99,
+      "text": "Is my ignorance just manufactured dread?",
+      "words": [
+        {
+          "text": "Is",
+          "start": 162.8,
+          "end": 163.046,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 163.046,
+          "end": 163.293,
+          "estimated": true
+        },
+        {
+          "text": "ignorance",
+          "start": 163.293,
+          "end": 164.402,
+          "estimated": true
+        },
+        {
+          "text": "just",
+          "start": 164.402,
+          "end": 164.895,
+          "estimated": true
+        },
+        {
+          "text": "manufactured",
+          "start": 164.895,
+          "end": 166.374,
+          "estimated": true
+        },
+        {
+          "text": "dread?",
+          "start": 166.374,
+          "end": 166.99,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 166.99,
+      "end": 169.72,
+      "text": "When I've naught but my pride",
+      "words": [
+        {
+          "text": "When",
+          "start": 166.99,
+          "end": 167.465,
+          "estimated": true
+        },
+        {
+          "text": "I've",
+          "start": 167.465,
+          "end": 167.821,
+          "estimated": true
+        },
+        {
+          "text": "naught",
+          "start": 167.821,
+          "end": 168.533,
+          "estimated": true
+        },
+        {
+          "text": "but",
+          "start": 168.533,
+          "end": 168.889,
+          "estimated": true
+        },
+        {
+          "text": "my",
+          "start": 168.889,
+          "end": 169.127,
+          "estimated": true
+        },
+        {
+          "text": "pride",
+          "start": 169.127,
+          "end": 169.72,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 0,
+        "estimatedWords": 6
+      }
+    },
+    {
+      "start": 169.72,
+      "end": 172.32,
+      "text": "Can you take a look and",
+      "words": [
+        {
+          "text": "Can",
+          "start": 169.72,
+          "end": 170.32,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 170.32,
+          "end": 170.56,
+          "estimated": false
+        },
+        {
+          "text": "take",
+          "start": 170.56,
+          "end": 171.04,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 171.04,
+          "end": 171.5,
+          "estimated": false
+        },
+        {
+          "text": "look",
+          "start": 171.5,
+          "end": 171.9,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 171.9,
+          "end": 172.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 172.32,
+      "end": 177.95,
+      "text": "Say you like what I've got inside?",
+      "words": [
+        {
+          "text": "Say",
+          "start": 172.32,
+          "end": 172.86,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 172.86,
+          "end": 173.38,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 173.38,
+          "end": 173.82,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 173.82,
+          "end": 174.28,
+          "estimated": false
+        },
+        {
+          "text": "I've",
+          "start": 174.28,
+          "end": 174.98,
+          "estimated": false
+        },
+        {
+          "text": "got",
+          "start": 174.98,
+          "end": 175.28,
+          "estimated": false
+        },
+        {
+          "text": "inside?",
+          "start": 175.28,
+          "end": 177.7,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 218.0,
+      "end": 222.06,
+      "text": "So I falter on the second thought",
+      "words": [
+        {
+          "text": "So",
+          "start": 218.0,
+          "end": 220.52,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 220.52,
+          "end": 220.76,
+          "estimated": false
+        },
+        {
+          "text": "falter",
+          "start": 220.76,
+          "end": 220.94,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 220.94,
+          "end": 221.18,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 221.18,
+          "end": 221.34,
+          "estimated": false
+        },
+        {
+          "text": "second",
+          "start": 221.34,
+          "end": 221.58,
+          "estimated": false
+        },
+        {
+          "text": "thought",
+          "start": 221.58,
+          "end": 222.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 222.06,
+      "end": 225.74,
+      "text": "I keep on running like a chicken with its head cut off",
+      "words": [
+        {
+          "text": "I",
+          "start": 222.06,
+          "end": 222.46,
+          "estimated": false
+        },
+        {
+          "text": "keep",
+          "start": 222.46,
+          "end": 222.68,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 222.68,
+          "end": 222.86,
+          "estimated": false
+        },
+        {
+          "text": "running",
+          "start": 222.86,
+          "end": 223.12,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 223.12,
+          "end": 223.42,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 223.42,
+          "end": 223.58,
+          "estimated": false
+        },
+        {
+          "text": "chicken",
+          "start": 223.58,
+          "end": 223.84,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 223.84,
+          "end": 224.18,
+          "estimated": false
+        },
+        {
+          "text": "its",
+          "start": 224.18,
+          "end": 224.38,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 224.38,
+          "end": 224.64,
+          "estimated": false
+        },
+        {
+          "text": "cut",
+          "start": 224.64,
+          "end": 225.02,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 225.02,
+          "end": 225.74,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 225.74,
+      "end": 228.06,
+      "text": "A counterfeited crooning cosmonaut",
+      "words": [
+        {
+          "text": "A",
+          "start": 225.74,
+          "end": 226.28,
+          "estimated": false
+        },
+        {
+          "text": "counterfeited",
+          "start": 226.28,
+          "end": 226.9,
+          "estimated": false
+        },
+        {
+          "text": "crooning",
+          "start": 226.9,
+          "end": 227.3,
+          "estimated": false
+        },
+        {
+          "text": "cosmonaut",
+          "start": 227.3,
+          "end": 228.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 228.06,
+      "end": 231.54,
+      "text": "A birdbrain, baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "A",
+          "start": 228.06,
+          "end": 228.5,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 228.5,
+          "end": 229.26,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 229.26,
+          "end": 229.62,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 229.62,
+          "end": 229.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 229.82,
+          "end": 229.98,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 229.98,
+          "end": 230.18,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 230.18,
+          "end": 230.38,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 230.38,
+          "end": 230.58,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 230.58,
+          "end": 230.84,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 230.84,
+          "end": 231.08,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 231.08,
+          "end": 231.54,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 231.54,
+      "end": 234.92,
+      "text": "Hit me with the flap down, mired in the earthbound",
+      "words": [
+        {
+          "text": "Hit",
+          "start": 231.54,
+          "end": 232.04,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 232.04,
+          "end": 232.22,
+          "estimated": false
+        },
+        {
+          "text": "with",
+          "start": 232.22,
+          "end": 232.42,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 232.42,
+          "end": 232.6,
+          "estimated": false
+        },
+        {
+          "text": "flap",
+          "start": 232.6,
+          "end": 232.86,
+          "estimated": false
+        },
+        {
+          "text": "down,",
+          "start": 232.86,
+          "end": 233.42,
+          "estimated": false
+        },
+        {
+          "text": "mired",
+          "start": 233.42,
+          "end": 233.64,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 233.64,
+          "end": 233.94,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 233.94,
+          "end": 234.16,
+          "estimated": false
+        },
+        {
+          "text": "earthbound",
+          "start": 234.16,
+          "end": 234.92,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      },
+      "backing": "(foul)"
+    },
+    {
+      "start": 234.92,
+      "end": 237.76,
+      "text": "Bilious baby braying babble bent her beak",
+      "words": [
+        {
+          "text": "Bilious",
+          "start": 234.92,
+          "end": 235.62,
+          "estimated": false
+        },
+        {
+          "text": "baby",
+          "start": 235.62,
+          "end": 235.9,
+          "estimated": false
+        },
+        {
+          "text": "braying",
+          "start": 235.9,
+          "end": 236.36,
+          "estimated": false
+        },
+        {
+          "text": "babble",
+          "start": 236.36,
+          "end": 236.72,
+          "estimated": false
+        },
+        {
+          "text": "bent",
+          "start": 236.72,
+          "end": 236.94,
+          "estimated": false
+        },
+        {
+          "text": "her",
+          "start": 236.94,
+          "end": 237.1,
+          "estimated": false
+        },
+        {
+          "text": "beak",
+          "start": 237.1,
+          "end": 237.76,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      },
+      "backing": "(what a freak)"
+    },
+    {
+      "start": 237.76,
+      "end": 240.0,
+      "text": "I put my neck up on the chopping block",
+      "words": [
+        {
+          "text": "I",
+          "start": 237.76,
+          "end": 238.18,
+          "estimated": false
+        },
+        {
+          "text": "put",
+          "start": 238.18,
+          "end": 238.38,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 238.38,
+          "end": 238.62,
+          "estimated": false
+        },
+        {
+          "text": "neck",
+          "start": 238.62,
+          "end": 238.78,
+          "estimated": false
+        },
+        {
+          "text": "up",
+          "start": 238.78,
+          "end": 239.0,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 239.0,
+          "end": 239.18,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 239.18,
+          "end": 239.34,
+          "estimated": false
+        },
+        {
+          "text": "chopping",
+          "start": 239.34,
+          "end": 239.58,
+          "estimated": false
+        },
+        {
+          "text": "block",
+          "start": 239.58,
+          "end": 240.0,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 240.0,
+      "end": 243.62,
+      "text": "A birdbrain, baby, I don't think my head is coming off",
+      "words": [
+        {
+          "text": "A",
+          "start": 240.0,
+          "end": 240.46,
+          "estimated": false
+        },
+        {
+          "text": "birdbrain,",
+          "start": 240.46,
+          "end": 241.3,
+          "estimated": false
+        },
+        {
+          "text": "baby,",
+          "start": 241.3,
+          "end": 241.48,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 241.48,
+          "end": 241.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 241.82,
+          "end": 242.02,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 242.02,
+          "end": 242.14,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 242.14,
+          "end": 242.36,
+          "estimated": false
+        },
+        {
+          "text": "head",
+          "start": 242.36,
+          "end": 242.58,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 242.58,
+          "end": 242.72,
+          "estimated": false
+        },
+        {
+          "text": "coming",
+          "start": 242.72,
+          "end": 242.98,
+          "estimated": false
+        },
+        {
+          "text": "off",
+          "start": 242.98,
+          "end": 243.62,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 243.62,
+      "end": 246.56,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 243.62,
+          "end": 244.6,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 244.6,
+          "end": 244.82,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 244.82,
+          "end": 245.0,
+          "estimated": true
+        },
+        {
+          "text": "know",
+          "start": 245.0,
+          "end": 245.18,
+          "estimated": true
+        },
+        {
+          "text": "when",
+          "start": 245.18,
+          "end": 245.38,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 245.38,
+          "end": 245.58,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 245.58,
+          "end": 245.86,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 245.86,
+          "end": 246.06,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 246.06,
+          "end": 246.56,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 246.56,
+      "end": 249.58,
+      "text": "Baby, tell me if you think that I should stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 246.56,
+          "end": 247.58,
+          "estimated": false
+        },
+        {
+          "text": "tell",
+          "start": 247.58,
+          "end": 247.76,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 247.76,
+          "end": 247.98,
+          "estimated": false
+        },
+        {
+          "text": "if",
+          "start": 247.98,
+          "end": 248.18,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 248.18,
+          "end": 248.34,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 248.34,
+          "end": 248.54,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 248.54,
+          "end": 248.76,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 248.76,
+          "end": 248.9,
+          "estimated": false
+        },
+        {
+          "text": "should",
+          "start": 248.9,
+          "end": 249.02,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 249.02,
+          "end": 249.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 249.58,
+      "end": 252.58,
+      "text": "Baby, I don't know when I'm supposed to stop",
+      "words": [
+        {
+          "text": "Baby,",
+          "start": 249.58,
+          "end": 250.64,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 250.64,
+          "end": 250.84,
+          "estimated": false
+        },
+        {
+          "text": "don't",
+          "start": 250.84,
+          "end": 251.0,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 251.0,
+          "end": 251.2,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 251.2,
+          "end": 251.4,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 251.4,
+          "end": 251.74,
+          "estimated": false
+        },
+        {
+          "text": "supposed",
+          "start": 251.74,
+          "end": 251.86,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 251.86,
+          "end": 252.08,
+          "estimated": false
+        },
+        {
+          "text": "stop",
+          "start": 252.08,
+          "end": 252.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 252.58,
+      "end": 254.79,
+      "text": "Baby- fuck",
+      "words": [
+        {
+          "text": "Baby-",
+          "start": 252.58,
+          "end": 254.44,
+          "estimated": false
+        },
+        {
+          "text": "fuck",
+          "start": 254.44,
+          "end": 254.54,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "boundary-adjusted-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 0
+      }
+    }
+  ]
+}

@@ -815,6 +815,125 @@
         }
       },
       "fallbackHeight": 360
+    },
+    {
+      "id": "birdbrain-karaoke",
+      "title": "BIRDBRAIN",
+      "artist": "Jamie Paige & OK Glass feat. Kasane Teto",
+      "type": "karaoke",
+      "duration": "4:16",
+      "label": "Original music video · karaoke",
+      "karaoke": true,
+      "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/compatibility-360p.mp4",
+      "poster": "assets/birdbrain-v1.jpg",
+      "audio": {
+        "original": "https://gmyoung.github.io/karaoke-media-1/audio/birdbrain-original-v1.m4a",
+        "karaoke": "https://gmyoung.github.io/karaoke-media-1/audio/birdbrain-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 1080,
+      "streaming": {
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 595000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1447000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 2334000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 595000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1447000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 2334000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360,
+      "lyrics": {
+        "url": "assets/lyrics-v5/birdbrain.json",
+        "vtt": "assets/lyrics-v5/birdbrain-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "forever-karaoke",
+      "title": "Forever",
+      "artist": "The Little Dippers",
+      "type": "karaoke",
+      "duration": "2:26",
+      "label": "Instrumental · lyrics",
+      "karaoke": true,
+      "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/compatibility-360p.mp4",
+      "poster": "assets/forever-v1.jpg",
+      "audio": {
+        "karaoke": "https://gmyoung.github.io/karaoke-media-1/audio/forever-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "sourceHeight": 720,
+      "streaming": {
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 165000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 157000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 165000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 157000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360,
+      "lyrics": {
+        "url": "assets/lyrics-v5/forever.json",
+        "vtt": "assets/lyrics-v5/forever-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
     }
   ],
   "showPlaylist": false,

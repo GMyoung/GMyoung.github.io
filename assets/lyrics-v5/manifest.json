@@ -1,0 +1,16 @@
+{
+  "birdbrain-karaoke": {
+    "url": "assets/lyrics-v5/birdbrain.json",
+    "vtt": "assets/lyrics-v5/birdbrain-current.vtt",
+    "language": "en",
+    "showCurrent": true,
+    "placement": "bottom"
+  },
+  "forever-karaoke": {
+    "url": "assets/lyrics-v5/forever.json",
+    "vtt": "assets/lyrics-v5/forever-current.vtt",
+    "language": "en",
+    "showCurrent": true,
+    "placement": "bottom"
+  }
+}

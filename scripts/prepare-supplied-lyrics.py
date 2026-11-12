@@ -1,7 +1,9 @@
 """Attach local recognition anchors to lyrics supplied by the user.
 
 Never fetches lyrics or replaces their words with recognition text. Unmatched
-words receive explicit interpolated timing. User listening review is required.
+words receive explicit interpolated timing. When no vocal reference exists,
+--estimated-windows-only requires an explicit window for every supplied line
+and labels every word estimated. User listening review is required.
 """
 import argparse
 from difflib import SequenceMatcher
@@ -96,63 +98,73 @@ def repair_collapsed_words(source):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lyrics", type=Path, required=True)
-    parser.add_argument("--timings", type=Path, required=True)
+    parser.add_argument("--timings", type=Path, help="Local recognition or forced-alignment word JSON")
     parser.add_argument("--name", required=True)
     parser.add_argument("--catalog-id", required=True)
     parser.add_argument("--duration", type=float, required=True)
     parser.add_argument("--singing-start", type=float, help="Explicit lower bound if recognition missed opening words")
     parser.add_argument("--singing-end", type=float, help="Explicit upper bound if recognition missed closing words")
     parser.add_argument("--cue-windows", type=Path, help="Explicit estimated cue windows when acoustic alignment is unreliable")
+    parser.add_argument("--estimated-windows-only", action="store_true", help="Use complete explicit cue windows without pretending vocal anchors exist")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--url-prefix", default="assets/lyrics-v4")
     args = parser.parse_args()
     if not re.fullmatch(r"[a-z0-9-]+", args.name) or not math.isfinite(args.duration) or args.duration <= 0:
         parser.error("Use a safe song name and positive finite duration")
+    if args.estimated_windows_only:
+        if not args.cue_windows or args.timings or args.singing_start is not None or args.singing_end is not None:
+            parser.error("--estimated-windows-only requires --cue-windows and excludes --timings and singing bounds")
+    elif not args.timings:
+        parser.error("Provide --timings, or --estimated-windows-only with complete --cue-windows")
     for bound in (args.singing_start, args.singing_end):
         if bound is not None and (not math.isfinite(bound) or not 0 <= bound <= args.duration):
             parser.error("Singing bounds must be finite and inside the media duration")
     lines = supplied_lines(args.lyrics.read_text(encoding="utf-8-sig"))
-    source = json.loads(args.timings.read_text(encoding="utf-8-sig"))
-    forced = isinstance(source, list)
-    if forced:
-        source = repair_collapsed_words(source)
-    raw = [word for word in (source if forced else source["words"]) if normalized(word["word"]) and
-           0 <= word["start"] < word["end"] <= args.duration]
-    if not raw:
-        raise ValueError("No usable local word anchors")
     words = [{"text": token, "line": index, "estimated": True} for index, line in enumerate(lines) for token in line["tokens"]]
-    matcher = SequenceMatcher(None, [normalized(word["word"]) for word in raw],
-                              [normalized(word["text"]) for word in words], autojunk=False)
-    for block in matcher.get_matching_blocks():
-        for offset in range(block.size):
-            anchor = raw[block.a + offset]
-            words[block.b + offset].update(start=anchor["start"], end=anchor["end"], estimated=bool(anchor.get("estimated", False)))
-    index = 0
-    while index < len(words):
-        if "start" in words[index]:
-            index += 1
-            continue
-        right = index
-        while right < len(words) and "start" not in words[right]:
-            right += 1
-        start = words[index - 1]["end"] if index else (args.singing_start if args.singing_start is not None else raw[0]["start"])
-        end = words[right]["start"] if right < len(words) else (args.singing_end if args.singing_end is not None else raw[-1]["end"])
-        if end <= start:
-            raise ValueError("Nonpositive interpolation window; refine anchors or provide --singing-start/--singing-end for missing edge words")
-        weights = [max(1, len(normalized(word["text"]))) for word in words[index:right]]
-        cursor, total = 0, sum(weights)
-        for word, weight in zip(words[index:right], weights):
-            word["start"] = start + (end - start) * cursor / total
-            cursor += weight
-            word["end"] = start + (end - start) * cursor / total
-        index = right
+    forced = False
+    if not args.estimated_windows_only:
+        source = json.loads(args.timings.read_text(encoding="utf-8-sig"))
+        forced = isinstance(source, list)
+        if forced:
+            source = repair_collapsed_words(source)
+        raw = [word for word in (source if forced else source["words"]) if normalized(word["word"]) and
+               0 <= word["start"] < word["end"] <= args.duration]
+        if not raw:
+            raise ValueError("No usable local word anchors")
+        matcher = SequenceMatcher(None, [normalized(word["word"]) for word in raw],
+                                  [normalized(word["text"]) for word in words], autojunk=False)
+        for block in matcher.get_matching_blocks():
+            for offset in range(block.size):
+                anchor = raw[block.a + offset]
+                words[block.b + offset].update(start=anchor["start"], end=anchor["end"], estimated=bool(anchor.get("estimated", False)))
+        index = 0
+        while index < len(words):
+            if "start" in words[index]:
+                index += 1
+                continue
+            right = index
+            while right < len(words) and "start" not in words[right]:
+                right += 1
+            start = words[index - 1]["end"] if index else (args.singing_start if args.singing_start is not None else raw[0]["start"])
+            end = words[right]["start"] if right < len(words) else (args.singing_end if args.singing_end is not None else raw[-1]["end"])
+            if end <= start:
+                raise ValueError("Nonpositive interpolation window; refine anchors or provide --singing-start/--singing-end for missing edge words")
+            weights = [max(1, len(normalized(word["text"]))) for word in words[index:right]]
+            cursor, total = 0, sum(weights)
+            for word, weight in zip(words[index:right], weights):
+                word["start"] = start + (end - start) * cursor / total
+                cursor += weight
+                word["end"] = start + (end - start) * cursor / total
+            index = right
     overrides = {}
     if args.cue_windows:
         for item in json.loads(args.cue_windows.read_text(encoding="utf-8-sig")):
             line, start, end = item["line"], item["start"], item["end"]
-            if not isinstance(line, int) or not 0 <= line < len(lines) or item["text"] != " ".join(lines[line]["tokens"]):
+            if type(line) is not int or not 0 <= line < len(lines) or item["text"] != " ".join(lines[line]["tokens"]):
                 raise ValueError("Estimated cue window must match the current supplied line")
+            if line in overrides:
+                raise ValueError("Duplicate estimated window for one supplied line")
             if not all(isinstance(value, (float, int)) and math.isfinite(value) for value in (start, end)) or not 0 <= start < end <= args.duration:
                 raise ValueError("Invalid estimated cue window")
             group = [word for word in words if word["line"] == line]
@@ -164,6 +176,12 @@ def main():
                 word["end"] = start + (end - start) * cursor / total
                 word["estimated"] = True
             overrides[line] = item
+    if args.estimated_windows_only:
+        if set(overrides) != set(range(len(lines))):
+            raise ValueError("Estimated-only mode requires one window for every supplied line")
+        for index in range(1, len(lines)):
+            if overrides[index - 1]["end"] > overrides[index]["start"]:
+                raise ValueError("Estimated-only cue windows must follow lyric order without overlap")
     for index, word in enumerate(words):
         if index + 1 < len(words):
             word["end"] = min(word["end"], words[index + 1]["start"])
@@ -193,8 +211,9 @@ def main():
     spec.loader.exec_module(exporter)
     (args.output / f"{args.name}.json").write_text(json.dumps({"version": 1, "language": "en", "cues": cues}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     (args.output / f"{args.name}-current.vtt").write_text(exporter.native_vtt(cues, show_current=True), encoding="utf-8")
-    report = {"source_lyrics": str(args.lyrics), "local_recognition": str(args.timings),
-              "timing_review": "Unreviewed local anchors and explicit interpolation; user listening review required.",
+    report = {"source_lyrics": str(args.lyrics), "local_recognition": str(args.timings) if args.timings else None,
+              "timing_review": ("All word times estimated from complete explicit cue windows; no vocal recognition or phonetic alignment. User listening review required."
+                                if args.estimated_windows_only else "Unreviewed local anchors and explicit interpolation; user listening review required."),
               "cues": len(cues), "matchedWords": sum(not word["estimated"] for word in words),
               "estimatedWords": sum(word["estimated"] for word in words),
               "entry": {"id": args.catalog_id, "lyrics": {"url": f"{args.url_prefix}/{args.name}.json",

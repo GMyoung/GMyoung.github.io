@@ -1,0 +1,360 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 35.68,
+      "end": 42.556,
+      "text": "Hold me, kiss me",
+      "words": [
+        {
+          "text": "Hold",
+          "start": 35.68,
+          "end": 37.952,
+          "estimated": true
+        },
+        {
+          "text": "me,",
+          "start": 37.952,
+          "end": 39.087,
+          "estimated": true
+        },
+        {
+          "text": "kiss",
+          "start": 39.087,
+          "end": 41.359,
+          "estimated": true
+        },
+        {
+          "text": "me",
+          "start": 41.359,
+          "end": 42.495,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 4
+      }
+    },
+    {
+      "start": 42.556,
+      "end": 48.337,
+      "text": "Whisper sweetly",
+      "words": [
+        {
+          "text": "Whisper",
+          "start": 42.556,
+          "end": 45.441,
+          "estimated": true
+        },
+        {
+          "text": "sweetly",
+          "start": 45.441,
+          "end": 48.327,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 48.337,
+      "end": 57.654,
+      "text": "That you love me forever",
+      "words": [
+        {
+          "text": "That",
+          "start": 48.337,
+          "end": 50.15,
+          "estimated": true
+        },
+        {
+          "text": "you",
+          "start": 50.15,
+          "end": 51.51,
+          "estimated": true
+        },
+        {
+          "text": "love",
+          "start": 51.51,
+          "end": 53.324,
+          "estimated": true
+        },
+        {
+          "text": "me",
+          "start": 53.324,
+          "end": 54.231,
+          "estimated": true
+        },
+        {
+          "text": "forever",
+          "start": 54.231,
+          "end": 57.404,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 5
+      }
+    },
+    {
+      "start": 59.026,
+      "end": 74.996,
+      "text": "Ah-ah-ah-ooh, ooh, ah-oh",
+      "words": [
+        {
+          "text": "Ah-ah-ah-ooh,",
+          "start": 59.026,
+          "end": 67.868,
+          "estimated": true
+        },
+        {
+          "text": "ooh,",
+          "start": 67.868,
+          "end": 70.816,
+          "estimated": true
+        },
+        {
+          "text": "ah-oh",
+          "start": 70.816,
+          "end": 74.746,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 75.254,
+      "end": 86.153,
+      "text": "Ah-ah, ooh-ooh-ooh",
+      "words": [
+        {
+          "text": "Ah-ah,",
+          "start": 75.254,
+          "end": 78.531,
+          "estimated": true
+        },
+        {
+          "text": "ooh-ooh-ooh",
+          "start": 78.531,
+          "end": 85.903,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 86.41,
+      "end": 97.309,
+      "text": "Ah-ah, ooh-ooh-ooh",
+      "words": [
+        {
+          "text": "Ah-ah,",
+          "start": 86.41,
+          "end": 89.687,
+          "estimated": true
+        },
+        {
+          "text": "ooh-ooh-ooh",
+          "start": 89.687,
+          "end": 97.059,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 97.566,
+      "end": 107.451,
+      "text": "Ah-ah, ooh-ooh-ooh",
+      "words": [
+        {
+          "text": "Ah-ah,",
+          "start": 97.566,
+          "end": 100.531,
+          "estimated": true
+        },
+        {
+          "text": "ooh-ooh-ooh",
+          "start": 100.531,
+          "end": 107.201,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 107.708,
+      "end": 110.493,
+      "text": "Forever",
+      "words": [
+        {
+          "text": "Forever",
+          "start": 107.708,
+          "end": 110.243,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 110.751,
+      "end": 114.753,
+      "text": "Ah-ah",
+      "words": [
+        {
+          "text": "Ah-ah",
+          "start": 110.751,
+          "end": 114.503,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 1
+      }
+    },
+    {
+      "start": 115.294,
+      "end": 122.36,
+      "text": "Hold me, kiss me",
+      "words": [
+        {
+          "text": "Hold",
+          "start": 115.294,
+          "end": 117.566,
+          "estimated": true
+        },
+        {
+          "text": "me,",
+          "start": 117.566,
+          "end": 118.702,
+          "estimated": true
+        },
+        {
+          "text": "kiss",
+          "start": 118.702,
+          "end": 120.974,
+          "estimated": true
+        },
+        {
+          "text": "me",
+          "start": 120.974,
+          "end": 122.11,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 4
+      }
+    },
+    {
+      "start": 123.286,
+      "end": 128.742,
+      "text": "Whisper sweetly",
+      "words": [
+        {
+          "text": "Whisper",
+          "start": 123.286,
+          "end": 126.014,
+          "estimated": true
+        },
+        {
+          "text": "sweetly",
+          "start": 126.014,
+          "end": 128.742,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 128.742,
+      "end": 137.086,
+      "text": "That you love me forever",
+      "words": [
+        {
+          "text": "That",
+          "start": 128.742,
+          "end": 130.361,
+          "estimated": true
+        },
+        {
+          "text": "you",
+          "start": 130.361,
+          "end": 131.575,
+          "estimated": true
+        },
+        {
+          "text": "love",
+          "start": 131.575,
+          "end": 133.194,
+          "estimated": true
+        },
+        {
+          "text": "me",
+          "start": 133.194,
+          "end": 134.003,
+          "estimated": true
+        },
+        {
+          "text": "forever",
+          "start": 134.003,
+          "end": 136.836,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 5
+      }
+    }
+  ]
+}

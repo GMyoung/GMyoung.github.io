@@ -4,13 +4,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Keep public application snapshots and old hashed assets, but publish only
-// the current catalog's reachable media. No network, deletion, or overwriting.
+// the current catalog's reachable video/audio. No network, deletion, or overwriting.
 const ROOT_FILES = [
   'index.html', 'karaoke.html', 'app.js', 'player.js', 'streaming.js',
   'lyrics.js', 'fullscreen.js', 'style.css', 'portal.css', 'videos.json',
   'icon.svg', 'robots.txt', '.nojekyll'
 ];
-const PUBLIC_DIRECTORIES = ['assets', 'audio', 'ink', 'car-game'];
+const PUBLIC_DIRECTORIES = ['assets', 'ink', 'car-game'];
 const MAX_BYTES = 1_000_000_000;
 const LOCAL_ORIGIN = 'https://local-stage.invalid';
 
@@ -57,6 +57,7 @@ async function main() {
   const files = new Map();
   const externalReferences = new Set();
   const visitedMedia = new Set();
+  const referencedAudio = new Set();
   const pendingMedia = [];
 
   async function inspect(relative, expected) {
@@ -104,7 +105,7 @@ async function main() {
     }
   }
 
-  function mediaReference(value, base, reason) {
+  function mediaReference(value, base, reason, directory = 'media') {
     if (typeof value !== 'string' || !value.trim()) throw new Error(`Empty or invalid media URL in ${reason}`);
     if (/[\u0000-\u001f\u007f\\]/.test(value)) throw new Error(`Unsafe media URL in ${reason}`);
     let resolved;
@@ -120,12 +121,12 @@ async function main() {
     catch { throw new Error(`Invalid URL encoding in ${reason}: ${value}`); }
     if (/[\u0000-\u001f\u007f\\:]/.test(decoded)) throw new Error(`Unsafe decoded media path in ${reason}`);
     const normalized = path.posix.normalize(decoded);
-    if (!normalized.startsWith('/media/') || normalized.endsWith('/')) {
-      throw new Error(`Local media reference leaves the public media directory: ${value} in ${reason}`);
+    if (!normalized.startsWith(`/${directory}/`) || normalized.endsWith('/')) {
+      throw new Error(`Local media reference leaves the public ${directory} directory: ${value} in ${reason}`);
     }
     const relative = normalized.slice(1);
-    if (!inside(path.join(source, 'media'), path.join(source, ...relative.split('/')))) {
-      throw new Error(`Media path escapes the public media directory: ${value} in ${reason}`);
+    if (!inside(path.join(source, directory), path.join(source, ...relative.split('/')))) {
+      throw new Error(`Media path escapes the public ${directory} directory: ${value} in ${reason}`);
     }
     return relative;
   }
@@ -142,6 +143,19 @@ async function main() {
   for (const [index, video] of catalog.videos.entries()) {
     const label = `videos.json entry ${video.id || index}`;
     if (video.url) enqueue(video.url, 'videos.json', `${label}.url`);
+    if (video.audio != null) {
+      if (typeof video.audio !== 'object' || Array.isArray(video.audio)) {
+        throw new Error(`${label}.audio must be an object of soundtrack URLs.`);
+      }
+      for (const [track, url] of Object.entries(video.audio)) {
+        const reason = `${label}.audio.${track}`;
+        const relative = mediaReference(url, 'videos.json', reason, 'audio');
+        if (relative) {
+          await addFile(relative, reason);
+          referencedAudio.add(relative);
+        }
+      }
+    }
     for (const [kind, descriptor] of [['streaming', video.streaming], ['streaming.videoOnly', video.streaming?.videoOnly]]) {
       if (!descriptor) continue;
       if (descriptor.url) enqueue(descriptor.url, 'videos.json', `${label}.${kind}.url`);
@@ -201,7 +215,7 @@ async function main() {
   }
   if (stagedBytes >= MAX_BYTES) throw new Error('Staged site exceeds 1 GB; do not upload this directory.');
   console.log(JSON.stringify({
-    output, files: files.size, mediaFiles: visitedMedia.size,
+    output, files: files.size, mediaFiles: visitedMedia.size, audioFiles: referencedAudio.size,
     bytes: stagedBytes, limitBytes: MAX_BYTES, externalMediaSkipped: externalReferences.size
   }, null, 2));
 }
