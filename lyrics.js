@@ -316,8 +316,19 @@ class LyricPreview {
       slot.words = cue ? this.renderCue(slot.element, cue, state === 'current') : [];
       if (!cue) slot.element.replaceChildren();
     }
+    const sharedProgress = new Map();
     for (const word of slot.words) {
-      const progress = Math.max(0, Math.min(1, (time - word.start) / (word.end - word.start)));
+      let position = time;
+      if (word.progressSource) {
+        const source = word.progressSource;
+        if (!sharedProgress.has(source)) {
+          const painted = source.timings.reduce((sum, timing) => sum + timing.weight *
+            Math.max(0, Math.min(1, (time - timing.start) / (timing.end - timing.start))), 0);
+          sharedProgress.set(source, painted / source.totalWeight);
+        }
+        position = sharedProgress.get(source);
+      }
+      const progress = Math.max(0, Math.min(1, (position - word.start) / (word.end - word.start)));
       const value = `${(progress * 100).toFixed(2)}%`;
       if (word.value === value) continue;
       word.element.style.setProperty('--word-progress', value);
@@ -407,6 +418,7 @@ class LyricPreview {
     japanese.className = 'lyric-japanese';
     japanese.lang = 'ja';
     const words = this.renderTimedText(japanese, cue.japanese, cue.japaneseWords, karaoke);
+    const japaneseTimings = words.length ? cue.japaneseWords : [];
     japaneseColumn.append(japanese);
     const romajiText = cue.romaji || cue.text.split('\n')[0];
     if (karaoke && romajiText && romajiText !== cue.japanese) {
@@ -422,7 +434,7 @@ class LyricPreview {
       const english = document.createElement('span');
       english.className = 'lyric-english';
       english.lang = 'en';
-      english.textContent = translation;
+      words.push(...this.renderLinkedTranslation(english, translation, japaneseTimings, karaoke));
       pair.append(english);
     } else pair.classList.add('single-language');
     container.replaceChildren(pair);
@@ -432,6 +444,30 @@ class LyricPreview {
       backing.textContent = cue.backing;
       container.append(backing);
     }
+    return words;
+  }
+
+  renderLinkedTranslation(container, text, sourceTimings, karaoke) {
+    const tokens = text.match(/\S+/g) || [];
+    if (!karaoke || !sourceTimings.length || !tokens.length) {
+      container.textContent = text;
+      return [];
+    }
+    const weight = value => Array.from(value.replace(/\s/g, '')).length;
+    const timings = sourceTimings.map(timing => ({ ...timing, weight: weight(timing.text) }));
+    const source = { timings, totalWeight: timings.reduce((sum, timing) => sum + timing.weight, 0) };
+    const total = tokens.reduce((sum, token) => sum + weight(token), 0);
+    let cursor = 0;
+    // English is a translation, not a separately sung track. Its word spans
+    // use normalized text positions, driven by the Japanese sweep (including
+    // pauses), rather than invented English vocal timestamps.
+    const spans = tokens.map(token => {
+      const start = cursor / total;
+      cursor += weight(token);
+      return { text: token, start, end: cursor / total };
+    });
+    const words = this.renderTimedText(container, text, spans, true);
+    for (const word of words) word.progressSource = source;
     return words;
   }
 
