@@ -35,12 +35,23 @@ class LyricPreview {
     });
     this.overlay?.append(this.lines);
     this.button = root.querySelector('#lyrics-toggle');
+    this.modeButton = root.querySelector('#lyrics-mode-toggle');
+    this.currentOnly = false;
+    try { this.currentOnly = localStorage.getItem('karaoke.lyrics.currentOnly') === 'true'; } catch { /* Session preference still works. */ }
     this.enabled = true;
     this.cues = [];
     this.generation = 0;
     this.nativeFullscreen = false;
     this.button?.addEventListener('click', () => {
       this.enabled = !this.enabled;
+      this.updateButton();
+      this.updateNativeTrack();
+      this.render();
+      this.startClock();
+    });
+    this.modeButton?.addEventListener('click', () => {
+      this.currentOnly = !this.currentOnly;
+      try { localStorage.setItem('karaoke.lyrics.currentOnly', String(this.currentOnly)); } catch { /* Private browsing may disallow storage. */ }
       this.updateButton();
       this.updateNativeTrack();
       this.render();
@@ -115,6 +126,7 @@ class LyricPreview {
         this.track.kind = 'subtitles';
         this.track.label = this.externalCaptions ? 'Lyrics' : 'Next lyric';
         this.track.srclang = entry.lyrics.language || 'en';
+        this.fullVttUrl = vtt;
         this.track.src = vtt;
         this.track.addEventListener('load', () => this.updateNativeTrack());
         this.video.append(this.track);
@@ -133,6 +145,14 @@ class LyricPreview {
   }
 
   updateButton() {
+    if (this.modeButton) {
+      this.modeButton.hidden = !this.cues.length || !this.showCurrent;
+      this.modeButton.disabled = !this.enabled;
+      this.modeButton.textContent = this.currentOnly ? 'Current only' : 'Current + next';
+      this.modeButton.setAttribute('aria-pressed', String(this.currentOnly));
+      this.modeButton.setAttribute('aria-label', this.currentOnly ? 'Show current and next lyrics' : 'Show only the current lyric');
+      this.modeButton.title = this.currentOnly ? 'Show the next line again' : 'Hide the next line preview';
+    }
     if (!this.button) return;
     this.button.hidden = !this.cues.length;
     this.button.setAttribute('aria-pressed', String(this.enabled));
@@ -143,7 +163,34 @@ class LyricPreview {
   }
 
   updateNativeTrack() {
-    if (this.track?.track) this.track.track.mode = this.nativeFullscreen && this.enabled ? 'showing' : 'disabled';
+    if (!this.track?.track) return;
+    const source = this.currentOnly && this.showCurrent ? this.currentOnlyTrackUrl() : this.fullVttUrl;
+    if (source && this.track.getAttribute('src') !== source) {
+      this.track.track.mode = 'disabled';
+      this.track.src = source;
+    }
+    this.track.track.mode = this.nativeFullscreen && this.enabled ? 'showing' : 'disabled';
+  }
+
+  currentOnlyTrackUrl() {
+    if (this.currentVttUrl) return this.currentVttUrl;
+    const timestamp = seconds => {
+      const ms = Math.round(seconds * 1000);
+      return `${String(Math.floor(ms / 3600000)).padStart(2, '0')}:${String(Math.floor(ms / 60000) % 60).padStart(2, '0')}:${String(Math.floor(ms / 1000) % 60).padStart(2, '0')}.${String(ms % 1000).padStart(3, '0')}`;
+    };
+    const escape = text => text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const cues = this.cues.map((cue, index) => {
+      const end = Math.min(cue.end, this.cues[index + 1]?.start ?? cue.end);
+      if (end <= cue.start) return '';
+      const text = this.japaneseLayout && cue.japanese ?
+        [cue.japanese, cue.translation, cue.romaji].filter(Boolean).join('\n') : cue.text;
+      const content = [text, cue.backing].filter(Boolean).join('\n');
+      return `${timestamp(cue.start)} --> ${timestamp(end)} align:center size:92%\n${escape(content)}\n`;
+    });
+    // Native video fullscreen cannot render the HTML overlay. Give it only
+    // active cue intervals, never the VTT's preloaded next-line preview.
+    this.currentVttUrl = URL.createObjectURL(new Blob(['WEBVTT\n\n' + cues.join('\n')], { type: 'text/vtt' }));
+    return this.currentVttUrl;
   }
 
   readWords(cue) {
@@ -222,11 +269,13 @@ class LyricPreview {
     if (!this.overlay) return;
     const time = this.video.currentTime || 0;
     const visible = this.enabled && !this.nativeFullscreen && !this.video.ended;
-    let preview = visible ? this.upcoming(time) : null;
+    const currentOnly = this.currentOnly && this.showCurrent;
+    const preview = visible && !currentOnly ? this.upcoming(time) : null;
     const candidate = this.cues[this.indexAt(time) - 1];
     const current = visible && this.showCurrent && candidate && time < candidate.end ? candidate : null;
     this.overlay.hidden = !preview && !current;
     this.overlay.classList.toggle('has-current', Boolean(current));
+    this.overlay.classList.toggle('current-only', currentOnly);
     this.lines.hidden = !this.externalCaptions;
     if (this.externalCaptions) {
       this.currentText.hidden = true;
@@ -396,6 +445,8 @@ class LyricPreview {
       this.track.remove();
       this.track = null;
     }
+    if (this.currentVttUrl) URL.revokeObjectURL(this.currentVttUrl);
+    this.currentVttUrl = this.fullVttUrl = null;
     this.cues = [];
     this.renderedPreview = null;
     this.renderedCurrent = null;
@@ -412,7 +463,7 @@ class LyricPreview {
     this.externalCaptions = false;
     this.bilingual = false;
     this.japaneseLayout = false;
-    this.overlay?.classList.remove('bilingual', 'has-current', 'external-captions', 'ja-en-romaji');
+    this.overlay?.classList.remove('bilingual', 'has-current', 'external-captions', 'ja-en-romaji', 'current-only');
     this.root.classList.remove('external-lyrics');
     if (this.overlay) this.overlay.hidden = true;
     if (this.text) this.text.textContent = '';
