@@ -1,7 +1,7 @@
 'use strict';
 
-// Video-only HLS preserves adaptive quality. Audio sources load on demand;
-// the second audible source follows the first, while video is the main clock.
+// One HLS player handles picture and a prepared vocal mix on every platform.
+// External tracks are only a legacy-catalog path; avoid rebuffer/seek loops there.
 class CinemaPlayer {
   constructor(root) {
     this.root = root;
@@ -39,6 +39,11 @@ class CinemaPlayer {
     this.gains = {};
     this.preparing = {};
     this.trackAbort = {};
+    this.hardSeeks = new WeakMap();
+    this.events = [];
+    this.video.volume = .5;
+    this.videoVolumeCanFade = Math.abs(this.video.volume - .5) < .01;
+    this.video.volume = this.baseVolume;
     this.stream = window.AdaptiveStream ? new AdaptiveStream(this) : null;
     this.bind();
     this.lyrics = window.LyricPreview ? new LyricPreview(root, this.video) : null;
@@ -49,6 +54,8 @@ class CinemaPlayer {
   // Each MediaElementSource is created once and retained across songs. Gain
   // nodes support browsers where changing HTMLMediaElement.volume is ignored.
   unlockAudio() {
+    // Prepared HLS mixes need no competing audio elements or AudioContext.
+    if (this.stream?.integrated) { this.applyVolumes(); this.updateButtons(); return; }
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!this.context && AudioContext) {
       try { this.context = new AudioContext(); } catch { /* Native volume fallback. */ }
@@ -85,7 +92,20 @@ class CinemaPlayer {
       this.muted = this.baseVolume === 0;
       this.unlockAudio();
     });
-    this.mixControl?.addEventListener('input', () => this.setMix(Number(this.mixControl.value) / 100));
+    this.mixControl?.addEventListener('input', () => {
+      const value = Number(this.mixControl.value) / 100;
+      if (this.integratedAudio) {
+        this.requestedMix = this.stream.integratedDescriptor(value).value / 100;
+        this.updateButtons();
+      } else this.setMix(value);
+    });
+    this.mixControl?.addEventListener('change', () => {
+      if (this.integratedAudio) this.setMix(Number(this.mixControl.value) / 100);
+    });
+    this.root.querySelector('#copy-playback-info')?.addEventListener('click', () => this.copyPlaybackInfo());
+    for (const event of ['play', 'playing', 'pause', 'waiting', 'seeking', 'seeked', 'error']) {
+      this.video.addEventListener(event, () => this.record(`video:${event}`));
+    }
     this.muteButton.addEventListener('click', () => { this.muted = !this.muted; this.unlockAudio(); });
     this.root.querySelector('#playback-rate').addEventListener('change', event => {
       this.video.playbackRate = Number(event.target.value);
@@ -130,13 +150,13 @@ class CinemaPlayer {
         if (this.usingAudio && this.names().includes(name)) this.audioFailure(name);
       });
       audio.addEventListener('waiting', () => {
-        if (!this.usingAudio || !this.names().includes(name) || !this.intentPlaying || this.video.seeking || this.video.paused) return;
-        this.audioHold = performance.now();
-        this.video.pause();
-        this.pauseAudio();
-        this.message('Buffering soundtrack…');
+        if (!this.usingAudio || !this.names().includes(name)) return;
+        this.record(`audio:${name}:waiting`);
+        this.scheduleAudioHold();
       });
-      audio.addEventListener('canplay', () => this.resumeAfterAudioBuffer());
+      for (const event of ['canplay', 'progress', 'seeked']) {
+        audio.addEventListener(event, () => this.resumeAfterAudioBuffer());
+      }
     }
     document.addEventListener('visibilitychange', () => { if (!document.hidden) this.sync(true); });
     document.addEventListener('keydown', event => this.keydown(event));
@@ -146,6 +166,9 @@ class CinemaPlayer {
     this.openFocus = document.activeElement;
     this.pause();
     this.entry = entry;
+    this.events = [];
+    const diagnostics = this.root.querySelector('#playback-info');
+    if (diagnostics) { diagnostics.hidden = true; diagnostics.value = ''; }
     this.lyrics?.open(entry);
     this.originalUrl = url;
     this.failed = new Set();
@@ -179,6 +202,9 @@ class CinemaPlayer {
     this.sourceAbort = new AbortController();
     this.preparing = {};
     clearTimeout(this.releaseTimer);
+    clearTimeout(this.holdTimer);
+    this.holdTimer = null;
+    this.hardSeeks = new WeakMap();
     this.loadingSource = true;
     this.recovering = null;
     this.audioHold = null;
@@ -190,12 +216,19 @@ class CinemaPlayer {
     this.restorePosition = null;
     Object.keys(this.audio).forEach(name => this.releaseAudio(name));
     this.usingStream = Boolean(this.stream?.supported && quality !== 'original');
-    this.usingAudio = !embedded && this.names().every(name => this.descriptors[name] && !this.failed.has(name));
+    this.integratedAudio = Boolean(this.stream?.integrated && this.usingStream && !embedded);
+    if (this.integratedAudio) this.mix = this.requestedMix = this.stream.integratedDescriptor(this.mix).value / 100;
+    // Compatibility MP4 also stays on one audio/video clock.
+    if (this.stream?.integrated && !this.integratedAudio) embedded = true;
+    this.usingAudio = !embedded && !this.integratedAudio && this.names().every(name => this.descriptors[name] && !this.failed.has(name));
     // A video-only rendition has no embedded fallback soundtrack.
-    if (!this.usingAudio) { quality = 'original'; this.usingStream = false; }
+    if (!this.usingAudio && !this.integratedAudio) {
+      quality = 'original'; this.usingStream = false;
+      this.mix = this.requestedMix = this.entry.defaultAudio === 'original' ? 1 : 0;
+    }
     this.video.controls = false;
     this.controls.hidden = false;
-    this.root.querySelector('.soundtracks').hidden = !this.usingAudio ||
+    this.root.querySelector('.soundtracks').hidden = !(this.usingAudio || this.integratedAudio) ||
       !['original', 'karaoke'].every(name => this.descriptors[name]);
     this.message('');
     this.applyVolumes();
@@ -204,7 +237,9 @@ class CinemaPlayer {
     if (this.usingAudio) this.names().forEach(name => this.ensureAudio(name));
     const started = this.stream?.start(quality, position, this.mix === 1 ? 'original' : 'karaoke', () => {
       if (generation !== this.generation) return;
-      if (this.intentPlaying) this.play(); else this.loadingSource = false;
+      // Native play starts in the original user gesture, not after metadata.
+      if (this.intentPlaying && this.stream.mode !== 'native') this.play();
+      else if (!this.intentPlaying) this.loadingSource = false;
     }, () => {
       if (generation !== this.generation) return;
       this.setSource('original', this.video.currentTime || position, this.intentPlaying);
@@ -212,7 +247,11 @@ class CinemaPlayer {
         'Adaptive video could not load. Using the compatibility video.' :
         'Adaptive video could not load. Using the original video.');
     });
-    if (started) return;
+    this.record('source');
+    if (started) {
+      if (autoplay && this.stream.mode === 'native') this.play();
+      return;
+    }
     this.usingStream = false;
     this.restorePosition = () => {
       if (generation !== this.generation) return;
@@ -245,7 +284,8 @@ class CinemaPlayer {
   startAudio(name) {
     const generation = this.generation, token = this.playToken;
     const audio = this.ensureAudio(name);
-    this.syncAudio(audio, true);
+    this.syncAudio(audio);
+    if (!audio.paused) return;
     audio.play().catch(error => {
       if (generation !== this.generation || token !== this.playToken || !this.intentPlaying || !this.names().includes(name) || error.name === 'AbortError') return;
       if (error.name === 'NotAllowedError') { this.pause(); this.message('Press Play to enable sound.'); }
@@ -263,7 +303,7 @@ class CinemaPlayer {
     try {
       await this.video.play();
       if (generation !== this.generation || token !== this.playToken) return;
-      this.sync(true);
+      this.sync();
       this.applyVolumes();
     } catch (error) {
       if (generation !== this.generation || token !== this.playToken || this.audioHold || error.name === 'AbortError') return;
@@ -276,6 +316,8 @@ class CinemaPlayer {
     this.playToken += 1;
     this.intentPlaying = this.loadingSource = false;
     this.audioHold = null;
+    clearTimeout(this.holdTimer);
+    this.holdTimer = null;
     this.video.pause();
     this.pauseAudio();
     this.updateTransport();
@@ -287,29 +329,42 @@ class CinemaPlayer {
   resumeAudio() {
     if (!this.usingAudio || this.video.paused || this.video.seeking) return;
     this.names().forEach(name => this.startAudio(name));
-    // A track may have started buffering before the video's playing event.
-    // Do not rely on a second audio waiting event to hold the picture.
-    if (this.names().some(name => !this.buffered(name))) {
+    this.scheduleAudioHold();
+  }
+
+  scheduleAudioHold() {
+    if (this.holdTimer || this.audioHold || !this.usingAudio || !this.intentPlaying || this.video.paused || this.video.seeking) return;
+    // A programmatic seek can emit waiting even with buffered media. Give it
+    // time to settle before deciding that the network needs to refill audio.
+    this.holdTimer = setTimeout(() => {
+      this.holdTimer = null;
+      if (!this.usingAudio || !this.intentPlaying || this.video.paused || this.video.seeking) return;
+      const missing = this.names().filter(name => !this.buffered(name));
+      if (!missing.length) return;
+      if (missing.some(name => this.audio[name].seeking || performance.now() - (this.hardSeeks.get(this.audio[name]) ?? -Infinity) < 600)) {
+        this.scheduleAudioHold(); return;
+      }
       this.audioHold = performance.now();
+      this.record('audio:hold');
       this.video.pause();
       this.pauseAudio();
       this.message('Buffering soundtrack…');
-    }
+    }, 300);
   }
 
-  buffered(name) {
+  buffered(name, ahead = .5) {
     const audio = this.audio[name], time = this.video.currentTime;
     if (audio.error || audio.readyState < 2 || audio.seeking) return false;
     for (let i = 0; i < audio.buffered.length; i++) {
-      if (audio.buffered.start(i) <= time + .03 && audio.buffered.end(i) >= Math.min(time + .5, audio.duration - .05)) return true;
+      if (audio.buffered.start(i) <= time + .03 && audio.buffered.end(i) >= Math.min(time + ahead, audio.duration - .05)) return true;
     }
     return false;
   }
 
   resumeAfterAudioBuffer() {
     if (!this.audioHold || !this.usingAudio || !this.intentPlaying || this.video.seeking) return;
-    const missing = this.names().filter(name => !this.buffered(name));
-    if (!missing.length) { this.audioHold = null; this.play(); }
+    const missing = this.names().filter(name => !this.buffered(name, 2));
+    if (!missing.length) { this.record('audio:resume'); this.audioHold = null; this.play(); }
     else if (performance.now() - this.audioHold > 12000) this.audioFailure(missing[0]);
   }
 
@@ -328,9 +383,11 @@ class CinemaPlayer {
     const difference = audio.currentTime - target;
     // Media clocks cannot provide sample-accurate stem alignment.
     const paired = clock !== this.video;
-    if (force || Math.abs(difference) > (paired ? .045 : .12)) {
-      if (Math.abs(difference) > (paired ? .012 : .025)) {
-        try { audio.currentTime = target; } catch { /* Retry after metadata. */ }
+    const now = performance.now();
+    const mayCorrect = force || now - (this.hardSeeks.get(audio) ?? -Infinity) > 1000;
+    if (mayCorrect && (force || Math.abs(difference) > (paired ? .08 : .25))) {
+      if (Math.abs(difference) > (paired ? .02 : .05)) {
+        try { audio.currentTime = target; this.hardSeeks.set(audio, now); } catch { /* Retry after metadata. */ }
       }
       audio.playbackRate = rate;
     } else {
@@ -343,7 +400,7 @@ class CinemaPlayer {
     this.stream?.updateStats();
     if (!this.usingAudio) return;
     if (!force && this.audioHold) {
-      this.names().forEach(name => this.syncAudio(this.audio[name], true));
+      this.names().forEach(name => this.syncAudio(this.audio[name]));
       this.resumeAfterAudioBuffer();
       return;
     }
@@ -418,6 +475,14 @@ class CinemaPlayer {
   }
 
   async setMix(value) {
+    if (this.integratedAudio) {
+      const selected = this.stream.integratedDescriptor(Math.max(0, Math.min(1, value)));
+      this.requestedMix = selected.value / 100;
+      if (this.mix === this.requestedMix) { this.updateButtons(); return 'committed'; }
+      this.mix = this.requestedMix;
+      this.setSource(this.stream.selected, this.video.currentTime || 0, this.intentPlaying);
+      return 'committed';
+    }
     if (!this.usingAudio) return 'unavailable';
     value = Math.max(0, Math.min(1, value));
     if (!this.names(value).every(name => this.descriptors[name] && !this.failed.has(name))) return 'unavailable';
@@ -506,14 +571,20 @@ class CinemaPlayer {
     this.muteButton.textContent = this.muted ? 'Unmute' : 'Mute';
     this.muteButton.setAttribute('aria-pressed', String(this.muted));
     this.volume.value = String(this.baseVolume);
+    this.volume.disabled = !this.usingAudio && !this.videoVolumeCanFade;
+    this.volume.title = this.volume.disabled ? 'Use your device volume buttons' : 'Volume';
+    this.volume.setAttribute('aria-label', this.volume.title);
   }
 
   updateButtons() {
     const percent = Math.round(this.requestedMix * 100);
     this.root.querySelector('.vocal-mix').hidden = !['original', 'karaoke'].every(name => this.descriptors[name]);
-    const canMix = this.usingAudio && ['original', 'karaoke'].every(name => this.descriptors[name] && !this.failed.has(name) && (this.gains[name] || this.audio[name].volumeCanFade));
+    const canMix = this.integratedAudio ? this.stream.integratedMixes.length > 1 :
+      this.usingAudio && ['original', 'karaoke'].every(name => this.descriptors[name] && !this.failed.has(name) && (this.gains[name] || this.audio[name].volumeCanFade));
     if (this.mixControl) {
       this.mixControl.disabled = !canMix;
+      this.mixControl.step = this.integratedAudio ? String(this.stream.mixStep) : '1';
+      this.mixControl.title = this.integratedAudio ? 'Original vocals · 20% steps; release to apply' : 'Original vocals';
       this.mixControl.value = String(percent);
       this.mixControl.setAttribute('aria-valuetext', `${percent}% original vocals${this.pending ? ', preparing' : ''}`);
       this.mixControl.setAttribute('aria-busy', String(Boolean(this.pending)));
@@ -521,7 +592,7 @@ class CinemaPlayer {
     if (this.mixValue) this.mixValue.textContent = `${percent}%`;
     if (this.audioToggle) {
       const next = this.requestedMix > 0 ? 'karaoke' : 'original';
-      const available = this.usingAudio && Boolean(this.descriptors[next]) && !this.failed.has(next);
+      const available = (this.usingAudio || this.integratedAudio) && Boolean(this.descriptors[next]) && !this.failed.has(next);
       const currentLabel = this.mix === 0 ? 'Karaoke' : this.mix === 1 ? 'Original vocals' : `Original vocals ${Math.round(this.mix * 100)}%`;
       this.audioToggle.disabled = !available;
       this.audioToggle.dataset.currentAudio = this.mix === 0 ? 'karaoke' : this.mix === 1 ? 'original' : 'mix';
@@ -541,6 +612,40 @@ class CinemaPlayer {
     this.root.querySelector('#current-time').textContent = this.format(this.video.currentTime);
     this.root.querySelector('#total-time').textContent = this.format(duration);
     this.playButton.textContent = this.intentPlaying ? 'Pause' : (this.video.ended ? 'Replay' : 'Play');
+  }
+
+  mediaState(media) {
+    const time = media.currentTime || 0;
+    let ahead = 0;
+    for (let i = 0; i < media.buffered.length; i++) {
+      if (media.buffered.start(i) <= time + .1 && media.buffered.end(i) > time) ahead = media.buffered.end(i) - time;
+    }
+    return { time: +time.toFixed(2), ahead: +ahead.toFixed(2), ready: media.readyState,
+      paused: media.paused, seeking: media.seeking, muted: media.muted, error: media.error?.code || null };
+  }
+
+  record(event) {
+    if (!this.entry) return;
+    this.events.push({ event, at: Math.round(performance.now()), video: this.mediaState(this.video),
+      ...(this.usingAudio ? { audio: Object.fromEntries(this.names().map(name => [name, this.mediaState(this.audio[name])])) } : {}) });
+    if (this.events.length > 40) this.events.shift();
+  }
+
+  async copyPlaybackInfo() {
+    this.record('report');
+    const value = JSON.stringify({ version: 'unified-audio-v1', song: this.entry?.id,
+      browser: navigator.userAgent, mode: this.stream?.mode, integratedAudio: Boolean(this.integratedAudio),
+      quality: this.stream?.selected, vocals: Math.round(this.mix * 100),
+      video: { ...this.mediaState(this.video), width: this.video.videoWidth, height: this.video.videoHeight,
+        audioDecodedBytes: this.video.webkitAudioDecodedByteCount ?? null }, events: this.events }, null, 2);
+    try {
+      await navigator.clipboard.writeText(value);
+      this.message('Playback info copied. You can paste it into your message.');
+    } catch {
+      const field = this.root.querySelector('#playback-info');
+      if (field) { field.value = value; field.hidden = false; field.focus(); field.select(); }
+      this.message('Select and copy the playback info below.');
+    }
   }
 
   format(seconds) { const value = Math.max(0, Math.floor(seconds || 0)); return `${Math.floor(value / 60)}:${String(value % 60).padStart(2, '0')}`; }

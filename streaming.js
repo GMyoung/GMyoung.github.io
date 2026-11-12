@@ -1,7 +1,7 @@
 'use strict';
 
-// Video-only HLS leaves soundtrack mixing to the player's aligned audio elements.
-// Older catalogs can still use the original HLS audio-group manifests.
+// One HLS player owns both picture and sound on every supported platform.
+// Apple uses native HLS; other browsers use hls.js with the same audio rendition.
 // Throughput is observed from normal fragment downloads; no speed test runs on open.
 class AdaptiveStream {
   constructor(player) {
@@ -43,8 +43,20 @@ class AdaptiveStream {
       return url && variants.length ? { url, variants } : null;
     };
     const videoOnly = readDescriptor(entry.streaming?.videoOnly);
-    this.videoOnly = Boolean(videoOnly);
-    this.descriptor = videoOnly || readDescriptor(entry.streaming);
+    const nativeHls = Boolean(this.video.canPlayType('application/vnd.apple.mpegurl'));
+    const agent = navigator.userAgent || '';
+    const appleMobile = /iPad|iPhone|iPod/.test(agent) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    this.preferNative = nativeHls && (appleMobile ||
+      (/Safari/.test(agent) && !/Chrome|Chromium|Android|Edg|OPR/.test(agent)));
+    this.integratedMixes = (Array.isArray(entry.streaming?.integrated?.mixes) ? entry.streaming.integrated.mixes : []).map(mix => ({
+      value: Number(mix.value), ...readDescriptor(mix)
+    })).filter(mix => Number.isFinite(mix.value) && mix.value >= 0 && mix.value <= 100 && mix.url && mix.variants);
+    this.integrated = this.integratedMixes.length > 0 && (nativeHls || Boolean(window.Hls?.isSupported()));
+    this.mixStep = this.integrated ? Number(entry.streaming.integrated.mixStep) || 20 : 1;
+    this.videoOnly = !this.integrated && Boolean(videoOnly);
+    this.descriptor = this.integrated ? this.integratedDescriptor(this.player.mix) :
+      videoOnly || readDescriptor(entry.streaming);
     this.supported = Boolean(this.descriptor &&
       (window.Hls?.isSupported() || this.video.canPlayType('application/vnd.apple.mpegurl')));
     if (this.quality) {
@@ -70,8 +82,14 @@ class AdaptiveStream {
     this.quality.append(option);
   }
 
+  integratedDescriptor(mix) {
+    return this.integratedMixes.reduce((best, item) =>
+      !best || Math.abs(item.value - mix * 100) < Math.abs(best.value - mix * 100) ? item : best, null);
+  }
+
   start(quality, position, track, ready, failed) {
     this.stop();
+    if (this.integrated) this.descriptor = this.integratedDescriptor(this.player.mix);
     this.selected = this.supported && quality !== 'original' ? quality : 'original';
     if (this.quality) this.quality.value = this.selected;
     this.mode = 'mp4';
@@ -89,8 +107,9 @@ class AdaptiveStream {
       delivered = true;
       ready();
     };
-    const fail = () => { if (current()) failed(); };
-    if (window.Hls?.isSupported()) {
+    let failedOnce = false;
+    const fail = () => { if (current() && !failedOnce) { failedOnce = true; failed(); } };
+    if (!this.preferNative && window.Hls?.isSupported()) {
       this.mode = 'hls';
       const Hls = window.Hls;
       const hls = this.hls = new Hls({
@@ -117,7 +136,7 @@ class AdaptiveStream {
         capLevelOnFPSDrop: true,
         fpsDroppedMonitoringPeriod: 5000,
         fpsDroppedMonitoringThreshold: .1,
-        ...(this.videoOnly ? {} : { audioPreference: { name: this.trackLabel(track) } })
+        ...(this.videoOnly || this.integrated ? {} : { audioPreference: { name: this.trackLabel(track) } })
       });
       hls.on(Hls.Events.MEDIA_ATTACHED, () => { if (current()) hls.loadSource(this.descriptor.url); });
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
@@ -129,7 +148,7 @@ class AdaptiveStream {
       });
       hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, () => { if (current()) this.selectInitialAudio(); });
       hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (_, data) => {
-        if (!current() || this.videoOnly) return;
+        if (!current() || this.videoOnly || this.integrated) return;
         const name = this.trackName(hls.audioTracks[data.id]?.name);
         if (name) this.track = name;
         if (this.pendingTrack && name === this.pendingTrack.name) this.settleTrack();
@@ -173,14 +192,29 @@ class AdaptiveStream {
       this.nativeReady = () => {
         if (!current()) return;
         if (position > 0 && Number.isFinite(this.video.duration)) this.video.currentTime = Math.min(position, this.video.duration);
-        if (!this.videoOnly && !this.selectNativeAudio(track) && track !== this.defaultAudio) { fail(); return; }
+        if (!this.integrated && !this.videoOnly && !this.selectNativeAudio(track) && track !== this.defaultAudio) { fail(); return; }
         deliver();
       };
       this.nativeError = fail;
+      // No repeated media-clock corrections here. Safari buffers audio/video
+      // together. Bound a genuinely stuck native request with one MP4 fallback.
+      this.nativeProgress = () => clearTimeout(this.nativeTimer);
+      this.nativeWaiting = () => {
+        clearTimeout(this.nativeTimer);
+        const time = this.video.currentTime;
+        this.nativeTimer = setTimeout(() => {
+          if (!current() || !this.player.intentPlaying) return;
+          if (Math.abs(this.video.currentTime - time) < .25) fail();
+        }, 20000);
+      };
       this.video.addEventListener('loadedmetadata', this.nativeReady, { once: true });
       this.video.addEventListener('error', this.nativeError);
+      this.video.addEventListener('playing', this.nativeProgress);
+      this.video.addEventListener('pause', this.nativeProgress);
+      this.video.addEventListener('waiting', this.nativeWaiting);
       this.video.src = variant?.url || this.descriptor.url;
       this.video.load();
+      this.nativeWaiting();
     }
     this.updateStats();
     return true;
@@ -209,7 +243,7 @@ class AdaptiveStream {
   }
 
   selectInitialAudio() {
-    if (this.videoOnly || !this.hls || this.pendingTrack) return;
+    if (this.videoOnly || this.integrated || !this.hls || this.pendingTrack) return;
     const index = this.hls.audioTracks.findIndex(item => this.trackName(item.name) === this.track);
     if (index >= 0 && this.hls.audioTrack !== index) this.hls.audioTrack = index;
   }
@@ -314,6 +348,7 @@ class AdaptiveStream {
   stop() {
     this.serial += 1;
     clearTimeout(this.recoveryTimer);
+    clearTimeout(this.nativeTimer);
     this.settleTrack(new DOMException('Source changed', 'AbortError'));
     this.probe?.abort();
     this.probe = null;
@@ -323,8 +358,14 @@ class AdaptiveStream {
     this.hls = null;
     if (this.nativeReady) this.video.removeEventListener('loadedmetadata', this.nativeReady);
     if (this.nativeError) this.video.removeEventListener('error', this.nativeError);
+    if (this.nativeProgress) {
+      this.video.removeEventListener('playing', this.nativeProgress);
+      this.video.removeEventListener('pause', this.nativeProgress);
+    }
+    if (this.nativeWaiting) this.video.removeEventListener('waiting', this.nativeWaiting);
     this.nativeReady = null;
     this.nativeError = null;
+    this.nativeProgress = this.nativeWaiting = null;
     this.mbps = null;
     this.height = null;
   }

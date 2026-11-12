@@ -156,7 +156,11 @@ async function main() {
         }
       }
     }
-    for (const [kind, descriptor] of [['streaming', video.streaming], ['streaming.videoOnly', video.streaming?.videoOnly]]) {
+    const integrated = video.streaming?.integrated?.mixes;
+    if (integrated !== undefined && !Array.isArray(integrated)) throw new Error(`${label}.streaming.integrated.mixes must be an array.`);
+    const descriptors = [['streaming', video.streaming], ['streaming.videoOnly', video.streaming?.videoOnly],
+      ...(integrated || []).map((mix, index) => [`streaming.integrated.mixes[${index}]`, mix])];
+    for (const [kind, descriptor] of descriptors) {
       if (!descriptor) continue;
       if (descriptor.url) enqueue(descriptor.url, 'videos.json', `${label}.${kind}.url`);
       if (descriptor.variants !== undefined && !Array.isArray(descriptor.variants)) {

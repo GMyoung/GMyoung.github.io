@@ -24,7 +24,9 @@
     <span id="stream-stats" class="stream-stats"></span>
     <button id="lyrics-toggle" type="button" aria-pressed="true" hidden>Next line: On</button>
     <button id="connection-check" type="button" title="Measure a small sample from this video's host">Check connection</button>
+    <button id="copy-playback-info" type="button" title="Copy recent playback details to help troubleshoot; nothing is uploaded">Copy playback info</button>
   </div>
+  <textarea id="playback-info" rows="6" readonly hidden aria-label="Playback information to copy" style="width:100%;box-sizing:border-box"></textarea>
   <p id="player-status" class="player-status" role="status" aria-live="polite" hidden></p>
 </div></section>
 <section class="catalog" aria-labelledby="catalog-heading">
