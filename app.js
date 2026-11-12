@@ -17,7 +17,7 @@ function markSelected() {
   for (const row of list.rows) {
     const selected = row.dataset.videoId === String(selectedId);
     row.classList.toggle('is-selected', selected);
-    for (const link of row.querySelectorAll('a')) {
+    for (const link of row.querySelectorAll('a[data-song-action="title"],a[data-song-action="play"]')) {
       if (selected) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');
     }
@@ -84,6 +84,21 @@ function render({resetScroll = false} = {}) {
     const note = document.createElement('div'); note.className = 'song-note'; note.textContent = video.label || video.artist; song.append(title,note);
     cell(row, video.artist, 'artist-col');
     const version = cell(row, '', 'version-col'), tag = document.createElement('span'); tag.className = 'type'; tag.textContent = video.type === 'karaoke' ? 'Karaoke' : 'Instrumental'; version.append(tag);
+    const sourceUrl = safeUrl(video.instrumentalSource?.url);
+    if (sourceUrl) {
+      const source = document.createElement('a');
+      const provider = /(^|\.)bilibili\.com$/.test(new URL(sourceUrl).hostname) ? 'Bilibili' : 'YouTube';
+      const original = video.instrumentalSource.kind === 'original';
+      source.className = 'song-source';
+      source.dataset.songAction = 'source';
+      source.href = sourceUrl;
+      source.target = '_blank';
+      source.rel = 'noopener noreferrer';
+      source.textContent = `${provider}${original ? ' original' : ''} ↗`;
+      source.title = original ? 'Original recording; accompaniment prepared locally. Opens a new tab.' : 'Original accompaniment source. Opens a new tab.';
+      source.setAttribute('aria-label', `${video.title}: open ${original ? 'original recording' : 'accompaniment source'} on ${provider} in a new tab`);
+      version.append(source);
+    }
     cell(row, video.duration, 'duration-col');
     const action = cell(row, '', 'watch-col'), link = document.createElement(url ? 'a' : 'span');
     link.dataset.songAction = 'play';

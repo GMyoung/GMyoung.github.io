@@ -21,6 +21,7 @@
 .catalog-scroll .number{width:44px;padding-left:12px}
 .catalog-scroll .artist-col{width:19%}
 .catalog-scroll .version-col{width:108px}
+.catalog-scroll .song-source{display:block;width:fit-content;margin-top:5px;padding:4px 0;font-size:11px;line-height:1.4}
 .catalog-scroll .duration-col{width:70px}
 .catalog-scroll .watch-col{width:76px;padding-right:12px}
 .catalog-scroll .song-title,.catalog-scroll .song-note,.catalog-scroll .artist-col{overflow-wrap:anywhere}

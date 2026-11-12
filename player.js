@@ -95,12 +95,16 @@ class CinemaPlayer {
     this.mixControl?.addEventListener('input', () => {
       const value = Number(this.mixControl.value) / 100;
       if (this.integratedAudio) {
-        this.requestedMix = this.stream.integratedDescriptor(value).value / 100;
+        this.mixPreview = this.stream.integratedDescriptor(value).value / 100;
         this.updateButtons();
       } else this.setMix(value);
     });
     this.mixControl?.addEventListener('change', () => {
-      if (this.integratedAudio) this.setMix(Number(this.mixControl.value) / 100);
+      if (this.integratedAudio) {
+        const value = Number(this.mixControl.value) / 100;
+        this.mixPreview = null;
+        this.setMix(value);
+      }
     });
     this.root.querySelector('#copy-playback-info')?.addEventListener('click', () => this.copyPlaybackInfo());
     for (const event of ['play', 'playing', 'pause', 'waiting', 'seeking', 'seeked', 'error']) {
@@ -126,6 +130,7 @@ class CinemaPlayer {
     this.video.addEventListener('pause', () => {
       if (!this.video.paused) return;
       if (!this.video.seeking && !this.audioHold && !this.loadingSource) this.intentPlaying = false;
+      if (this.pending && this.integratedAudio && !this.loadingSource) this.stream?.settleMix();
       this.pauseAudio();
       this.updateTransport();
     });
@@ -209,6 +214,7 @@ class CinemaPlayer {
     this.recovering = null;
     this.audioHold = null;
     this.waiting = this.pending = false;
+    this.mixPreview = null;
     this.requestedMix = this.mix;
     this.intentPlaying = autoplay;
     this.video.pause();
@@ -478,10 +484,28 @@ class CinemaPlayer {
     if (this.integratedAudio) {
       const selected = this.stream.integratedDescriptor(Math.max(0, Math.min(1, value)));
       this.requestedMix = selected.value / 100;
-      if (this.mix === this.requestedMix) { this.updateButtons(); return 'committed'; }
-      this.mix = this.requestedMix;
-      this.setSource(this.stream.selected, this.video.currentTime || 0, this.intentPlaying);
-      return 'committed';
+      if (this.mix === this.requestedMix && !this.pending) { this.updateButtons(); return 'committed'; }
+      const token = ++this.switchToken, generation = this.generation;
+      this.pending = true;
+      this.updateButtons();
+      this.record('mix:requested');
+      try {
+        await this.stream.switchMix(this.requestedMix);
+        if (token !== this.switchToken || generation !== this.generation) return 'superseded';
+        this.mix = this.requestedMix = selected.value / 100;
+        this.pending = false;
+        this.updateButtons();
+        this.record('mix:committed');
+        this.message('');
+        return 'committed';
+      } catch (error) {
+        if (token !== this.switchToken || generation !== this.generation) return 'superseded';
+        this.pending = false;
+        this.requestedMix = this.mix;
+        this.updateButtons();
+        this.message('That vocal mix could not be selected. Playback continues with the current soundtrack.');
+        return 'unavailable';
+      }
     }
     if (!this.usingAudio) return 'unavailable';
     value = Math.max(0, Math.min(1, value));
@@ -577,7 +601,7 @@ class CinemaPlayer {
   }
 
   updateButtons() {
-    const percent = Math.round(this.requestedMix * 100);
+    const percent = Math.round((this.mixPreview ?? this.requestedMix) * 100);
     this.root.querySelector('.vocal-mix').hidden = !['original', 'karaoke'].every(name => this.descriptors[name]);
     const canMix = this.integratedAudio ? this.stream.integratedMixes.length > 1 :
       this.usingAudio && ['original', 'karaoke'].every(name => this.descriptors[name] && !this.failed.has(name) && (this.gains[name] || this.audio[name].volumeCanFade));
@@ -633,7 +657,7 @@ class CinemaPlayer {
 
   async copyPlaybackInfo() {
     this.record('report');
-    const value = JSON.stringify({ version: 'unified-audio-v1', song: this.entry?.id,
+    const value = JSON.stringify({ version: 'unified-audio-v2', song: this.entry?.id,
       browser: navigator.userAgent, mode: this.stream?.mode, integratedAudio: Boolean(this.integratedAudio),
       quality: this.stream?.selected, vocals: Math.round(this.mix * 100),
       video: { ...this.mediaState(this.video), width: this.video.videoWidth, height: this.video.videoHeight,

@@ -136,7 +136,7 @@ class AdaptiveStream {
         capLevelOnFPSDrop: true,
         fpsDroppedMonitoringPeriod: 5000,
         fpsDroppedMonitoringThreshold: .1,
-        ...(this.videoOnly || this.integrated ? {} : { audioPreference: { name: this.trackLabel(track) } })
+        ...(this.videoOnly ? {} : { audioPreference: { name: this.integrated ? this.mixLabel(this.player.mix) : this.trackLabel(track) } })
       });
       hls.on(Hls.Events.MEDIA_ATTACHED, () => { if (current()) hls.loadSource(this.descriptor.url); });
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
@@ -144,11 +144,16 @@ class AdaptiveStream {
         this.applyHlsQuality();
         this.selectInitialAudio();
         hls.startLoad(position);
+        this.player.updateButtons();
         deliver();
       });
       hls.on(Hls.Events.AUDIO_TRACKS_UPDATED, () => { if (current()) this.selectInitialAudio(); });
       hls.on(Hls.Events.AUDIO_TRACK_SWITCHED, (_, data) => {
-        if (!current() || this.videoOnly || this.integrated) return;
+        if (!current() || this.videoOnly) return;
+        if (this.integrated) {
+          if (this.pendingMix && hls.audioTracks[data.id]?.name === this.pendingMix.label) this.settleMix();
+          return;
+        }
         const name = this.trackName(hls.audioTracks[data.id]?.name);
         if (name) this.track = name;
         if (this.pendingTrack && name === this.pendingTrack.name) this.settleTrack();
@@ -193,6 +198,8 @@ class AdaptiveStream {
         if (!current()) return;
         if (position > 0 && Number.isFinite(this.video.duration)) this.video.currentTime = Math.min(position, this.video.duration);
         if (!this.integrated && !this.videoOnly && !this.selectNativeAudio(track) && track !== this.defaultAudio) { fail(); return; }
+        if (this.integrated) this.selectNativeMix(this.player.mix);
+        this.player.updateButtons();
         deliver();
       };
       this.nativeError = fail;
@@ -236,6 +243,51 @@ class AdaptiveStream {
   }
 
   trackLabel(name) { return name === 'original' ? 'Original vocals' : 'Karaoke'; }
+  mixLabel(value) { return `Vocals ${Math.round(value * 100)}%`; }
+
+  selectNativeMix(value) {
+    const tracks = this.video.audioTracks;
+    if (!tracks?.length) return false;
+    const items = Array.from({ length: tracks.length }, (_, index) => tracks[index]);
+    const target = items.find(track => track.label === this.mixLabel(value));
+    if (!target) return false;
+    target.enabled = true;
+    for (const track of items) if (track !== target) track.enabled = false;
+    return true;
+  }
+
+  switchMix(value) {
+    this.settleMix(new DOMException('Replaced', 'AbortError'));
+    if (!this.integrated) return Promise.reject(new Error('Prepared mix unavailable'));
+    if (this.mode === 'native') {
+      return this.selectNativeMix(value) ? Promise.resolve() : Promise.reject(new Error('Native soundtrack selection unavailable'));
+    }
+    const hls = this.hls, label = this.mixLabel(value);
+    const index = hls?.audioTracks.findIndex(track => track.name === label) ?? -1;
+    if (index < 0) return Promise.reject(new Error('Soundtracks are still loading'));
+    // nextAudioTrack preserves the playing fragment until replacement audio is
+    // ready. audioTrack would immediately flush sound and could cause a stall.
+    return new Promise((resolve, reject) => {
+      this.pendingMix = { label, resolve, reject, timer: setTimeout(() => {
+        const previous = hls.audioTracks.findIndex(track => track.name === this.mixLabel(this.player.mix));
+        if (previous >= 0) hls.nextAudioTrack = previous;
+        this.settleMix(new Error('Soundtrack change timed out'));
+      }, 15000) };
+      if (hls.audioTrack === index && hls.nextAudioTrack === index) { this.settleMix(); return; }
+      hls.nextAudioTrack = index;
+      // A paused video cannot reach the next fragment; the selected rendition
+      // will become audible when playback resumes, without restarting video.
+      if (this.video.paused) this.settleMix();
+    });
+  }
+
+  settleMix(error) {
+    if (!this.pendingMix) return;
+    const pending = this.pendingMix;
+    this.pendingMix = null;
+    clearTimeout(pending.timer);
+    if (error) pending.reject(error); else pending.resolve();
+  }
   trackName(label) {
     if (/original/i.test(label || '')) return 'original';
     if (/karaoke/i.test(label || '')) return 'karaoke';
@@ -349,6 +401,7 @@ class AdaptiveStream {
     this.serial += 1;
     clearTimeout(this.recoveryTimer);
     clearTimeout(this.nativeTimer);
+    this.settleMix(new DOMException('Source changed', 'AbortError'));
     this.settleTrack(new DOMException('Source changed', 'AbortError'));
     this.probe?.abort();
     this.probe = null;

@@ -24,13 +24,16 @@ VOLUME_URL = SITE + 'karaoke-media-1/'
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--volume', type=Path, required=True, help='Existing media repository public directory')
-    parser.add_argument('--version', default='native-audio-v1')
+    parser.add_argument('--version', default='native-audio-v2')
+    parser.add_argument('--reuse-audio-version', help='Reuse an immutable audio release; generate only new masters')
     parser.add_argument('--report-dir', type=Path, required=True)
     parser.add_argument('--jobs', type=int, default=2)
     args = parser.parse_args()
     volume = args.volume.resolve(strict=True)
     if not re.fullmatch(r'[a-z0-9-]+', args.version):
         raise ValueError('Invalid output version')
+    if args.reuse_audio_version and not re.fullmatch(r'[a-z0-9-]+', args.reuse_audio_version):
+        raise ValueError('Invalid audio reuse version')
     target = volume/'media'/args.version
     if target.exists():
         raise FileExistsError('Use a fresh output version; published audio is immutable')
@@ -76,6 +79,13 @@ def main():
         renditions = []
         commands = []
         for value in values:
+            if args.reuse_audio_version:
+                path = volume/'media'/args.reuse_audio_version/'audio'/group['id']/str(value)/'index.m3u8'
+                info = media.playlist_metadata(path)
+                if abs(info['duration']-duration) > .15:
+                    raise ValueError('Reused audio timeline does not match its source')
+                renditions.append({'value':value,'url':public(path),**info})
+                continue
             folder = target/'audio'/group['id']/str(value)
             folder.mkdir(parents=True)
             command = ['ffmpeg','-hide_banner','-nostdin','-n','-loglevel','error']
@@ -124,19 +134,21 @@ def main():
                 mixes = []
                 for sound in audio:
                     folder = target/entry['id']/str(sound['value']);folder.mkdir(parents=True)
-                    header = ['#EXTM3U','#EXT-X-VERSION:7','#EXT-X-INDEPENDENT-SEGMENTS',
-                        f'#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="sound",NAME="Vocals {sound["value"]}%",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="2",URI="{sound["url"]}"']
+                    header = ['#EXTM3U','#EXT-X-VERSION:7','#EXT-X-INDEPENDENT-SEGMENTS']
+                    for alternate in audio:
+                        selected = 'YES' if alternate['value']==sound['value'] else 'NO'
+                        header.append(f'#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="sound",NAME="Vocals {alternate["value"]}%",DEFAULT={selected},AUTOSELECT={selected},CHANNELS="2",URI="{alternate["url"]}"')
                     lines, variants = [], []
                     for video in videos:
-                        bandwidth = math.ceil((video['peakBandwidth']+sound['peakBandwidth'])*1.05/1000)*1000
-                        average = video['averageBandwidth']+sound['averageBandwidth']
+                        bandwidth = math.ceil((video['peakBandwidth']+max(x['peakBandwidth'] for x in audio))*1.05/1000)*1000
+                        average = video['averageBandwidth']+max(x['averageBandwidth'] for x in audio)
                         line = f'#EXT-X-STREAM-INF:BANDWIDTH={bandwidth},AVERAGE-BANDWIDTH={average},RESOLUTION={video["resolution"]},FRAME-RATE={video["fps"]},CODECS="{video["codec"]},mp4a.40.2",AUDIO="sound"'
                         pair = [line,video['url']];lines.extend(pair)
                         path = folder/f'{video["height"]}p.m3u8';path.write_text('\n'.join(header+pair)+'\n',encoding='utf-8')
                         variants.append({'height':video['height'],'bandwidth':bandwidth,'url':public(path)})
                     path = folder/'master.m3u8';path.write_text('\n'.join(header+lines)+'\n',encoding='utf-8')
                     mixes.append({'value':sound['value'],'url':public(path),'variants':variants})
-                mappings.append({'id':entry['id'],'integrated':{'mixStep':20,'mixes':mixes}})
+                mappings.append({'id':entry['id'],'integrated':{'mixStep':20,'switching':'alternate-audio','mixes':mixes}})
     files = [p for p in target.rglob('*') if p.is_file()]
     receipt = {'output':str(target),'entries':len(mappings),'audioGroups':len(groups),'files':len(files),
         'bytes':sum(p.stat().st_size for p in files),'sources':reports,
