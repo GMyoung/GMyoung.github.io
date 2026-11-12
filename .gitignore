@@ -8,3 +8,6 @@ __pycache__/
 
 # Generated picture streams are published/versioned in karaoke-media-1.
 /media/streams-v5/
+/media/streams-v6/
+/media/streams-v7/
+/media/streams-v8/

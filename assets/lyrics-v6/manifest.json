@@ -1,0 +1,9 @@
+{
+  "ma-karaoke": {
+    "url": "assets/lyrics-v6/ma.json",
+    "vtt": "assets/lyrics-v6/ma-current.vtt",
+    "language": "en",
+    "showCurrent": true,
+    "placement": "bottom"
+  }
+}

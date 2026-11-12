@@ -278,7 +278,7 @@
       "defaultAudio": "original",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v3/data-and-picard-lyrics/video-only.m3u8",
+        "url": "media/streams-v3/data-and-picard-lyrics/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
@@ -293,11 +293,11 @@
           {
             "height": 1080,
             "bandwidth": 2188000,
-            "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only.m3u8"
+            "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/data-and-picard-lyrics/video-only.m3u8",
+          "url": "media/streams-v3/data-and-picard-lyrics/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
@@ -312,7 +312,7 @@
             {
               "height": 1080,
               "bandwidth": 2188000,
-              "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only.m3u8"
+              "url": "media/streams-v3/data-and-picard-lyrics/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -342,7 +342,7 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only.m3u8",
+        "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
@@ -357,11 +357,11 @@
           {
             "height": 1080,
             "bandwidth": 1869000,
-            "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/shes-a-big-boy-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
@@ -376,7 +376,7 @@
             {
               "height": 1080,
               "bandwidth": 1869000,
-              "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v3/shes-a-big-boy-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -406,7 +406,7 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only.m3u8",
+        "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
@@ -421,11 +421,11 @@
           {
             "height": 1080,
             "bandwidth": 2256000,
-            "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/odoriko-bilingual-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
@@ -440,7 +440,7 @@
             {
               "height": 1080,
               "bandwidth": 2256000,
-              "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v3/odoriko-bilingual-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -472,7 +472,7 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v3/so-handsome-hello-karaoke/video-only.m3u8",
+        "url": "media/streams-v3/so-handsome-hello-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
@@ -487,11 +487,11 @@
           {
             "height": 1080,
             "bandwidth": 1951000,
-            "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/so-handsome-hello-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/so-handsome-hello-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
@@ -506,7 +506,7 @@
             {
               "height": 1080,
               "bandwidth": 1951000,
-              "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v3/so-handsome-hello-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -529,41 +529,41 @@
         "karaoke": "audio/30-karaoke-karaoke-v1.m4a"
       },
       "streaming": {
-        "url": "media/streams-v3/30-karaoke/video-only.m3u8",
+        "url": "media/streams-v3/30-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
             "bandwidth": 329000,
-            "url": "media/streams-v3/30-karaoke/360p-video-only.m3u8"
+            "url": "media/streams-v3/30-karaoke/360p-video-only-avc.m3u8"
           },
           {
             "height": 720,
             "bandwidth": 411000,
-            "url": "media/streams-v3/30-karaoke/720p-video-only.m3u8"
+            "url": "media/streams-v3/30-karaoke/720p-video-only-avc.m3u8"
           },
           {
             "height": 1080,
             "bandwidth": 486000,
-            "url": "media/streams-v3/30-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v3/30-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/30-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/30-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 329000,
-              "url": "media/streams-v3/30-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v3/30-karaoke/360p-video-only-avc.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 411000,
-              "url": "media/streams-v3/30-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v3/30-karaoke/720p-video-only-avc.m3u8"
             },
             {
               "height": 1080,
               "bandwidth": 486000,
-              "url": "media/streams-v3/30-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v3/30-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -576,52 +576,52 @@
       "artist": "Frank Sinatra & Antônio Carlos Jobim",
       "type": "karaoke",
       "duration": "3:16",
-      "label": "Original duet karaoke · on-screen lyrics",
+      "label": "Duet karaoke · Portuguese guide vocals 35%",
       "karaoke": true,
-      "url": "media/streams-v4/the-girl-from-ipanema-karaoke/compatibility-360p.mp4",
+      "url": "media/ipanema-guide-v3/compatibility-360p.mp4",
       "poster": "assets/the-girl-from-ipanema-v2.jpg",
       "audio": {
         "original": "audio/the-girl-from-ipanema-original-v2.m4a",
-        "karaoke": "audio/the-girl-from-ipanema-karaoke-v2.m4a"
+        "karaoke": "audio/the-girl-from-ipanema-karaoke-pt-guide-v3.m4a"
       },
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only.m3u8",
+        "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
             "bandwidth": 2167000,
-            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only.m3u8"
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only-avc.m3u8"
           },
           {
             "height": 720,
             "bandwidth": 4961000,
-            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only.m3u8"
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only-avc.m3u8"
           },
           {
             "height": 1080,
             "bandwidth": 7562000,
-            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only.m3u8",
+          "url": "media/streams-v4/the-girl-from-ipanema-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 2167000,
-              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/360p-video-only-avc.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 4961000,
-              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/720p-video-only-avc.m3u8"
             },
             {
               "height": 1080,
               "bandwidth": 7562000,
-              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v4/the-girl-from-ipanema-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -636,13 +636,13 @@
       "type": "karaoke",
       "duration": "3:37",
       "karaoke": true,
-      "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/compatibility-360p.mp4",
+      "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/compatibility-360p.mp4",
       "poster": "assets/slow-dancing-in-the-dark-karaoke-v1.jpg",
       "defaultAudio": "karaoke",
-      "sourceHeight": 1080,
+      "sourceHeight": 1800,
       "audio": {
-        "original": "audio/slow-dancing-in-the-dark-karaoke-original-v1.m4a",
-        "karaoke": "audio/slow-dancing-in-the-dark-karaoke-karaoke-v1.m4a"
+        "original": "https://gmyoung.github.io/karaoke-media-1/audio/slow-dancing-in-the-dark-karaoke-original-v1.m4a",
+        "karaoke": "https://gmyoung.github.io/karaoke-media-1/audio/slow-dancing-in-the-dark-karaoke-karaoke-v1.m4a"
       },
       "lyrics": {
         "url": "assets/lyrics-v4/slow-dancing-in-the-dark.json",
@@ -652,41 +652,41 @@
         "placement": "bottom"
       },
       "streaming": {
-        "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 602000,
-            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
+            "bandwidth": 587000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 1507000,
-            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
+            "bandwidth": 3236000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
           },
           {
             "height": 1080,
-            "bandwidth": 2003000,
-            "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
+            "bandwidth": 6728000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 602000,
-              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
+              "bandwidth": 587000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 1507000,
-              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
+              "bandwidth": 3236000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/720p-video-only.m3u8"
             },
             {
               "height": 1080,
-              "bandwidth": 2003000,
-              "url": "media/streams-v3/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
+              "bandwidth": 6728000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v7/slow-dancing-in-the-dark-karaoke/1080p-video-only.m3u8"
             }
           ]
         }
@@ -697,59 +697,66 @@
       "id": "breathe-karaoke",
       "title": "Breathe",
       "artist": "Malcolm Todd",
-      "label": "Sing King karaoke · on-screen lyrics",
+      "label": "Original MV · synced karaoke lyrics",
       "type": "karaoke",
       "duration": "3:01",
       "karaoke": true,
-      "url": "media/streams-v3/breathe-karaoke/compatibility-360p.mp4",
-      "poster": "assets/breathe-karaoke-v1.jpg",
+      "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/compatibility-360p.mp4",
+      "poster": "assets/breathe-mv-v1.jpg",
       "defaultAudio": "karaoke",
-      "sourceHeight": 1080,
+      "sourceHeight": 2160,
       "audio": {
-        "original": "audio/breathe-karaoke-original-v1.m4a",
-        "karaoke": "audio/breathe-karaoke-karaoke-v1.m4a"
+        "original": "https://gmyoung.github.io/karaoke-media-1/audio/breathe-karaoke-original-v1.m4a",
+        "karaoke": "https://gmyoung.github.io/karaoke-media-1/audio/breathe-karaoke-karaoke-v1.m4a"
       },
       "streaming": {
-        "url": "media/streams-v3/breathe-karaoke/video-only.m3u8",
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/video-only.m3u8",
         "variants": [
           {
             "height": 360,
-            "bandwidth": 185000,
-            "url": "media/streams-v3/breathe-karaoke/360p-video-only.m3u8"
+            "bandwidth": 550000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/360p-video-only.m3u8"
           },
           {
             "height": 720,
-            "bandwidth": 238000,
-            "url": "media/streams-v3/breathe-karaoke/720p-video-only.m3u8"
+            "bandwidth": 3513000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/720p-video-only.m3u8"
           },
           {
             "height": 1080,
-            "bandwidth": 288000,
-            "url": "media/streams-v3/breathe-karaoke/1080p-video-only.m3u8"
+            "bandwidth": 7502000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/1080p-video-only.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/breathe-karaoke/video-only.m3u8",
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/video-only.m3u8",
           "variants": [
             {
               "height": 360,
-              "bandwidth": 185000,
-              "url": "media/streams-v3/breathe-karaoke/360p-video-only.m3u8"
+              "bandwidth": 550000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/360p-video-only.m3u8"
             },
             {
               "height": 720,
-              "bandwidth": 238000,
-              "url": "media/streams-v3/breathe-karaoke/720p-video-only.m3u8"
+              "bandwidth": 3513000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/720p-video-only.m3u8"
             },
             {
               "height": 1080,
-              "bandwidth": 288000,
-              "url": "media/streams-v3/breathe-karaoke/1080p-video-only.m3u8"
+              "bandwidth": 7502000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v8/breathe-karaoke/1080p-video-only.m3u8"
             }
           ]
         }
       },
-      "fallbackHeight": 360
+      "fallbackHeight": 360,
+      "lyrics": {
+        "url": "assets/lyrics-v7/breathe.json",
+        "vtt": "assets/lyrics-v7/breathe-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
     },
     {
       "id": "vampira-karaoke",
@@ -775,41 +782,41 @@
         "placement": "bottom"
       },
       "streaming": {
-        "url": "media/streams-v3/vampira-karaoke/video-only.m3u8",
+        "url": "media/streams-v3/vampira-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
             "bandwidth": 158000,
-            "url": "media/streams-v3/vampira-karaoke/360p-video-only.m3u8"
+            "url": "media/streams-v3/vampira-karaoke/360p-video-only-avc.m3u8"
           },
           {
             "height": 720,
             "bandwidth": 168000,
-            "url": "media/streams-v3/vampira-karaoke/720p-video-only.m3u8"
+            "url": "media/streams-v3/vampira-karaoke/720p-video-only-avc.m3u8"
           },
           {
             "height": 1080,
             "bandwidth": 199000,
-            "url": "media/streams-v3/vampira-karaoke/1080p-video-only.m3u8"
+            "url": "media/streams-v3/vampira-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "media/streams-v3/vampira-karaoke/video-only.m3u8",
+          "url": "media/streams-v3/vampira-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 158000,
-              "url": "media/streams-v3/vampira-karaoke/360p-video-only.m3u8"
+              "url": "media/streams-v3/vampira-karaoke/360p-video-only-avc.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 168000,
-              "url": "media/streams-v3/vampira-karaoke/720p-video-only.m3u8"
+              "url": "media/streams-v3/vampira-karaoke/720p-video-only-avc.m3u8"
             },
             {
               "height": 1080,
               "bandwidth": 199000,
-              "url": "media/streams-v3/vampira-karaoke/1080p-video-only.m3u8"
+              "url": "media/streams-v3/vampira-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -833,41 +840,41 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 1080,
       "streaming": {
-        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only.m3u8",
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
             "bandwidth": 595000,
-            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only.m3u8"
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only-avc.m3u8"
           },
           {
             "height": 720,
             "bandwidth": 1447000,
-            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only.m3u8"
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only-avc.m3u8"
           },
           {
             "height": 1080,
             "bandwidth": 2334000,
-            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only.m3u8"
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only.m3u8",
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 595000,
-              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only.m3u8"
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/360p-video-only-avc.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 1447000,
-              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only.m3u8"
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/720p-video-only-avc.m3u8"
             },
             {
               "height": 1080,
               "bandwidth": 2334000,
-              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only.m3u8"
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/birdbrain-karaoke/1080p-video-only-avc.m3u8"
             }
           ]
         }
@@ -897,31 +904,31 @@
       "defaultAudio": "karaoke",
       "sourceHeight": 720,
       "streaming": {
-        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only.m3u8",
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only-avc.m3u8",
         "variants": [
           {
             "height": 360,
             "bandwidth": 165000,
-            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only.m3u8"
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only-avc.m3u8"
           },
           {
             "height": 720,
             "bandwidth": 157000,
-            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only.m3u8"
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only-avc.m3u8"
           }
         ],
         "videoOnly": {
-          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only.m3u8",
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/video-only-avc.m3u8",
           "variants": [
             {
               "height": 360,
               "bandwidth": 165000,
-              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only.m3u8"
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/360p-video-only-avc.m3u8"
             },
             {
               "height": 720,
               "bandwidth": 157000,
-              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only.m3u8"
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v5/forever-karaoke/720p-video-only-avc.m3u8"
             }
           ]
         }
@@ -930,6 +937,71 @@
       "lyrics": {
         "url": "assets/lyrics-v5/forever.json",
         "vtt": "assets/lyrics-v5/forever-current.vtt",
+        "language": "en",
+        "showCurrent": true,
+        "placement": "bottom"
+      }
+    },
+    {
+      "id": "ma-karaoke",
+      "title": "马",
+      "artist": "DOUDOU / 福禄寿",
+      "type": "karaoke",
+      "duration": "3:52",
+      "label": "Japanese MV · Chinese vocals / karaoke",
+      "karaoke": true,
+      "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/compatibility-360p.mp4",
+      "poster": "assets/ma-v1.jpg",
+      "sourceHeight": 1080,
+      "audio": {
+        "original": "https://gmyoung.github.io/karaoke-media-1/audio/ma-original-v1.m4a",
+        "karaoke": "https://gmyoung.github.io/karaoke-media-1/audio/ma-karaoke-v1.m4a"
+      },
+      "defaultAudio": "karaoke",
+      "streaming": {
+        "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/video-only-avc.m3u8",
+        "variants": [
+          {
+            "height": 360,
+            "bandwidth": 618000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/360p-video-only-avc.m3u8"
+          },
+          {
+            "height": 720,
+            "bandwidth": 1549000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/720p-video-only-avc.m3u8"
+          },
+          {
+            "height": 1080,
+            "bandwidth": 2528000,
+            "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/1080p-video-only-avc.m3u8"
+          }
+        ],
+        "videoOnly": {
+          "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/video-only-avc.m3u8",
+          "variants": [
+            {
+              "height": 360,
+              "bandwidth": 618000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/360p-video-only-avc.m3u8"
+            },
+            {
+              "height": 720,
+              "bandwidth": 1549000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/720p-video-only-avc.m3u8"
+            },
+            {
+              "height": 1080,
+              "bandwidth": 2528000,
+              "url": "https://gmyoung.github.io/karaoke-media-1/media/streams-v6/ma-karaoke/1080p-video-only-avc.m3u8"
+            }
+          ]
+        }
+      },
+      "fallbackHeight": 360,
+      "lyrics": {
+        "url": "assets/lyrics-v6/ma.json",
+        "vtt": "assets/lyrics-v6/ma-current.vtt",
         "language": "en",
         "showCurrent": true,
         "placement": "bottom"

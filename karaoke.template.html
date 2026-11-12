@@ -8,7 +8,6 @@
 </head>
 <body><main class="library">
 <header><div class="heading"><h1>Instrumental & Karaoke</h1><span id="video-count">—</span></div><nav aria-label="Page navigation"><a href="./" class="home-link">← Spaces</a> <a id="playlist-link" hidden target="_blank" rel="noopener">YouTube playlist ↗</a></nav></header>
-<div class="toolbar"><label class="search"><span class="sr-only">Search songs or artists</span><input id="search" type="search" placeholder="Search songs or artists" autocomplete="off"><kbd>/</kbd></label><div class="filters" aria-label="Video type"><button type="button" class="active" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="instrumental" aria-pressed="false">Instrumental</button><button type="button" data-filter="karaoke" aria-pressed="false">Karaoke</button></div></div>
 <section id="player-panel" hidden aria-label="Video player"><div class="player-shell">
   <div class="player-heading"><span id="player-title"></span><div class="player-actions"><button id="close-player" type="button" aria-label="Close player">Close ×</button></div></div>
   <div class="picture-stage">
@@ -28,7 +27,13 @@
   </div>
   <p id="player-status" class="player-status" role="status" aria-live="polite" hidden></p>
 </div></section>
-<table><caption class="sr-only">Music video collection</caption><thead><tr><th class="number" scope="col">#</th><th scope="col">Song</th><th class="artist-col" scope="col">Artist</th><th scope="col">Version</th><th class="duration-col" scope="col">Length</th><th class="watch-col" scope="col"><span class="sr-only">Watch</span></th></tr></thead><tbody id="video-list"></tbody></table>
+<section class="catalog" aria-labelledby="catalog-heading">
+<div class="catalog-heading"><h2 id="catalog-heading">Choose a song</h2><span id="catalog-count" aria-live="polite"></span></div>
+<div class="toolbar"><label class="search"><span class="sr-only">Search songs or artists</span><input id="search" type="search" placeholder="Search songs or artists" autocomplete="off"><kbd>/</kbd></label><div class="filters" aria-label="Video type"><button type="button" class="active" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="instrumental" aria-pressed="false">Instrumental</button><button type="button" data-filter="karaoke" aria-pressed="false">Karaoke</button></div></div>
+<div id="catalog-scroll" class="catalog-scroll" role="region" aria-label="Song list" tabindex="0">
+<table><caption class="sr-only">Music video collection</caption><thead><tr><th class="number" scope="col">#</th><th scope="col">Song</th><th class="artist-col" scope="col">Artist</th><th class="version-col" scope="col">Version</th><th class="duration-col" scope="col">Length</th><th class="watch-col" scope="col"><span class="sr-only">Watch</span></th></tr></thead><tbody id="video-list"></tbody></table>
 <p id="message" role="status">Loading videos…</p>
+</div>
+</section>
 <footer>A small collection of instrumental and karaoke videos.</footer>
 </main></body></html>

@@ -1,0 +1,2824 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 4.3,
+      "end": 6.24,
+      "text": "Breathe, breathe into me",
+      "words": [
+        {
+          "text": "Breathe,",
+          "start": 4.3,
+          "end": 5.44,
+          "estimated": false
+        },
+        {
+          "text": "breathe",
+          "start": 5.44,
+          "end": 5.56,
+          "estimated": false
+        },
+        {
+          "text": "into",
+          "start": 5.56,
+          "end": 5.96,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 5.96,
+          "end": 6.24,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 6.24,
+      "end": 8.62,
+      "text": "I had two best friends in a hotel suite",
+      "words": [
+        {
+          "text": "I",
+          "start": 6.24,
+          "end": 6.5,
+          "estimated": false
+        },
+        {
+          "text": "had",
+          "start": 6.5,
+          "end": 6.72,
+          "estimated": false
+        },
+        {
+          "text": "two",
+          "start": 6.72,
+          "end": 6.98,
+          "estimated": false
+        },
+        {
+          "text": "best",
+          "start": 6.98,
+          "end": 7.22,
+          "estimated": false
+        },
+        {
+          "text": "friends",
+          "start": 7.22,
+          "end": 7.54,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 7.54,
+          "end": 7.74,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 7.74,
+          "end": 7.9,
+          "estimated": false
+        },
+        {
+          "text": "hotel",
+          "start": 7.9,
+          "end": 8.18,
+          "estimated": false
+        },
+        {
+          "text": "suite",
+          "start": 8.18,
+          "end": 8.62,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 8.62,
+      "end": 10.72,
+      "text": "Now what? It's me and you",
+      "words": [
+        {
+          "text": "Now",
+          "start": 8.62,
+          "end": 8.88,
+          "estimated": false
+        },
+        {
+          "text": "what?",
+          "start": 8.88,
+          "end": 9.84,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 9.84,
+          "end": 10.06,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 10.06,
+          "end": 10.26,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 10.26,
+          "end": 10.4,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 10.4,
+          "end": 10.72,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 10.72,
+      "end": 12.84,
+      "text": "You do the thing that they can't do",
+      "words": [
+        {
+          "text": "You",
+          "start": 10.72,
+          "end": 11.3,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 11.3,
+          "end": 11.5,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 11.5,
+          "end": 11.64,
+          "estimated": false
+        },
+        {
+          "text": "thing",
+          "start": 11.64,
+          "end": 11.88,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 11.88,
+          "end": 12.1,
+          "estimated": false
+        },
+        {
+          "text": "they",
+          "start": 12.1,
+          "end": 12.3,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 12.3,
+          "end": 12.68,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 12.68,
+          "end": 12.84,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 12.84,
+      "end": 15.06,
+      "text": "It feels right, but right is wrong",
+      "words": [
+        {
+          "text": "It",
+          "start": 12.84,
+          "end": 13.0,
+          "estimated": false
+        },
+        {
+          "text": "feels",
+          "start": 13.0,
+          "end": 13.22,
+          "estimated": false
+        },
+        {
+          "text": "right,",
+          "start": 13.22,
+          "end": 13.54,
+          "estimated": false
+        },
+        {
+          "text": "but",
+          "start": 13.54,
+          "end": 14.34,
+          "estimated": false
+        },
+        {
+          "text": "right",
+          "start": 14.34,
+          "end": 14.58,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 14.58,
+          "end": 14.78,
+          "estimated": false
+        },
+        {
+          "text": "wrong",
+          "start": 14.78,
+          "end": 15.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 15.06,
+      "end": 17.38,
+      "text": "I probably shouldn't do it, but I'll do it for the song",
+      "words": [
+        {
+          "text": "I",
+          "start": 15.06,
+          "end": 15.48,
+          "estimated": false
+        },
+        {
+          "text": "probably",
+          "start": 15.48,
+          "end": 15.72,
+          "estimated": false
+        },
+        {
+          "text": "shouldn't",
+          "start": 15.72,
+          "end": 16.04,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 16.04,
+          "end": 16.22,
+          "estimated": false
+        },
+        {
+          "text": "it,",
+          "start": 16.22,
+          "end": 16.36,
+          "estimated": false
+        },
+        {
+          "text": "but",
+          "start": 16.36,
+          "end": 16.48,
+          "estimated": false
+        },
+        {
+          "text": "I'll",
+          "start": 16.48,
+          "end": 16.64,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 16.64,
+          "end": 16.74,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 16.74,
+          "end": 16.86,
+          "estimated": false
+        },
+        {
+          "text": "for",
+          "start": 16.86,
+          "end": 16.96,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 16.96,
+          "end": 17.1,
+          "estimated": false
+        },
+        {
+          "text": "song",
+          "start": 17.1,
+          "end": 17.38,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 17.38,
+      "end": 19.56,
+      "text": "Come here, what's this about?",
+      "words": [
+        {
+          "text": "Come",
+          "start": 17.38,
+          "end": 17.6,
+          "estimated": false
+        },
+        {
+          "text": "here,",
+          "start": 17.6,
+          "end": 18.54,
+          "estimated": false
+        },
+        {
+          "text": "what's",
+          "start": 18.54,
+          "end": 18.76,
+          "estimated": false
+        },
+        {
+          "text": "this",
+          "start": 18.76,
+          "end": 18.96,
+          "estimated": false
+        },
+        {
+          "text": "about?",
+          "start": 18.96,
+          "end": 19.56,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 19.56,
+      "end": 22.1,
+      "text": "I got all night long and I wanna find out, just",
+      "words": [
+        {
+          "text": "I",
+          "start": 19.56,
+          "end": 19.6,
+          "estimated": false
+        },
+        {
+          "text": "got",
+          "start": 19.6,
+          "end": 19.8,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 19.8,
+          "end": 20.08,
+          "estimated": false
+        },
+        {
+          "text": "night",
+          "start": 20.08,
+          "end": 20.32,
+          "estimated": false
+        },
+        {
+          "text": "long",
+          "start": 20.32,
+          "end": 20.66,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 20.66,
+          "end": 20.84,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 20.84,
+          "end": 20.96,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 20.96,
+          "end": 21.1,
+          "estimated": false
+        },
+        {
+          "text": "find",
+          "start": 21.1,
+          "end": 21.42,
+          "estimated": false
+        },
+        {
+          "text": "out,",
+          "start": 21.42,
+          "end": 21.88,
+          "estimated": false
+        },
+        {
+          "text": "just",
+          "start": 21.88,
+          "end": 21.92,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 22.1,
+      "end": 25.06,
+      "text": "Breathe into me",
+      "words": [
+        {
+          "text": "Breathe",
+          "start": 22.1,
+          "end": 23.26,
+          "estimated": false
+        },
+        {
+          "text": "into",
+          "start": 23.26,
+          "end": 23.88,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 23.88,
+          "end": 25.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 25.06,
+      "end": 29.04,
+      "text": "Don't you miss it? It's been so long",
+      "words": [
+        {
+          "text": "Don't",
+          "start": 25.06,
+          "end": 25.84,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 25.84,
+          "end": 26.1,
+          "estimated": false
+        },
+        {
+          "text": "miss",
+          "start": 26.1,
+          "end": 26.54,
+          "estimated": false
+        },
+        {
+          "text": "it?",
+          "start": 26.54,
+          "end": 27.24,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 27.24,
+          "end": 27.5,
+          "estimated": false
+        },
+        {
+          "text": "been",
+          "start": 27.5,
+          "end": 27.74,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 27.74,
+          "end": 28.24,
+          "estimated": false
+        },
+        {
+          "text": "long",
+          "start": 28.24,
+          "end": 29.04,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 29.04,
+      "end": 33.8,
+      "text": "If you would leave it to me",
+      "words": [
+        {
+          "text": "If",
+          "start": 29.04,
+          "end": 29.72,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 29.72,
+          "end": 30.12,
+          "estimated": false
+        },
+        {
+          "text": "would",
+          "start": 30.12,
+          "end": 30.66,
+          "estimated": false
+        },
+        {
+          "text": "leave",
+          "start": 30.66,
+          "end": 31.58,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 31.58,
+          "end": 32.34,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 32.34,
+          "end": 32.66,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 32.66,
+          "end": 33.8,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 33.8,
+      "end": 37.32,
+      "text": "I could teach you what you forgot",
+      "words": [
+        {
+          "text": "I",
+          "start": 33.8,
+          "end": 34.52,
+          "estimated": false
+        },
+        {
+          "text": "could",
+          "start": 34.52,
+          "end": 34.86,
+          "estimated": false
+        },
+        {
+          "text": "teach",
+          "start": 34.86,
+          "end": 35.36,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 35.36,
+          "end": 35.88,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 35.88,
+          "end": 36.14,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 36.14,
+          "end": 36.46,
+          "estimated": false
+        },
+        {
+          "text": "forgot",
+          "start": 36.46,
+          "end": 37.32,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 37.32,
+      "end": 39.51,
+      "text": "I'll tell ya, baby",
+      "words": [
+        {
+          "text": "I'll",
+          "start": 37.32,
+          "end": 38.38,
+          "estimated": false
+        },
+        {
+          "text": "tell",
+          "start": 38.38,
+          "end": 38.66,
+          "estimated": false
+        },
+        {
+          "text": "ya,",
+          "start": 38.66,
+          "end": 39.16,
+          "estimated": false
+        },
+        {
+          "text": "baby",
+          "start": 39.16,
+          "end": 39.26,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 39.8,
+      "end": 46.72,
+      "text": "Come kiss my neck, when I'm without you, I wanna be dead",
+      "words": [
+        {
+          "text": "Come",
+          "start": 39.8,
+          "end": 40.48,
+          "estimated": false
+        },
+        {
+          "text": "kiss",
+          "start": 40.48,
+          "end": 40.98,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 40.98,
+          "end": 41.58,
+          "estimated": false
+        },
+        {
+          "text": "neck,",
+          "start": 41.58,
+          "end": 42.18,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 42.18,
+          "end": 42.78,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 42.78,
+          "end": 43.28,
+          "estimated": false
+        },
+        {
+          "text": "without",
+          "start": 43.28,
+          "end": 43.9,
+          "estimated": false
+        },
+        {
+          "text": "you,",
+          "start": 43.9,
+          "end": 44.68,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 44.68,
+          "end": 44.9,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 44.9,
+          "end": 45.26,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 45.26,
+          "end": 45.72,
+          "estimated": false
+        },
+        {
+          "text": "dead",
+          "start": 45.72,
+          "end": 46.72,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 46.72,
+      "end": 52.8,
+      "text": "Oh, and when your little legs rest on my shoulder",
+      "words": [
+        {
+          "text": "Oh,",
+          "start": 46.72,
+          "end": 47.7,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 47.7,
+          "end": 48.14,
+          "estimated": false
+        },
+        {
+          "text": "when",
+          "start": 48.14,
+          "end": 48.56,
+          "estimated": false
+        },
+        {
+          "text": "your",
+          "start": 48.56,
+          "end": 49.12,
+          "estimated": false
+        },
+        {
+          "text": "little",
+          "start": 49.12,
+          "end": 50.08,
+          "estimated": false
+        },
+        {
+          "text": "legs",
+          "start": 50.08,
+          "end": 50.88,
+          "estimated": false
+        },
+        {
+          "text": "rest",
+          "start": 50.88,
+          "end": 51.4,
+          "estimated": false
+        },
+        {
+          "text": "on",
+          "start": 51.4,
+          "end": 51.92,
+          "estimated": false
+        },
+        {
+          "text": "my",
+          "start": 51.92,
+          "end": 52.26,
+          "estimated": false
+        },
+        {
+          "text": "shoulder",
+          "start": 52.26,
+          "end": 52.8,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 10,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 52.8,
+      "end": 57.21,
+      "text": "I think I'm in Heaven, I want it again",
+      "words": [
+        {
+          "text": "I",
+          "start": 52.8,
+          "end": 53.62,
+          "estimated": false
+        },
+        {
+          "text": "think",
+          "start": 53.62,
+          "end": 53.92,
+          "estimated": false
+        },
+        {
+          "text": "I'm",
+          "start": 53.92,
+          "end": 54.3,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 54.3,
+          "end": 54.46,
+          "estimated": false
+        },
+        {
+          "text": "Heaven,",
+          "start": 54.46,
+          "end": 55.54,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 55.54,
+          "end": 55.8,
+          "estimated": false
+        },
+        {
+          "text": "want",
+          "start": 55.8,
+          "end": 56.14,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 56.14,
+          "end": 56.46,
+          "estimated": false
+        },
+        {
+          "text": "again",
+          "start": 56.46,
+          "end": 56.96,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 57.3,
+      "end": 58.62,
+      "text": "Breathe, breathe into me",
+      "words": [
+        {
+          "text": "Breathe,",
+          "start": 57.3,
+          "end": 57.75,
+          "estimated": true
+        },
+        {
+          "text": "breathe",
+          "start": 57.75,
+          "end": 58.2,
+          "estimated": true
+        },
+        {
+          "text": "into",
+          "start": 58.2,
+          "end": 58.4,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 58.4,
+          "end": 58.62,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 58.62,
+      "end": 60.96,
+      "text": "I had two best friеnds in a hotel suite",
+      "words": [
+        {
+          "text": "I",
+          "start": 58.62,
+          "end": 58.86,
+          "estimated": false
+        },
+        {
+          "text": "had",
+          "start": 58.86,
+          "end": 59.1,
+          "estimated": false
+        },
+        {
+          "text": "two",
+          "start": 59.1,
+          "end": 59.36,
+          "estimated": false
+        },
+        {
+          "text": "best",
+          "start": 59.36,
+          "end": 59.62,
+          "estimated": false
+        },
+        {
+          "text": "friеnds",
+          "start": 59.62,
+          "end": 59.98,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 59.98,
+          "end": 60.12,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 60.12,
+          "end": 60.28,
+          "estimated": false
+        },
+        {
+          "text": "hotel",
+          "start": 60.28,
+          "end": 60.56,
+          "estimated": false
+        },
+        {
+          "text": "suite",
+          "start": 60.56,
+          "end": 60.96,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 60.96,
+      "end": 63.06,
+      "text": "Now what? It's me and you",
+      "words": [
+        {
+          "text": "Now",
+          "start": 60.96,
+          "end": 61.24,
+          "estimated": false
+        },
+        {
+          "text": "what?",
+          "start": 61.24,
+          "end": 62.2,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 62.2,
+          "end": 62.4,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 62.4,
+          "end": 62.62,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 62.62,
+          "end": 62.78,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 62.78,
+          "end": 63.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 6,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 63.06,
+      "end": 65.18,
+      "text": "You do thе thing that they can't do",
+      "words": [
+        {
+          "text": "You",
+          "start": 63.06,
+          "end": 63.68,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 63.68,
+          "end": 63.88,
+          "estimated": false
+        },
+        {
+          "text": "thе",
+          "start": 63.88,
+          "end": 64.02,
+          "estimated": false
+        },
+        {
+          "text": "thing",
+          "start": 64.02,
+          "end": 64.26,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 64.26,
+          "end": 64.46,
+          "estimated": false
+        },
+        {
+          "text": "they",
+          "start": 64.46,
+          "end": 64.64,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 64.64,
+          "end": 64.94,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 64.94,
+          "end": 65.18,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 65.18,
+      "end": 67.44,
+      "text": "It feels right, but right is wrong",
+      "words": [
+        {
+          "text": "It",
+          "start": 65.18,
+          "end": 65.36,
+          "estimated": false
+        },
+        {
+          "text": "feels",
+          "start": 65.36,
+          "end": 65.56,
+          "estimated": false
+        },
+        {
+          "text": "right,",
+          "start": 65.56,
+          "end": 65.9,
+          "estimated": false
+        },
+        {
+          "text": "but",
+          "start": 65.9,
+          "end": 66.74,
+          "estimated": false
+        },
+        {
+          "text": "right",
+          "start": 66.74,
+          "end": 66.96,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 66.96,
+          "end": 67.14,
+          "estimated": false
+        },
+        {
+          "text": "wrong",
+          "start": 67.14,
+          "end": 67.44,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 67.44,
+      "end": 69.72,
+      "text": "I probably shouldn't do it, but I'll do it for the song",
+      "words": [
+        {
+          "text": "I",
+          "start": 67.44,
+          "end": 67.86,
+          "estimated": false
+        },
+        {
+          "text": "probably",
+          "start": 67.86,
+          "end": 68.06,
+          "estimated": false
+        },
+        {
+          "text": "shouldn't",
+          "start": 68.06,
+          "end": 68.34,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 68.34,
+          "end": 68.58,
+          "estimated": false
+        },
+        {
+          "text": "it,",
+          "start": 68.58,
+          "end": 68.7,
+          "estimated": false
+        },
+        {
+          "text": "but",
+          "start": 68.7,
+          "end": 68.84,
+          "estimated": false
+        },
+        {
+          "text": "I'll",
+          "start": 68.84,
+          "end": 69.02,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 69.02,
+          "end": 69.12,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 69.12,
+          "end": 69.22,
+          "estimated": false
+        },
+        {
+          "text": "for",
+          "start": 69.22,
+          "end": 69.32,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 69.32,
+          "end": 69.46,
+          "estimated": false
+        },
+        {
+          "text": "song",
+          "start": 69.46,
+          "end": 69.72,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 69.72,
+      "end": 71.92,
+      "text": "Come here, what's this about?",
+      "words": [
+        {
+          "text": "Come",
+          "start": 69.72,
+          "end": 69.96,
+          "estimated": false
+        },
+        {
+          "text": "here,",
+          "start": 69.96,
+          "end": 70.94,
+          "estimated": false
+        },
+        {
+          "text": "what's",
+          "start": 70.94,
+          "end": 71.12,
+          "estimated": false
+        },
+        {
+          "text": "this",
+          "start": 71.12,
+          "end": 71.34,
+          "estimated": false
+        },
+        {
+          "text": "about?",
+          "start": 71.34,
+          "end": 71.92,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 71.92,
+      "end": 74.59,
+      "text": "I got all night long, I wanna find out",
+      "words": [
+        {
+          "text": "I",
+          "start": 71.92,
+          "end": 71.96,
+          "estimated": false
+        },
+        {
+          "text": "got",
+          "start": 71.96,
+          "end": 72.14,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 72.14,
+          "end": 72.44,
+          "estimated": false
+        },
+        {
+          "text": "night",
+          "start": 72.44,
+          "end": 72.68,
+          "estimated": false
+        },
+        {
+          "text": "long,",
+          "start": 72.68,
+          "end": 73.22,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 73.22,
+          "end": 73.32,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 73.32,
+          "end": 73.48,
+          "estimated": false
+        },
+        {
+          "text": "find",
+          "start": 73.48,
+          "end": 73.76,
+          "estimated": false
+        },
+        {
+          "text": "out",
+          "start": 73.76,
+          "end": 74.34,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 75.0,
+      "end": 77.38,
+      "text": "Breathe into me",
+      "words": [
+        {
+          "text": "Breathe",
+          "start": 75.0,
+          "end": 75.66,
+          "estimated": false
+        },
+        {
+          "text": "into",
+          "start": 75.66,
+          "end": 76.24,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 76.24,
+          "end": 77.38,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 77.38,
+      "end": 81.48,
+      "text": "Don't you miss it? It's been so long",
+      "words": [
+        {
+          "text": "Don't",
+          "start": 77.38,
+          "end": 78.2,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 78.2,
+          "end": 78.42,
+          "estimated": false
+        },
+        {
+          "text": "miss",
+          "start": 78.42,
+          "end": 78.86,
+          "estimated": false
+        },
+        {
+          "text": "it?",
+          "start": 78.86,
+          "end": 79.72,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 79.72,
+          "end": 79.88,
+          "estimated": false
+        },
+        {
+          "text": "been",
+          "start": 79.88,
+          "end": 80.1,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 80.1,
+          "end": 80.62,
+          "estimated": false
+        },
+        {
+          "text": "long",
+          "start": 80.62,
+          "end": 81.48,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 81.48,
+      "end": 86.2,
+      "text": "If you would leave it to me",
+      "words": [
+        {
+          "text": "If",
+          "start": 81.48,
+          "end": 82.1,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 82.1,
+          "end": 82.52,
+          "estimated": false
+        },
+        {
+          "text": "would",
+          "start": 82.52,
+          "end": 82.98,
+          "estimated": false
+        },
+        {
+          "text": "leave",
+          "start": 82.98,
+          "end": 84.02,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 84.02,
+          "end": 84.7,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 84.7,
+          "end": 85.02,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 85.02,
+          "end": 86.2,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 86.2,
+      "end": 89.72,
+      "text": "I could teach you what you forgot",
+      "words": [
+        {
+          "text": "I",
+          "start": 86.2,
+          "end": 86.9,
+          "estimated": false
+        },
+        {
+          "text": "could",
+          "start": 86.9,
+          "end": 87.2,
+          "estimated": false
+        },
+        {
+          "text": "teach",
+          "start": 87.2,
+          "end": 87.76,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 87.76,
+          "end": 88.2,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 88.2,
+          "end": 88.52,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 88.52,
+          "end": 88.82,
+          "estimated": false
+        },
+        {
+          "text": "forgot",
+          "start": 88.82,
+          "end": 89.72,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 89.72,
+      "end": 91.91,
+      "text": "I'll tell ya, baby",
+      "words": [
+        {
+          "text": "I'll",
+          "start": 89.72,
+          "end": 90.78,
+          "estimated": false
+        },
+        {
+          "text": "tell",
+          "start": 90.78,
+          "end": 91.02,
+          "estimated": false
+        },
+        {
+          "text": "ya,",
+          "start": 91.02,
+          "end": 91.64,
+          "estimated": false
+        },
+        {
+          "text": "baby",
+          "start": 91.64,
+          "end": 91.66,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 92.5,
+      "end": 97.64,
+      "text": "Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah",
+      "words": [
+        {
+          "text": "Ha-ha,",
+          "start": 92.5,
+          "end": 93.52,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 93.52,
+          "end": 94.12,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 94.12,
+          "end": 94.68,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 94.68,
+          "end": 95.36,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 95.36,
+          "end": 95.82,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 95.82,
+          "end": 97.36,
+          "estimated": false
+        },
+        {
+          "text": "ah",
+          "start": 97.36,
+          "end": 97.64,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 97.64,
+      "end": 102.66,
+      "text": "Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah",
+      "words": [
+        {
+          "text": "Ha-ha,",
+          "start": 97.64,
+          "end": 97.82,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 97.82,
+          "end": 98.64,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 98.64,
+          "end": 99.28,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 99.28,
+          "end": 100.42,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 100.42,
+          "end": 100.94,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 100.94,
+          "end": 101.9,
+          "estimated": false
+        },
+        {
+          "text": "ah",
+          "start": 101.9,
+          "end": 102.66,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 102.66,
+      "end": 105.72,
+      "text": "Ha-ha, ha-ha, ha, ha, ha, ha-ah, ha-ah, ah",
+      "words": [
+        {
+          "text": "Ha-ha,",
+          "start": 102.66,
+          "end": 102.732,
+          "estimated": true
+        },
+        {
+          "text": "ha-ha,",
+          "start": 102.732,
+          "end": 102.804,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 102.804,
+          "end": 102.84,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 102.84,
+          "end": 103.24,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 103.24,
+          "end": 103.32,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 103.32,
+          "end": 104.36,
+          "estimated": false
+        },
+        {
+          "text": "ha-ah,",
+          "start": 104.36,
+          "end": 104.66,
+          "estimated": false
+        },
+        {
+          "text": "ah",
+          "start": 104.66,
+          "end": 105.72,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 3
+      }
+    },
+    {
+      "start": 105.72,
+      "end": 107.78,
+      "text": "Ha-ha, ha, ha, ha, ha, ha",
+      "words": [
+        {
+          "text": "Ha-ha,",
+          "start": 105.72,
+          "end": 105.867,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 105.867,
+          "end": 105.94,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 105.94,
+          "end": 106.9,
+          "estimated": false
+        },
+        {
+          "text": "ha,",
+          "start": 106.9,
+          "end": 107.193,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 107.193,
+          "end": 107.487,
+          "estimated": true
+        },
+        {
+          "text": "ha",
+          "start": 107.487,
+          "end": 107.78,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 1,
+        "estimatedWords": 5
+      }
+    },
+    {
+      "start": 107.78,
+      "end": 116.38,
+      "text": "You can't be over me 'cause I know what you like",
+      "words": [
+        {
+          "text": "You",
+          "start": 107.78,
+          "end": 108.22,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 108.22,
+          "end": 109.0,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 109.0,
+          "end": 110.1,
+          "estimated": false
+        },
+        {
+          "text": "over",
+          "start": 110.1,
+          "end": 110.98,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 110.98,
+          "end": 112.1,
+          "estimated": false
+        },
+        {
+          "text": "'cause",
+          "start": 112.1,
+          "end": 112.64,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 112.64,
+          "end": 113.4,
+          "estimated": false
+        },
+        {
+          "text": "know",
+          "start": 113.4,
+          "end": 114.16,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 114.16,
+          "end": 115.18,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 115.18,
+          "end": 115.48,
+          "estimated": false
+        },
+        {
+          "text": "like",
+          "start": 115.48,
+          "end": 116.38,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      },
+      "backing": "(Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah, ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 116.38,
+      "end": 124.96,
+      "text": "All I need is the oxygen to bring you back to life",
+      "words": [
+        {
+          "text": "All",
+          "start": 116.38,
+          "end": 117.12,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 117.12,
+          "end": 117.6,
+          "estimated": false
+        },
+        {
+          "text": "need",
+          "start": 117.6,
+          "end": 118.82,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 118.82,
+          "end": 119.42,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 119.42,
+          "end": 119.94,
+          "estimated": false
+        },
+        {
+          "text": "oxygen",
+          "start": 119.94,
+          "end": 121.22,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 121.22,
+          "end": 122.12,
+          "estimated": false
+        },
+        {
+          "text": "bring",
+          "start": 122.12,
+          "end": 122.68,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 122.68,
+          "end": 123.18,
+          "estimated": false
+        },
+        {
+          "text": "back",
+          "start": 123.18,
+          "end": 123.9,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 123.9,
+          "end": 124.26,
+          "estimated": false
+        },
+        {
+          "text": "life",
+          "start": 124.26,
+          "end": 124.96,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 12,
+        "estimatedWords": 0
+      },
+      "backing": "(Ha-ha, ha-ha, ha, ha, ha, ha-ah, ha-ah, ah, ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 124.96,
+      "end": 127.1,
+      "text": "We could be",
+      "words": [
+        {
+          "text": "We",
+          "start": 124.96,
+          "end": 125.68,
+          "estimated": false
+        },
+        {
+          "text": "could",
+          "start": 125.68,
+          "end": 126.22,
+          "estimated": false
+        },
+        {
+          "text": "be",
+          "start": 126.22,
+          "end": 127.1,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 127.1,
+      "end": 128.56,
+      "text": "Breathe, breathe into me",
+      "words": [
+        {
+          "text": "Breathe,",
+          "start": 127.1,
+          "end": 127.56,
+          "estimated": true
+        },
+        {
+          "text": "breathe",
+          "start": 127.56,
+          "end": 128.02,
+          "estimated": true
+        },
+        {
+          "text": "into",
+          "start": 128.02,
+          "end": 128.26,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 128.26,
+          "end": 128.56,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 2
+      },
+      "backing": "(Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 128.56,
+      "end": 130.84,
+      "text": "I had two best friends in a hotel suite",
+      "words": [
+        {
+          "text": "I",
+          "start": 128.56,
+          "end": 128.7,
+          "estimated": false
+        },
+        {
+          "text": "had",
+          "start": 128.7,
+          "end": 128.96,
+          "estimated": false
+        },
+        {
+          "text": "two",
+          "start": 128.96,
+          "end": 129.2,
+          "estimated": false
+        },
+        {
+          "text": "best",
+          "start": 129.2,
+          "end": 129.48,
+          "estimated": false
+        },
+        {
+          "text": "friends",
+          "start": 129.48,
+          "end": 129.76,
+          "estimated": false
+        },
+        {
+          "text": "in",
+          "start": 129.76,
+          "end": 129.96,
+          "estimated": false
+        },
+        {
+          "text": "a",
+          "start": 129.96,
+          "end": 130.06,
+          "estimated": false
+        },
+        {
+          "text": "hotel",
+          "start": 130.06,
+          "end": 130.36,
+          "estimated": false
+        },
+        {
+          "text": "suite",
+          "start": 130.36,
+          "end": 130.84,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 9,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 130.84,
+      "end": 133.44,
+      "text": "Now what? It's me and you",
+      "words": [
+        {
+          "text": "Now",
+          "start": 130.84,
+          "end": 131.16,
+          "estimated": false
+        },
+        {
+          "text": "what?",
+          "start": 131.16,
+          "end": 132.06,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 132.06,
+          "end": 132.24,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 132.24,
+          "end": 132.376,
+          "estimated": true
+        },
+        {
+          "text": "and",
+          "start": 132.376,
+          "end": 132.58,
+          "estimated": true
+        },
+        {
+          "text": "you",
+          "start": 132.58,
+          "end": 133.44,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 4,
+        "estimatedWords": 2
+      },
+      "backing": "(Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 133.44,
+      "end": 135.06,
+      "text": "You do the thing that they can't do",
+      "words": [
+        {
+          "text": "You",
+          "start": 133.44,
+          "end": 133.5,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 133.5,
+          "end": 133.74,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 133.74,
+          "end": 133.86,
+          "estimated": false
+        },
+        {
+          "text": "thing",
+          "start": 133.86,
+          "end": 134.14,
+          "estimated": false
+        },
+        {
+          "text": "that",
+          "start": 134.14,
+          "end": 134.32,
+          "estimated": false
+        },
+        {
+          "text": "they",
+          "start": 134.32,
+          "end": 134.44,
+          "estimated": false
+        },
+        {
+          "text": "can't",
+          "start": 134.44,
+          "end": 134.88,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 134.88,
+          "end": 135.06,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      },
+      "backing": "(We could be)"
+    },
+    {
+      "start": 135.06,
+      "end": 137.26,
+      "text": "It feels right, but right is wrong",
+      "words": [
+        {
+          "text": "It",
+          "start": 135.06,
+          "end": 135.18,
+          "estimated": false
+        },
+        {
+          "text": "feels",
+          "start": 135.18,
+          "end": 135.4,
+          "estimated": false
+        },
+        {
+          "text": "right,",
+          "start": 135.4,
+          "end": 135.86,
+          "estimated": false
+        },
+        {
+          "text": "but",
+          "start": 135.86,
+          "end": 136.56,
+          "estimated": false
+        },
+        {
+          "text": "right",
+          "start": 136.56,
+          "end": 136.82,
+          "estimated": false
+        },
+        {
+          "text": "is",
+          "start": 136.82,
+          "end": 137.04,
+          "estimated": false
+        },
+        {
+          "text": "wrong",
+          "start": 137.04,
+          "end": 137.26,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      },
+      "backing": "(Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 137.26,
+      "end": 139.58,
+      "text": "I probably shouldn't do it, I’mma do it for the song",
+      "words": [
+        {
+          "text": "I",
+          "start": 137.26,
+          "end": 137.64,
+          "estimated": false
+        },
+        {
+          "text": "probably",
+          "start": 137.64,
+          "end": 137.88,
+          "estimated": false
+        },
+        {
+          "text": "shouldn't",
+          "start": 137.88,
+          "end": 138.26,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 138.26,
+          "end": 138.48,
+          "estimated": false
+        },
+        {
+          "text": "it,",
+          "start": 138.48,
+          "end": 138.64,
+          "estimated": false
+        },
+        {
+          "text": "I’mma",
+          "start": 138.64,
+          "end": 138.78,
+          "estimated": false
+        },
+        {
+          "text": "do",
+          "start": 138.78,
+          "end": 138.96,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 138.96,
+          "end": 139.12,
+          "estimated": false
+        },
+        {
+          "text": "for",
+          "start": 139.12,
+          "end": 139.2,
+          "estimated": false
+        },
+        {
+          "text": "the",
+          "start": 139.2,
+          "end": 139.32,
+          "estimated": false
+        },
+        {
+          "text": "song",
+          "start": 139.32,
+          "end": 139.58,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      },
+      "backing": "(Yeah)"
+    },
+    {
+      "start": 139.58,
+      "end": 141.74,
+      "text": "Come here, what's this about?",
+      "words": [
+        {
+          "text": "Come",
+          "start": 139.58,
+          "end": 139.86,
+          "estimated": false
+        },
+        {
+          "text": "here,",
+          "start": 139.86,
+          "end": 140.48,
+          "estimated": false
+        },
+        {
+          "text": "what's",
+          "start": 140.48,
+          "end": 140.98,
+          "estimated": false
+        },
+        {
+          "text": "this",
+          "start": 140.98,
+          "end": 141.18,
+          "estimated": false
+        },
+        {
+          "text": "about?",
+          "start": 141.18,
+          "end": 141.74,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 5,
+        "estimatedWords": 0
+      },
+      "backing": "(Ha-ha, ha, ha, ha, ha-ah, ha-ah, ah)"
+    },
+    {
+      "start": 141.74,
+      "end": 144.24,
+      "text": "I got all night long and I wanna find out, just",
+      "words": [
+        {
+          "text": "I",
+          "start": 141.74,
+          "end": 141.82,
+          "estimated": false
+        },
+        {
+          "text": "got",
+          "start": 141.82,
+          "end": 141.98,
+          "estimated": false
+        },
+        {
+          "text": "all",
+          "start": 141.98,
+          "end": 142.26,
+          "estimated": false
+        },
+        {
+          "text": "night",
+          "start": 142.26,
+          "end": 142.54,
+          "estimated": false
+        },
+        {
+          "text": "long",
+          "start": 142.54,
+          "end": 142.84,
+          "estimated": false
+        },
+        {
+          "text": "and",
+          "start": 142.84,
+          "end": 143.04,
+          "estimated": false
+        },
+        {
+          "text": "I",
+          "start": 143.04,
+          "end": 143.18,
+          "estimated": false
+        },
+        {
+          "text": "wanna",
+          "start": 143.18,
+          "end": 143.32,
+          "estimated": false
+        },
+        {
+          "text": "find",
+          "start": 143.32,
+          "end": 143.68,
+          "estimated": false
+        },
+        {
+          "text": "out,",
+          "start": 143.68,
+          "end": 144.16,
+          "estimated": false
+        },
+        {
+          "text": "just",
+          "start": 144.16,
+          "end": 144.24,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 11,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 144.24,
+      "end": 147.14,
+      "text": "Breathe into me",
+      "words": [
+        {
+          "text": "Breathe",
+          "start": 144.24,
+          "end": 145.44,
+          "estimated": false
+        },
+        {
+          "text": "into",
+          "start": 145.44,
+          "end": 146.12,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 146.12,
+          "end": 147.14,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 3,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 147.14,
+      "end": 151.28,
+      "text": "Don't you miss it? It's been so long",
+      "words": [
+        {
+          "text": "Don't",
+          "start": 147.14,
+          "end": 148.04,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 148.04,
+          "end": 148.28,
+          "estimated": false
+        },
+        {
+          "text": "miss",
+          "start": 148.28,
+          "end": 148.66,
+          "estimated": false
+        },
+        {
+          "text": "it?",
+          "start": 148.66,
+          "end": 149.44,
+          "estimated": false
+        },
+        {
+          "text": "It's",
+          "start": 149.44,
+          "end": 149.68,
+          "estimated": false
+        },
+        {
+          "text": "been",
+          "start": 149.68,
+          "end": 149.9,
+          "estimated": false
+        },
+        {
+          "text": "so",
+          "start": 149.9,
+          "end": 150.38,
+          "estimated": false
+        },
+        {
+          "text": "long",
+          "start": 150.38,
+          "end": 151.28,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 8,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 151.28,
+      "end": 155.64,
+      "text": "If you would leave it to me",
+      "words": [
+        {
+          "text": "If",
+          "start": 151.28,
+          "end": 151.88,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 151.88,
+          "end": 152.38,
+          "estimated": false
+        },
+        {
+          "text": "would",
+          "start": 152.38,
+          "end": 152.76,
+          "estimated": false
+        },
+        {
+          "text": "leave",
+          "start": 152.76,
+          "end": 153.7,
+          "estimated": false
+        },
+        {
+          "text": "it",
+          "start": 153.7,
+          "end": 154.54,
+          "estimated": false
+        },
+        {
+          "text": "to",
+          "start": 154.54,
+          "end": 154.86,
+          "estimated": false
+        },
+        {
+          "text": "me",
+          "start": 154.86,
+          "end": 155.64,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 155.64,
+      "end": 159.56,
+      "text": "I could teach you what you forgot",
+      "words": [
+        {
+          "text": "I",
+          "start": 155.64,
+          "end": 156.78,
+          "estimated": false
+        },
+        {
+          "text": "could",
+          "start": 156.78,
+          "end": 157.1,
+          "estimated": false
+        },
+        {
+          "text": "teach",
+          "start": 157.1,
+          "end": 157.64,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 157.64,
+          "end": 158.14,
+          "estimated": false
+        },
+        {
+          "text": "what",
+          "start": 158.14,
+          "end": 158.36,
+          "estimated": false
+        },
+        {
+          "text": "you",
+          "start": 158.36,
+          "end": 158.62,
+          "estimated": false
+        },
+        {
+          "text": "forgot",
+          "start": 158.62,
+          "end": 159.56,
+          "estimated": false
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 7,
+        "estimatedWords": 0
+      }
+    },
+    {
+      "start": 159.56,
+      "end": 161.75,
+      "text": "I'll tell ya, baby",
+      "words": [
+        {
+          "text": "I'll",
+          "start": 159.56,
+          "end": 160.56,
+          "estimated": false
+        },
+        {
+          "text": "tell",
+          "start": 160.56,
+          "end": 160.8,
+          "estimated": false
+        },
+        {
+          "text": "ya,",
+          "start": 160.8,
+          "end": 161.033,
+          "estimated": true
+        },
+        {
+          "text": "baby",
+          "start": 161.033,
+          "end": 161.5,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "supplied-text-forced-alignment",
+        "source": "forced-word-timestamps.json",
+        "matchedWords": 2,
+        "estimatedWords": 2
+      }
+    },
+    {
+      "start": 176.8,
+      "end": 179.3,
+      "text": "Ha, ha, ha, ha, ha",
+      "words": [
+        {
+          "text": "Ha,",
+          "start": 176.8,
+          "end": 177.25,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 177.25,
+          "end": 177.7,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 177.7,
+          "end": 178.15,
+          "estimated": true
+        },
+        {
+          "text": "ha,",
+          "start": 178.15,
+          "end": 178.6,
+          "estimated": true
+        },
+        {
+          "text": "ha",
+          "start": 178.6,
+          "end": 179.05,
+          "estimated": true
+        }
+      ],
+      "wordTiming": {
+        "method": "manual-window-estimate",
+        "source": "estimated-cue-windows.json",
+        "matchedWords": 0,
+        "estimatedWords": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "language": "en",
+  "cues": [
+    {
+      "start": 19.28,
+      "end": 22.14,
+      "text": "You say this scenery is picturesque",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 22.14,
+      "end": 25.7,
+      "text": "I see your heart is restless",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 25.7,
+      "end": 29.71,
+      "text": "So stop listening to me",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 29.94,
+      "end": 33.81,
+      "text": "Just take off all your disguises",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 48.08,
+      "end": 51.13,
+      "text": "Can you hear me crying",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 51.5,
+      "end": 54.83,
+      "text": "You probably can't hear it anyway",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 55.06,
+      "end": 58.35,
+      "text": "You are like a white horse",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 58.84,
+      "end": 62.53,
+      "text": "Leisurely running away",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 77.02,
+      "end": 84.03,
+      "text": "Let me take a good look at you",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 84.18,
+      "end": 90.29,
+      "text": "Counting down the final moments of the curtain call",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 91.28,
+      "end": 98.0,
+      "text": "Forgive me for falling silent too soon",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 98.0,
+      "end": 106.23,
+      "text": "Do you know, so graceful, that I am covered in wounds",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 120.18,
+      "end": 123.19,
+      "text": "Can you hear me crying",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 123.58,
+      "end": 126.87,
+      "text": "You probably can't hear it anyway",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 127.1,
+      "end": 130.37,
+      "text": "You are like a white horse",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 130.84,
+      "end": 134.55,
+      "text": "Leisurely running away",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 149.02,
+      "end": 156.06,
+      "text": "Let me take a good look at you",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 156.06,
+      "end": 162.52,
+      "text": "Counting down the final moments of the curtain call",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 162.52,
+      "end": 170.05,
+      "text": "My white horse, please run slower",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 170.42,
+      "end": 177.19,
+      "text": "This time I won't take you home",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 177.8,
+      "end": 184.45,
+      "text": "Spring, warm sun, please come quickly",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 184.84,
+      "end": 191.28,
+      "text": "Keep him safe from wind and waves along the way",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 191.28,
+      "end": 199.17,
+      "text": "My white horse, please run slower",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 199.32,
+      "end": 204.29,
+      "text": "This time I won't take you",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    },
+    {
+      "start": 206.0,
+      "end": 207.43,
+      "text": "home",
+      "timing": {
+        "method": "translation-on-chinese-phrase-boundaries",
+        "note": "English is an unsung translation; no English phonetic or word timing."
+      }
+    }
+  ]
+}

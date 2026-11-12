@@ -4,7 +4,9 @@ Only generated files under --output and streaming metadata in --catalog change.
 Original MP4s and aligned M4A soundtracks are never modified. Requires FFmpeg
 with libx264 and AAC plus FFprobe; no credentials or environment variables.
 Use --manifests-only to add video-only masters from saved rendition metadata
-without invoking FFmpeg or changing the existing media and legacy masters.
+and AVC initialization headers without invoking FFmpeg or changing media or
+legacy masters. The actual avcC/SPS headers determine codec declarations;
+unknown FFprobe profile/level values are never published as codec strings.
 Use --video-only --reuse-existing with a new --output version to retain matching
 lower renditions, add native-resolution 1080p, and omit duplicate HLS audio.
 --estimate reports expected additional bytes without writing media or catalog.
@@ -100,8 +102,87 @@ def levels_for(video, high_bitrate=1350000, low_bitrate=300000, middle_bitrate=8
 
 
 def video_codec(info):
-    # All generated renditions use High profile. 1080p requires AVC level 4.0.
-    return f"avc1.6400{int(info.get('level', 40 if info['height'] > 720 else 31)):02x}"
+    # FFprobe can report level=-99 for a fragment's initialization file. Never
+    # turn that sentinel (or an assumed profile/level) into a CODECS declaration.
+    codec = info.get("codec", "")
+    if not isinstance(codec, str) or not re.fullmatch(r"avc1\.[0-9a-f]{6}", codec) or int(codec[-2:], 16) == 0:
+        raise ValueError("Missing validated AVC configuration for a video rendition")
+    return codec
+
+
+def avc_configuration(path):
+    """Read the actual profile/compatibility/level from an MP4 avcC box."""
+    data = path.read_bytes()
+    configurations = []
+
+    def boxes(start, end):
+        while start < end:
+            if end - start < 8:
+                raise ValueError(f"Truncated MP4 box in {path}")
+            size = int.from_bytes(data[start:start + 4], "big")
+            kind = data[start + 4:start + 8]
+            header = 8
+            if size == 1:
+                if end - start < 16:
+                    raise ValueError(f"Truncated extended MP4 box in {path}")
+                size = int.from_bytes(data[start + 8:start + 16], "big")
+                header = 16
+            elif size == 0:
+                size = end - start
+            if size < header or start + size > end:
+                raise ValueError(f"Invalid MP4 box size in {path}")
+            body, stop = start + header, start + size
+            if kind in (b"moov", b"trak", b"mdia", b"minf", b"stbl"):
+                boxes(body, stop)
+            elif kind == b"stsd":
+                if stop - body < 8:
+                    raise ValueError(f"Truncated MP4 sample description in {path}")
+                boxes(body + 8, stop)
+            elif kind == b"avc3":
+                raise ValueError(f"Unsupported in-band AVC sample entry in {path}")
+            elif kind == b"avc1":
+                if stop - body < 78:
+                    raise ValueError(f"Truncated AVC sample entry in {path}")
+                boxes(body + 78, stop)
+            elif kind == b"avcC":
+                configurations.append(data[body:stop])
+            start = stop
+
+    boxes(0, len(data))
+    if len(configurations) != 1:
+        raise ValueError(f"Expected one AVC configuration in {path}")
+    config = configurations[0]
+    if len(config) < 8 or config[0] != 1 or not config[1] or not config[3] or not (config[5] & 31):
+        raise ValueError(f"Invalid AVC configuration in {path}")
+    sps_length = int.from_bytes(config[6:8], "big")
+    sps = config[8:8 + sps_length]
+    if (len(sps) != sps_length or len(sps) < 4 or sps[0] & 31 != 7
+            or sps[1:4] != config[1:4]):
+        raise ValueError(f"AVC configuration disagrees with its sequence header in {path}")
+    return {"codec": "avc1." + config[1:4].hex(), "level": config[3]}
+
+
+def refresh_video_configuration(root, target, metadata):
+    for height, info in metadata["video"].items():
+        playlist = (target / info.get("playlist", f"{height}/index.m3u8")).resolve()
+        if not playlist.is_relative_to(root / "media"):
+            raise ValueError(f"Video rendition leaves local media: {playlist}")
+        text = playlist.read_text(encoding="utf-8-sig")
+        maps = re.findall(r'^#EXT-X-MAP:.*?URI="([^"]+)"', text, re.MULTILINE)
+        if len(maps) != 1 or ":" in maps[0] or "\\" in maps[0]:
+            raise ValueError(f"Expected one local initialization file in {playlist}")
+        initialization = (playlist.parent / maps[0]).resolve()
+        if not initialization.is_relative_to(root / "media"):
+            raise ValueError(f"Initialization file leaves local media: {initialization}")
+        info.update(avc_configuration(initialization))
+
+
+def save_rendition_metadata(target, metadata):
+    marker = target / "renditions.json"
+    metadata["outputFiles"] = {path.relative_to(target).as_posix(): path.stat().st_size
+                               for path in target.rglob("*") if path.is_file() and path != marker}
+    metadata["totalBytes"] = sum(metadata["outputFiles"].values())
+    write_json(marker, metadata)
 
 
 def reusable_video(root, target, entry, signature):
@@ -223,6 +304,8 @@ def hls_options(folder):
 
 
 def write_video_only_manifests(root, target, metadata):
+    # Refresh even cached metadata: older runs may have saved FFprobe's -99.
+    refresh_video_configuration(root, target, metadata)
     header = ["#EXTM3U", "#EXT-X-VERSION:7", "#EXT-X-INDEPENDENT-SEGMENTS"]
     configured = metadata.get("encodingLevels")
     if configured:
@@ -260,6 +343,8 @@ def update_video_only_catalog(args, root):
         target = args.output / entry["id"]
         metadata = json.loads((target / "renditions.json").read_text(encoding="utf-8"))
         entry.setdefault("streaming", {})["videoOnly"] = write_video_only_manifests(root, target, metadata)
+        metadata.setdefault("streaming", {})["videoOnly"] = entry["streaming"]["videoOnly"]
+        save_rendition_metadata(target, metadata)
     publish_catalog(args, catalog, {entry["id"] for entry in selected})
     print(f"Saved video-only masters for {len(selected)} songs; existing media and legacy masters retained.", flush=True)
 
@@ -326,7 +411,9 @@ def prepare(args, root, entry):
                  "compactFallbacks": args.compact_fallbacks, "videoPreset": args.video_preset}
     if levels != LEVELS:
         signature["lowBitrateLevels"] = [list(level) for level in levels]
-    if args.skip_existing and marker.is_file():
+    # The fast path refreshes video-only masters. Legacy audio-group masters
+    # must reach the shared writer below; complete renditions still skip encode.
+    if args.skip_existing and marker.is_file() and args.video_only:
         saved = json.loads(marker.read_text(encoding="utf-8"))
         if saved.get("signature") == signature:
             expected = saved.get("outputFiles", {})
@@ -335,6 +422,7 @@ def prepare(args, root, entry):
                                     complete_playlist(target / info.get("playlist", f"{height}/index.m3u8"))
                                     for height, info in saved["video"].items()):
                 saved["streaming"]["videoOnly"] = write_video_only_manifests(root, target, saved)
+                save_rendition_metadata(target, saved)
                 print(f"Skipped complete {song_id}", flush=True)
                 return song_id, saved
     preparation = target / "preparation.json"
@@ -365,7 +453,7 @@ def prepare(args, root, entry):
             raise ValueError(f"Unexpected video stream for {song_id} / {height}")
         metadata["video"][str(height)] = {**playlist_metadata(folder / "index.m3u8"),
                                            "width": saved_video["width"], "height": height,
-                                           "level": saved_video["level"]}
+                                           **avc_configuration(folder / "init.mp4")}
         remove_stale_fragments(folder, metadata["video"][str(height)])
         write_json(folder / "source.json", signature)
         print(f"Saved {song_id} {height}p", flush=True)
@@ -387,15 +475,13 @@ def prepare(args, root, entry):
     # Both playlists use the same GOP cadence. Only the final segment may be short.
     if len({info["segments"] for info in metadata["video"].values()}) != 1:
         raise ValueError(f"Video variants have different segment counts: {song_id}")
+    refresh_video_configuration(root, target, metadata)
     if args.compact_fallbacks:
         compact_fallback(args, root, target, metadata, entry, source, audio_sources, duration)
     if args.video_only:
         descriptor = write_video_only_manifests(root, target, metadata)
         metadata["streaming"] = {**descriptor, "videoOnly": descriptor}
-        metadata["outputFiles"] = {path.relative_to(target).as_posix(): path.stat().st_size
-                                  for path in target.rglob("*") if path.is_file() and path != marker}
-        metadata["totalBytes"] = sum(metadata["outputFiles"].values())
-        write_json(marker, metadata)
+        save_rendition_metadata(target, metadata)
         print(f"Completed {song_id}: {metadata['totalBytes'] / 1e6:.2f} MB newly saved", flush=True)
         return song_id, metadata
     header = ["#EXTM3U", "#EXT-X-VERSION:7", "#EXT-X-INDEPENDENT-SEGMENTS"]
@@ -423,10 +509,7 @@ def prepare(args, root, entry):
     (target / "master.m3u8").write_text("\n".join(header + variant_lines) + "\n", encoding="utf-8")
     metadata["streaming"] = {"url": (target / "master.m3u8").relative_to(root).as_posix(), "variants": variants}
     metadata["streaming"]["videoOnly"] = write_video_only_manifests(root, target, metadata)
-    metadata["outputFiles"] = {path.relative_to(target).as_posix(): path.stat().st_size
-                                for path in target.rglob("*") if path.is_file() and path != marker}
-    metadata["totalBytes"] = sum(metadata["outputFiles"].values())
-    write_json(marker, metadata)
+    save_rendition_metadata(target, metadata)
     print(f"Completed {song_id}: {metadata['totalBytes'] / 1e6:.2f} MB", flush=True)
     return song_id, metadata
 
